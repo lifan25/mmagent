@@ -68,7 +68,7 @@ manifest 是描述数据来源和版本的清单，字段建议见 [协议第 9 
 .venv\Scripts\python.exe -m unittest discover -s src/data_evaluation/tests -v
 ```
 
-其他电脑用自己的 Python 解释器。可单选 --dataset mimic 或 --dataset synthea；--config 可指定 JSON 配置，默认 configs/preparation.json。路径相对仓库根目录。默认 seed=8、4:1:1、三类编码均非空、每人至少三次有效就诊，源表不修改。
+其他电脑用自己的 Python 解释器。可单选 --dataset mimic 或 --dataset synthea；--config 可指定 JSON 配置，默认 configs/preparation.json。路径相对仓库根目录。全量层保留全部能关联的就诊；主任务候选默认 seed=8、4:1:1、三类编码均非空、每人至少两次有效就诊，源表不修改。操作非空仍是首版兼容条件，后续模型支持空操作时可单独评估放宽，不混同于保留全量层。
 
 输出目录已存在且非空时拒绝覆盖。重跑请复制配置并改为新版本输出目录，再用 --config 指定。相同源数据、规则和种子得到相同患者划分。
 
@@ -76,10 +76,12 @@ manifest 是描述数据来源和版本的清单，字段建议见 [协议第 9 
 
 | 文件 | 内容 |
 |---|---|
-| visits.audit.jsonl | 全量可关联就诊，保留缺失/无效时间、原始药物代码及起始日期 |
-| visits.jsonl | 筛选后的原始编码学习记录，含当前药物监督答案及集合归属 |
-| split.json | 患者级训练、验证、测试清单，本地保存 |
-| prediction_examples.jsonl | case 和 target_medications 分离；尚非实际模型预测结果 |
+| visits.jsonl | 全量可关联就诊，保留单次就诊、缺失/无效时间和原始药物记录；未分配主任务集合 |
+| visits.audit.jsonl | 与 visits.jsonl 相同的全量审计别名，兼容先前读取方式 |
+| main_visits.jsonl | 至少两次有效就诊患者的有效学习记录，含当前药物监督答案及集合归属 |
+| split.json | 主任务候选患者的训练、验证、测试清单，本地保存；不覆盖全量层单次患者 |
+| prediction_examples.jsonl | 所有主任务候选就诊的 case/target，保留未知历史样例供无历史适配 |
+| main_prediction_examples.jsonl | 主任务实际预测样本：至少有一次已结束且含可用药物历史的就诊，标签单独保存 |
 | manifest.json | 来源、配置、代码提交及脏工作区标记、规则和统计 |
 | summary.json | 聚合统计 |
 
@@ -91,7 +93,9 @@ manifest 是描述数据来源和版本的清单，字段建议见 [协议第 9 
 
 真实 Demo 沿用 restricted 的真实病例处理模式，许可仍为官方公开 Demo 的 ODbL；该字段不表示 Demo 需要访问审批。所有病例、划分、预测样例均被 Git 忽略。
 
-10059 的两次住院保留在审计文件，但不足三次有效就诊，不进入默认模型候选。
+v2 采用独立输出目录，保留 v1 结果供对照。10059 的两次住院均保留，并进入两次就诊主任务候选；其中第二次可形成一条有历史预测样本。单次患者保留于全量层，后续无历史对照需先检查模型支持并制定与当前患者归属兼容的划分，不自动混入本次主任务。
+
+B 应读取 main_visits.jsonl/split.json 生成模型词表与图，使用 main_prediction_examples.jsonl 做有历史任务。主任务候选的第一条或重叠就诊未必有可用历史，不能把所有候选就诊数当作有历史预测样本数。公开 SSPNet eval_one_epoch 仍有 len(input_seq)<3 的跳过条件，B 必须按新任务显式适配，记录与原公开评估方式的差异，不能直接照搬后悄悄漏评两次就诊患者。
 
 ## 单患者教学入口
 

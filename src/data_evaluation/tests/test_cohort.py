@@ -1,10 +1,11 @@
 import copy
 import csv
+import json
 import tempfile
 import unittest
 from pathlib import Path
 
-from src.data_evaluation.cohort import normalize, prediction_examples, select_and_split
+from src.data_evaluation.cohort import normalize, prediction_examples, select_and_split, prepare_dataset
 
 
 def visits(n=12):
@@ -24,6 +25,56 @@ def visits(n=12):
 
 
 class CohortTests(unittest.TestCase):
+    def test_export_preserves_all_linked_visits_separate_from_main_task(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            tables = {
+                'patients': (['Id'], [[p] for p in ['a', 'b', 'c', 'single']]),
+                'encounters': (['Id','PATIENT','START','STOP'], []),
+                'conditions': (['PATIENT','ENCOUNTER','CODE'], []),
+                'procedures': (['PATIENT','ENCOUNTER','CODE'], []),
+                'medications': (['PATIENT','ENCOUNTER','CODE','START'], []),
+            }
+            for patient in ['a', 'b', 'c', 'single']:
+                for i in range(1 if patient == 'single' else 2):
+                    key = f'{patient}-{i}'
+                    start, stop = f'2020-01-{i*3+1:02}', f'2020-01-{i*3+2:02}'
+                    tables['encounters'][1].append([key,patient,start,stop])
+                    for name in ['conditions','procedures']:
+                        tables[name][1].append([patient,key,'001'])
+                    tables['medications'][1].append([patient,key,'0001',start])
+            for name, (header, rows) in tables.items():
+                with (root/f'{name}.csv').open('w', newline='', encoding='utf-8') as f:
+                    writer=csv.writer(f); writer.writerow(header); writer.writerows(rows)
+            config={'seed':8,'split_weights':[4,1,1],'min_visits':2,'require_procedures':True,
+                    'datasets':{'synthea':{'input_dir':'.','output_dir':'out','dataset':'toy','source':'fictional test'}}}
+            summary=prepare_dataset(root,config,'synthea')
+            def load(name):
+                return [json.loads(line) for line in (root/'out'/name).read_text().splitlines()]
+            self.assertEqual(len(load('visits.jsonl')),7)
+            self.assertEqual(len(load('main_visits.jsonl')),6)
+            self.assertTrue(any(v['patient_id']=='single' for v in load('visits.jsonl')))
+            self.assertEqual(len(load('main_prediction_examples.jsonl')),3)
+            self.assertEqual(summary['main_prediction_examples'],3)
+            self.assertEqual(sum(x['examples'] for x in summary['main_prediction_counts'].values()),3)
+            with self.assertRaisesRegex(ValueError,'already contains'):
+                prepare_dataset(root,config,'synthea')
+
+    def test_two_visit_cohort_keeps_pairs_and_singletons_remain_in_source(self):
+        data = [v for v in visits(12) if v['visit_index'] <= 2]
+        singleton = copy.deepcopy(data[0])
+        singleton.update(patient_id='single', visit_id='single-1')
+        data.append(singleton)
+        selected, split, stats = select_and_split(data, 8, [4, 1, 1], 2, True)
+        self.assertEqual(len(data), 25)
+        self.assertEqual(len(selected), 24)
+        self.assertEqual(stats['selected_patients'], 12)
+        self.assertFalse(any('single' in ids for ids in split.values()))
+        examples = list(prediction_examples(selected))
+        self.assertEqual(sum(bool(e['case']['history']) for e in examples), 12)
+        one_visit_stats = select_and_split(data, 8, [4, 1, 1], 1, True)[2]
+        self.assertEqual(one_visit_stats['patients_with_at_least_three_visits'], 0)
+
     def test_repeatable_disjoint_split_independent_of_input_order(self):
         data = visits()
         a, split, _ = select_and_split(data, 8, [4, 1, 1], 3, True)

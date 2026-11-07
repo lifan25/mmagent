@@ -70,7 +70,7 @@ A3 验收：A 能通过一个入口复现推荐→核查→报告；逐病例输
 
 | 任务 | 状态 | 提交/PR | 本地运行命令与输入版本 | 聚合证据/交给谁 | 剩余问题 |
 |---|---|---|---|---|---|
-| A1 | 待审核 | a/prepare-one-patient | prepare.py --dataset all；Demo 1.4 / Synthea 2020-04 | 8 个测试通过；全量重复划分、计数守恒、标签隔离和历史时间检查通过；见 reports/data-summary.md | B 需复核读取契约、映射后覆盖和样本量；未运行模型 |
+| A1 | 待审核 | PR #1，a/prepare-one-patient | prepare.py --dataset all；v2 全量保留、主任务至少两次有效就诊 | 10 个测试通过；Demo 候选 11 人/36 次、有历史样本25；Synthea 候选335人/835次、有历史样本498，详见 reports/data-summary.md | B 读取 main_visits 与固定划分；需适配公开评估入口的三次过滤及预测样本掩码；未运行模型 |
 | A2 | 待实现 | 待填 | 待填 | 待填；与 B 核对 | 待填 |
 | A3 | 待实现 | 待填 | 待填 | 待填；全组验收 | 依赖 B3/C3 |
 

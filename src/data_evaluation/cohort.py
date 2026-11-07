@@ -130,7 +130,8 @@ def normalize(data_dir, kind, dataset):
             if stop:
                 previous_end = max(previous_end, stop) if previous_end else stop
     summary = {"source_rows": {name: len(rows) for name, rows in zip(files, tables)},
-               "source_patients": len(patients), "source_visits": len(visits), "audit": dict(audit)}
+               "source_patients": len(patients), "source_visits": len(visits),
+               "linked_patients": len(groups), "audit": dict(audit)}
     return visits, summary
 
 
@@ -227,24 +228,35 @@ def prepare_dataset(root, config, name):
     selected, split, summary = select_and_split(visits, config["seed"], config["split_weights"],
                                                config["min_visits"], config["require_procedures"])
     examples = list(prediction_examples(selected))
+    main_examples = [e for e in examples if any(h["medications"] for h in e["case"]["history"] or [])]
     summary["prediction_examples"] = len(examples)
     summary["examples_without_observed_history"] = sum(e["case"]["history"] is None for e in examples)
+    summary["main_prediction_examples"] = len(main_examples)
+    summary["examples_without_usable_medication_history"] = len(examples) - len(main_examples)
+    summary["main_prediction_counts"] = {
+        name: {"examples": sum(e["split"] == name for e in main_examples),
+               "patients": len({e["patient_id"] for e in main_examples if e["split"] == name})}
+        for name in split
+    }
     revision = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True)
     dirty = subprocess.run(["git", "status", "--porcelain"], cwd=root, capture_output=True, text=True)
-    manifest = {"schema_version": "a1-v1", "dataset": options["dataset"], "source": options["source"],
+    manifest = {"schema_version": "a1-v2", "dataset": options["dataset"], "source": options["source"],
                 "input_dir": options["input_dir"], "code_commit": revision.stdout.strip() or None,
                 "working_tree_dirty": bool(dirty.stdout.strip()), "configuration": config,
                 "rules": {"codes": "strings; trim; deduplicate by system/code; empty and 0 excluded from code sets but retained in audit records",
                           "conditions": "recorded per encounter only; no chronic-condition carry-forward",
                           "times": "ISO parsed; UTC normalization for ordering; ties by encounter ID only for determinism",
                           "history": "completed retained encounters strictly before current start; no-history is unknown, not confirmed absent",
+                          "cohorts": "visits.jsonl preserves all linked encounters; main_visits.jsonl applies configured eligibility/min_visits; main_prediction_examples requires observed prior medication history",
                           "split": "sorted eligible patient IDs shuffled with local seed; floor train/validation; remainder test; if any empty with >=3 patients, allocate one validation and one test patient, rest train",
                           "data_kind": "restricted is real-record processing mode for public Demo, not a license/access claim"},
                 **raw_summary, **summary}
     output.mkdir(parents=True, exist_ok=True)
     write_jsonl(output / "visits.audit.jsonl", visits)
-    write_jsonl(output / "visits.jsonl", selected)
+    write_jsonl(output / "visits.jsonl", visits)
+    write_jsonl(output / "main_visits.jsonl", selected)
     write_jsonl(output / "prediction_examples.jsonl", examples)
+    write_jsonl(output / "main_prediction_examples.jsonl", main_examples)
     write_json(output / "split.json", split)
     write_json(output / "manifest.json", manifest)
     write_json(output / "summary.json", {**raw_summary, **summary})
