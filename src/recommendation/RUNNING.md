@@ -34,6 +34,21 @@ uv pip check --python .venv/Scripts/python.exe
 
 ## 3. 药物映射、词表和图
 
+2026-11-07新增产品级映射配置，后续实验建议使用：
+
+```powershell
+.venv\Scripts\python.exe src/recommendation/prepare.py --config src/recommendation/configs/sspnet-synthea-product.json
+.venv\Scripts\python.exe src/recommendation/train.py --config src/recommendation/configs/sspnet-synthea-product.json
+```
+
+新版固定NLM公开映射快照，加3项有成分/剂型依据的项目交叉表，得到38类、训练1433条、验证354条、测试351条。准备流程和实际模型单步已验证；尚未完整训练。详见[映射复核](reports/mapping-coverage.md)。输出目录为data/processed/recommendation/synthea-v3-atc3-product-v4，运行目录为outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8，不覆盖旧版。旧24类权重不适用。
+
+快照已随代码提交，可离线重建映射。fetch_mapping.py查询标准药物编号，保留API响应与版本；已有快照时拒绝覆盖。刷新时应改用新快照文件名和配置版本，不静默更新。
+
+新版DDI率只在能连接源CID的药物对上计算，另报未映射对和映射比例，无法计算时为null。34/38类可连接CID，不能把剩余4类或图中无边解释为临床安全；与旧版DDI率的分母不同。
+
+**以下默认命令保留旧版24类完整运行的复现方式。**
+
 ```powershell
 .venv\Scripts\python.exe src/recommendation/prepare.py
 ```
@@ -80,4 +95,4 @@ best.pt 保存 state_dict、配置、词表和最佳轮次，需要本适配模�
 .venv\Scripts\python.exe -m unittest discover -s src/recommendation/tests -v
 ```
 
-五个检查覆盖歧义映射/无匹配、空操作与未知编码区别、图、手算指标，以及正常原包导入后的空操作实际训练、保存重载和当前答案独立性。A1 的11个数据测试仍单独运行，不将这两组与完整20轮运行混为同一类证据。
+六个检查覆盖歧义映射/无匹配、空操作与未知编码区别、图、手算指标，以及正常原包导入后的空操作实际训练、保存重载和当前答案独立性。A1 的11个数据测试仍单独运行，不将这两组与完整20轮运行混为同一类证据。

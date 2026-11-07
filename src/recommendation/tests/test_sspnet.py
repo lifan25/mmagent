@@ -7,11 +7,27 @@ import numpy as np
 import torch
 
 from src.recommendation.model import SSPNetAdapter
-from src.recommendation.prepare import encode_codes, map_medications, adjacency
+from src.recommendation.prepare import encode_codes, map_medications, adjacency, product_mapping, apply_reviewed_crosswalk
 from src.recommendation.train import metrics
 
 
 class SSPNetTests(unittest.TestCase):
+    def test_product_exact_match_excludes_related_combination_pack(self):
+        def row(code, atc):
+            return {"minConcept": {"rxcui": code},
+                    "rxclassMinConceptItem": {"classId": atc, "classType": "ATC1-4"}}
+        snapshot = {"drugs": {"aspirin": {
+            "ATCPROD": {"rxclassDrugInfoList": {"rxclassDrugInfo": [
+                row("aspirin", "B01AC"), row("combo_pack", "C10BX")]}}, "ATC": {}}}}
+        mapping, decisions = product_mapping(snapshot, {})
+        self.assertEqual(mapping["aspirin"], {"B01A"})
+        mapping["inhaler"] = {"R03B", "D07A"}
+        decisions["inhaler"] = {}
+        apply_reviewed_crosswalk(mapping, decisions, {"inhaler": {"atc5": "R03BA05"}})
+        self.assertEqual(mapping["inhaler"], {"R03B"})
+        with self.assertRaises(ValueError):
+            apply_reviewed_crosswalk(mapping, decisions, {"inhaler": {"atc5": "N02BA01"}})
+
     def test_unambiguous_mapping_and_audited_ambiguity(self):
         audit = Counter()
         values = map_medications([{"system": "RxNorm", "code": c} for c in ["001", "002", "003"]],
@@ -42,6 +58,10 @@ class SSPNetTests(unittest.TestCase):
         empty = metrics(rows, np.zeros((1, 3)), 3, ddi, .5)
         self.assertEqual(empty["f1"], 0)
         self.assertEqual(empty["predicted_pairs"], 0)
+        masked = metrics(rows, np.array([[.9, .1, .8]]), 3, ddi, .5, np.zeros((3, 3)))
+        self.assertIsNone(masked["ddi_rate"])
+        self.assertEqual(masked["unmapped_predicted_pairs"], 1)
+        self.assertEqual(masked["ddi_mapping_pair_coverage"], 0)
 
     def test_normal_import_empty_training_reload_and_no_current_answer(self):
         torch.set_num_threads(1)

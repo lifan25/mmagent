@@ -1,0 +1,19 @@
+{
+  "a1_dir": "data/processed/data_evaluation/synthea-apr2020-v3",
+  "reference_dir": "data/reference/MoleRec",
+  "prepared_dir": "data/processed/recommendation/synthea-v3-atc3-product-v4",
+  "run_dir": "outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8",
+  "ddi_least_frequent_events": 40,
+  "seed": 8,
+  "dim": 64,
+  "epochs": 20,
+  "lr": 0.0001,
+  "target_ddi": 0.06,
+  "coef": 2.5,
+  "threshold": 0.5,
+  "initial_inter": 0.1,
+  "initial_garm": 0.1,
+  "device": "cpu",
+  "mapping_snapshot": "src/recommendation/resources/rxclass-synthea.json",
+  "reviewed_crosswalk": "src/recommendation/resources/dose-form-crosswalk.json"
+}

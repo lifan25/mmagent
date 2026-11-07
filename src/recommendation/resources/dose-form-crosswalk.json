@@ -1,0 +1,232 @@
+{
+  "895994": {
+    "atc5": "R03BA05",
+    "reason": "Single-ingredient fluticasone metered-dose inhaler; exclude dermatological and nasal classes.",
+    "rxnorm_history": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "022010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "022010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "895994",
+          "name": "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "41126",
+              "baseName": "fluticasone",
+              "bossRxcui": "50121",
+              "bossName": "fluticasone propionate",
+              "activeIngredientRxcui": "50121",
+              "activeIngredientName": "fluticasone propionate",
+              "moietyRxcui": "41126",
+              "moietyName": "fluticasone",
+              "numeratorValue": "0.044",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ACTUAT"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "120",
+            "quantityFactorUnit": "ACTUAT"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "721654",
+              "doseFormName": "Metered Dose Inhaler"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151123",
+              "doseFormGroupName": "Inhalant Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "41126",
+              "ingredientName": "fluticasone"
+            }
+          ]
+        }
+      }
+    },
+    "rxnorm_url": "https://rxnav.nlm.nih.gov/REST/rxcui/895994/historystatus.json",
+    "who_url": "https://atcddd.fhi.no/atc_ddd_index/?code=R03BA05",
+    "checked_on": "2026-11-07",
+    "review_scope": "Project terminology crosswalk based on public ingredient/dose-form sources; not an official RxNorm-to-ATC assignment or clinical review."
+  },
+  "896209": {
+    "atc5": "R03AK06",
+    "reason": "Fluticasone/salmeterol dry-powder inhaler; classify the combination, not separate ingredient classes.",
+    "rxnorm_history": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "022010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "022010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "896209",
+          "name": "60 ACTUAT fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "36117",
+              "baseName": "salmeterol",
+              "bossRxcui": "36117",
+              "bossName": "salmeterol",
+              "activeIngredientRxcui": "72616",
+              "activeIngredientName": "salmeterol xinafoate",
+              "moietyRxcui": "36117",
+              "moietyName": "salmeterol",
+              "numeratorValue": "50",
+              "numeratorUnit": "MCG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ACTUAT"
+            },
+            {
+              "baseRxcui": "41126",
+              "baseName": "fluticasone",
+              "bossRxcui": "50121",
+              "bossName": "fluticasone propionate",
+              "activeIngredientRxcui": "50121",
+              "activeIngredientName": "fluticasone propionate",
+              "moietyRxcui": "41126",
+              "moietyName": "fluticasone",
+              "numeratorValue": "0.25",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ACTUAT"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "60",
+            "quantityFactorUnit": "ACTUAT"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "744995",
+              "doseFormName": "Dry Powder Inhaler"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151123",
+              "doseFormGroupName": "Inhalant Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "36117",
+              "ingredientName": "salmeterol"
+            },
+            {
+              "ingredientRxcui": "41126",
+              "ingredientName": "fluticasone"
+            }
+          ]
+        }
+      }
+    },
+    "rxnorm_url": "https://rxnav.nlm.nih.gov/REST/rxcui/896209/historystatus.json",
+    "who_url": "https://atcddd.fhi.no/atc_ddd_index/?code=R03AK06",
+    "checked_on": "2026-11-07",
+    "review_scope": "Project terminology crosswalk based on public ingredient/dose-form sources; not an official RxNorm-to-ATC assignment or clinical review."
+  },
+  "105078": {
+    "atc5": "J01CE01",
+    "reason": "Penicillin G injectable solution; exclude ophthalmic penicillin class.",
+    "rxnorm_history": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Obsolete",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "NO",
+          "activeStartDate": "042005",
+          "activeEndDate": "022026",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "105078",
+          "name": "penicillin G 375 MG/ML Injectable Solution",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7980",
+              "baseName": "penicillin G",
+              "bossRxcui": "7980",
+              "bossName": "penicillin G",
+              "activeIngredientRxcui": "203133",
+              "activeIngredientName": "penicillin G potassium",
+              "moietyRxcui": "7980",
+              "moietyName": "penicillin G",
+              "numeratorValue": "375",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316949",
+              "doseFormName": "Injectable Solution"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7980",
+              "ingredientName": "penicillin G"
+            }
+          ]
+        }
+      }
+    },
+    "rxnorm_url": "https://rxnav.nlm.nih.gov/REST/rxcui/105078/historystatus.json",
+    "who_url": "https://atcddd.fhi.no/atc_ddd_index/?code=J01CE01",
+    "checked_on": "2026-11-07",
+    "review_scope": "Project terminology crosswalk based on public ingredient/dose-form sources; not an official RxNorm-to-ATC assignment or clinical review."
+  }
+}

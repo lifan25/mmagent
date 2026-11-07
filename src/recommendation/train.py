@@ -26,13 +26,14 @@ else:
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def ddi_counts(predicted, ddi):
+def ddi_counts(predicted, ddi, mapping_mask=None):
     ids = np.flatnonzero(predicted)
-    possible = len(ids)*(len(ids)-1)//2
+    possible = (len(ids)*(len(ids)-1)//2 if mapping_mask is None else
+                int(np.triu(mapping_mask[np.ix_(ids, ids)], 1).sum()))
     return int(np.triu(ddi[np.ix_(ids, ids)], 1).sum()), possible
 
 
-def metrics(rows, probabilities, size, ddi, threshold):
+def metrics(rows, probabilities, size, ddi, threshold, mapping_mask=None):
     if not rows:
         return {"samples": 0}
     labels = np.zeros((len(rows), size), dtype=np.int32)
@@ -48,18 +49,23 @@ def metrics(rows, probabilities, size, ddi, threshold):
     interactions = pairs = 0
     for row, j, f, a, pred in zip(rows, ja, f1, ap, predicted):
         patient_values[row["patient_id"]].append([j, f, a])
-        n, d = ddi_counts(pred, ddi)
+        n, d = ddi_counts(pred, ddi, mapping_mask)
         interactions += n
         pairs += d
     patient_macro = np.mean([np.mean(values, axis=0) for values in patient_values.values()], axis=0)
+    total_pairs = sum(int(p.sum())*(int(p.sum())-1)//2 for p in predicted)
     return {"samples": len(rows), "patients": len(patient_values), "jaccard": float(ja.mean()),
             "f1": float(f1.mean()), "prauc_average_precision": float(ap.mean()),
-            "average_medications": float(pred_counts.mean()), "ddi_rate": interactions/pairs if pairs else 0.,
+            "average_medications": float(pred_counts.mean()),
+            "ddi_rate": interactions/pairs if pairs else (None if mapping_mask is not None else 0.),
             "ddi_pairs": interactions, "predicted_pairs": pairs,
+            "total_predicted_pairs": total_pairs, "unmapped_predicted_pairs": total_pairs-pairs,
+            "ddi_mapping_pair_coverage": pairs / total_pairs if total_pairs else None,
+            "ddi_rate_scope": "CID-mapped pairs" if mapping_mask is not None else "all pairs (legacy)",
             "patient_macro": dict(zip(["jaccard", "f1", "prauc_average_precision"], map(float, patient_macro)))}
 
 
-def evaluate(model, rows, size, ddi, threshold):
+def evaluate(model, rows, size, ddi, threshold, mapping_mask=None):
     model.eval()
     scores = []
     with torch.no_grad():
@@ -69,7 +75,7 @@ def evaluate(model, rows, size, ddi, threshold):
                 raise FloatingPointError("Nonfinite evaluation output")
             scores.append(torch.sigmoid(output).cpu().numpy()[0])
     probabilities = np.asarray(scores)
-    report = {"overall": metrics(rows, probabilities, size, ddi, threshold)}
+    report = {"overall": metrics(rows, probabilities, size, ddi, threshold, mapping_mask)}
     for name, predicate in {
         "empty_current_procedures": lambda r: r["empty_current_procedures"],
         "nonempty_current_procedures": lambda r: not r["empty_current_procedures"],
@@ -77,7 +83,7 @@ def evaluate(model, rows, size, ddi, threshold):
         "both_current_and_history_empty": lambda r: r["empty_current_procedures"] and r["empty_history_procedures"],
     }.items():
         mask = np.array([predicate(r) for r in rows])
-        report[name] = metrics([r for r, keep in zip(rows, mask) if keep], probabilities[mask], size, ddi, threshold)
+        report[name] = metrics([r for r, keep in zip(rows, mask) if keep], probabilities[mask], size, ddi, threshold, mapping_mask)
     return report, probabilities
 
 
@@ -96,6 +102,7 @@ def run(config):
     vocab = json.loads((prepared/"vocabulary.json").read_text())
     graph = np.load(prepared/"graphs.npz")
     ehr, ddi = graph["ehr"], graph["ddi"]
+    mapping_mask = graph["ddi_mapping_mask"] if "ddi_mapping_mask" in graph else None
     data = {name: read_jsonl(prepared/f"{name}.jsonl") for name in ["train", "validation", "test"]}
     sizes = tuple(len(vocab[key]) for key in ["diagnoses", "procedures", "medications"])
     model = SSPNetAdapter(config, sizes, ehr, ddi, device)
@@ -125,7 +132,7 @@ def run(config):
             supervised = .95*F.binary_cross_entropy_with_logits(output_scores, target) + \
                          .05*F.multilabel_margin_loss(torch.sigmoid(output_scores), margin_target)
             prediction = torch.sigmoid(output_scores).detach().cpu().numpy()[0] >= config["threshold"]
-            n, d = ddi_counts(prediction, ddi)
+            n, d = ddi_counts(prediction, ddi, mapping_mask)
             rate = n/d if d else 0.
             if rate <= config["target_ddi"]:
                 loss = supervised
@@ -149,7 +156,7 @@ def run(config):
             if step % 200 == 0:
                 print(json.dumps({"epoch": epoch, "step": step, "total": len(order),
                                   "seconds": round(time.perf_counter()-epoch_start, 2)}), flush=True)
-        validation, _ = evaluate(model, data["validation"], sizes[2], ddi, config["threshold"])
+        validation, _ = evaluate(model, data["validation"], sizes[2], ddi, config["threshold"], mapping_mask)
         entry = {"epoch": epoch, "loss": float(np.mean(losses)), "validation": validation,
                  "seconds": time.perf_counter()-epoch_start}
         history.append(entry)
@@ -177,7 +184,7 @@ def run(config):
     checks["reload_equal"] = torch.equal(before_reload, after_reload)
     if not all(checks[k] for k in ["parameters_changed", "empty_current_parameter_update_verified", "reload_equal"]):
         raise AssertionError(checks)
-    test, probabilities = evaluate(fresh, data["test"], sizes[2], ddi, config["threshold"])
+    test, probabilities = evaluate(fresh, data["test"], sizes[2], ddi, config["threshold"], mapping_mask)
     np.save(output/"test-scores.npy", probabilities)
     with (output/"test-predictions.jsonl").open("w", encoding="utf-8") as f:
         for row, scores in zip(data["test"], probabilities):

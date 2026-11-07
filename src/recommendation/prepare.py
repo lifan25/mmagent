@@ -25,6 +25,34 @@ def rxnorm_mapping(path):
     return mapping
 
 
+def product_mapping(snapshot, legacy):
+    """Prefer product classification; ingredient-only ambiguity stays unresolved."""
+    mapping, decisions = {}, {}
+    for code, responses in snapshot["drugs"].items():
+        candidates = {}
+        for source in ("ATCPROD", "ATC"):
+            rows = responses[source].get("rxclassDrugInfoList", {}).get("rxclassDrugInfo", [])
+            candidates[source] = {row["rxclassMinConceptItem"]["classId"][:4] for row in rows
+                                  if row["rxclassMinConceptItem"]["classType"] == "ATC1-4"
+                                  and (source != "ATCPROD" or row["minConcept"]["rxcui"] == code)}
+        source = "ATCPROD" if candidates["ATCPROD"] else "ATC" if candidates["ATC"] else "legacy"
+        options = candidates.get(source, legacy.get(code, set()))
+        mapping[code] = options
+        decisions[code] = {"source": source, "classes": sorted(options),
+                           "legacy_classes": sorted(legacy.get(code, set()))}
+    return mapping, decisions
+
+
+def apply_reviewed_crosswalk(mapping, decisions, crosswalk):
+    for code, row in crosswalk.items():
+        atc3 = row["atc5"][:4]
+        if len(mapping[code]) <= 1 or atc3 not in mapping[code]:
+            raise ValueError(f"Crosswalk must resolve an existing ambiguity: {code}")
+        mapping[code] = {atc3}
+        decisions[code].update(source="project ingredient/dose-form crosswalk", classes=[atc3],
+                               evidence=row)
+
+
 def map_medications(items, mapping, audit):
     result = set()
     for item in items:
@@ -94,6 +122,15 @@ def ddi_graph(reference, medications, least_frequent):
                    "selected_events": chosen}
 
 
+def ddi_mapping_mask(reference, medications):
+    with (reference / "drug-atc.csv").open(encoding="utf-8-sig", newline="") as source:
+        present = {code[:4] for row in csv.reader(source) for code in row[1:]}
+    mapped = np.array([code in present for code in medications], dtype=np.float32)
+    mask = np.outer(mapped, mapped)
+    np.fill_diagonal(mask, 0)
+    return mask, [code for code in medications if code not in present]
+
+
 def prepare(config):
     source = ROOT / config["a1_dir"]
     reference = ROOT / config["reference_dir"]
@@ -109,6 +146,18 @@ def prepare(config):
     if any(v["split"] != memberships[v["patient_id"]] for v in visits):
         raise ValueError("A1 patient split mismatch")
     mapping = rxnorm_mapping(reference / "ndc2atc_level4.csv")
+    mapping_info = "Exact RXCUI -> unambiguous four-character ATC level 3; ambiguous/missing excluded and counted"
+    decisions = None
+    if config.get("mapping_snapshot"):
+        snapshot = json.loads((ROOT / config["mapping_snapshot"]).read_text(encoding="utf-8"))
+        mapping, decisions = product_mapping(snapshot, mapping)
+        mapping_info = {"policy": "ATCPROD first, ATC ingredient fallback, legacy only if both absent; singleton ATC3 only",
+                        "snapshot": config["mapping_snapshot"], "retrieved_at": snapshot["retrieved_at"],
+                        "versions": snapshot["versions"]}
+        if config.get("reviewed_crosswalk"):
+            crosswalk = json.loads((ROOT / config["reviewed_crosswalk"]).read_text(encoding="utf-8"))
+            apply_reviewed_crosswalk(mapping, decisions, crosswalk)
+            mapping_info["project_crosswalk"] = config["reviewed_crosswalk"]
     coverage = Counter()
     mapped_visits = [map_medications(v["medications"], mapping, coverage) for v in visits]
     train = [(v, meds) for v, meds in zip(visits, mapped_visits) if v["split"] == "train"]
@@ -158,20 +207,26 @@ def prepare(config):
     if not ddi.any():
         raise ValueError("No DDI edges after mapping: cannot claim safety-loss validation")
     output.mkdir(parents=True, exist_ok=True)
-    np.savez(output / "graphs.npz", ehr=ehr, ddi=ddi)
+    graphs = {"ehr": ehr, "ddi": ddi}
+    if decisions is not None:
+        graphs["ddi_mapping_mask"], ddi_info["classes_without_cid_mapping"] = ddi_mapping_mask(reference, vocab["medications"])
+        ddi_info["rate_scope"] = "Only pairs with both ATC3 nodes linked to source CIDs; absent edges are not clinical negatives"
+    np.savez(output / "graphs.npz", **graphs)
     (output / "vocabulary.json").write_text(json.dumps(vocab, indent=2), encoding="utf-8")
     for name, rows in records.items():
         with (output / f"{name}.jsonl").open("w", encoding="utf-8") as f:
             for row in rows:
                 f.write(json.dumps(row) + "\n")
     report = {"source_a1": config["a1_dir"], "a1_manifest": json.loads((source / "manifest.json").read_text(encoding="utf-8")),
-              "mapping": "Exact RXCUI -> unambiguous four-character ATC level 3; ambiguous/missing excluded and counted",
+              "mapping": mapping_info,
               "visit_medication_occurrence_coverage": dict(coverage), "vocabulary_sizes": {k: len(v) for k, v in vocab.items()},
               "ehr_edges": int(ehr.sum()/2), "ddi": ddi_info,
               "splits": {name: {**dict(audits[name]), "patients": len({r["patient_id"] for r in rows}),
                                  "empty_current_procedures": sum(r["empty_current_procedures"] for r in rows),
                                  "empty_history_procedures": sum(r["empty_history_procedures"] for r in rows)} for name, rows in records.items()}}
     (output / "manifest.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    if decisions is not None:
+        (output / "mapping-decisions.json").write_text(json.dumps(decisions, indent=2), encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "a1_manifest"}, indent=2), flush=True)
 
 

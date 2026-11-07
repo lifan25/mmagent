@@ -1,0 +1,5258 @@
+{
+  "retrieved_at": "2026-11-07T11:24:15.556023+00:00",
+  "base_url": "https://rxnav.nlm.nih.gov/REST/",
+  "versions": {
+    "ATCPROD": {
+      "relaSourceVersion": "1.2026.7"
+    },
+    "ATC": {
+      "relaSourceVersion": "2026_01_28"
+    }
+  },
+  "drugs": {
+    "1014676": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1014676",
+                "name": "cetirizine hydrochloride 5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AE",
+                "className": "Piperazine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1014677",
+                "name": "cetirizine hydrochloride 5 MG Oral Tablet [Zyrtec]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AE",
+                "className": "Piperazine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "20610",
+                "name": "cetirizine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AE",
+                "className": "Piperazine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "20610",
+                "name": "cetirizine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "S01GX",
+                "className": "Other antiallergics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1043400": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1043400",
+                "name": "acetaminophen 21.7 MG/ML / dextromethorphan hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "2637726",
+                "name": "{1 (acetaminophen 21.7 MG/ML / dextromethorphan hydrobromide 0.667 MG/ML / phenylephrine hydrochloride 0.333 MG/ML Oral Solution) / 1 (acetaminophen 21.7 MG/ML / dextromethorphan hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "2637756",
+                "name": "{1 (acetaminophen 21.7 MG/ML / dextromethorphan hydrobromide 0.667 MG/ML Oral Solution) / 1 (acetaminophen 21.7 MG/ML / dextromethorphan hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "161",
+                "name": "acetaminophen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3289",
+                "name": "dextromethorphan",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R05DA",
+                "className": "Opium alkaloids and derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3642",
+                "name": "doxylamine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1049221": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1049221",
+                "name": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AJ",
+                "className": "Opioids in combination with non-opioid analgesics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1049223",
+                "name": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet [Endocet]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AJ",
+                "className": "Opioids in combination with non-opioid analgesics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1049640",
+                "name": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet [Percocet]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AJ",
+                "className": "Opioids in combination with non-opioid analgesics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "161",
+                "name": "acetaminophen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "7804",
+                "name": "oxycodone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AA",
+                "className": "Natural opium alkaloids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1049630": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1049630",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1049632",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet [Benadryl]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1086986",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet [Sominex]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1090078",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet [Wal-Dryl Allergy]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1092416",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet [Nytol]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1092421",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet [Banophen]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1092466",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet [Simply Sleep]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1101111",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet [Rest Simply]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1658757",
+                "name": "diphenhydramine hydrochloride 25 MG Oral Tablet [Wal-Sleep Z]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "3498",
+                "name": "diphenhydramine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "D04AA",
+                "className": "Antihistamines for topical use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3498",
+                "name": "diphenhydramine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AA",
+                "className": "Aminoalkyl ethers",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "105078": {
+      "ATCPROD": {},
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7980",
+                "name": "penicillin G",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CE",
+                "className": "Beta-lactamase sensitive penicillins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "7980",
+                "name": "penicillin G",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "S01AA",
+                "className": "Antibiotics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "105585": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "105585",
+                "name": "methotrexate 2.5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L01BA",
+                "className": "Folic acid analogues",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "6851",
+                "name": "methotrexate",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L01BA",
+                "className": "Folic acid analogues",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "6851",
+                "name": "methotrexate",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L04AX",
+                "className": "Other immunosuppressants",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "106892": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "106892",
+                "name": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10AD",
+                "className": "Insulins and analogues for injection, intermediate- or long-acting combined with fast-acting",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "311048",
+                "name": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10AD",
+                "className": "Insulins and analogues for injection, intermediate- or long-acting combined with fast-acting",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "253182",
+                "name": "insulin, regular, human",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10AB",
+                "className": "Insulins and analogues for injection, fast-acting",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "253182",
+                "name": "insulin, regular, human",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10AC",
+                "className": "Insulins and analogues for injection, intermediate-acting",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "253182",
+                "name": "insulin, regular, human",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10AD",
+                "className": "Insulins and analogues for injection, intermediate- or long-acting combined with fast-acting",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "253182",
+                "name": "insulin, regular, human",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10AE",
+                "className": "Insulins and analogues for injection, long-acting",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "253182",
+                "name": "insulin, regular, human",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10AF",
+                "className": "Insulins and analogues for inhalation",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1091392": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1091392",
+                "name": "methylphenidate hydrochloride 20 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06BA",
+                "className": "Centrally acting sympathomimetics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1091395",
+                "name": "methylphenidate hydrochloride 20 MG Oral Tablet [Ritalin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06BA",
+                "className": "Centrally acting sympathomimetics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "6901",
+                "name": "methylphenidate",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06BA",
+                "className": "Centrally acting sympathomimetics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1094107": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1094107",
+                "name": "phenazopyridine hydrochloride 100 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G04BX",
+                "className": "Other urologicals",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1094109",
+                "name": "phenazopyridine hydrochloride 100 MG Oral Tablet [Pyridium]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G04BX",
+                "className": "Other urologicals",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "8120",
+                "name": "phenazopyridine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G04BX",
+                "className": "Other urologicals",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1190795": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1190795",
+                "name": "1 ML atropine sulfate 1 MG/ML Injection",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A03BA",
+                "className": "Belladonna alkaloids, tertiary amines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1223",
+                "name": "atropine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A03BA",
+                "className": "Belladonna alkaloids, tertiary amines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1223",
+                "name": "atropine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "S01FA",
+                "className": "Anticholinergics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1650142": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1650142",
+                "name": "doxycycline monohydrate 100 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1650198",
+                "name": "{150 (doxycycline monohydrate 100 MG Oral Tablet) / 1 (118 ML) (salicylic acid 20 MG/ML Medicated Liquid Soap) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "352172",
+                "name": "doxycycline monohydrate 100 MG Oral Tablet [Adoxa]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "757460",
+                "name": "{31 (doxycycline monohydrate 100 MG Oral Tablet) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "757466",
+                "name": "{60 (doxycycline monohydrate 100 MG Oral Tablet) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "795712",
+                "name": "{60 (doxycycline monohydrate 100 MG Oral Tablet [Adoxa]) } Pack [Adoxa Pak 2/100]",
+                "tty": "BPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "795852",
+                "name": "{31 (doxycycline monohydrate 100 MG Oral Tablet [Adoxa]) } Pack [Adoxa Pak 1/100]",
+                "tty": "BPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "830605",
+                "name": "doxycycline monohydrate 100 MG Oral Tablet [Avidoxy]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "846101",
+                "name": "{150 (doxycycline monohydrate 100 MG Oral Tablet [Avidoxy]) / 1 (118 ML) (salicylic acid 20 MG/ML Medicated Liquid Soap) } Pack [Avidoxy Pack]",
+                "tty": "BPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "3640",
+                "name": "doxycycline",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A01AB",
+                "className": "Antiinfectives and antiseptics for local oral treatment",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3640",
+                "name": "doxycycline",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1652673": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1652673",
+                "name": "doxycycline monohydrate 50 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "3640",
+                "name": "doxycycline",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A01AB",
+                "className": "Antiinfectives and antiseptics for local oral treatment",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3640",
+                "name": "doxycycline",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01AA",
+                "className": "Tetracyclines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1660014": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1660014",
+                "name": "1 ML epinephrine 1 MG/ML Injection",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01CA",
+                "className": "Adrenergic and dopaminergic agents",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1660016",
+                "name": "1 ML epinephrine 1 MG/ML Injection [Adrenalin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01CA",
+                "className": "Adrenergic and dopaminergic agents",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "3992",
+                "name": "epinephrine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A01AD",
+                "className": "Other agents for local oral treatment",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3992",
+                "name": "epinephrine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B02BC",
+                "className": "Local hemostatics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3992",
+                "name": "epinephrine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01CA",
+                "className": "Adrenergic and dopaminergic agents",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3992",
+                "name": "epinephrine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R01AA",
+                "className": "Sympathomimetics, plain",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3992",
+                "name": "epinephrine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03AA",
+                "className": "Alpha- and beta-adrenoreceptor agonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "3992",
+                "name": "epinephrine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "S01EA",
+                "className": "Sympathomimetics in glaucoma therapy",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1804799": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1804799",
+                "name": "alteplase 100 MG Injection",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AD",
+                "className": "Enzymes",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1804802",
+                "name": "alteplase 100 MG Injection [Activase]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AD",
+                "className": "Enzymes",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "8410",
+                "name": "alteplase",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AD",
+                "className": "Enzymes",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "8410",
+                "name": "alteplase",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "S01XA",
+                "className": "Other ophthalmologicals",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1860154": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1049545",
+                "name": "Abuse-Deterrent 12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet [Oxycontin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AA",
+                "className": "Natural opium alkaloids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1860154",
+                "name": "Abuse-Deterrent 12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AA",
+                "className": "Natural opium alkaloids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7804",
+                "name": "oxycodone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AA",
+                "className": "Natural opium alkaloids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "1860480": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1860480",
+                "name": "1 ML docetaxel 20 MG/ML Injection",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L01CD",
+                "className": "Taxanes",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "2728902",
+                "name": "1 ML docetaxel 20 MG/ML Injection [Beizray]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L01CD",
+                "className": "Taxanes",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "72962",
+                "name": "docetaxel",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L01CD",
+                "className": "Taxanes",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "197319": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "197319",
+                "name": "allopurinol 100 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M04AA",
+                "className": "Preparations inhibiting uric acid production",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "213995",
+                "name": "allopurinol 100 MG Oral Tablet [Zyloprim]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M04AA",
+                "className": "Preparations inhibiting uric acid production",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "519",
+                "name": "allopurinol",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M04AA",
+                "className": "Preparations inhibiting uric acid production",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "197361": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "197361",
+                "name": "amlodipine 5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C08CA",
+                "className": "Dihydropyridine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "212549",
+                "name": "amlodipine 5 MG Oral Tablet [Norvasc]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C08CA",
+                "className": "Dihydropyridine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "17767",
+                "name": "amlodipine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C08CA",
+                "className": "Dihydropyridine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "197378": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "197378",
+                "name": "astemizole 10 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AX",
+                "className": "Other antihistamines for systemic use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "42328",
+                "name": "astemizole",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AX",
+                "className": "Other antihistamines for systemic use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "197591": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "104700",
+                "name": "diazepam 5 MG Oral Tablet [Valium]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N05BA",
+                "className": "Benzodiazepine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "197591",
+                "name": "diazepam 5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N05BA",
+                "className": "Benzodiazepine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "3322",
+                "name": "diazepam",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N05BA",
+                "className": "Benzodiazepine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "197604": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1245443",
+                "name": "digoxin 0.125 MG Oral Tablet [Digox]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01AA",
+                "className": "Digitalis glycosides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "197604",
+                "name": "digoxin 0.125 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01AA",
+                "className": "Digitalis glycosides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "309888",
+                "name": "digoxin 0.125 MG Oral Tablet [Lanoxin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01AA",
+                "className": "Digitalis glycosides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "3407",
+                "name": "digoxin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01AA",
+                "className": "Digitalis glycosides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "198014": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "105899",
+                "name": "naproxen 500 MG Oral Tablet [Naprosyn]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "198014",
+                "name": "naproxen 500 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7258",
+                "name": "naproxen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G02CC",
+                "className": "Antiinflammatory products for vaginal administration",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "7258",
+                "name": "naproxen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "7258",
+                "name": "naproxen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M02AA",
+                "className": "Antiinflammatory preparations, non-steroids for topical use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "198031": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "198031",
+                "name": "24 HR nicotine 0.292 MG/HR Transdermal System",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N07BA",
+                "className": "Drugs used in nicotine dependence",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "207734",
+                "name": "24 HR nicotine 0.292 MG/HR Transdermal System [Habitrol]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N07BA",
+                "className": "Drugs used in nicotine dependence",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "2727298",
+                "name": "24 HR nicotine 0.292 MG/HR Transdermal System [Nicduic]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N07BA",
+                "className": "Drugs used in nicotine dependence",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "351433",
+                "name": "24 HR nicotine 0.292 MG/HR Transdermal System [Nicoderm C-Q]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N07BA",
+                "className": "Drugs used in nicotine dependence",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "892244",
+                "name": "{14 (24 HR nicotine 0.292 MG/HR Transdermal System) / 14 (24 HR nicotine 0.583 MG/HR Transdermal System) / 28 (24 HR nicotine 0.875 MG/HR Transdermal System) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N07BA",
+                "className": "Drugs used in nicotine dependence",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7407",
+                "name": "nicotine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N07BA",
+                "className": "Drugs used in nicotine dependence",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "198405": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "198405",
+                "name": "ibuprofen 100 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "731535",
+                "name": "ibuprofen 100 MG Oral Tablet [Advil]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01EB",
+                "className": "Other cardiac preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G02CC",
+                "className": "Antiinflammatory products for vaginal administration",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M02AA",
+                "className": "Antiinflammatory preparations, non-steroids for topical use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R02AX",
+                "className": "Other throat preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "204892": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "204892",
+                "name": "clonazepam 0.25 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N03AE",
+                "className": "Benzodiazepine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2598",
+                "name": "clonazepam",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N03AE",
+                "className": "Benzodiazepine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "205923": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "205923",
+                "name": "1 ML epoetin alfa 4000 UNT/ML Injection [Epogen]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B03XA",
+                "className": "Other antianemic preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "239999",
+                "name": "1 ML epoetin alfa 4000 UNT/ML Injection",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B03XA",
+                "className": "Other antianemic preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {}
+    },
+    "2123111": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2123111",
+                "name": "NDA020503 200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03AC",
+                "className": "Selective beta-2-adrenoreceptor agonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "746763",
+                "name": "NDA020503 200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler [Proventil]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03AC",
+                "className": "Selective beta-2-adrenoreceptor agonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "435",
+                "name": "albuterol",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03AC",
+                "className": "Selective beta-2-adrenoreceptor agonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "435",
+                "name": "albuterol",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03CC",
+                "className": "Selective beta-2-adrenoreceptor agonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "243670": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "243670",
+                "name": "aspirin 81 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AC",
+                "className": "Platelet aggregation inhibitors excl. heparin",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "724444",
+                "name": "aspirin 81 MG Oral Tablet [Anacin Aspirin Regimen]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AC",
+                "className": "Platelet aggregation inhibitors excl. heparin",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "904668",
+                "name": "{30 (aspirin 81 MG Oral Tablet) / 30 (pravastatin sodium 40 MG Oral Tablet) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10BX",
+                "className": "Lipid modifying agents in combination with other drugs",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1191",
+                "name": "aspirin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A01AD",
+                "className": "Other agents for local oral treatment",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1191",
+                "name": "aspirin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AC",
+                "className": "Platelet aggregation inhibitors excl. heparin",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1191",
+                "name": "aspirin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BA",
+                "className": "Salicylic acid and derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "259255": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "259255",
+                "name": "atorvastatin 80 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "262095",
+                "name": "atorvastatin 80 MG Oral Tablet [Lipitor]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "83367",
+                "name": "atorvastatin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "308182": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "308182",
+                "name": "amoxicillin 250 MG Oral Capsule",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CA",
+                "className": "Penicillins with extended spectrum",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "723",
+                "name": "amoxicillin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CA",
+                "className": "Penicillins with extended spectrum",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "308192": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "308192",
+                "name": "amoxicillin 500 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CA",
+                "className": "Penicillins with extended spectrum",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "723",
+                "name": "amoxicillin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CA",
+                "className": "Penicillins with extended spectrum",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "308971": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "308971",
+                "name": "carbamazepine 20 MG/ML Oral Suspension [Tegretol]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N03AF",
+                "className": "Carboxamide derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "308976",
+                "name": "carbamazepine 20 MG/ML Oral Suspension",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N03AF",
+                "className": "Carboxamide derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2002",
+                "name": "carbamazepine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N03AF",
+                "className": "Carboxamide derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "309043": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "309043",
+                "name": "12 HR cefaclor 500 MG Extended Release Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01DC",
+                "className": "Second-generation cephalosporins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2176",
+                "name": "cefaclor",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01DC",
+                "className": "Second-generation cephalosporins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "309045": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "309045",
+                "name": "cefaclor 250 MG Oral Capsule",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01DC",
+                "className": "Second-generation cephalosporins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2176",
+                "name": "cefaclor",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01DC",
+                "className": "Second-generation cephalosporins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "309097": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "309097",
+                "name": "cefuroxime 250 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01DC",
+                "className": "Second-generation cephalosporins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2194",
+                "name": "cefuroxime",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01DC",
+                "className": "Second-generation cephalosporins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "2194",
+                "name": "cefuroxime",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "S01AA",
+                "className": "Antibiotics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "309362": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "213169",
+                "name": "clopidogrel 75 MG Oral Tablet [Plavix]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AC",
+                "className": "Platelet aggregation inhibitors excl. heparin",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "309362",
+                "name": "clopidogrel 75 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AC",
+                "className": "Platelet aggregation inhibitors excl. heparin",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "32968",
+                "name": "clopidogrel",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AC",
+                "className": "Platelet aggregation inhibitors excl. heparin",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "310325": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "310325",
+                "name": "ferrous sulfate 325 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B03AA",
+                "className": "Iron bivalent, oral preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "635970",
+                "name": "ferrous sulfate 325 MG Oral Tablet [Feosol]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B03AA",
+                "className": "Iron bivalent, oral preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "24947",
+                "name": "ferrous sulfate",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B03AA",
+                "className": "Iron bivalent, oral preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "310385": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "104849",
+                "name": "fluoxetine 20 MG Oral Capsule [Prozac]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06AB",
+                "className": "Selective serotonin reuptake inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "310385",
+                "name": "fluoxetine 20 MG Oral Capsule",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06AB",
+                "className": "Selective serotonin reuptake inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "4493",
+                "name": "fluoxetine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06AB",
+                "className": "Selective serotonin reuptake inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "310436": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "310436",
+                "name": "galantamine 4 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06DA",
+                "className": "Anticholinesterases",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "4637",
+                "name": "galantamine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06DA",
+                "className": "Anticholinesterases",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "310798": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "310798",
+                "name": "hydrochlorothiazide 25 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C03AA",
+                "className": "Thiazides, plain",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "5487",
+                "name": "hydrochlorothiazide",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C03AA",
+                "className": "Thiazides, plain",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "310965": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1101919",
+                "name": "ibuprofen 200 MG Oral Tablet [Counteract IB]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1300267",
+                "name": "ibuprofen 200 MG Oral Tablet [Proprinal]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "153008",
+                "name": "ibuprofen 200 MG Oral Tablet [Advil]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "201126",
+                "name": "ibuprofen 200 MG Oral Tablet [Motrin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "206886",
+                "name": "ibuprofen 200 MG Oral Tablet [Genpril]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "310965",
+                "name": "ibuprofen 200 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "643102",
+                "name": "ibuprofen 200 MG Oral Tablet [Wal-Profen]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "850424",
+                "name": "ibuprofen 200 MG Oral Tablet [Ibuprohm]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "900434",
+                "name": "ibuprofen 200 MG Oral Tablet [Addaprin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01EB",
+                "className": "Other cardiac preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G02CC",
+                "className": "Antiinflammatory products for vaginal administration",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M02AA",
+                "className": "Antiinflammatory preparations, non-steroids for topical use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5640",
+                "name": "ibuprofen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R02AX",
+                "className": "Other throat preparations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "311989": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "207790",
+                "name": "nitrofurantoin 5 MG/ML Oral Suspension [Furadantin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01XE",
+                "className": "Nitrofuran derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "311989",
+                "name": "nitrofurantoin 5 MG/ML Oral Suspension",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01XE",
+                "className": "Nitrofuran derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7454",
+                "name": "nitrofurantoin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01XE",
+                "className": "Nitrofuran derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "312617": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "312617",
+                "name": "prednisone 5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H02AB",
+                "className": "Glucocorticoids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "763179",
+                "name": "{48 (prednisone 5 MG Oral Tablet) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H02AB",
+                "className": "Glucocorticoids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "763181",
+                "name": "{21 (prednisone 5 MG Oral Tablet) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H02AB",
+                "className": "Glucocorticoids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "8640",
+                "name": "prednisone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A07EA",
+                "className": "Corticosteroids acting locally",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "8640",
+                "name": "prednisone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H02AB",
+                "className": "Glucocorticoids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "312961": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "104491",
+                "name": "simvastatin 20 MG Oral Tablet [Zocor]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "312961",
+                "name": "simvastatin 20 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "36567",
+                "name": "simvastatin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "313185": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "313185",
+                "name": "tacrine 10 MG Oral Capsule",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06DA",
+                "className": "Anticholinesterases",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "10318",
+                "name": "tacrine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06DA",
+                "className": "Anticholinesterases",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "313782": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1235462",
+                "name": "acetaminophen 325 MG Oral Tablet [Ringl]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1298830",
+                "name": "acetaminophen 325 MG Oral Tablet [Pharbetol]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "1358837",
+                "name": "acetaminophen 325 MG Oral Tablet [Cetafen]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "209375",
+                "name": "acetaminophen 325 MG Oral Tablet [Mapap]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "209384",
+                "name": "acetaminophen 325 MG Oral Tablet [Tycolene]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "209387",
+                "name": "acetaminophen 325 MG Oral Tablet [Tylenol]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "313782",
+                "name": "acetaminophen 325 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "798926",
+                "name": "acetaminophen 325 MG Oral Tablet [Tactinal]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "161",
+                "name": "acetaminophen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "313820": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "209870",
+                "name": "acetaminophen 160 MG Chewable Tablet [Mapap]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "209873",
+                "name": "acetaminophen 160 MG Chewable Tablet [Tempra Quicklets]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "313820",
+                "name": "acetaminophen 160 MG Chewable Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "828557",
+                "name": "acetaminophen 160 MG Chewable Tablet [Tylenol]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "161",
+                "name": "acetaminophen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "314231": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "104490",
+                "name": "simvastatin 10 MG Oral Tablet [Zocor]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "314231",
+                "name": "simvastatin 10 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "36567",
+                "name": "simvastatin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C10AA",
+                "className": "HMG CoA reductase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "429503": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "429503",
+                "name": "hydrochlorothiazide 12.5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C03AA",
+                "className": "Thiazides, plain",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "5487",
+                "name": "hydrochlorothiazide",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C03AA",
+                "className": "Thiazides, plain",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "477045": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "477045",
+                "name": "chlorpheniramine maleate 2 MG/ML Oral Solution",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AB",
+                "className": "Substituted alkylamines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2400",
+                "name": "chlorpheniramine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AB",
+                "className": "Substituted alkylamines",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "562251": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "562251",
+                "name": "amoxicillin 250 MG / clavulanate 125 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CR",
+                "className": "Combinations of penicillins, incl. beta-lactamase inhibitors",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "723",
+                "name": "amoxicillin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CA",
+                "className": "Penicillins with extended spectrum",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "608139": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "608139",
+                "name": "atomoxetine 100 MG Oral Capsule",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06BA",
+                "className": "Centrally acting sympathomimetics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "617945",
+                "name": "atomoxetine 100 MG Oral Capsule [Strattera]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06BA",
+                "className": "Centrally acting sympathomimetics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "38400",
+                "name": "atomoxetine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06BA",
+                "className": "Centrally acting sympathomimetics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "665078": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2180650",
+                "name": "loratadine 5 MG Chewable Tablet [Wal-itin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AX",
+                "className": "Other antihistamines for systemic use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "665078",
+                "name": "loratadine 5 MG Chewable Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AX",
+                "className": "Other antihistamines for systemic use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "668469",
+                "name": "loratadine 5 MG Chewable Tablet [Claritin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AX",
+                "className": "Other antihistamines for systemic use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "28889",
+                "name": "loratadine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AX",
+                "className": "Other antihistamines for systemic use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "705129": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "705129",
+                "name": "nitroglycerin 0.4 MG/ACTUAT Mucosal Spray",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01DA",
+                "className": "Organic nitrates",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "705133",
+                "name": "nitroglycerin 0.4 MG/ACTUAT Mucosal Spray [NitroMist]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01DA",
+                "className": "Organic nitrates",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "995019",
+                "name": "nitroglycerin 0.4 MG/ACTUAT Mucosal Spray [Nitrolingual]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01DA",
+                "className": "Organic nitrates",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "4917",
+                "name": "nitroglycerin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01DA",
+                "className": "Organic nitrates",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "4917",
+                "name": "nitroglycerin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C05AE",
+                "className": "Muscle relaxants",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "746030": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "197383",
+                "name": "atenolol 50 MG / chlorthalidone 25 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C07CB",
+                "className": "Beta blocking agents, selective, and other diuretics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "746030",
+                "name": "atenolol 50 MG / chlorthalidone 25 MG Oral Tablet [Tenoretic]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C07CB",
+                "className": "Beta blocking agents, selective, and other diuretics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "1202",
+                "name": "atenolol",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C07AB",
+                "className": "Beta blocking agents, selective",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "2409",
+                "name": "chlorthalidone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C03BA",
+                "className": "Sulfonamides, plain",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "752899": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "2728996",
+                "name": "0.25 ML leuprolide acetate 30 MG/ML Prefilled Syringe [Vabrinty]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L02AE",
+                "className": "Gonadotropin releasing hormone analogues",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "752899",
+                "name": "0.25 ML leuprolide acetate 30 MG/ML Prefilled Syringe",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L02AE",
+                "className": "Gonadotropin releasing hormone analogues",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "825334",
+                "name": "0.25 ML leuprolide acetate 30 MG/ML Prefilled Syringe [Eligard]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L02AE",
+                "className": "Gonadotropin releasing hormone analogues",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "42375",
+                "name": "leuprolide",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "L02AE",
+                "className": "Gonadotropin releasing hormone analogues",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "757594": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "198042",
+                "name": "norethindrone 0.35 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03AC",
+                "className": "Progestogens",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "748961",
+                "name": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03AC",
+                "className": "Progestogens",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "757594",
+                "name": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Jolivette 28 Day]",
+                "tty": "BPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03AC",
+                "className": "Progestogens",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7514",
+                "name": "norethindrone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03AC",
+                "className": "Progestogens",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "7514",
+                "name": "norethindrone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03DC",
+                "className": "Estren derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "789980": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "789980",
+                "name": "ampicillin 100 MG/ML Injectable Solution",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CA",
+                "className": "Penicillins with extended spectrum",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "733",
+                "name": "ampicillin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CA",
+                "className": "Penicillins with extended spectrum",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "733",
+                "name": "ampicillin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "S01AA",
+                "className": "Antibiotics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "831533": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "198042",
+                "name": "norethindrone 0.35 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03AC",
+                "className": "Progestogens",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "748961",
+                "name": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack",
+                "tty": "GPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03AC",
+                "className": "Progestogens",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "831533",
+                "name": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Errin 28 Day]",
+                "tty": "BPCK"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03AC",
+                "className": "Progestogens",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7514",
+                "name": "norethindrone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03AC",
+                "className": "Progestogens",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "7514",
+                "name": "norethindrone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G03DC",
+                "className": "Estren derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "833036": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "833036",
+                "name": "acetaminophen 750 MG / hydrocodone bitartrate 7.5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AJ",
+                "className": "Opioids in combination with non-opioid analgesics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "161",
+                "name": "acetaminophen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5489",
+                "name": "hydrocodone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R05DA",
+                "className": "Opium alkaloids and derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "834061": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "834061",
+                "name": "penicillin V potassium 250 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CE",
+                "className": "Beta-lactamase sensitive penicillins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7984",
+                "name": "penicillin V",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CE",
+                "className": "Beta-lactamase sensitive penicillins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "834102": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "834102",
+                "name": "penicillin V potassium 500 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CE",
+                "className": "Beta-lactamase sensitive penicillins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7984",
+                "name": "penicillin V",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "J01CE",
+                "className": "Beta-lactamase sensitive penicillins",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "834357": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "834357",
+                "name": "3 ML amiodarone hydrochloride 50 MG/ML Prefilled Syringe",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01BD",
+                "className": "Antiarrhythmics, class III",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "703",
+                "name": "amiodarone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C01BD",
+                "className": "Antiarrhythmics, class III",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "849574": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "849574",
+                "name": "naproxen sodium 220 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "849728",
+                "name": "naproxen sodium 220 MG Oral Tablet [Aleve]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "849737",
+                "name": "naproxen sodium 220 MG Oral Tablet [Wal-Proxen]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "7258",
+                "name": "naproxen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "G02CC",
+                "className": "Antiinflammatory products for vaginal administration",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "7258",
+                "name": "naproxen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M01AE",
+                "className": "Propionic acid derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "7258",
+                "name": "naproxen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M02AA",
+                "className": "Antiinflammatory preparations, non-steroids for topical use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "855332": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "855332",
+                "name": "warfarin sodium 5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AA",
+                "className": "Vitamin K antagonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "855334",
+                "name": "warfarin sodium 5 MG Oral Tablet [Coumadin]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AA",
+                "className": "Vitamin K antagonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "855336",
+                "name": "warfarin sodium 5 MG Oral Tablet [Jantoven]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AA",
+                "className": "Vitamin K antagonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "11289",
+                "name": "warfarin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "B01AA",
+                "className": "Vitamin K antagonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "856987": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "856987",
+                "name": "acetaminophen 300 MG / hydrocodone bitartrate 5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AJ",
+                "className": "Opioids in combination with non-opioid analgesics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "161",
+                "name": "acetaminophen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5489",
+                "name": "hydrocodone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R05DA",
+                "className": "Opium alkaloids and derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "857005": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "857005",
+                "name": "acetaminophen 325 MG / hydrocodone bitartrate 7.5 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AJ",
+                "className": "Opioids in combination with non-opioid analgesics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "857007",
+                "name": "acetaminophen 325 MG / hydrocodone bitartrate 7.5 MG Oral Tablet [Norco]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AJ",
+                "className": "Opioids in combination with non-opioid analgesics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "161",
+                "name": "acetaminophen",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02BE",
+                "className": "Anilides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5489",
+                "name": "hydrocodone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R05DA",
+                "className": "Opium alkaloids and derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "860975": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "860975",
+                "name": "24 HR metformin hydrochloride 500 MG Extended Release Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10BA",
+                "className": "Biguanides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "860977",
+                "name": "24 HR metformin hydrochloride 500 MG Extended Release Oral Tablet [Glucophage]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10BA",
+                "className": "Biguanides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "6809",
+                "name": "metformin",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "A10BA",
+                "className": "Biguanides",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "861467": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "861467",
+                "name": "meperidine hydrochloride 50 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AB",
+                "className": "Phenylpiperidine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "6754",
+                "name": "meperidine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N02AB",
+                "className": "Phenylpiperidine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "895994": {
+      "ATCPROD": {},
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "41126",
+                "name": "fluticasone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "D07AC",
+                "className": "Corticosteroids, potent (group III)",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "41126",
+                "name": "fluticasone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R01AD",
+                "className": "Corticosteroids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "41126",
+                "name": "fluticasone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03BA",
+                "className": "Glucocorticoids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "896209": {
+      "ATCPROD": {},
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "284635",
+                "name": "fluticasone / salmeterol",
+                "tty": "MIN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03AK",
+                "className": "Adrenergics in combination with corticosteroids or other drugs, excl. anticholinergics",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "36117",
+                "name": "salmeterol",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03AC",
+                "className": "Selective beta-2-adrenoreceptor agonists",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "41126",
+                "name": "fluticasone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "D07AC",
+                "className": "Corticosteroids, potent (group III)",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "41126",
+                "name": "fluticasone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R01AD",
+                "className": "Corticosteroids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "41126",
+                "name": "fluticasone",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R03BA",
+                "className": "Glucocorticoids",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "897718": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "897722",
+                "name": "verapamil hydrochloride 40 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C08DA",
+                "className": "Phenylalkylamine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "11170",
+                "name": "verapamil",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C08DA",
+                "className": "Phenylalkylamine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "904419": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "904419",
+                "name": "alendronic acid 10 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M05BA",
+                "className": "Bisphosphonates",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "236083",
+                "name": "alendronic acid",
+                "tty": "PIN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "M05BA",
+                "className": "Bisphosphonates",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "966222": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "966166",
+                "name": "levothyroxine sodium 0.075 MG Oral Tablet [Euthyrox]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H03AA",
+                "className": "Thyroid hormones",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "966167",
+                "name": "levothyroxine sodium 0.075 MG Oral Tablet [Levo-T]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H03AA",
+                "className": "Thyroid hormones",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "966170",
+                "name": "levothyroxine sodium 0.075 MG Oral Tablet [Levoxyl]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H03AA",
+                "className": "Thyroid hormones",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "966171",
+                "name": "levothyroxine sodium 0.075 MG Oral Tablet [Synthroid]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H03AA",
+                "className": "Thyroid hormones",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "966222",
+                "name": "levothyroxine sodium 0.075 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H03AA",
+                "className": "Thyroid hormones",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "966286",
+                "name": "levothyroxine sodium 0.075 MG Oral Tablet [Unithroid]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H03AA",
+                "className": "Thyroid hormones",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "40144",
+                "name": "levothyroxine sodium",
+                "tty": "PIN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "H03AA",
+                "className": "Thyroid hormones",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "997223": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "997223",
+                "name": "donepezil hydrochloride 10 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06DA",
+                "className": "Anticholinesterases",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "997224",
+                "name": "donepezil hydrochloride 10 MG Oral Tablet [Aricept]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06DA",
+                "className": "Anticholinesterases",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "135447",
+                "name": "donepezil",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "N06DA",
+                "className": "Anticholinesterases",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "997488": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "997488",
+                "name": "fexofenadine hydrochloride 30 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AX",
+                "className": "Other antihistamines for systemic use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "87636",
+                "name": "fexofenadine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "R06AX",
+                "className": "Other antihistamines for systemic use",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    },
+    "999967": {
+      "ATCPROD": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "999967",
+                "name": "amlodipine 5 MG / hydrochlorothiazide 12.5 MG / olmesartan medoxomil 20 MG Oral Tablet",
+                "tty": "SCD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C09DX",
+                "className": "Angiotensin II receptor blockers (ARBs), other combinations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            },
+            {
+              "minConcept": {
+                "rxcui": "999971",
+                "name": "amlodipine 5 MG / hydrochlorothiazide 12.5 MG / olmesartan medoxomil 20 MG Oral Tablet [Tribenzor]",
+                "tty": "SBD"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C09DX",
+                "className": "Angiotensin II receptor blockers (ARBs), other combinations",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATCPROD"
+            }
+          ]
+        }
+      },
+      "ATC": {
+        "rxclassDrugInfoList": {
+          "rxclassDrugInfo": [
+            {
+              "minConcept": {
+                "rxcui": "118463",
+                "name": "olmesartan medoxomil",
+                "tty": "PIN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C09CA",
+                "className": "Angiotensin II receptor blockers (ARBs), plain",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "17767",
+                "name": "amlodipine",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C08CA",
+                "className": "Dihydropyridine derivatives",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            },
+            {
+              "minConcept": {
+                "rxcui": "5487",
+                "name": "hydrochlorothiazide",
+                "tty": "IN"
+              },
+              "rxclassMinConceptItem": {
+                "classId": "C03AA",
+                "className": "Thiazides, plain",
+                "classType": "ATC1-4"
+              },
+              "rela": "",
+              "relaSource": "ATC"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

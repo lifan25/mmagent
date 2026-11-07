@@ -1,0 +1,1409 @@
+{
+  "old": {
+    "source_a1": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "mapping": "Exact RXCUI -> unambiguous four-character ATC level 3; ambiguous/missing excluded and counted",
+    "visit_medication_occurrence_coverage": {
+      "mapped": 2461,
+      "unmapped": 394,
+      "ambiguous": 1240
+    },
+    "vocabulary_sizes": {
+      "diagnoses": 96,
+      "procedures": 62,
+      "medications": 24
+    },
+    "ehr_edges": 59,
+    "ddi": {
+      "policy": "40 least frequent event groups; deterministic lexical tie break; then filter names",
+      "event_groups": 40,
+      "source_rows": 4649441,
+      "selected_source_rows": 476,
+      "undirected_edges": 34,
+      "selected_events": [
+        [
+          "C0034494",
+          "rabies"
+        ],
+        [
+          "C0011593",
+          "skin abrasion"
+        ],
+        [
+          "C0013336",
+          "dwarfism"
+        ],
+        [
+          "C0014935",
+          "estrogen replacement"
+        ],
+        [
+          "C0022735",
+          "hypogonadotropic hypogonadism"
+        ],
+        [
+          "C0162678",
+          "neurofibromatosis"
+        ],
+        [
+          "C0000817",
+          "septic abortion"
+        ],
+        [
+          "C0281985",
+          "splinter"
+        ],
+        [
+          "C0542519",
+          "renal agenesis"
+        ],
+        [
+          "C0036916",
+          "sexually transmitted diseases"
+        ],
+        [
+          "C0266011",
+          "supernumerary nipple"
+        ],
+        [
+          "C0025218",
+          "chloasma"
+        ],
+        [
+          "C0269199",
+          "cervical stenosis"
+        ],
+        [
+          "C0149783",
+          "corticosteroid therapy"
+        ],
+        [
+          "C0035579",
+          "rickets"
+        ],
+        [
+          "C0003175",
+          "anthrax"
+        ],
+        [
+          "C0035920",
+          "Rubella"
+        ],
+        [
+          "C0021832",
+          "parasitic infection intestinal"
+        ],
+        [
+          "C0041466",
+          "Typhoid"
+        ],
+        [
+          "C0155118",
+          "corneal degeneration"
+        ],
+        [
+          "C0002694",
+          "traumatic amputation"
+        ],
+        [
+          "C0025362",
+          "mental retardation"
+        ],
+        [
+          "C0429468",
+          "anovulatory"
+        ],
+        [
+          "C0020545",
+          "renovascular hypertension"
+        ],
+        [
+          "C0027086",
+          "myoma"
+        ],
+        [
+          "C1260881",
+          "allergic bronchitis"
+        ],
+        [
+          "C0001206",
+          "Acromegaly"
+        ],
+        [
+          "C0266008",
+          "breast malformation"
+        ],
+        [
+          "C0039614",
+          "tetanus"
+        ],
+        [
+          "C0684275",
+          "Haemophilia"
+        ],
+        [
+          "C0008497",
+          "choriocarcinoma"
+        ],
+        [
+          "C0008533",
+          "hemophilia B"
+        ],
+        [
+          "C0014390",
+          "entropion"
+        ],
+        [
+          "C0032024",
+          "pityriasis"
+        ],
+        [
+          "C0027134",
+          "Myringitis"
+        ],
+        [
+          "C0549398",
+          "meibomianitis"
+        ],
+        [
+          "C0008513",
+          "chorioretinitis"
+        ],
+        [
+          "C0155707",
+          "trifascicular block"
+        ],
+        [
+          "C0156273",
+          "bladder diverticulum"
+        ],
+        [
+          "C0035460",
+          "Vasomotor Rhinitis"
+        ]
+      ]
+    },
+    "splits": {
+      "train": {
+        "source_examples": 1433,
+        "unmapped": 771,
+        "outside_train_med_vocabulary": 0,
+        "mapped": 4262,
+        "excluded_empty_mapped_target": 421,
+        "ambiguous": 2159,
+        "retained_examples": 822,
+        "excluded_no_mapped_medication_history": 190,
+        "patients": 370,
+        "empty_current_procedures": 475,
+        "empty_history_procedures": 724
+      },
+      "validation": {
+        "source_examples": 355,
+        "mapped": 969,
+        "outside_train_med_vocabulary": 7,
+        "ambiguous": 501,
+        "excluded_no_mapped_medication_history": 45,
+        "retained_examples": 198,
+        "unmapped": 178,
+        "excluded_empty_mapped_target": 112,
+        "unknown_diagnosis_codes": 14,
+        "patients": 100,
+        "empty_current_procedures": 123,
+        "empty_history_procedures": 170
+      },
+      "test": {
+        "source_examples": 351,
+        "mapped": 1003,
+        "outside_train_med_vocabulary": 0,
+        "retained_examples": 216,
+        "ambiguous": 508,
+        "excluded_empty_mapped_target": 96,
+        "unmapped": 145,
+        "excluded_no_mapped_medication_history": 39,
+        "unknown_diagnosis_codes": 4,
+        "unknown_procedure_codes": 6,
+        "patients": 92,
+        "empty_current_procedures": 137,
+        "empty_history_procedures": 200
+      }
+    }
+  },
+  "new": {
+    "source_a1": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "mapping": {
+      "policy": "ATCPROD first, ATC ingredient fallback, legacy only if both absent; singleton ATC3 only",
+      "snapshot": "src/recommendation/resources/rxclass-synthea.json",
+      "retrieved_at": "2026-11-07T11:24:15.556023+00:00",
+      "versions": {
+        "ATCPROD": {
+          "relaSourceVersion": "1.2026.7"
+        },
+        "ATC": {
+          "relaSourceVersion": "2026_01_28"
+        }
+      },
+      "project_crosswalk": "src/recommendation/resources/dose-form-crosswalk.json"
+    },
+    "visit_medication_occurrence_coverage": {
+      "mapped": 4095
+    },
+    "vocabulary_sizes": {
+      "diagnoses": 96,
+      "procedures": 62,
+      "medications": 38
+    },
+    "ehr_edges": 172,
+    "ddi": {
+      "policy": "40 least frequent event groups; deterministic lexical tie break; then filter names",
+      "event_groups": 40,
+      "source_rows": 4649441,
+      "selected_source_rows": 476,
+      "undirected_edges": 75,
+      "selected_events": [
+        [
+          "C0034494",
+          "rabies"
+        ],
+        [
+          "C0011593",
+          "skin abrasion"
+        ],
+        [
+          "C0013336",
+          "dwarfism"
+        ],
+        [
+          "C0014935",
+          "estrogen replacement"
+        ],
+        [
+          "C0022735",
+          "hypogonadotropic hypogonadism"
+        ],
+        [
+          "C0162678",
+          "neurofibromatosis"
+        ],
+        [
+          "C0000817",
+          "septic abortion"
+        ],
+        [
+          "C0281985",
+          "splinter"
+        ],
+        [
+          "C0542519",
+          "renal agenesis"
+        ],
+        [
+          "C0036916",
+          "sexually transmitted diseases"
+        ],
+        [
+          "C0266011",
+          "supernumerary nipple"
+        ],
+        [
+          "C0025218",
+          "chloasma"
+        ],
+        [
+          "C0269199",
+          "cervical stenosis"
+        ],
+        [
+          "C0149783",
+          "corticosteroid therapy"
+        ],
+        [
+          "C0035579",
+          "rickets"
+        ],
+        [
+          "C0003175",
+          "anthrax"
+        ],
+        [
+          "C0035920",
+          "Rubella"
+        ],
+        [
+          "C0021832",
+          "parasitic infection intestinal"
+        ],
+        [
+          "C0041466",
+          "Typhoid"
+        ],
+        [
+          "C0155118",
+          "corneal degeneration"
+        ],
+        [
+          "C0002694",
+          "traumatic amputation"
+        ],
+        [
+          "C0025362",
+          "mental retardation"
+        ],
+        [
+          "C0429468",
+          "anovulatory"
+        ],
+        [
+          "C0020545",
+          "renovascular hypertension"
+        ],
+        [
+          "C0027086",
+          "myoma"
+        ],
+        [
+          "C1260881",
+          "allergic bronchitis"
+        ],
+        [
+          "C0001206",
+          "Acromegaly"
+        ],
+        [
+          "C0266008",
+          "breast malformation"
+        ],
+        [
+          "C0039614",
+          "tetanus"
+        ],
+        [
+          "C0684275",
+          "Haemophilia"
+        ],
+        [
+          "C0008497",
+          "choriocarcinoma"
+        ],
+        [
+          "C0008533",
+          "hemophilia B"
+        ],
+        [
+          "C0014390",
+          "entropion"
+        ],
+        [
+          "C0032024",
+          "pityriasis"
+        ],
+        [
+          "C0027134",
+          "Myringitis"
+        ],
+        [
+          "C0549398",
+          "meibomianitis"
+        ],
+        [
+          "C0008513",
+          "chorioretinitis"
+        ],
+        [
+          "C0155707",
+          "trifascicular block"
+        ],
+        [
+          "C0156273",
+          "bladder diverticulum"
+        ],
+        [
+          "C0035460",
+          "Vasomotor Rhinitis"
+        ]
+      ],
+      "classes_without_cid_mapping": [
+        "A10A",
+        "B03X",
+        "C07C",
+        "C09D"
+      ],
+      "rate_scope": "Only pairs with both ATC3 nodes linked to source CIDs; absent edges are not clinical negatives"
+    },
+    "splits": {
+      "train": {
+        "source_examples": 1433,
+        "mapped": 7192,
+        "outside_train_med_vocabulary": 0,
+        "retained_examples": 1433,
+        "patients": 534,
+        "empty_current_procedures": 809,
+        "empty_history_procedures": 1220
+      },
+      "validation": {
+        "source_examples": 355,
+        "mapped": 1648,
+        "outside_train_med_vocabulary": 12,
+        "retained_examples": 354,
+        "unknown_diagnosis_codes": 16,
+        "excluded_no_mapped_medication_history": 1,
+        "patients": 133,
+        "empty_current_procedures": 202,
+        "empty_history_procedures": 306
+      },
+      "test": {
+        "source_examples": 351,
+        "mapped": 1656,
+        "outside_train_med_vocabulary": 1,
+        "retained_examples": 351,
+        "unknown_diagnosis_codes": 5,
+        "unknown_procedure_codes": 6,
+        "patients": 135,
+        "empty_current_procedures": 212,
+        "empty_history_procedures": 312
+      }
+    }
+  },
+  "mapping_decisions": {
+    "1014676": {
+      "source": "ATCPROD",
+      "classes": [
+        "R06A"
+      ],
+      "legacy_classes": [
+        "R06A"
+      ]
+    },
+    "1043400": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02B"
+      ],
+      "legacy_classes": [
+        "N02B",
+        "R05D",
+        "R06A"
+      ]
+    },
+    "1049221": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02A"
+      ],
+      "legacy_classes": [
+        "N02A",
+        "N02B"
+      ]
+    },
+    "1049630": {
+      "source": "ATCPROD",
+      "classes": [
+        "R06A"
+      ],
+      "legacy_classes": [
+        "D04A",
+        "R06A"
+      ]
+    },
+    "105078": {
+      "source": "project ingredient/dose-form crosswalk",
+      "classes": [
+        "J01C"
+      ],
+      "legacy_classes": [],
+      "evidence": {
+        "atc5": "J01CE01",
+        "reason": "Penicillin G injectable solution; exclude ophthalmic penicillin class.",
+        "rxnorm_history": {
+          "rxcuiStatusHistory": {
+            "metaData": {
+              "status": "Obsolete",
+              "source": "RXNORM",
+              "releaseStartDate": "042005",
+              "releaseEndDate": "",
+              "isCurrent": "NO",
+              "activeStartDate": "042005",
+              "activeEndDate": "022026",
+              "remappedDate": ""
+            },
+            "attributes": {
+              "rxcui": "105078",
+              "name": "penicillin G 375 MG/ML Injectable Solution",
+              "tty": "SCD",
+              "isMultipleIngredient": "NO",
+              "isBranded": "NO"
+            },
+            "definitionalFeatures": {
+              "ingredientAndStrength": [
+                {
+                  "baseRxcui": "7980",
+                  "baseName": "penicillin G",
+                  "bossRxcui": "7980",
+                  "bossName": "penicillin G",
+                  "activeIngredientRxcui": "203133",
+                  "activeIngredientName": "penicillin G potassium",
+                  "moietyRxcui": "7980",
+                  "moietyName": "penicillin G",
+                  "numeratorValue": "375",
+                  "numeratorUnit": "MG",
+                  "denominatorValue": "1",
+                  "denominatorUnit": "ML"
+                }
+              ],
+              "doseFormConcept": [
+                {
+                  "doseFormRxcui": "316949",
+                  "doseFormName": "Injectable Solution"
+                }
+              ],
+              "doseFormGroupConcept": [
+                {
+                  "doseFormGroupRxcui": "1151126",
+                  "doseFormGroupName": "Injectable Product"
+                }
+              ]
+            },
+            "pack": {},
+            "derivedConcepts": {
+              "ingredientConcept": [
+                {
+                  "ingredientRxcui": "7980",
+                  "ingredientName": "penicillin G"
+                }
+              ]
+            }
+          }
+        },
+        "rxnorm_url": "https://rxnav.nlm.nih.gov/REST/rxcui/105078/historystatus.json",
+        "who_url": "https://atcddd.fhi.no/atc_ddd_index/?code=J01CE01",
+        "checked_on": "2026-11-07",
+        "review_scope": "Project terminology crosswalk based on public ingredient/dose-form sources; not an official RxNorm-to-ATC assignment or clinical review."
+      }
+    },
+    "105585": {
+      "source": "ATCPROD",
+      "classes": [
+        "L01B"
+      ],
+      "legacy_classes": [
+        "L01B",
+        "L04A"
+      ]
+    },
+    "106892": {
+      "source": "ATCPROD",
+      "classes": [
+        "A10A"
+      ],
+      "legacy_classes": [
+        "A10A"
+      ]
+    },
+    "1091392": {
+      "source": "ATCPROD",
+      "classes": [
+        "N06B"
+      ],
+      "legacy_classes": [
+        "N06B"
+      ]
+    },
+    "1094107": {
+      "source": "ATCPROD",
+      "classes": [
+        "G04B"
+      ],
+      "legacy_classes": [
+        "G04B"
+      ]
+    },
+    "1190795": {
+      "source": "ATCPROD",
+      "classes": [
+        "A03B"
+      ],
+      "legacy_classes": [
+        "A03B",
+        "S01F"
+      ]
+    },
+    "1650142": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01A"
+      ],
+      "legacy_classes": [
+        "A01A",
+        "J01A"
+      ]
+    },
+    "1652673": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01A"
+      ],
+      "legacy_classes": [
+        "A01A",
+        "J01A"
+      ]
+    },
+    "1660014": {
+      "source": "ATCPROD",
+      "classes": [
+        "C01C"
+      ],
+      "legacy_classes": [
+        "A01A",
+        "B02B",
+        "C01C",
+        "R01A",
+        "R03A",
+        "S01E"
+      ]
+    },
+    "1804799": {
+      "source": "ATCPROD",
+      "classes": [
+        "B01A"
+      ],
+      "legacy_classes": []
+    },
+    "1860154": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02A"
+      ],
+      "legacy_classes": []
+    },
+    "1860480": {
+      "source": "ATCPROD",
+      "classes": [
+        "L01C"
+      ],
+      "legacy_classes": [
+        "L01C"
+      ]
+    },
+    "197319": {
+      "source": "ATCPROD",
+      "classes": [
+        "M04A"
+      ],
+      "legacy_classes": [
+        "M04A"
+      ]
+    },
+    "197361": {
+      "source": "ATCPROD",
+      "classes": [
+        "C08C"
+      ],
+      "legacy_classes": [
+        "C08C"
+      ]
+    },
+    "197378": {
+      "source": "ATCPROD",
+      "classes": [
+        "R06A"
+      ],
+      "legacy_classes": []
+    },
+    "197591": {
+      "source": "ATCPROD",
+      "classes": [
+        "N05B"
+      ],
+      "legacy_classes": [
+        "N05B"
+      ]
+    },
+    "197604": {
+      "source": "ATCPROD",
+      "classes": [
+        "C01A"
+      ],
+      "legacy_classes": [
+        "C01A"
+      ]
+    },
+    "198014": {
+      "source": "ATCPROD",
+      "classes": [
+        "M01A"
+      ],
+      "legacy_classes": [
+        "G02C",
+        "M01A",
+        "M02A"
+      ]
+    },
+    "198031": {
+      "source": "ATCPROD",
+      "classes": [
+        "N07B"
+      ],
+      "legacy_classes": [
+        "N07B"
+      ]
+    },
+    "198405": {
+      "source": "ATCPROD",
+      "classes": [
+        "M01A"
+      ],
+      "legacy_classes": [
+        "C01E",
+        "G02C",
+        "M01A",
+        "M02A",
+        "R02A"
+      ]
+    },
+    "204892": {
+      "source": "ATCPROD",
+      "classes": [
+        "N03A"
+      ],
+      "legacy_classes": []
+    },
+    "205923": {
+      "source": "ATCPROD",
+      "classes": [
+        "B03X"
+      ],
+      "legacy_classes": []
+    },
+    "2123111": {
+      "source": "ATCPROD",
+      "classes": [
+        "R03A"
+      ],
+      "legacy_classes": []
+    },
+    "243670": {
+      "source": "ATCPROD",
+      "classes": [
+        "B01A"
+      ],
+      "legacy_classes": [
+        "A01A",
+        "B01A",
+        "N02B"
+      ]
+    },
+    "259255": {
+      "source": "ATCPROD",
+      "classes": [
+        "C10A"
+      ],
+      "legacy_classes": [
+        "C10A"
+      ]
+    },
+    "308182": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01C"
+      ],
+      "legacy_classes": [
+        "J01C"
+      ]
+    },
+    "308192": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01C"
+      ],
+      "legacy_classes": [
+        "J01C"
+      ]
+    },
+    "308971": {
+      "source": "ATCPROD",
+      "classes": [
+        "N03A"
+      ],
+      "legacy_classes": [
+        "N03A"
+      ]
+    },
+    "309043": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01D"
+      ],
+      "legacy_classes": [
+        "J01D"
+      ]
+    },
+    "309045": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01D"
+      ],
+      "legacy_classes": [
+        "J01D"
+      ]
+    },
+    "309097": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01D"
+      ],
+      "legacy_classes": [
+        "J01D",
+        "S01A"
+      ]
+    },
+    "309362": {
+      "source": "ATCPROD",
+      "classes": [
+        "B01A"
+      ],
+      "legacy_classes": [
+        "B01A"
+      ]
+    },
+    "310325": {
+      "source": "ATCPROD",
+      "classes": [
+        "B03A"
+      ],
+      "legacy_classes": [
+        "B03A"
+      ]
+    },
+    "310385": {
+      "source": "ATCPROD",
+      "classes": [
+        "N06A"
+      ],
+      "legacy_classes": [
+        "N06A"
+      ]
+    },
+    "310436": {
+      "source": "ATCPROD",
+      "classes": [
+        "N06D"
+      ],
+      "legacy_classes": [
+        "N06D"
+      ]
+    },
+    "310798": {
+      "source": "ATCPROD",
+      "classes": [
+        "C03A"
+      ],
+      "legacy_classes": [
+        "C03A"
+      ]
+    },
+    "310965": {
+      "source": "ATCPROD",
+      "classes": [
+        "M01A"
+      ],
+      "legacy_classes": [
+        "C01E",
+        "G02C",
+        "M01A",
+        "M02A",
+        "R02A"
+      ]
+    },
+    "311989": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01X"
+      ],
+      "legacy_classes": [
+        "J01X"
+      ]
+    },
+    "312617": {
+      "source": "ATCPROD",
+      "classes": [
+        "H02A"
+      ],
+      "legacy_classes": [
+        "A07E",
+        "H02A"
+      ]
+    },
+    "312961": {
+      "source": "ATCPROD",
+      "classes": [
+        "C10A"
+      ],
+      "legacy_classes": [
+        "C10A"
+      ]
+    },
+    "313185": {
+      "source": "ATCPROD",
+      "classes": [
+        "N06D"
+      ],
+      "legacy_classes": []
+    },
+    "313782": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02B"
+      ],
+      "legacy_classes": [
+        "N02B"
+      ]
+    },
+    "313820": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02B"
+      ],
+      "legacy_classes": [
+        "N02B"
+      ]
+    },
+    "314231": {
+      "source": "ATCPROD",
+      "classes": [
+        "C10A"
+      ],
+      "legacy_classes": [
+        "C10A"
+      ]
+    },
+    "429503": {
+      "source": "ATCPROD",
+      "classes": [
+        "C03A"
+      ],
+      "legacy_classes": [
+        "C03A"
+      ]
+    },
+    "477045": {
+      "source": "ATCPROD",
+      "classes": [
+        "R06A"
+      ],
+      "legacy_classes": []
+    },
+    "562251": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01C"
+      ],
+      "legacy_classes": [
+        "J01C"
+      ]
+    },
+    "608139": {
+      "source": "ATCPROD",
+      "classes": [
+        "N06B"
+      ],
+      "legacy_classes": [
+        "N06B"
+      ]
+    },
+    "665078": {
+      "source": "ATCPROD",
+      "classes": [
+        "R06A"
+      ],
+      "legacy_classes": []
+    },
+    "705129": {
+      "source": "ATCPROD",
+      "classes": [
+        "C01D"
+      ],
+      "legacy_classes": [
+        "C01D",
+        "C05A"
+      ]
+    },
+    "746030": {
+      "source": "ATCPROD",
+      "classes": [
+        "C07C"
+      ],
+      "legacy_classes": [
+        "C03B",
+        "C07A"
+      ]
+    },
+    "752899": {
+      "source": "ATCPROD",
+      "classes": [
+        "L02A"
+      ],
+      "legacy_classes": []
+    },
+    "757594": {
+      "source": "ATCPROD",
+      "classes": [
+        "G03A"
+      ],
+      "legacy_classes": [
+        "G03A",
+        "G03D"
+      ]
+    },
+    "789980": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01C"
+      ],
+      "legacy_classes": [
+        "J01C",
+        "S01A"
+      ]
+    },
+    "831533": {
+      "source": "ATCPROD",
+      "classes": [
+        "G03A"
+      ],
+      "legacy_classes": [
+        "G03A",
+        "G03D"
+      ]
+    },
+    "833036": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02A"
+      ],
+      "legacy_classes": [
+        "N02B",
+        "R05D"
+      ]
+    },
+    "834061": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01C"
+      ],
+      "legacy_classes": [
+        "J01C"
+      ]
+    },
+    "834102": {
+      "source": "ATCPROD",
+      "classes": [
+        "J01C"
+      ],
+      "legacy_classes": [
+        "J01C"
+      ]
+    },
+    "834357": {
+      "source": "ATCPROD",
+      "classes": [
+        "C01B"
+      ],
+      "legacy_classes": [
+        "C01B"
+      ]
+    },
+    "849574": {
+      "source": "ATCPROD",
+      "classes": [
+        "M01A"
+      ],
+      "legacy_classes": [
+        "G02C",
+        "M01A",
+        "M02A"
+      ]
+    },
+    "855332": {
+      "source": "ATCPROD",
+      "classes": [
+        "B01A"
+      ],
+      "legacy_classes": [
+        "B01A"
+      ]
+    },
+    "856987": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02A"
+      ],
+      "legacy_classes": [
+        "N02B",
+        "R05D"
+      ]
+    },
+    "857005": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02A"
+      ],
+      "legacy_classes": [
+        "N02B",
+        "R05D"
+      ]
+    },
+    "860975": {
+      "source": "ATCPROD",
+      "classes": [
+        "A10B"
+      ],
+      "legacy_classes": [
+        "A10B"
+      ]
+    },
+    "861467": {
+      "source": "ATCPROD",
+      "classes": [
+        "N02A"
+      ],
+      "legacy_classes": [
+        "N02A"
+      ]
+    },
+    "895994": {
+      "source": "project ingredient/dose-form crosswalk",
+      "classes": [
+        "R03B"
+      ],
+      "legacy_classes": [],
+      "evidence": {
+        "atc5": "R03BA05",
+        "reason": "Single-ingredient fluticasone metered-dose inhaler; exclude dermatological and nasal classes.",
+        "rxnorm_history": {
+          "rxcuiStatusHistory": {
+            "metaData": {
+              "status": "Active",
+              "source": "RXNORM",
+              "releaseStartDate": "022010",
+              "releaseEndDate": "",
+              "isCurrent": "YES",
+              "activeStartDate": "022010",
+              "activeEndDate": "",
+              "remappedDate": ""
+            },
+            "attributes": {
+              "rxcui": "895994",
+              "name": "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler",
+              "tty": "SCD",
+              "isMultipleIngredient": "NO",
+              "isBranded": "NO"
+            },
+            "definitionalFeatures": {
+              "ingredientAndStrength": [
+                {
+                  "baseRxcui": "41126",
+                  "baseName": "fluticasone",
+                  "bossRxcui": "50121",
+                  "bossName": "fluticasone propionate",
+                  "activeIngredientRxcui": "50121",
+                  "activeIngredientName": "fluticasone propionate",
+                  "moietyRxcui": "41126",
+                  "moietyName": "fluticasone",
+                  "numeratorValue": "0.044",
+                  "numeratorUnit": "MG",
+                  "denominatorValue": "1",
+                  "denominatorUnit": "ACTUAT"
+                }
+              ],
+              "quantityFactor": {
+                "quantityFactorValue": "120",
+                "quantityFactorUnit": "ACTUAT"
+              },
+              "doseFormConcept": [
+                {
+                  "doseFormRxcui": "721654",
+                  "doseFormName": "Metered Dose Inhaler"
+                }
+              ],
+              "doseFormGroupConcept": [
+                {
+                  "doseFormGroupRxcui": "1151123",
+                  "doseFormGroupName": "Inhalant Product"
+                }
+              ]
+            },
+            "pack": {},
+            "derivedConcepts": {
+              "ingredientConcept": [
+                {
+                  "ingredientRxcui": "41126",
+                  "ingredientName": "fluticasone"
+                }
+              ]
+            }
+          }
+        },
+        "rxnorm_url": "https://rxnav.nlm.nih.gov/REST/rxcui/895994/historystatus.json",
+        "who_url": "https://atcddd.fhi.no/atc_ddd_index/?code=R03BA05",
+        "checked_on": "2026-11-07",
+        "review_scope": "Project terminology crosswalk based on public ingredient/dose-form sources; not an official RxNorm-to-ATC assignment or clinical review."
+      }
+    },
+    "896209": {
+      "source": "project ingredient/dose-form crosswalk",
+      "classes": [
+        "R03A"
+      ],
+      "legacy_classes": [],
+      "evidence": {
+        "atc5": "R03AK06",
+        "reason": "Fluticasone/salmeterol dry-powder inhaler; classify the combination, not separate ingredient classes.",
+        "rxnorm_history": {
+          "rxcuiStatusHistory": {
+            "metaData": {
+              "status": "Active",
+              "source": "RXNORM",
+              "releaseStartDate": "022010",
+              "releaseEndDate": "",
+              "isCurrent": "YES",
+              "activeStartDate": "022010",
+              "activeEndDate": "",
+              "remappedDate": ""
+            },
+            "attributes": {
+              "rxcui": "896209",
+              "name": "60 ACTUAT fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler",
+              "tty": "SCD",
+              "isMultipleIngredient": "YES",
+              "isBranded": "NO"
+            },
+            "definitionalFeatures": {
+              "ingredientAndStrength": [
+                {
+                  "baseRxcui": "36117",
+                  "baseName": "salmeterol",
+                  "bossRxcui": "36117",
+                  "bossName": "salmeterol",
+                  "activeIngredientRxcui": "72616",
+                  "activeIngredientName": "salmeterol xinafoate",
+                  "moietyRxcui": "36117",
+                  "moietyName": "salmeterol",
+                  "numeratorValue": "50",
+                  "numeratorUnit": "MCG",
+                  "denominatorValue": "1",
+                  "denominatorUnit": "ACTUAT"
+                },
+                {
+                  "baseRxcui": "41126",
+                  "baseName": "fluticasone",
+                  "bossRxcui": "50121",
+                  "bossName": "fluticasone propionate",
+                  "activeIngredientRxcui": "50121",
+                  "activeIngredientName": "fluticasone propionate",
+                  "moietyRxcui": "41126",
+                  "moietyName": "fluticasone",
+                  "numeratorValue": "0.25",
+                  "numeratorUnit": "MG",
+                  "denominatorValue": "1",
+                  "denominatorUnit": "ACTUAT"
+                }
+              ],
+              "quantityFactor": {
+                "quantityFactorValue": "60",
+                "quantityFactorUnit": "ACTUAT"
+              },
+              "doseFormConcept": [
+                {
+                  "doseFormRxcui": "744995",
+                  "doseFormName": "Dry Powder Inhaler"
+                }
+              ],
+              "doseFormGroupConcept": [
+                {
+                  "doseFormGroupRxcui": "1151123",
+                  "doseFormGroupName": "Inhalant Product"
+                }
+              ]
+            },
+            "pack": {},
+            "derivedConcepts": {
+              "ingredientConcept": [
+                {
+                  "ingredientRxcui": "36117",
+                  "ingredientName": "salmeterol"
+                },
+                {
+                  "ingredientRxcui": "41126",
+                  "ingredientName": "fluticasone"
+                }
+              ]
+            }
+          }
+        },
+        "rxnorm_url": "https://rxnav.nlm.nih.gov/REST/rxcui/896209/historystatus.json",
+        "who_url": "https://atcddd.fhi.no/atc_ddd_index/?code=R03AK06",
+        "checked_on": "2026-11-07",
+        "review_scope": "Project terminology crosswalk based on public ingredient/dose-form sources; not an official RxNorm-to-ATC assignment or clinical review."
+      }
+    },
+    "897718": {
+      "source": "ATC",
+      "classes": [
+        "C08D"
+      ],
+      "legacy_classes": []
+    },
+    "904419": {
+      "source": "ATCPROD",
+      "classes": [
+        "M05B"
+      ],
+      "legacy_classes": [
+        "M05B"
+      ]
+    },
+    "966222": {
+      "source": "ATCPROD",
+      "classes": [
+        "H03A"
+      ],
+      "legacy_classes": [
+        "H03A"
+      ]
+    },
+    "997223": {
+      "source": "ATCPROD",
+      "classes": [
+        "N06D"
+      ],
+      "legacy_classes": [
+        "N06D"
+      ]
+    },
+    "997488": {
+      "source": "ATCPROD",
+      "classes": [
+        "R06A"
+      ],
+      "legacy_classes": [
+        "R06A"
+      ]
+    },
+    "999967": {
+      "source": "ATCPROD",
+      "classes": [
+        "C09D"
+      ],
+      "legacy_classes": [
+        "C03A",
+        "C08C",
+        "C09C"
+      ]
+    }
+  },
+  "checks": {
+    "unittest_count": 6,
+    "real_new_data_empty_procedure_step": true,
+    "finite_gradients": true,
+    "parameters_updated": true,
+    "ddi_edges_within_mapping_mask": true,
+    "new_full_training": "not run"
+  }
+}
