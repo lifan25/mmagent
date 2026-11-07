@@ -1,0 +1,35 @@
+# Python and local tools
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.idea/
+.vscode/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local data, weights, outputs, and unreviewed upstream files
+data/*
+!data/README.md
+models/*
+!models/README.md
+outputs/*
+!outputs/README.md
+third_party/
+
+# Common artifacts should be stored outside Git
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.ckpt
+*.log
+*.zip
+

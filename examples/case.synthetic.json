@@ -1,0 +1,40 @@
+{
+  "contract_version": "0.1-draft",
+  "data_kind": "synthetic",
+  "case_id": "synth-001",
+  "diagnoses": [
+    {
+      "system": "toy-diagnosis",
+      "code": "D001"
+    }
+  ],
+  "procedures": [
+    {
+      "system": "toy-procedure",
+      "code": "P001"
+    }
+  ],
+  "history": [
+    {
+      "visit_index": 1,
+      "diagnoses": [
+        {
+          "system": "toy-diagnosis",
+          "code": "D001"
+        }
+      ],
+      "procedures": [],
+      "medications": [
+        {
+          "system": "toy-medication",
+          "code": "M001"
+        }
+      ]
+    }
+  ],
+  "context": {
+    "allergies": null,
+    "renal_status": null
+  }
+}
+

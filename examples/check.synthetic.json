@@ -1,0 +1,19 @@
+{
+  "contract_version": "0.1-draft",
+  "data_kind": "synthetic",
+  "case_id": "synth-001",
+  "execution": "synthetic_fixture",
+  "status": "not_checked",
+  "applied_rules": [],
+  "findings": [],
+  "missing_fields": [],
+  "unchecked_reasons": [
+    "No reviewed rules are loaded; this is a hand-written interface fixture."
+  ],
+  "coverage": {
+    "checked_rule_count": 0,
+    "pending_rule_count": 0,
+    "scope": "No actual medical checks were performed."
+  }
+}
+

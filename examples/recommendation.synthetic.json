@@ -1,0 +1,26 @@
+{
+  "contract_version": "0.1-draft",
+  "data_kind": "synthetic",
+  "case_id": "synth-001",
+  "status": "ok",
+  "input_issues": [],
+  "model_version": null,
+  "execution": "synthetic_fixture",
+  "candidates": [
+    {
+      "drug": {
+        "system": "toy-medication",
+        "code": "M001"
+      },
+      "score": 0.8
+    },
+    {
+      "drug": {
+        "system": "toy-medication",
+        "code": "M002"
+      },
+      "score": 0.6
+    }
+  ]
+}
+
