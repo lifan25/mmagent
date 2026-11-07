@@ -45,4 +45,3 @@ if __name__ == "__main__":
                                   "base_url": BASE, "versions": versions, "drugs": drugs}, indent=2),
                       encoding="utf-8")
     print(f"Saved {len(drugs)} standard drug identifiers to {OUTPUT}")
-
