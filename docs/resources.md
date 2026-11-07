@@ -8,13 +8,24 @@
 |---|---|---|---|
 | BIBM 2023 | DOI: 10.1109/BIBM58861.2023.10385557；用户已提供本地 PDF | 全文可读；独立完整作者实现尚未取得 | C |
 | SSPNet | [正式论文](https://www.ijcai.org/proceedings/2025/1052.pdf)；[作者仓库](https://github.com/ResearchGroupHdZhang/SSPNet) | 公开代码可查看；当前会话未运行训练 | B |
-| Diaformer | [作者仓库](https://github.com/jymChen/Diaformer) | 有代码与数据下载入口；下载可用性待 C 实测 | C |
+| Diaformer | [作者仓库](https://github.com/jymChen/Diaformer) | 已作为 third_party/Diaformer 子模块取得；上游自带 DXY/Muzhi/Synthetic 目录与部分文件；划分与完整性待 C 核对 | C |
+| MIMIC-III Demo | [官方公开 Demo](https://physionet.org/content/mimiciii-demo/1.4/) | 已提供五张表、下载检查程序与许可说明，见 ../data/public/mimiciii-demo-1.4/README.md；不是完整复现数据 | A/B |
 | MIMIC-III | [v1.4](https://physionet.org/content/mimiciii/1.4/) | 受控访问；成员申请情况未确认 | A 汇总 |
 | MIMIC-IV | [官方数据页](https://physionet.org/content/mimiciv/) | 后续扩展；复现所需具体版本待核对 | A/B |
 | GPU | 老师/学院/实验室资源待询问 | 用户说明目前没有可用算力 | A |
 | 大模型调用 | 服务、模型版本、账号与预算待确认 | 尚未确认；未执行任何付费调用 | C/A |
 
 BIBM 的本地 PDF 不随此仓库分发。文献资料、上游代码和数据各自遵循原有许可；仓库可访问不等于允许重新发布所有文件。
+
+本次明确加入的公开 Demo 例外保留原始 ODbL 许可证和来源。完整 MIMIC 尚未取得。上游代码固定提交可用 git submodule status 查看。
+
+## 已取得的诊断数据文件
+
+- third_party/Diaformer/data/dxy_dataset：dxy_dialog_data_dialog_v2.pickle、goal_set.p、vocab.txt、preprocess.py 等。
+- third_party/Diaformer/data/muzhi_dataset：acl2018-mds.p、goal_set.p、vocab.txt、preprocess.py。
+- third_party/Diaformer/data/synthetic_dataset：goal_set.p、vocab.txt、preprocess.py。
+
+这些是上游公开仓库自带文件，本次没有反序列化、运行预处理或训练。C 应核对其是否符合 BIBM 的版本、样本数及划分；文件存在不等于复现完成。
 
 ## 已知待核查点
 

@@ -1,0 +1,6 @@
+[submodule "third_party/SSPNet"]
+	path = third_party/SSPNet
+	url = https://github.com/ResearchGroupHdZhang/SSPNet.git
+[submodule "third_party/Diaformer"]
+	path = third_party/Diaformer
+	url = https://github.com/jymChen/Diaformer.git

@@ -1,61 +1,45 @@
-# GitHub 建仓与日常使用
+# 获取代码与日常同步
 
-A 负责首次建仓，B/C 按 CONTRIBUTING.md 协作。本地骨架不包含任何远程账号或远程仓库地址。
+用户已确认仓库创建、上传并邀请成员。仓库地址：https://github.com/lifan25/mmagent
 
-## 首次上传
-
-1. 在 GitHub 新建名为 medical-medication-agent 的仓库，建议先设为 Private。
-2. 先不要在 GitHub 自动生成 README、.gitignore 或 LICENSE，避免与本地内容冲突。
-3. 邀请 B/C 为协作者，并确认他们能访问。
-4. 在本地项目根目录打开终端，依次执行下列命令。
-
-本地目录已初始化 Git 时直接使用以下命令；若复制来的文件夹没有 .git，先执行 git init -b main。
+## 首次取得项目
 
 ```powershell
-git status
-git add .
-git diff --cached --stat
-git diff --cached
-git commit -m "docs: add phase one project framework"
-git remote add origin YOUR_GITHUB_REPOSITORY_URL
-git push -u origin main
+git clone --recurse-submodules https://github.com/lifan25/mmagent.git
+Set-Location mmagent
+python scripts/fetch_public_demo.py --check-only
 ```
 
-先将 YOUR_GITHUB_REPOSITORY_URL 替换为真实仓库 URL。不要将访问令牌写进远程地址或文档。未配置 Git 用户信息时使用自己的 GitHub 身份完成设置，不使用其他成员身份。
+## 已经有本地项目
 
-检查暂存内容没有真实病例、数据或密钥后再提交。第一次上传由 A 执行；其余修改走 PR。
-
-## 日常修改
-
-B/C 首次用 GitHub 页面上的真实地址 clone。进入项目根目录，按任务建立分支：
+在自己的项目根目录执行：
 
 ```powershell
-git switch main
 git pull --ff-only
-git switch -c docs/b-sspnet-preparation
+git submodule update --init --recursive
+python scripts/fetch_public_demo.py --check-only
 ```
 
-修改与任务相关的文件，然后：
+SSPNet、Diaformer 分别位于 third_party，版本由主仓库固定。BIBM 的完整实现仍待取得。
+
+## 日常记录与同步
+
+每个人直接更新自己模块的 TASKS.md。以 B 为例：
 
 ```powershell
-git add docs/report-B.md
+git add src/recommendation/TASKS.md
 git diff --cached
-git commit -m "docs: document SSPNet reproduction prerequisites"
-git push -u origin docs/b-sspnet-preparation
+git commit -m "docs: update recommendation progress"
+git push origin main
 ```
 
-随后在 GitHub 创建 Pull Request，选择一位其他成员评审。评审者确认任务验收条件，合并后更新对应 Issue。
+A/C 使用各自路径。不要求 Issue 或固定 PR 流程。跨模块接口或实验设置先在组内确认并记录。
 
-## 首批建议任务
+git pull 提示本地有未提交修改时，先保存并提交自己的修改再同步。冲突先核对双方内容，不强制推送覆盖同伴成果。
 
-| Issue 标题 | 负责人 | 交付 |
-|---|---|---|
-| [P1-A] 建仓、认领角色和第一次协作合并 | A | 仓库、成员和 PR 记录 |
-| [P1-A] 核实数据权限与计算资源 | A | resources.md |
-| [P1-B] SSPNet 代码、数据依赖与启动检查 | B | report-B.md |
-| [P1-C] BIBM/Diaformer 材料与规则样例 | C | report-C.md |
-| [P1-ABC] 评审接口与实验协议 | A 汇总，B/C 确认 | protocol.md、走查记录 |
-| [P1-ABC] 第一阶段验收 | A 汇总 | phase1.md 检查表、三份报告结论 |
+## 数据范围
 
-代码尚未开始时，这些文档任务就是实际工作。不要用“目录已建好”替代资源与复现依赖的核查。
+仓库包含官方公开 MIMIC-III Demo 五张原始表及许可证，可用于格式检查与流程准备。重新下载运行 python scripts/fetch_public_demo.py。
+
+Demo 只有 100 名患者，不是 SSPNet 原论文的完整训练数据。完整 MIMIC 仍需成员各自取得访问权限。
 

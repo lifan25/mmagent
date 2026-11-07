@@ -18,11 +18,25 @@ venv/
 # Local data, weights, outputs, and unreviewed upstream files
 data/*
 !data/README.md
+!data/public/
+data/public/*
+!data/public/mimiciii-demo-1.4/
+data/public/mimiciii-demo-1.4/*
+!data/public/mimiciii-demo-1.4/README.md
+!data/public/mimiciii-demo-1.4/LICENSE.txt
+!data/public/mimiciii-demo-1.4/ADMISSIONS.csv
+!data/public/mimiciii-demo-1.4/PATIENTS.csv
+!data/public/mimiciii-demo-1.4/DIAGNOSES_ICD.csv
+!data/public/mimiciii-demo-1.4/PROCEDURES_ICD.csv
+!data/public/mimiciii-demo-1.4/PRESCRIPTIONS.csv
 models/*
 !models/README.md
 outputs/*
 !outputs/README.md
-third_party/
+third_party/*
+!third_party/README.md
+!third_party/SSPNet/
+!third_party/Diaformer/
 
 # Common artifacts should be stored outside Git
 *.pkl
