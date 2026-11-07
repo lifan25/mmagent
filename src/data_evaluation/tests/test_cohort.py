@@ -25,6 +25,21 @@ def visits(n=12):
 
 
 class CohortTests(unittest.TestCase):
+    def test_empty_procedures_are_retained_and_marked_without_invented_codes(self):
+        data = visits()
+        for v in data:
+            v['procedures'] = []
+        selected, _, summary = select_and_split(data, 8, [4,1,1], 2, False)
+        self.assertEqual(len(selected), len(data))
+        self.assertEqual(summary['selected_empty_procedure_visits'], len(data))
+        examples = list(prediction_examples(selected))
+        self.assertEqual(examples[1]['case']['procedures'], [])
+        self.assertEqual(examples[1]['case']['context']['procedure_record_status'], 'not_recorded')
+        self.assertEqual(examples[1]['case']['history'][0]['procedures'], [])
+        self.assertEqual(examples[1]['target_medications'], selected[1]['medications'])
+        with self.assertRaises(ValueError):
+            select_and_split(data, 8, [4,1,1], 2, True)
+
     def test_export_preserves_all_linked_visits_separate_from_main_task(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

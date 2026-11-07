@@ -168,6 +168,8 @@ def select_and_split(visits, seed, ratios, min_visits, require_procedures):
     summary = {"small_sample_split_adjustment": adjusted,
                "exclusion_reason_counts_nonexclusive": dict(reasons), "eligible_visits_before_patient_filter": len(eligible),
                "eligible_patients_before_patient_filter": len(counts),
+               "eligible_empty_procedure_visits": sum(not v["procedures"] for v in eligible),
+               "selected_empty_procedure_visits": sum(not v["procedures"] for v in selected),
                "patients_with_at_least_two_visits": sum(n >= 2 for n in counts.values()),
                "patients_with_at_least_three_visits": sum(n >= 3 for n in counts.values()),
                "excluded_visits_by_record_filter": len(visits)-len(eligible),
@@ -202,6 +204,7 @@ def prediction_examples(visits):
                     "diagnoses": current["diagnoses"], "procedures": current["procedures"],
                     "history": history or None,
                     "context": {"allergies": None, "renal_status": None,
+                                "procedure_record_status": "recorded" if current["procedures"] else "not_recorded",
                                 "history_scope": "retained eligible encounters; medication starts before current admission",
                                 "task": "retrospective visit-set prediction; not admission-time prediction"}}
             yield {"patient_id": current["patient_id"], "split": current["split"], "case": case,
@@ -233,6 +236,9 @@ def prepare_dataset(root, config, name):
     summary["examples_without_observed_history"] = sum(e["case"]["history"] is None for e in examples)
     summary["main_prediction_examples"] = len(main_examples)
     summary["examples_without_usable_medication_history"] = len(examples) - len(main_examples)
+    summary["main_examples_empty_current_procedures"] = sum(not e["case"]["procedures"] for e in main_examples)
+    summary["main_examples_empty_history_procedures"] = sum(
+        any(not h["procedures"] for h in e["case"]["history"]) for e in main_examples)
     summary["main_prediction_counts"] = {
         name: {"examples": sum(e["split"] == name for e in main_examples),
                "patients": len({e["patient_id"] for e in main_examples if e["split"] == name})}
@@ -240,7 +246,7 @@ def prepare_dataset(root, config, name):
     }
     revision = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True)
     dirty = subprocess.run(["git", "status", "--porcelain"], cwd=root, capture_output=True, text=True)
-    manifest = {"schema_version": "a1-v2", "dataset": options["dataset"], "source": options["source"],
+    manifest = {"schema_version": "a1-v3", "dataset": options["dataset"], "source": options["source"],
                 "input_dir": options["input_dir"], "code_commit": revision.stdout.strip() or None,
                 "working_tree_dirty": bool(dirty.stdout.strip()), "configuration": config,
                 "rules": {"codes": "strings; trim; deduplicate by system/code; empty and 0 excluded from code sets but retained in audit records",
@@ -248,6 +254,7 @@ def prepare_dataset(root, config, name):
                           "times": "ISO parsed; UTC normalization for ordering; ties by encounter ID only for determinism",
                           "history": "completed retained encounters strictly before current start; no-history is unknown, not confirmed absent",
                           "cohorts": "visits.jsonl preserves all linked encounters; main_visits.jsonl applies configured eligibility/min_visits; main_prediction_examples requires observed prior medication history",
+                          "procedures": "empty source procedure sets allowed by default; no invented codes; not_recorded does not assert no procedure occurred",
                           "split": "sorted eligible patient IDs shuffled with local seed; floor train/validation; remainder test; if any empty with >=3 patients, allocate one validation and one test patient, rest train",
                           "data_kind": "restricted is real-record processing mode for public Demo, not a license/access claim"},
                 **raw_summary, **summary}

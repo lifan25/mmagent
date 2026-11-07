@@ -68,7 +68,7 @@ manifest 是描述数据来源和版本的清单，字段建议见 [协议第 9 
 .venv\Scripts\python.exe -m unittest discover -s src/data_evaluation/tests -v
 ```
 
-其他电脑用自己的 Python 解释器。可单选 --dataset mimic 或 --dataset synthea；--config 可指定 JSON 配置，默认 configs/preparation.json。路径相对仓库根目录。全量层保留全部能关联的就诊；主任务候选默认 seed=8、4:1:1、三类编码均非空、每人至少两次有效就诊，源表不修改。操作非空仍是首版兼容条件，后续模型支持空操作时可单独评估放宽，不混同于保留全量层。
+其他电脑用自己的 Python 解释器。可单选 --dataset mimic 或 --dataset synthea；--config 可指定 JSON 配置，默认 configs/preparation.json。路径相对仓库根目录。v3 全量层保留全部能关联的就诊；主任务候选默认 seed=8、4:1:1、诊断与药物非空、每人至少两次有效就诊，允许空操作集合，源表不修改。空操作的实际模型路径核验见 [报告](reports/empty-procedures.md)。require_procedures=true 可恢复严格条件供对照，但应换用独立输出目录。
 
 输出目录已存在且非空时拒绝覆盖。重跑请复制配置并改为新版本输出目录，再用 --config 指定。相同源数据、规则和种子得到相同患者划分。
 
@@ -93,7 +93,9 @@ manifest 是描述数据来源和版本的清单，字段建议见 [协议第 9 
 
 真实 Demo 沿用 restricted 的真实病例处理模式，许可仍为官方公开 Demo 的 ODbL；该字段不表示 Demo 需要访问审批。所有病例、划分、预测样例均被 Git 忽略。
 
-v2 采用独立输出目录，保留 v1 结果供对照。10059 的两次住院均保留，并进入两次就诊主任务候选；其中第二次可形成一条有历史预测样本。单次患者保留于全量层，后续无历史对照需先检查模型支持并制定与当前患者归属兼容的划分，不自动混入本次主任务。
+v3 采用独立输出目录，保留 v1/v2 结果供对照。10059 的两次住院均保留，并进入两次就诊主任务候选；其中第二次可形成一条有历史预测样本。单次患者保留于全量层，后续无历史对照需先检查模型支持并制定与当前患者归属兼容的划分，不自动混入本次主任务。
+
+空操作保留为 procedures=[]，context.procedure_record_status 标为 not_recorded；有编码则为 recorded。不代表已确认患者未接受操作，也不为模型虚构操作代码。历史同样保留空集合。A1 的11个标准库测试与模型核验是两套检查；后者需单独执行 probe_empty_procedures.py，使用已有 PyTorch/NumPy，不要求数据读取阶段安装模型依赖。
 
 B 应读取 main_visits.jsonl/split.json 生成模型词表与图，使用 main_prediction_examples.jsonl 做有历史任务。主任务候选的第一条或重叠就诊未必有可用历史，不能把所有候选就诊数当作有历史预测样本数。公开 SSPNet eval_one_epoch 仍有 len(input_seq)<3 的跳过条件，B 必须按新任务显式适配，记录与原公开评估方式的差异，不能直接照搬后悄悄漏评两次就诊患者。
 
