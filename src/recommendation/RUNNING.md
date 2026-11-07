@@ -41,7 +41,9 @@ uv pip check --python .venv/Scripts/python.exe
 .venv\Scripts\python.exe src/recommendation/train.py --config src/recommendation/configs/sspnet-synthea-product.json
 ```
 
-新版固定NLM公开映射快照，加3项有成分/剂型依据的项目交叉表，得到38类、训练1433条、验证354条、测试351条。准备流程和实际模型单步已验证；尚未完整训练。详见[映射复核](reports/mapping-coverage.md)。输出目录为data/processed/recommendation/synthea-v3-atc3-product-v4，运行目录为outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8，不覆盖旧版。旧24类权重不适用。
+新版固定NLM公开映射快照，加3项有成分/剂型依据的项目交叉表，得到38类、训练1433条、验证354条、测试351条。已完成20轮完整训练、验证选模、最佳权重保存重载与测试一次。测试Jaccard74.65%、F1 80.91%、AP89.44%，DDI率140/296=47.30%；实际耗时48.49分钟。完整结果与限制见[新版运行报告](reports/sspnet-synthea-product-v4.md)。详见[映射复核](reports/mapping-coverage.md)。输出目录为data/processed/recommendation/synthea-v3-atc3-product-v4，运行目录为outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8，不覆盖旧版。旧24类权重不适用。
+
+当前机器这些目录已存在，直接重复prepare/train会拒绝覆盖。查看已有运行请读取上述运行目录的results.json；若需另跑，先复制配置并修改prepared_dir（仅重建数据时）和run_dir，再用--config指定，不删除历史结果。上述两条命令适用于首次生成的新机器。
 
 快照已随代码提交，可离线重建映射。fetch_mapping.py查询标准药物编号，保留API响应与版本；已有快照时拒绝覆盖。刷新时应改用新快照文件名和配置版本，不静默更新。
 
@@ -70,7 +72,7 @@ uv pip check --python .venv/Scripts/python.exe
 
 默认 seed=8、隐藏维度64、Adam、lr=1e-4、20轮、阈值0.5、target_ddi=0.06、coef=2.5。当前小规模逐样本计算实测 CPU 更快，所以配置为 CPU；机器安装的 CUDA 包正常可用。选择设备依据吞吐，不依据测试分数。若改设备、轮数或映射，先复制配置，修改 run_dir，并用 --config 指定新文件。
 
-target_ddi 是损失权重切换阈值，不保证测试DDI率必定低于该数值。本轮测试6.41%，如实报告，不根据测试结果反复修改超参数。
+target_ddi 是损失权重切换阈值，不保证测试DDI率必定低于该数值。旧24类测试6.41%；新38类CID映射范围内为47.30%，均如实报告，不根据测试结果反复修改超参数。
 
 每轮遍历全部映射后训练样本；BCE、多标签 margin 与 DDI 动态加权沿用原训练公式。每步检查输出、损失和梯度有限性；不裁剪梯度（norm 上限为 infinity）。只用验证集逐就诊平均 Jaccard 选择 best.pt，固定阈值不在测试集调参；20轮后加载最佳权重到新模型，先用验证样例核对重载一致，再对整个固定测试集评价一次。
 
@@ -87,7 +89,7 @@ best.pt 保存 state_dict、配置、词表和最佳轮次，需要本适配模�
 5. 不使用有未定义 drug_data 的原 Train 入口；新循环按原损失组织，保留 A1 的患者划分和实际样本掩码。
 6. 取消原 eval 的患者少于三次即跳过逻辑，直接评价经过 A1 时间检查且有可用映射历史的样本，包括只有一次历史就诊的样本。
 7. 本次只跑20轮完成运行验证，原 main 默认200轮；没有复现原文数据、药物数量或完整实验表格。
-8. 主指标按就诊平均，另报告按患者先平均的结果；PRAUC 用各就诊全词表 average precision 的均值。DDI rate 为全部预测药物对的总体比例。没有沿用原 Test 的重复抽取80%测试患者。
+8. 主指标按就诊平均，另报告按患者先平均的结果；PRAUC 用各就诊全词表 average precision 的均值。旧24类DDI rate为全部预测药物对的总体比例；新38类只在CID映射对上计算，另报未映射对和映射比例。没有沿用原 Test 的重复抽取80%测试患者。
 
 ## 6. 检查
 

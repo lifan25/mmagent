@@ -1404,6 +1404,12 @@
     "finite_gradients": true,
     "parameters_updated": true,
     "ddi_edges_within_mapping_mask": true,
-    "new_full_training": "not run"
+    "new_full_training": "Completed subsequently; see followup_full_training (original mapping audit preceded this run)"
+  },
+  "followup_full_training": {
+    "status": "completed",
+    "epochs": 20,
+    "report": "sspnet-synthea-product-v4.md",
+    "results": "sspnet-synthea-product-v4-results.json"
   }
 }

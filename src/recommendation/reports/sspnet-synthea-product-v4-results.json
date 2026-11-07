@@ -1,0 +1,965 @@
+{
+  "config": {
+    "a1_dir": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "reference_dir": "data/reference/MoleRec",
+    "prepared_dir": "data/processed/recommendation/synthea-v3-atc3-product-v4",
+    "run_dir": "outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8",
+    "ddi_least_frequent_events": 40,
+    "seed": 8,
+    "dim": 64,
+    "epochs": 20,
+    "lr": 0.0001,
+    "target_ddi": 0.06,
+    "coef": 2.5,
+    "threshold": 0.5,
+    "initial_inter": 0.1,
+    "initial_garm": 0.1,
+    "device": "cpu",
+    "mapping_snapshot": "src/recommendation/resources/rxclass-synthea.json",
+    "reviewed_crosswalk": "src/recommendation/resources/dose-form-crosswalk.json"
+  },
+  "device": "cpu",
+  "torch": "2.7.1+cu128",
+  "gpu": null,
+  "epochs_completed": 20,
+  "best_epoch": 20,
+  "best_validation_jaccard": 0.7443032015065913,
+  "threshold": 0.5,
+  "test_evaluations": 1,
+  "test": {
+    "overall": {
+      "samples": 351,
+      "patients": 135,
+      "jaccard": 0.7465269298602633,
+      "f1": 0.8091397681141271,
+      "prauc_average_precision": 0.8943707218707219,
+      "average_medications": 1.6552706552706553,
+      "ddi_rate": 0.47297297297297297,
+      "ddi_pairs": 140,
+      "predicted_pairs": 296,
+      "total_predicted_pairs": 373,
+      "unmapped_predicted_pairs": 77,
+      "ddi_mapping_pair_coverage": 0.7935656836461126,
+      "ddi_rate_scope": "CID-mapped pairs",
+      "patient_macro": {
+        "jaccard": 0.7530906819517932,
+        "f1": 0.8135522769411659,
+        "prauc_average_precision": 0.8912387695295103
+      }
+    },
+    "empty_current_procedures": {
+      "samples": 212,
+      "patients": 107,
+      "jaccard": 0.7542452830188678,
+      "f1": 0.8074573225516621,
+      "prauc_average_precision": 0.8900372491764001,
+      "average_medications": 1.5754716981132075,
+      "ddi_rate": 0.4407894736842105,
+      "ddi_pairs": 67,
+      "predicted_pairs": 152,
+      "total_predicted_pairs": 191,
+      "unmapped_predicted_pairs": 39,
+      "ddi_mapping_pair_coverage": 0.7958115183246073,
+      "ddi_rate_scope": "CID-mapped pairs",
+      "patient_macro": {
+        "jaccard": 0.7592512238540277,
+        "f1": 0.8099147010829256,
+        "prauc_average_precision": 0.8823105189635565
+      }
+    },
+    "nonempty_current_procedures": {
+      "samples": 139,
+      "patients": 90,
+      "jaccard": 0.7347550531003768,
+      "f1": 0.8117058001950087,
+      "prauc_average_precision": 0.9009800471311262,
+      "average_medications": 1.776978417266187,
+      "ddi_rate": 0.5069444444444444,
+      "ddi_pairs": 73,
+      "predicted_pairs": 144,
+      "total_predicted_pairs": 182,
+      "unmapped_predicted_pairs": 38,
+      "ddi_mapping_pair_coverage": 0.7912087912087912,
+      "ddi_rate_scope": "CID-mapped pairs",
+      "patient_macro": {
+        "jaccard": 0.7397597001763668,
+        "f1": 0.8137159137159139,
+        "prauc_average_precision": 0.9035983111538668
+      }
+    },
+    "empty_history_procedures": {
+      "samples": 312,
+      "patients": 112,
+      "jaccard": 0.7497252747252747,
+      "f1": 0.8093207006668545,
+      "prauc_average_precision": 0.8957503954378954,
+      "average_medications": 1.6378205128205128,
+      "ddi_rate": 0.46153846153846156,
+      "ddi_pairs": 120,
+      "predicted_pairs": 260,
+      "total_predicted_pairs": 336,
+      "unmapped_predicted_pairs": 76,
+      "ddi_mapping_pair_coverage": 0.7738095238095238,
+      "ddi_rate_scope": "CID-mapped pairs",
+      "patient_macro": {
+        "jaccard": 0.764514066043084,
+        "f1": 0.8171785877812663,
+        "prauc_average_precision": 0.8919197470023363
+      }
+    },
+    "both_current_and_history_empty": {
+      "samples": 190,
+      "patients": 94,
+      "jaccard": 0.7541228070175439,
+      "f1": 0.8051629072681705,
+      "prauc_average_precision": 0.8924801587301586,
+      "average_medications": 1.5578947368421052,
+      "ddi_rate": 0.43283582089552236,
+      "ddi_pairs": 58,
+      "predicted_pairs": 134,
+      "total_predicted_pairs": 172,
+      "unmapped_predicted_pairs": 38,
+      "ddi_mapping_pair_coverage": 0.7790697674418605,
+      "ddi_rate_scope": "CID-mapped pairs",
+      "patient_macro": {
+        "jaccard": 0.7637221377912867,
+        "f1": 0.808980918608578,
+        "prauc_average_precision": 0.8825236758414949
+      }
+    }
+  },
+  "checks": {
+    "train_steps": 28660,
+    "empty_current_train_steps": 16180,
+    "empty_history_train_steps": 24400,
+    "empty_current_parameter_update_verified": true,
+    "parameters_changed": true,
+    "reload_equal": true
+  },
+  "seconds": 2909.212104500002,
+  "peak_gpu_memory_mb": null,
+  "parameters": 565699,
+  "verification": {
+    "saved_scores_recomputed": {
+      "jaccard": 0.7465269298602633,
+      "f1": 0.8091397681141271,
+      "prauc_average_precision": 0.8943707218707219,
+      "ddi_rate": 0.47297297297297297,
+      "ddi_pairs": 140,
+      "predicted_pairs": 296,
+      "total_predicted_pairs": 373,
+      "unmapped_predicted_pairs": 77
+    },
+    "all_recomputed_match": true,
+    "top_conflict_class_pairs": [
+      {
+        "classes": [
+          "M01A",
+          "N02B"
+        ],
+        "count": 87
+      },
+      {
+        "classes": [
+          "C01D",
+          "C10A"
+        ],
+        "count": 13
+      },
+      {
+        "classes": [
+          "B01A",
+          "C10A"
+        ],
+        "count": 12
+      },
+      {
+        "classes": [
+          "B01A",
+          "C01D"
+        ],
+        "count": 11
+      },
+      {
+        "classes": [
+          "A10B",
+          "B01A"
+        ],
+        "count": 6
+      },
+      {
+        "classes": [
+          "A10B",
+          "C10A"
+        ],
+        "count": 5
+      },
+      {
+        "classes": [
+          "R03A",
+          "R03B"
+        ],
+        "count": 4
+      },
+      {
+        "classes": [
+          "J01D",
+          "M01A"
+        ],
+        "count": 1
+      },
+      {
+        "classes": [
+          "B01A",
+          "M05B"
+        ],
+        "count": 1
+      }
+    ],
+    "reference_target_ddi": {
+      "mapped_pairs": 181,
+      "flagged_pairs": 49,
+      "rate": 0.27071823204419887
+    },
+    "notes": "Reference target rate uses fixed test labels and the same projected graph for descriptive context only; it is not a clinical safety estimate or used to retune training."
+  },
+  "dataset": {
+    "source_a1": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "mapping": {
+      "policy": "ATCPROD first, ATC ingredient fallback, legacy only if both absent; singleton ATC3 only",
+      "snapshot": "src/recommendation/resources/rxclass-synthea.json",
+      "retrieved_at": "2026-11-07T11:24:15.556023+00:00",
+      "versions": {
+        "ATCPROD": {
+          "relaSourceVersion": "1.2026.7"
+        },
+        "ATC": {
+          "relaSourceVersion": "2026_01_28"
+        }
+      },
+      "project_crosswalk": "src/recommendation/resources/dose-form-crosswalk.json"
+    },
+    "visit_medication_occurrence_coverage": {
+      "mapped": 4095
+    },
+    "vocabulary_sizes": {
+      "diagnoses": 96,
+      "procedures": 62,
+      "medications": 38
+    },
+    "ehr_edges": 172,
+    "ddi": {
+      "policy": "40 least frequent event groups; deterministic lexical tie break; then filter names",
+      "event_groups": 40,
+      "source_rows": 4649441,
+      "selected_source_rows": 476,
+      "undirected_edges": 75,
+      "selected_events": [
+        [
+          "C0034494",
+          "rabies"
+        ],
+        [
+          "C0011593",
+          "skin abrasion"
+        ],
+        [
+          "C0013336",
+          "dwarfism"
+        ],
+        [
+          "C0014935",
+          "estrogen replacement"
+        ],
+        [
+          "C0022735",
+          "hypogonadotropic hypogonadism"
+        ],
+        [
+          "C0162678",
+          "neurofibromatosis"
+        ],
+        [
+          "C0000817",
+          "septic abortion"
+        ],
+        [
+          "C0281985",
+          "splinter"
+        ],
+        [
+          "C0542519",
+          "renal agenesis"
+        ],
+        [
+          "C0036916",
+          "sexually transmitted diseases"
+        ],
+        [
+          "C0266011",
+          "supernumerary nipple"
+        ],
+        [
+          "C0025218",
+          "chloasma"
+        ],
+        [
+          "C0269199",
+          "cervical stenosis"
+        ],
+        [
+          "C0149783",
+          "corticosteroid therapy"
+        ],
+        [
+          "C0035579",
+          "rickets"
+        ],
+        [
+          "C0003175",
+          "anthrax"
+        ],
+        [
+          "C0035920",
+          "Rubella"
+        ],
+        [
+          "C0021832",
+          "parasitic infection intestinal"
+        ],
+        [
+          "C0041466",
+          "Typhoid"
+        ],
+        [
+          "C0155118",
+          "corneal degeneration"
+        ],
+        [
+          "C0002694",
+          "traumatic amputation"
+        ],
+        [
+          "C0025362",
+          "mental retardation"
+        ],
+        [
+          "C0429468",
+          "anovulatory"
+        ],
+        [
+          "C0020545",
+          "renovascular hypertension"
+        ],
+        [
+          "C0027086",
+          "myoma"
+        ],
+        [
+          "C1260881",
+          "allergic bronchitis"
+        ],
+        [
+          "C0001206",
+          "Acromegaly"
+        ],
+        [
+          "C0266008",
+          "breast malformation"
+        ],
+        [
+          "C0039614",
+          "tetanus"
+        ],
+        [
+          "C0684275",
+          "Haemophilia"
+        ],
+        [
+          "C0008497",
+          "choriocarcinoma"
+        ],
+        [
+          "C0008533",
+          "hemophilia B"
+        ],
+        [
+          "C0014390",
+          "entropion"
+        ],
+        [
+          "C0032024",
+          "pityriasis"
+        ],
+        [
+          "C0027134",
+          "Myringitis"
+        ],
+        [
+          "C0549398",
+          "meibomianitis"
+        ],
+        [
+          "C0008513",
+          "chorioretinitis"
+        ],
+        [
+          "C0155707",
+          "trifascicular block"
+        ],
+        [
+          "C0156273",
+          "bladder diverticulum"
+        ],
+        [
+          "C0035460",
+          "Vasomotor Rhinitis"
+        ]
+      ],
+      "classes_without_cid_mapping": [
+        "A10A",
+        "B03X",
+        "C07C",
+        "C09D"
+      ],
+      "rate_scope": "Only pairs with both ATC3 nodes linked to source CIDs; absent edges are not clinical negatives"
+    },
+    "splits": {
+      "train": {
+        "source_examples": 1433,
+        "mapped": 7192,
+        "outside_train_med_vocabulary": 0,
+        "retained_examples": 1433,
+        "patients": 534,
+        "empty_current_procedures": 809,
+        "empty_history_procedures": 1220
+      },
+      "validation": {
+        "source_examples": 355,
+        "mapped": 1648,
+        "outside_train_med_vocabulary": 12,
+        "retained_examples": 354,
+        "unknown_diagnosis_codes": 16,
+        "excluded_no_mapped_medication_history": 1,
+        "patients": 133,
+        "empty_current_procedures": 202,
+        "empty_history_procedures": 306
+      },
+      "test": {
+        "source_examples": 351,
+        "mapped": 1656,
+        "outside_train_med_vocabulary": 1,
+        "retained_examples": 351,
+        "unknown_diagnosis_codes": 5,
+        "unknown_procedure_codes": 6,
+        "patients": 135,
+        "empty_current_procedures": 212,
+        "empty_history_procedures": 312
+      }
+    }
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "loss": 0.19289693687438045,
+      "seconds": 77.47886260000087,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.4084274952919021,
+        "f1": 0.4516949152542372,
+        "prauc_average_precision": 0.6634576319931456,
+        "average_medications": 0.9293785310734464,
+        "ddi_rate": 0.7040816326530612,
+        "ddi_pairs": 69,
+        "predicted_pairs": 98,
+        "total_predicted_pairs": 98,
+        "unmapped_predicted_pairs": 0,
+        "ddi_mapping_pair_coverage": 1.0,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.4816744241556272,
+          "f1": 0.5266380236305048,
+          "prauc_average_precision": 0.7051949861141926
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "loss": 0.13884134436115497,
+      "seconds": 82.32883489999949,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.45362523540489635,
+        "f1": 0.4987758945386064,
+        "prauc_average_precision": 0.6761682517482057,
+        "average_medications": 0.9887005649717514,
+        "ddi_rate": 0.6521739130434783,
+        "ddi_pairs": 90,
+        "predicted_pairs": 138,
+        "total_predicted_pairs": 138,
+        "unmapped_predicted_pairs": 0,
+        "ddi_mapping_pair_coverage": 1.0,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.5115347893543383,
+          "f1": 0.5587946055615229,
+          "prauc_average_precision": 0.7115718975839792
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "loss": 0.12590729522761557,
+      "seconds": 78.16206490000332,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.5602165725047081,
+        "f1": 0.6158864675813828,
+        "prauc_average_precision": 0.735471448878104,
+        "average_medications": 1.3276836158192091,
+        "ddi_rate": 0.625,
+        "ddi_pairs": 105,
+        "predicted_pairs": 168,
+        "total_predicted_pairs": 168,
+        "unmapped_predicted_pairs": 0,
+        "ddi_mapping_pair_coverage": 1.0,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.6039354338226518,
+          "f1": 0.6630791263873972,
+          "prauc_average_precision": 0.7723697633147703
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "loss": 0.1167511464041079,
+      "seconds": 79.19191680000222,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.5565913370998118,
+        "f1": 0.6203457089050309,
+        "prauc_average_precision": 0.748526867103909,
+        "average_medications": 1.3672316384180792,
+        "ddi_rate": 0.6113989637305699,
+        "ddi_pairs": 118,
+        "predicted_pairs": 193,
+        "total_predicted_pairs": 193,
+        "unmapped_predicted_pairs": 0,
+        "ddi_mapping_pair_coverage": 1.0,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.6008222938298128,
+          "f1": 0.6673994510084738,
+          "prauc_average_precision": 0.7857583959692533
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "loss": 0.107207257153512,
+      "seconds": 77.37848709999525,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.5814030131826742,
+        "f1": 0.6373621199892385,
+        "prauc_average_precision": 0.7740970103097725,
+        "average_medications": 1.2514124293785311,
+        "ddi_rate": 0.7596899224806202,
+        "ddi_pairs": 98,
+        "predicted_pairs": 129,
+        "total_predicted_pairs": 135,
+        "unmapped_predicted_pairs": 6,
+        "ddi_mapping_pair_coverage": 0.9555555555555556,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.615344611528822,
+          "f1": 0.6733104018549781,
+          "prauc_average_precision": 0.797145873990869
+        }
+      }
+    },
+    {
+      "epoch": 6,
+      "loss": 0.09838556124689755,
+      "seconds": 86.72494609999558,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.6185017038830598,
+        "f1": 0.6889153846780965,
+        "prauc_average_precision": 0.7882354822320433,
+        "average_medications": 1.652542372881356,
+        "ddi_rate": 0.4166666666666667,
+        "ddi_pairs": 165,
+        "predicted_pairs": 396,
+        "total_predicted_pairs": 418,
+        "unmapped_predicted_pairs": 22,
+        "ddi_mapping_pair_coverage": 0.9473684210526315,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.6453807136889844,
+          "f1": 0.7173163970532394,
+          "prauc_average_precision": 0.8147498361759561
+        }
+      }
+    },
+    {
+      "epoch": 7,
+      "loss": 0.08891078465061626,
+      "seconds": 81.81695050000417,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.6641713747645951,
+        "f1": 0.7312953995157383,
+        "prauc_average_precision": 0.8255301677846543,
+        "average_medications": 1.5677966101694916,
+        "ddi_rate": 0.4782608695652174,
+        "ddi_pairs": 121,
+        "predicted_pairs": 253,
+        "total_predicted_pairs": 270,
+        "unmapped_predicted_pairs": 17,
+        "ddi_mapping_pair_coverage": 0.937037037037037,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.6753681823606636,
+          "f1": 0.7435588972431078,
+          "prauc_average_precision": 0.8409674654264436
+        }
+      }
+    },
+    {
+      "epoch": 8,
+      "loss": 0.08088339837224938,
+      "seconds": 84.63621350000176,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.6624831853645412,
+        "f1": 0.7303458311932889,
+        "prauc_average_precision": 0.8391766174817021,
+        "average_medications": 1.6016949152542372,
+        "ddi_rate": 0.459546925566343,
+        "ddi_pairs": 142,
+        "predicted_pairs": 309,
+        "total_predicted_pairs": 345,
+        "unmapped_predicted_pairs": 36,
+        "ddi_mapping_pair_coverage": 0.8956521739130435,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.6755609261248358,
+          "f1": 0.7428992187746215,
+          "prauc_average_precision": 0.8432864919124318
+        }
+      }
+    },
+    {
+      "epoch": 9,
+      "loss": 0.0772681805398892,
+      "seconds": 89.16330749999906,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.6780669895076674,
+        "f1": 0.7553156667563448,
+        "prauc_average_precision": 0.8289160057644188,
+        "average_medications": 1.7514124293785311,
+        "ddi_rate": 0.36904761904761907,
+        "ddi_pairs": 124,
+        "predicted_pairs": 336,
+        "total_predicted_pairs": 411,
+        "unmapped_predicted_pairs": 75,
+        "ddi_mapping_pair_coverage": 0.8175182481751825,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.6880743525480365,
+          "f1": 0.7635133468592114,
+          "prauc_average_precision": 0.828464457942012
+        }
+      }
+    },
+    {
+      "epoch": 10,
+      "loss": 0.06939172785071866,
+      "seconds": 225.8577901999961,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.7003004214868621,
+        "f1": 0.7678526589543538,
+        "prauc_average_precision": 0.8495128983862783,
+        "average_medications": 1.6638418079096045,
+        "ddi_rate": 0.40797546012269936,
+        "ddi_pairs": 133,
+        "predicted_pairs": 326,
+        "total_predicted_pairs": 382,
+        "unmapped_predicted_pairs": 56,
+        "ddi_mapping_pair_coverage": 0.8534031413612565,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7045769184866929,
+          "f1": 0.7729835927687697,
+          "prauc_average_precision": 0.8551032364690038
+        }
+      }
+    },
+    {
+      "epoch": 11,
+      "loss": 0.06307759363923936,
+      "seconds": 90.03862000000663,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.7203457089050308,
+        "f1": 0.7831965742982692,
+        "prauc_average_precision": 0.862102668465663,
+        "average_medications": 1.53954802259887,
+        "ddi_rate": 0.4775510204081633,
+        "ddi_pairs": 117,
+        "predicted_pairs": 245,
+        "total_predicted_pairs": 271,
+        "unmapped_predicted_pairs": 26,
+        "ddi_mapping_pair_coverage": 0.9040590405904059,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7167155985201099,
+          "f1": 0.7818015276285952,
+          "prauc_average_precision": 0.8527913762882434
+        }
+      }
+    },
+    {
+      "epoch": 12,
+      "loss": 0.06271649081372807,
+      "seconds": 335.04908029999933,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.7299031476997577,
+        "f1": 0.7937875526858578,
+        "prauc_average_precision": 0.8688616227881765,
+        "average_medications": 1.6242937853107344,
+        "ddi_rate": 0.40492957746478875,
+        "ddi_pairs": 115,
+        "predicted_pairs": 284,
+        "total_predicted_pairs": 330,
+        "unmapped_predicted_pairs": 46,
+        "ddi_mapping_pair_coverage": 0.8606060606060606,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7325984604368062,
+          "f1": 0.7985739433618054,
+          "prauc_average_precision": 0.8704366329043647
+        }
+      }
+    },
+    {
+      "epoch": 13,
+      "loss": 0.05771003803705396,
+      "seconds": 154.3674742000003,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.721603443637342,
+        "f1": 0.7930631985716731,
+        "prauc_average_precision": 0.8730563450495322,
+        "average_medications": 1.771186440677966,
+        "ddi_rate": 0.4292929292929293,
+        "ddi_pairs": 170,
+        "predicted_pairs": 396,
+        "total_predicted_pairs": 445,
+        "unmapped_predicted_pairs": 49,
+        "ddi_mapping_pair_coverage": 0.8898876404494382,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.719596013844134,
+          "f1": 0.7921412710295629,
+          "prauc_average_precision": 0.8768840530288216
+        }
+      }
+    },
+    {
+      "epoch": 14,
+      "loss": 0.05224541969728459,
+      "seconds": 304.0876386000018,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.7343691148775895,
+        "f1": 0.8003788897856695,
+        "prauc_average_precision": 0.8606733838366116,
+        "average_medications": 1.5847457627118644,
+        "ddi_rate": 0.46691176470588236,
+        "ddi_pairs": 127,
+        "predicted_pairs": 272,
+        "total_predicted_pairs": 304,
+        "unmapped_predicted_pairs": 32,
+        "ddi_mapping_pair_coverage": 0.8947368421052632,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7301817042606517,
+          "f1": 0.7970107951284103,
+          "prauc_average_precision": 0.865353537456635
+        }
+      }
+    },
+    {
+      "epoch": 15,
+      "loss": 0.05258474754536296,
+      "seconds": 121.82880400000431,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.7294885905055397,
+        "f1": 0.7940301628526428,
+        "prauc_average_precision": 0.864403441034797,
+        "average_medications": 1.7259887005649717,
+        "ddi_rate": 0.3258655804480652,
+        "ddi_pairs": 160,
+        "predicted_pairs": 491,
+        "total_predicted_pairs": 569,
+        "unmapped_predicted_pairs": 78,
+        "ddi_mapping_pair_coverage": 0.8629173989455184,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7237927068754136,
+          "f1": 0.7900449733316204,
+          "prauc_average_precision": 0.8710813219779386
+        }
+      }
+    },
+    {
+      "epoch": 16,
+      "loss": 0.05314778722798295,
+      "seconds": 229.64429010000458,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.7375706214689265,
+        "f1": 0.8015928045589064,
+        "prauc_average_precision": 0.8707653818247039,
+        "average_medications": 1.6073446327683616,
+        "ddi_rate": 0.44666666666666666,
+        "ddi_pairs": 134,
+        "predicted_pairs": 300,
+        "total_predicted_pairs": 326,
+        "unmapped_predicted_pairs": 26,
+        "ddi_mapping_pair_coverage": 0.9202453987730062,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7300832438238455,
+          "f1": 0.795559195349743,
+          "prauc_average_precision": 0.8694994019138754
+        }
+      }
+    },
+    {
+      "epoch": 17,
+      "loss": 0.05003706751505351,
+      "seconds": 80.07005550000031,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.734180790960452,
+        "f1": 0.794503754249517,
+        "prauc_average_precision": 0.8749757740913221,
+        "average_medications": 1.5847457627118644,
+        "ddi_rate": 0.4329896907216495,
+        "ddi_pairs": 126,
+        "predicted_pairs": 291,
+        "total_predicted_pairs": 317,
+        "unmapped_predicted_pairs": 26,
+        "ddi_mapping_pair_coverage": 0.917981072555205,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7286624298842345,
+          "f1": 0.7911264865937259,
+          "prauc_average_precision": 0.867714180765148
+        }
+      }
+    },
+    {
+      "epoch": 18,
+      "loss": 0.04918581901800322,
+      "seconds": 79.9357452999975,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.7380885122410545,
+        "f1": 0.8018675455116132,
+        "prauc_average_precision": 0.8770658357543097,
+        "average_medications": 1.5451977401129944,
+        "ddi_rate": 0.4898785425101215,
+        "ddi_pairs": 121,
+        "predicted_pairs": 247,
+        "total_predicted_pairs": 269,
+        "unmapped_predicted_pairs": 22,
+        "ddi_mapping_pair_coverage": 0.9182156133828996,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7361937582050364,
+          "f1": 0.8014410175097605,
+          "prauc_average_precision": 0.8720046185174556
+        }
+      }
+    },
+    {
+      "epoch": 19,
+      "loss": 0.04581207082423171,
+      "seconds": 138.81224250000378,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.741713747645951,
+        "f1": 0.8043493857053179,
+        "prauc_average_precision": 0.8736928921674685,
+        "average_medications": 1.6610169491525424,
+        "ddi_rate": 0.4226190476190476,
+        "ddi_pairs": 142,
+        "predicted_pairs": 336,
+        "total_predicted_pairs": 360,
+        "unmapped_predicted_pairs": 24,
+        "ddi_mapping_pair_coverage": 0.9333333333333333,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7329723117317102,
+          "f1": 0.7972778317676275,
+          "prauc_average_precision": 0.878754493974419
+        }
+      }
+    },
+    {
+      "epoch": 20,
+      "loss": 0.04251140808649732,
+      "seconds": 408.26592869999877,
+      "validation": {
+        "samples": 354,
+        "patients": 133,
+        "jaccard": 0.7443032015065913,
+        "f1": 0.8037395749260156,
+        "prauc_average_precision": 0.8751361103756092,
+        "average_medications": 1.6045197740112995,
+        "ddi_rate": 0.4557823129251701,
+        "ddi_pairs": 134,
+        "predicted_pairs": 294,
+        "total_predicted_pairs": 332,
+        "unmapped_predicted_pairs": 38,
+        "ddi_mapping_pair_coverage": 0.8855421686746988,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.7431659505907627,
+          "f1": 0.8058932194431654,
+          "prauc_average_precision": 0.8743217268577678
+        }
+      }
+    }
+  ],
+  "source_commit": "9872fc919d5a74e8c453bacd3478f97ea5da5d12",
+  "upstream_sspnet_commit": "4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d"
+}
