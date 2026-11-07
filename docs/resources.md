@@ -2,7 +2,7 @@
 
 核查日期：2026-11-07。此处记录当前实际文件与检查结果，任务及后续结果由三位负责人更新各自 TASKS.md。
 
-准备结论：开发用的原始数据、参考预处理、药物映射和 DDI 已找到并在本机保存。A1 v3 保留全部可关联病例，主任务采用至少两次有效就诊并允许空操作：Demo 候选13人/41次、有历史样本28；Synthea 候选803人/2948次、有历史样本2139，见 [A1 报告](../src/data_evaluation/reports/data-summary.md)及[模型空操作核验](../src/data_evaluation/reports/empty-procedures.md)。SSPNet 整数词表/模型文件/最终映射图尚未生成，真实大规模验证队列尚未取得。文件已在本机，不代表其他成员克隆仓库后自动取得所有本地大文件。分工和 PR 修改范围见 [协作规则](../CONTRIBUTING.md)。
+准备结论：原始材料与A1 v3已就绪：Demo候选13人/41次、有历史样本28；Synthea候选803人/2948次、有历史样本2139。B已完成Synthea无歧义ATC第三级映射、训练词表/图与20轮实际训练及重载测试，实际训练822/验证198/测试216条，见 [SSPNet报告](../src/recommendation/reports/sspnet-synthea-v3.md)。真实大规模验证队列尚未取得。本地病例、图和权重不随克隆自动取得，其他成员按运行说明从同版源数据重建。
 
 新成员按 [三人开工步骤](onboarding.md) 取得材料并做本机检查；不要把资源清单中组长电脑的已完成结果当作自己的验证记录。
 
@@ -73,7 +73,7 @@ DXY 包含中文主诉、问诊及症状；MIMIC/Synthea 按多张 CSV 存储就
 
 | 代码 | 位置与版本 | 当前能确认什么 |
 |---|---|---|
-| SSPNet | third_party/SSPNet；4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d | main.py、模型、训练与评价代码存在；尚未运行模型 |
+| SSPNet | third_party/SSPNet；4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d | 正常导入，src/recommendation 适配入口已完成20轮Synthea实际运行，空操作训练/测试通过 |
 | Diaformer | third_party/Diaformer；45491f33145003290278d0eacdc87a1d1d786b2d | DXY 150 轮训练、验证选模、权重保存与重载、最终测试已完成：79/104，75.96%；见运行说明 |
 | BIBM 完整实现 | 尚未取得 | 不能将 Diaformer 记作整篇 BIBM 的实现 |
 | MoleRec 参考材料 | data/reference/MoleRec/（本地）；dd5afaf0a503fd3de3229f86ec7f26b345d10e3a | 已复制原预处理脚本、映射、分子辅助材料及原 README/LICENSE；不是 SSPNet 作者配套数据 |
@@ -85,7 +85,7 @@ BIBM DOI：10.1109/BIBM58861.2023.10385557，[作者主页提供的论文 PDF](h
 
 ### SSPNet
 
-当前入口读取下面五个文件，均尚未在该代码的 data/MIMIC_3 目录中准备：
+原 main.py 读取下面五种旧格式文件。当前运行改用本项目的 JSON/NPZ 适配产物，已实际准备，不以这些旧路径作为阻塞：
 
 - records_final.pkl：病例序列。
 - voc_final.pkl：诊断、操作和药物词表。
@@ -95,9 +95,9 @@ BIBM DOI：10.1109/BIBM58861.2023.10385557，[作者主页提供的论文 PDF](h
 
 公开参考材料已经找到并保存到本地 data/reference/MoleRec/：processing.py、ndc2rxnorm_mapping.txt、ndc2atc_level4.csv、drug-atc.csv、atc2rxnorm.pkl、idx2SMILES.pkl、ddi_mask_H.py、ddi_mask_H.pkl、substructure_smiles.pkl。保留原 README、MIT LICENSE 与 source.json；来源是 [MoleRec](https://github.com/yangnianzu0515/MoleRec)，SSPNet README 也致谢该项目和 [SafeDrug](https://github.com/ycq091044/SafeDrug)。使用这些上游材料适配，不再等待相同文件由老师重发。
 
-DDI 原始文件已从 SSPNet/MoleRec 提供的 [公开下载入口](https://drive.google.com/file/d/1s3sHmz9ueVA8YAGTARY8jwrhRdRvVaXs/view) 下载到上述目录 drug-DDI.csv：232,835,373 字节，4,649,441 条数据行，含 STITCH 1、STITCH 2、Polypharmacy Side Effect、Side Effect Name 字段。原始来源为 [TwoSIDES](https://tatonettilab.org/resources/tatonetti-stm.html)。这是药物对与不良事件记录，尚未筛选为模型的 ddi_A_final.pkl，也不等同于这么多独立药物对。
+DDI 原始文件已从 SSPNet/MoleRec 提供的 [公开下载入口](https://drive.google.com/file/d/1s3sHmz9ueVA8YAGTARY8jwrhRdRvVaXs/view) 下载到上述目录 drug-DDI.csv：232,835,373字节，4,649,441行，来自 [TwoSIDES](https://tatonettilab.org/resources/tatonetti-stm.html)。本轮按上游字面最低频40个事件组筛选，映射到24类训练药物得到34条无向边，保存于本地graphs.npz；EHR训练图59条边。不是未经处理地把源文件行数当作独立药物对，也不是临床安全真值。
 
-下一步对 Demo/Synthea 分别建立病例、词表与图，固定映射及筛选方式。上游预生成的分子矩阵不能与新的药物词表混用。公开 SSPNet 的 training.py 传三个参数、模型 forward 要求四个，需在本项目适配入口修正并实际检查；ddi_mask_H 在该实现的用途仍需梳理。
+Synthea当前图与模型词表一致，仅从训练就诊建立EHR图，不混用上游预生成分子矩阵。适配入口修正四参数调用，ddi_mask_H为未使用的遗留参数，传None；显式初始化inter/garm，禁用绘图，以新循环解决原验证未定义变量和三次就诊跳过等问题。原子模块未改动。NDC/MIMIC模型适配和公共recommend接口仍待完成。
 
 作者正文引用的附录尚未取得；正文学习率 1e-4 与当前入口默认 5e-4 不一致，采用设置必须记录。附录与作者精确配置作为可选补充，不阻塞公开材料上的适配开发。
 
@@ -109,14 +109,14 @@ DDI 原始文件已从 SSPNet/MoleRec 提供的 [公开下载入口](https://dri
 
 项目 .venv 已配置 Python 3.10.22、PyTorch 2.7.1+cu128 和锁定依赖。RTX 5060 Laptop GPU 约 8GB 显存，已通过实际矩阵计算与 DXY 冒烟训练；运行说明见 [DXY 基线](dxy-diaformer.md)。
 
-Diaformer 作者报告 Python 3.8 / PyTorch 1.8.0；本次为适配现有显卡使用现代环境并记录运行差异。SSPNet 原环境与配套依赖仍需单独核对，不能因为 DXY 已运行就视为它也就绪。
+Diaformer作者报告Python3.8/PyTorch1.8.0，当前使用现代环境记录差异。SSPNet已补齐PyG、torch-scatter、OGB、RDKit、scikit-learn等，58包兼容检查与正常包导入通过；20轮主运行使用更快的CPU逐样本计算。完整快照及安装脚本见 src/recommendation/environment-lock.txt 和 setup_environment.ps1。
 
 完整 MIMIC 审批和大模型调用资源仍未确认。DXY 本轮没有付费调用，已使用本机 GPU 完成；这不表示 BIBM 整体或 SSPNet 已具备全部复现条件。
 
 ## 现在可以推进什么
 
 - A：使用现有 Demo/Synthea 编写就诊关联、时间组织和数据集独立划分，统计筛选后的有效患者；完整 MIMIC 申请可并行进行。
-- B：基于已找到的 MoleRec 映射和 DDI，与 A 对齐词表，修正运行接口并生成一致的模型输入，先实际跑通入口。
+- B：复核已运行的映射、词表/图和测试口径；补公共recommend接口及后续同条件对照，不重写已有入口。
 - C：复用 DXY 基线，按论文已有模板实现最小规则与 MLN 流程；缺付费模型调用条件时先用明确标记的规则样例联调，不能冒充自动知识提取实验。
 
 当前优先级：公开材料上的数据流程与模型入口 → 两篇核心机制的适配验证 → 推荐与知识核查结合 → agent 展示。真实数据研究与原文严格复现的条件另行记录。

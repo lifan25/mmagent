@@ -2,22 +2,22 @@
 
 目标：SSPNet 产生个性化候选药物，借鉴 BIBM 的知识提取与规则化方法核查结果，由 agent 组织输入检查、工具调用和展示。
 
-第一版使用已有诊断与结构化病历。DXY/Diaformer 已完成一次 150 轮训练和独立测试：79/104 条正确，准确率 75.96%。BIBM 原诊断任务与新增用药核查分开验证；BIBM 整体、SSPNet 与 agent 尚未完成。
+第一版使用已有诊断与结构化病历。DXY/Diaformer 已完成一次150轮训练和独立测试：79/104条正确，准确率75.96%。SSPNet 已完成 Synthea v3 的20轮适配训练、验证选模、权重重载与一次测试：Jaccard79.81%、F1 83.04%；详见 [运行报告](src/recommendation/reports/sspnet-synthea-v3.md)。BIBM整体、原论文严格复现和 agent 集成仍未完成。
 
-**刚拉取仓库：先看 [三人开工步骤](docs/onboarding.md)，再进入自己的模块 README 和 TASKS。**A1 已实现 Demo/Synthea 全量病例组织、筛选和患者划分，运行命令与验收范围见 [A 模块说明](src/data_evaluation/README.md)；B/C 及 A2/A3 仍待实现。
+**刚拉取仓库：先看 [三人开工步骤](docs/onboarding.md)，再进入自己的模块 README 和 TASKS。**A1 数据准备与B的Synthea训练运行已实现，分别见 [A 模块说明](src/data_evaluation/README.md)和 [SSPNet运行步骤](src/recommendation/RUNNING.md)；共享推荐接口、C及A2/A3集成待继续。
 
 ## 目录框架
 
 ```text
 src/
 ├── data_evaluation/     A：数据、评价、集成
-│   ├── configs/         数据选择与筛选/划分设置，待 A 填写
-│   ├── tests/           数据与指标检查，待 A 实现
-│   └── reports/         聚合统计与联调报告，待 A 填写
+│   ├── configs/         已有数据准备配置
+│   ├── tests/           已有A1检查，评价/集成检查后续补充
+│   └── reports/         已有A1聚合报告
 ├── recommendation/     B：映射、药物图、SSPNet
-│   ├── configs/         映射/构图/模型设置，待 B 填写
-│   ├── tests/           映射、图和模型检查，待 B 实现
-│   └── reports/         覆盖率与实际运行报告，待 B 填写
+│   ├── configs/         已有SSPNet运行配置
+│   ├── tests/           已有映射、图、指标和模型检查
+│   └── reports/         已有实际运行报告及聚合JSON
 └── knowledge/          C：BIBM 诊断与用药核查
     ├── configs/         后端和规则加载设置，待 C 填写
     ├── prompts/         有来源的提示词，待 C 整理
@@ -28,7 +28,7 @@ src/
 
 每个模块已有 README.md（从哪里开始）、TASKS.md（具体任务与验收）、AGENTS.md（修改范围）。空目录用 .gitkeep 保留；A1 已实现，其余模块实现范围见各自 README，建议文件名不代表已实现。
 
-计划的两条工作链如下，图中的新模块仍待实现：
+目标工作链如下；A1与SSPNet适配运行已验证，公共推荐接口、知识核查和总集成仍待实现：
 
 ```mermaid
 flowchart LR
@@ -58,7 +58,7 @@ flowchart LR
 
 ## 接下来做什么
 
-开发用原始材料已经找到。A1 v3 全量保留所有可关联就诊，主任务要求至少两次有效就诊，允许空操作集合：Synthea 为 803 人/2948 次候选就诊，形成 2139 条有历史预测样本；Demo 为 13 人/41 次候选就诊，形成 28 条有历史样本。SSPNet 原类的空操作前向/反向检查通过，完整训练依赖和模型适配仍待 B 完成；真实大规模验证数据未就绪。
+开发用原始材料已经找到。A1 v3 全量保留所有可关联就诊，至少两次有效就诊、允许空操作：Synthea为803人/2948次候选，形成2139条有历史样本；Demo为13人/41次候选、有历史样本28。本轮B精确无歧义映射到24类药物后，实际训练822/验证198/测试216条；不是全部原始处方空间。9500个当前空操作训练步骤与137条空操作测试样本均通过。真实大规模验证数据未就绪。
 
 | 负责人 / 目录 | 第一阶段交付 | 完成依据 |
 |---|---|---|
