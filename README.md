@@ -10,22 +10,32 @@
 |---|---|
 | SSPNet / Diaformer 源码 | 已拉取并固定上游版本 |
 | MIMIC-III Demo | 五张表可读取，覆盖 100 名患者；仅用于流程开发 |
+| Synthea 合成病历 | 已下载官方历史 CSV 样本并检查：1,171 名合成患者，可用于推荐流程开发和模拟实验 |
+| 药物映射、参考预处理与 DDI | MoleRec 材料已保存本地；drug-DDI.csv 已下载，尚未生成与本项目词表一致的图 |
 | DXY / Muzhi | 已实际读取，样本数量、疾病和症状数与 BIBM 表 I 一致 |
-| Synthetic | 文件可读取，但症状数量与 BIBM 表 I 不一致，暂不作首个复现数据集 |
+| Synthetic 诊断集 | 文件可读取；采用现有 266 症状版本时记录与 BIBM 的差异，不等待同版本数据 |
 | DXY / Diaformer 基线 | 环境、训练、问诊、保存与重载测试已通过；[结果与命令](docs/dxy-diaformer.md) |
-| 正式复现条件 | 仍缺 BIBM 完整实现、SSPNet 配套材料和完整 MIMIC 权限 |
+| 后续条件 | 先用公开替代材料适配；BIBM 完整实现尚未找到，完整 MIMIC 权限未取得，不影响当前开发 |
 
 详细数量、来源、检查范围和缺口见 [数据与代码状态](docs/resources.md)。
 
 ## 接下来做什么
 
-| 负责人 | 本轮先做的事 | 完成依据 |
-|---|---|---|
-| [A：数据与评估](src/data_evaluation/TASKS.md) | 用 ADMISSIONS 确认 Demo 就诊关联和时间；落实完整数据、算力与环境 | 可复查的病例组织结果、资源状态、评价约定 |
-| [B：SSPNet](src/recommendation/TASKS.md) | 向老师取得预处理、映射、DDI 和附录，核对五个模型输入文件 | 每个输入文件来源明确；可执行的预处理路径 |
-| [C：BIBM 与知识](src/knowledge/TASKS.md) | 验收 DXY 基线；取得 BIBM 完整代码、提示词和规则 | 基线结果可复查，原方法缺失材料落实 |
+开发用原始材料已经找到，模型输入还未生成；真实大规模验证数据未就绪。可以现在开始分工，不等待原作者完全相同的数据版本。
 
-三个人直接维护各自 TASKS.md。共享接口见 [protocol.md](docs/protocol.md)，日常协作见 [CONTRIBUTING.md](CONTRIBUTING.md)。当前先做数据与模型基线。
+| 负责人 / 目录 | 第一阶段交付 | 完成依据 |
+|---|---|---|
+| [A：你，@lifan25](src/data_evaluation/TASKS.md)；src/data_evaluation/ | 病例与患者划分、统一评价、最后的调用集成；审核并合并 B/C 的 PR | 无患者交叉/未来泄漏，指标可核对，最终调用可复查 |
+| [成员 B：推荐](src/recommendation/TASKS.md)；src/recommendation/ | 药物映射、词表与图、SSPNet 适配训练和 recommend 接口 | 编码/矩阵一致，实际前向与反向、重载推理通过 |
+| [成员 C：知识](src/knowledge/TASKS.md)；src/knowledge/ | BIBM 提示词/规则流程、MLN 诊断、带来源的用药核查接口 | 实际后端调用及核查分支可复查，缺失信息不会误报为安全 |
+
+成员 B/C 暂不绑定账号，确定后由 A 填写各模块 TASKS.md。各自的代码、测试、配置和说明放进自己的目录，公共文件由 A 维护。
+
+从三个首项同时开始：A1 整理病例和划分；B1 检查药物映射；C1 梳理规则/提示词与推理后端。A1 合并后 B 接模型文件，B/C 接口通过后 A 做总集成。具体待办、产物和验收标准只维护在各模块 TASKS.md。
+
+成员从 b/、c/ 分支提 PR，只改自己的模块，由 @lifan25 审核并合并，不直接推送 main。公共接口见 [protocol.md](docs/protocol.md)，完整修改范围和操作步骤见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+当前私有仓库套餐限制了分支保护与 CODEOWNERS：审核文件已准备，尚不能技术上强制禁止直推或强制组长批准。先手动选择 @lifan25 审核并遵守上述约定；不因此公开仓库或开通费用。
 
 ## 同步和检查
 
@@ -52,9 +62,19 @@ python scripts/check_diagnosis_data.py
 
 使用自己已安装的 Python 解释器。脚本只报告聚合统计，不训练、不覆盖上游数据、不输出病例内容。
 
+下载公开合成病历并查看本地病例预览：
+
+```powershell
+python scripts/fetch_synthea_sample.py
+python scripts/preview_cases.py
+```
+
+预览位于 outputs/data-preview/病例预览.md，同目录有可读 JSON。这些是源数据示例，不是模型结果；保存在本地，不提交病例。Synthea 合成实验不能代表真实临床效果；换数据本身不作为研究贡献。
+
 ## 仓库入口
 
 - [数据、代码、环境与缺失材料](docs/resources.md)。
+- [三人修改范围、PR 操作与组长验收](CONTRIBUTING.md)。
 - [DXY / Diaformer 环境、运行与结果](docs/dxy-diaformer.md)。
 - [上游代码及固定版本](third_party/README.md)。
 - [公开 Demo 及许可证](data/public/mimiciii-demo-1.4/README.md)。
