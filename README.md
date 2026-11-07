@@ -4,7 +4,7 @@
 
 第一版使用已有诊断与结构化病历。DXY/Diaformer 已完成一次 150 轮训练和独立测试：79/104 条正确，准确率 75.96%。BIBM 原诊断任务与新增用药核查分开验证；BIBM 整体、SSPNet 与 agent 尚未完成。
 
-**刚拉取仓库：先看 [三人开工步骤](docs/onboarding.md)，再进入自己的模块 README 和 TASKS。**本次搭建的是目录与说明骨架；具体 Python 实现、配置和检查由三位成员完成。
+**刚拉取仓库：先看 [三人开工步骤](docs/onboarding.md)，再进入自己的模块 README 和 TASKS。**A1 已实现 Demo/Synthea 全量病例组织、筛选和患者划分，运行命令与验收范围见 [A 模块说明](src/data_evaluation/README.md)；B/C 及 A2/A3 仍待实现。
 
 ## 目录框架
 
@@ -26,7 +26,7 @@ src/
     └── reports/         方法来源与实际运行报告，待 C 填写
 ```
 
-每个模块已有 README.md（从哪里开始）、TASKS.md（具体任务与验收）、AGENTS.md（修改范围）。空目录用 .gitkeep 保留；尚无这些模块的业务代码，建议文件名写在各自 README 中。
+每个模块已有 README.md（从哪里开始）、TASKS.md（具体任务与验收）、AGENTS.md（修改范围）。空目录用 .gitkeep 保留；A1 已实现，其余模块实现范围见各自 README，建议文件名不代表已实现。
 
 计划的两条工作链如下，图中的新模块仍待实现：
 

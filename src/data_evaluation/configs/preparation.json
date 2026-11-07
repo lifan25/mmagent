@@ -1,0 +1,20 @@
+{
+  "seed": 8,
+  "split_weights": [4, 1, 1],
+  "min_visits": 3,
+  "require_procedures": true,
+  "datasets": {
+    "mimic": {
+      "dataset": "mimiciii-demo-1.4",
+      "source": "https://physionet.org/content/mimiciii-demo/1.4/",
+      "input_dir": "data/public/mimiciii-demo-1.4",
+      "output_dir": "data/processed/data_evaluation/mimiciii-demo-1.4-v1"
+    },
+    "synthea": {
+      "dataset": "synthea-apr2020",
+      "source": "https://synthetichealth.github.io/synthea-sample-data/downloads/synthea_sample_data_csv_apr2020.zip",
+      "input_dir": "data/local/synthea-apr2020",
+      "output_dir": "data/processed/data_evaluation/synthea-apr2020-v1"
+    }
+  }
+}
