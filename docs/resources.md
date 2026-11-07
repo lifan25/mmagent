@@ -4,6 +4,8 @@
 
 准备结论：开发用的原始数据、参考预处理、药物映射和 DDI 已找到并在本机保存；SSPNet 输入文件/最终映射图尚未生成，真实大规模验证队列尚未取得。文件已在本机，不代表其他成员克隆仓库后自动取得所有本地大文件。分工和 PR 修改范围见 [协作规则](../CONTRIBUTING.md)。
 
+新成员按 [三人开工步骤](onboarding.md) 取得材料并做本机检查；不要把资源清单中组长电脑的已完成结果当作自己的验证记录。
+
 当前路线：用户已同意采用相关公开数据和上游材料，不再等待作者提供完全相同的实验产物。保留 DXY 基线；推荐流程先用 MIMIC Demo 和 Synthea 合成病历开发，正式真实病例实验仍需足够规模的真实数据。更换数据属于适配实验，不能直接沿用原论文指标，也不单独构成研究贡献。
 
 ## 已取得并检查的数据
@@ -77,7 +79,7 @@ DXY 包含中文主诉、问诊及症状；MIMIC/Synthea 按多张 CSV 存储就
 | MoleRec 参考材料 | data/reference/MoleRec/（本地）；dd5afaf0a503fd3de3229f86ec7f26b345d10e3a | 已复制原预处理脚本、映射、分子辅助材料及原 README/LICENSE；不是 SSPNet 作者配套数据 |
 
 原始来源：[SSPNet](https://github.com/ResearchGroupHdZhang/SSPNet)、[Diaformer](https://github.com/jymChen/Diaformer)。
-BIBM DOI：10.1109/BIBM58861.2023.10385557；SSPNet [正式论文](https://www.ijcai.org/proceedings/2025/1052.pdf)。
+BIBM DOI：10.1109/BIBM58861.2023.10385557，[作者主页提供的论文 PDF](https://hdzhangust.github.io/static/files/papers/2023%20BIBM%20Integrating%20Automated%20Knowledge%20Extraction.pdf)；SSPNet [正式论文](https://www.ijcai.org/proceedings/2025/1052.pdf)。
 
 ## 已找到的参考材料与剩余工作
 

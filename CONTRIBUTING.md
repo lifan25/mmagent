@@ -14,6 +14,8 @@
 
 各模块的代码、测试、配置、额外依赖说明、实验汇总和 TASKS.md 都放在自己的目录。不要为了写一项功能同时修改三个目录。
 
+新成员先看 [三人开工步骤](docs/onboarding.md)。每个目录的 README 说明输入输出、文件职责和建议；configs/、tests/、reports/ 已留占位，C 另有 prompts/、rules/。模块业务代码尚未创建，由成员随各阶段任务实现；只建空目录或改说明不等于完成编程验收。
+
 ## 2. 公共文件归 A 维护
 
 以下公共路径由 A 统一修改：根目录文件、.github/、docs/、examples/、scripts/、configs/、tests/、third_party/ 以及 data/outputs/models 下受版本控制的说明文件。原上游子模块保持固定，不在子模块里直接改代码。

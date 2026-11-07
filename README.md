@@ -4,6 +4,43 @@
 
 第一版使用已有诊断与结构化病历。DXY/Diaformer 已完成一次 150 轮训练和独立测试：79/104 条正确，准确率 75.96%。BIBM 原诊断任务与新增用药核查分开验证；BIBM 整体、SSPNet 与 agent 尚未完成。
 
+**刚拉取仓库：先看 [三人开工步骤](docs/onboarding.md)，再进入自己的模块 README 和 TASKS。**本次搭建的是目录与说明骨架；具体 Python 实现、配置和检查由三位成员完成。
+
+## 目录框架
+
+```text
+src/
+├── data_evaluation/     A：数据、评价、集成
+│   ├── configs/         数据选择与筛选/划分设置，待 A 填写
+│   ├── tests/           数据与指标检查，待 A 实现
+│   └── reports/         聚合统计与联调报告，待 A 填写
+├── recommendation/     B：映射、药物图、SSPNet
+│   ├── configs/         映射/构图/模型设置，待 B 填写
+│   ├── tests/           映射、图和模型检查，待 B 实现
+│   └── reports/         覆盖率与实际运行报告，待 B 填写
+└── knowledge/          C：BIBM 诊断与用药核查
+    ├── configs/         后端和规则加载设置，待 C 填写
+    ├── prompts/         有来源的提示词，待 C 整理
+    ├── rules/           带条件和审核状态的候选规则，待 C 整理
+    ├── tests/           规则状态与推理检查，待 C 实现
+    └── reports/         方法来源与实际运行报告，待 C 填写
+```
+
+每个模块已有 README.md（从哪里开始）、TASKS.md（具体任务与验收）、AGENTS.md（修改范围）。空目录用 .gitkeep 保留；尚无这些模块的业务代码，建议文件名写在各自 README 中。
+
+计划的两条工作链如下，图中的新模块仍待实现：
+
+```mermaid
+flowchart LR
+    S["Demo / Synthea"] --> A["A：病例与划分"]
+    A --> B["B：SSPNet 推荐"]
+    B --> C["C：用药核查"]
+    C --> R["A：集成、评价与报告"]
+    D["DXY 问诊基线：已跑通"] --> M["C：MLN 诊断"]
+```
+
+两条链使用不同病例，不直接拼接。先验证各自模块，再评估推荐与知识核查的结合。
+
 ## 现在准备到哪里
 
 | 内容 | 状态 |
@@ -25,9 +62,9 @@
 
 | 负责人 / 目录 | 第一阶段交付 | 完成依据 |
 |---|---|---|
-| [A：你，@lifan25](src/data_evaluation/TASKS.md)；src/data_evaluation/ | 病例与患者划分、统一评价、最后的调用集成；审核并合并 B/C 的 PR | 无患者交叉/未来泄漏，指标可核对，最终调用可复查 |
-| [成员 B：推荐](src/recommendation/TASKS.md)；src/recommendation/ | 药物映射、词表与图、SSPNet 适配训练和 recommend 接口 | 编码/矩阵一致，实际前向与反向、重载推理通过 |
-| [成员 C：知识](src/knowledge/TASKS.md)；src/knowledge/ | BIBM 提示词/规则流程、MLN 诊断、带来源的用药核查接口 | 实际后端调用及核查分支可复查，缺失信息不会误报为安全 |
+| [A：你，@lifan25](src/data_evaluation/README.md)；src/data_evaluation/ | 病例与患者划分、统一评价、最后的调用集成；审核并合并 B/C 的 PR | 无患者交叉/未来泄漏，指标可核对，最终调用可复查 |
+| [成员 B：推荐](src/recommendation/README.md)；src/recommendation/ | 药物映射、词表与图、SSPNet 适配训练和 recommend 接口 | 编码/矩阵一致，实际前向与反向、重载推理通过 |
+| [成员 C：知识](src/knowledge/README.md)；src/knowledge/ | BIBM 提示词/规则流程、MLN 诊断、带来源的用药核查接口 | 实际后端调用及核查分支可复查，缺失信息不会误报为安全 |
 
 成员 B/C 暂不绑定账号，确定后由 A 填写各模块 TASKS.md。各自的代码、测试、配置和说明放进自己的目录，公共文件由 A 维护。
 
@@ -75,6 +112,7 @@ python scripts/preview_cases.py
 
 ## 仓库入口
 
+- [三人开工步骤与第一批 PR](docs/onboarding.md)。
 - [数据、代码、环境与缺失材料](docs/resources.md)。
 - [三人修改范围、PR 操作与组长验收](CONTRIBUTING.md)。
 - [DXY / Diaformer 环境、运行与结果](docs/dxy-diaformer.md)。
