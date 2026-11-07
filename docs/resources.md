@@ -49,7 +49,7 @@ Demo 支持数据流程开发，不足以复现论文指标。完整 MIMIC-III �
 | 代码 | 位置与版本 | 当前能确认什么 |
 |---|---|---|
 | SSPNet | third_party/SSPNet；4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d | main.py、模型、训练与评价代码存在；尚未运行模型 |
-| Diaformer | third_party/Diaformer；45491f33145003290278d0eacdc87a1d1d786b2d | 问诊代码、三个数据目录、词表和预处理代码存在；尚未运行模型 |
+| Diaformer | third_party/Diaformer；45491f33145003290278d0eacdc87a1d1d786b2d | DXY 150 轮训练、验证选模、权重保存与重载、最终测试已完成：79/104，75.96%；见运行说明 |
 | BIBM 完整实现 | 尚未取得 | 不能将 Diaformer 记作整篇 BIBM 的实现 |
 
 原始来源：[SSPNet](https://github.com/ResearchGroupHdZhang/SSPNet)、[Diaformer](https://github.com/jymChen/Diaformer)。
@@ -77,17 +77,17 @@ BIBM DOI：10.1109/BIBM58861.2023.10385557；SSPNet [正式论文](https://www.i
 
 ### 环境与资源
 
-本次检查使用的 Python 3.14 解释器有 numpy，但未安装 torch、dill；未安装完整复现环境。不能据此判断所有机器环境。
+项目 .venv 已配置 Python 3.10.22、PyTorch 2.7.1+cu128 和锁定依赖。RTX 5060 Laptop GPU 约 8GB 显存，已通过实际矩阵计算与 DXY 冒烟训练；运行说明见 [DXY 基线](dxy-diaformer.md)。
 
-Diaformer 作者报告 Python 3.8 / PyTorch 1.8.0，SSPNet 报告 Python 3.8.16 / PyTorch 1.9.0。B/C 分别建立隔离环境并核实兼容性，不直接在最新 Python 上堆装旧依赖。
+Diaformer 作者报告 Python 3.8 / PyTorch 1.8.0；本次为适配现有显卡使用现代环境并记录运行差异。SSPNet 原环境与配套依赖仍需单独核对，不能因为 DXY 已运行就视为它也就绪。
 
-可用 GPU、完整 MIMIC 审批和大模型调用资源仍未确认。本轮没有训练、付费调用或新增实验指标。
+完整 MIMIC 审批和大模型调用资源仍未确认。DXY 本轮没有付费调用，已使用本机 GPU 完成；这不表示 BIBM 整体或 SSPNet 已具备全部复现条件。
 
 ## 现在可以推进什么
 
 - A：利用 Demo 编写就诊关联和按时间组织历史的最小数据流程，同时办理完整数据权限与资源。
 - B：拿到配套材料后准备模型输入，先跑通入口，再开展正式训练与关键对照。
-- C：诊断数据已经可读取，先搭 DXY / Diaformer 的问诊基线环境；取得 BIBM 代码后接上知识与 MLN。
+- C：验收本次 DXY / Diaformer 基线；取得 BIBM 代码后接上知识与 MLN。
 
 当前优先级：可复查数据流程与基线入口 → 两篇分别复现 → 推荐与知识核查结合 → agent 展示。
 

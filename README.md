@@ -2,7 +2,7 @@
 
 目标：SSPNet 产生个性化候选药物，借鉴 BIBM 的知识提取与规则化方法核查结果，由 agent 组织输入检查、工具调用和展示。
 
-第一版使用已有诊断与结构化病历。BIBM 原诊断任务与新增用药核查分开验证。当前尚未训练模型或实现 agent。
+第一版使用已有诊断与结构化病历。DXY/Diaformer 已完成一次 150 轮训练和独立测试：79/104 条正确，准确率 75.96%。BIBM 原诊断任务与新增用药核查分开验证；BIBM 整体、SSPNet 与 agent 尚未完成。
 
 ## 现在准备到哪里
 
@@ -12,7 +12,8 @@
 | MIMIC-III Demo | 五张表可读取，覆盖 100 名患者；仅用于流程开发 |
 | DXY / Muzhi | 已实际读取，样本数量、疾病和症状数与 BIBM 表 I 一致 |
 | Synthetic | 文件可读取，但症状数量与 BIBM 表 I 不一致，暂不作首个复现数据集 |
-| 正式复现条件 | 仍缺 BIBM 完整实现、SSPNet 配套材料、完整 MIMIC 权限及运行环境 |
+| DXY / Diaformer 基线 | 环境、训练、问诊、保存与重载测试已通过；[结果与命令](docs/dxy-diaformer.md) |
+| 正式复现条件 | 仍缺 BIBM 完整实现、SSPNet 配套材料和完整 MIMIC 权限 |
 
 详细数量、来源、检查范围和缺口见 [数据与代码状态](docs/resources.md)。
 
@@ -22,7 +23,7 @@
 |---|---|---|
 | [A：数据与评估](src/data_evaluation/TASKS.md) | 用 ADMISSIONS 确认 Demo 就诊关联和时间；落实完整数据、算力与环境 | 可复查的病例组织结果、资源状态、评价约定 |
 | [B：SSPNet](src/recommendation/TASKS.md) | 向老师取得预处理、映射、DDI 和附录，核对五个模型输入文件 | 每个输入文件来源明确；可执行的预处理路径 |
-| [C：BIBM 与知识](src/knowledge/TASKS.md) | 先以 DXY 建问诊基线运行环境；取得 BIBM 完整代码、提示词和规则 | Diaformer 入口检查记录，以及完整诊断流程所缺材料 |
+| [C：BIBM 与知识](src/knowledge/TASKS.md) | 验收 DXY 基线；取得 BIBM 完整代码、提示词和规则 | 基线结果可复查，原方法缺失材料落实 |
 
 三个人直接维护各自 TASKS.md。共享接口见 [protocol.md](docs/protocol.md)，日常协作见 [CONTRIBUTING.md](CONTRIBUTING.md)。当前先做数据与模型基线。
 
@@ -54,6 +55,7 @@ python scripts/check_diagnosis_data.py
 ## 仓库入口
 
 - [数据、代码、环境与缺失材料](docs/resources.md)。
+- [DXY / Diaformer 环境、运行与结果](docs/dxy-diaformer.md)。
 - [上游代码及固定版本](third_party/README.md)。
 - [公开 Demo 及许可证](data/public/mimiciii-demo-1.4/README.md)。
 - [数据与接口协议](docs/protocol.md)；[虚构接口示例](examples/case.synthetic.json)。

@@ -1,0 +1,7 @@
+# The model and optimizer are imported from the pinned Diaformer submodule.
+# Install torch separately for the required CPU/CUDA platform.
+numpy==1.26.4
+tqdm==4.67.1
+boto3==1.40.67
+requests==2.32.5
+six==1.17.0
