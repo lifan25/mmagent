@@ -1,58 +1,93 @@
-# 论文、代码、数据与资源清单
+# 数据与代码准备状态
 
-记录日期：2026-11-07。下表是启动时的已知线索，供成员继续核查，不代表已下载数据或已验证模型。
+核查日期：2026-11-07。此处记录当前实际文件与检查结果，任务及后续结果由三位负责人更新各自 TASKS.md。
 
-## 来源入口
+## 已取得并检查的数据
 
-| 项目 | 入口 | 启动状态 | 后续核查负责人 |
-|---|---|---|---|
-| BIBM 2023 | DOI: 10.1109/BIBM58861.2023.10385557；用户已提供本地 PDF | 全文可读；独立完整作者实现尚未取得 | C |
-| SSPNet | [正式论文](https://www.ijcai.org/proceedings/2025/1052.pdf)；[作者仓库](https://github.com/ResearchGroupHdZhang/SSPNet) | 公开代码可查看；当前会话未运行训练 | B |
-| Diaformer | [作者仓库](https://github.com/jymChen/Diaformer) | 已作为 third_party/Diaformer 子模块取得；上游自带 DXY/Muzhi/Synthetic 目录与部分文件；划分与完整性待 C 核对 | C |
-| MIMIC-III Demo | [官方公开 Demo](https://physionet.org/content/mimiciii-demo/1.4/) | 已提供五张表、下载检查程序与许可说明，见 ../data/public/mimiciii-demo-1.4/README.md；不是完整复现数据 | A/B |
-| MIMIC-III | [v1.4](https://physionet.org/content/mimiciii/1.4/) | 受控访问；成员申请情况未确认 | A 汇总 |
-| MIMIC-IV | [官方数据页](https://physionet.org/content/mimiciv/) | 后续扩展；复现所需具体版本待核对 | A/B |
-| GPU | 老师/学院/实验室资源待询问 | 用户说明目前没有可用算力 | A |
-| 大模型调用 | 服务、模型版本、账号与预算待确认 | 尚未确认；未执行任何付费调用 | C/A |
+### 诊断数据
 
-BIBM 的本地 PDF 不随此仓库分发。文献资料、上游代码和数据各自遵循原有许可；仓库可访问不等于允许重新发布所有文件。
+来源：[Diaformer 作者仓库](https://github.com/jymChen/Diaformer)，固定提交 45491f33145003290278d0eacdc87a1d1d786b2d。
+文件：third_party/Diaformer/data/<数据集>_dataset/goal_set.p。
 
-本次明确加入的公开 Demo 例外保留原始 ODbL 许可证和来源。完整 MIMIC 尚未取得。上游代码固定提交可用 git submodule status 查看。
+| 数据集 | 训练病例 | 测试病例 | 非空验证集 | 疾病数 | 文件中实际出现的症状数 |
+|---|---:|---:|---|---:|---:|
+| DXY | 423 | 104 | 无 | 5 | 41 |
+| Muzhi | 568 | 142 | 无 | 4 | 66 |
+| Synthetic | 24000 | 6000 | 无 | 90 | 266 |
 
-## 已取得的诊断数据文件
+已检查：文件可读取；train/test 非空；病例具有疾病标签和显式/隐含症状字典；当前症状值为布尔值；没有覆盖或重新划分原数据。
 
-- third_party/Diaformer/data/dxy_dataset：dxy_dialog_data_dialog_v2.pickle、goal_set.p、vocab.txt、preprocess.py 等。
-- third_party/Diaformer/data/muzhi_dataset：acl2018-mds.p、goal_set.p、vocab.txt、preprocess.py。
-- third_party/Diaformer/data/synthetic_dataset：goal_set.p、vocab.txt、preprocess.py。
+DXY、Muzhi 上述数量与 BIBM 表 I 一致，可以作为首轮目标；这不代表预处理、环境和模型训练已完成。先用 DXY 开始。
 
-这些是上游公开仓库自带文件，本次没有反序列化、运行预处理或训练。C 应核对其是否符合 BIBM 的版本、样本数及划分；文件存在不等于复现完成。
+Synthetic：BIBM 表 I 报告 444 种症状，当前文件实际出现 266 种，现有词表也对应 266 种症状。是否属于版本或统计口径差异需老师确认，不静默视为同一版本。
 
-## 已知待核查点
+现有数据没有非空验证集。C 应核对作者的模型选择方法；需要增加验证集时从训练部分划分并记录偏差，不能以测试集反复选参。
 
-- SSPNet README 列出了预处理和映射文件，但启动时检查的公开目录及 ZIP 未见完整材料。B 应记录自己复核的版本与缺少的具体文件。
-- SSPNet 正文引用附录 A/B/C，目前取得的正式九页 PDF 未包含这些附录，需索取或核对其他作者材料。
-- SSPNet 正文学习率为 1e-4，公开 main.py 默认值为 5e-4；采用哪套设置及原因必须记录。
-- 作者报告使用 12GB TITAN V，不表示已经实测的最低显存需求，也不表示 CPU 能在可接受时间完成全量实验。
-- 不能只下载最新 MIMIC 版本就声称与论文数据一致，应核对原论文版本、筛选与编码方法。
-- DXY/Muzhi 的训练/测试划分及验证集处理要查实际来源，不能自行改动后不说明。
+复查命令：python scripts/check_diagnosis_data.py。
 
-## 成员填写表
+### MIMIC-III 公开 Demo
 
-状态可用：未核查、入口可读、已申请、已获权限、已下载、已验证、受阻。不要混用。
+来源：[官方 Demo v1.4](https://physionet.org/content/mimiciii-demo/1.4/)。
+位置：data/public/mimiciii-demo-1.4/。五张原始表、原许可证和来源说明已加入仓库。
 
-| 资源及版本 | 来源/版本标识 | 实际状态 | 核查日期 | 证据或文档链接 | 负责人 | 阻塞及下一动作 |
-|---|---|---|---|---|---|---|
-| 待填写 | 待填写 | 未核查 | 待填写 | 待填写 | 待认领 | 待填写 |
+| 表 | 数据行数 | 涉及患者数 |
+|---|---:|---:|
+| PATIENTS | 100 | 100 |
+| ADMISSIONS | 129 | 100 |
+| DIAGNOSES_ICD | 1761 | 100 |
+| PROCEDURES_ICD | 506 | 88 |
+| PRESCRIPTIONS | 10398 | 94 |
 
-数据下载、身份审核和本地文件可读取是不同状态；不在此表写账号、密码、证件或真实病例信息。
+已检查字段、非空及患者范围一致性。CSV 列名为小写，上游旧程序可能使用大写，适配时处理。后续就诊关联、时间排序、编码映射和筛选尚未实现。
 
-## 向老师集中确认的问题
+Demo 支持数据流程开发，不足以复现论文指标。完整 MIMIC-III 权限和数据尚未确认取得；MIMIC-IV 放在后续扩展。
 
-1. 两篇是否有完整作者代码、预处理脚本、补充材料、规则文件、提示词或已训练权重？
-2. 是否有已经获准使用的数据与访问流程？团队成员各自需要办理什么？
-3. 是否能提供单卡服务器，何时可用、如何排队？
-4. 是否有 GPU 租用和大模型调用预算？如有，额度和使用方式是什么？
-5. “结合”是否接受先做推荐与知识核查，再扩展症状诊断接入？
+复查命令：python scripts/fetch_public_demo.py --check-only。
 
-以上是待确认问题清单，不代表已经联系老师或取得任何授权。
+## 已取得的代码
+
+| 代码 | 位置与版本 | 当前能确认什么 |
+|---|---|---|
+| SSPNet | third_party/SSPNet；4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d | main.py、模型、训练与评价代码存在；尚未运行模型 |
+| Diaformer | third_party/Diaformer；45491f33145003290278d0eacdc87a1d1d786b2d | 问诊代码、三个数据目录、词表和预处理代码存在；尚未运行模型 |
+| BIBM 完整实现 | 尚未取得 | 不能将 Diaformer 记作整篇 BIBM 的实现 |
+
+原始来源：[SSPNet](https://github.com/ResearchGroupHdZhang/SSPNet)、[Diaformer](https://github.com/jymChen/Diaformer)。
+BIBM DOI：10.1109/BIBM58861.2023.10385557；SSPNet [正式论文](https://www.ijcai.org/proceedings/2025/1052.pdf)。
+
+## 目前阻塞
+
+### SSPNet
+
+当前入口读取下面五个文件，均尚未在该代码的 data/MIMIC_3 目录中准备：
+
+- records_final.pkl：病例序列。
+- voc_final.pkl：诊断、操作和药物词表。
+- ehr_adj_final.pkl：药物共现图。
+- ddi_A_final.pkl：与词表对齐的药物相互作用图。
+- ddi_mask_H.pkl：当前入口还会读取的辅助文件，需核对实际用途。
+
+缺失配套预处理与映射材料：作者使用的 processing.py、药物编码映射、DDI 原始来源和生成设置。不要从不同仓库拼接不匹配的同名文件。
+
+作者正文引用的附录尚未取得；正文学习率 1e-4 与当前入口默认 5e-4 不一致，需记录采用设置。B 负责向老师集中核对。
+
+### BIBM
+
+缺完整知识提取、规则迭代、MLN 学习与推理代码，提示词、规则文件和相关设置。C 向老师取得；原诊断任务与用药核查扩展分开实施。
+
+### 环境与资源
+
+本次检查使用的 Python 3.14 解释器有 numpy，但未安装 torch、dill；未安装完整复现环境。不能据此判断所有机器环境。
+
+Diaformer 作者报告 Python 3.8 / PyTorch 1.8.0，SSPNet 报告 Python 3.8.16 / PyTorch 1.9.0。B/C 分别建立隔离环境并核实兼容性，不直接在最新 Python 上堆装旧依赖。
+
+可用 GPU、完整 MIMIC 审批和大模型调用资源仍未确认。本轮没有训练、付费调用或新增实验指标。
+
+## 现在可以推进什么
+
+- A：利用 Demo 编写就诊关联和按时间组织历史的最小数据流程，同时办理完整数据权限与资源。
+- B：拿到配套材料后准备模型输入，先跑通入口，再开展正式训练与关键对照。
+- C：诊断数据已经可读取，先搭 DXY / Diaformer 的问诊基线环境；取得 BIBM 代码后接上知识与 MLN。
+
+当前优先级：可复查数据流程与基线入口 → 两篇分别复现 → 推荐与知识核查结合 → agent 展示。
 

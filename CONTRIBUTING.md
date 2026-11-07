@@ -8,7 +8,7 @@
 - [B：SSPNet 推荐](src/recommendation/TASKS.md)。
 - [C：BIBM 与知识核查](src/knowledge/TASKS.md)。
 
-每次写清当前目标、待办、已完成及证据、缺少什么、下一步。旧 report-A/B/C 仅保留为历史填报模板，不重复维护。
+每次写清当前目标、待办、已完成及证据、缺少什么、下一步；资源与准备状态更新 docs/resources.md，不另建重复报告。
 
 ## 怎么同步
 
