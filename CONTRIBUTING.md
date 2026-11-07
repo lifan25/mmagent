@@ -41,7 +41,7 @@ PR 是提交给组长审核的一组修改。成员不直接向 main 推送，�
 1. 从最新 main 建立自己的分支：A 用 a/主题，B 用 b/主题，C 用 c/主题。
 2. 修改自己的目录，执行相应检查，并更新该目录 TASKS.md 的状态、证据和下一步。
 3. 推送个人分支，向 main 提 PR；使用仓库 PR 模板说明修改、运行命令、实际结果和依赖。
-4. 手动选择 @lifan25 为 Reviewer（审核人）。B/C 不以互相批准代替 A 的审核。
+4. 非草稿 PR 应自动请求 @lifan25 为 Reviewer（审核人）；确认审核人已出现，若没有再手动添加。草稿准备好后点击 Ready for review。B/C 不以互相批准代替 A 的审核。
 5. A 检查目录范围、能否运行、接口是否一致、是否泄漏标签/数据，再给出修改意见或批准。
 6. A 执行 Squash and merge，把该 PR 合成一个提交；其他成员不点击合并。
 
@@ -60,22 +60,29 @@ git push -u origin b/recommendation-first-step
 
 然后打开 GitHub → Pull requests → New pull request，base 选 main，compare 选自己的分支。不要使用 git add . 混入另一模块的未提交文件。
 
-A 自己的变更也尽量使用 a/ 分支留出可审阅记录。GitHub 不允许批准自己的 PR；可请同学复核，最终仍由 A 合并。本次协作规则初始化由仓库所有者授权发布，作为开始执行新流程前的初始化提交。
+A 自己的变更也尽量使用 a/ 分支留出可审阅记录。GitHub 不允许批准自己的 PR；可请同学复核，最终由 A 使用保留的管理员权限处理。A 可以直接发布自己的维护变更，但不能用管理员权限替 B/C 绕过审核。
 
 ## 5. 审核配置的真实状态
 
 | 项目 | 当前状态 |
 |---|---|
-| 仓库 | lifan25/mmagent，私有，main 为默认分支 |
+| 核验日期与方式 | 2026-11-07，通过 GitHub API 读取实际设置 |
+| 仓库 | lifan25/mmagent，公开，main 为默认分支 |
 | 组长权限 | lifan25 是管理员；普通协作者为 write |
-| 审核/合并约定 | 仅 A 审核、合并 B/C 的 PR，立即执行 |
-| CODEOWNERS | .github/CODEOWNERS 已准备，所有文件指定 @lifan25 |
-| 服务端强制保护 | 尚未启用：GitHub API 返回 403，要求升级 Pro 或公开仓库 |
-| 自动指定审核人 | 当前私有仓库套餐不支持 CODEOWNERS，先手动选择 @lifan25 |
+| 分支保护 | main 的经典分支保护已启用；未叠加 Ruleset，不影响保护生效 |
+| PR 与批准 | 普通成员必须走 PR；至少 1 次批准，且必须由 Code Owner 批准 |
+| CODEOWNERS | .github/CODEOWNERS 的 * 指定 @lifan25；API 检查 errors=[] |
+| 追加提交后的审核 | dismiss_stale_reviews=true，旧批准失效，需要重新审核 |
+| 合并前讨论 | required_conversation_resolution=true，必须解决讨论 |
+| 强推与删除 | allow_force_pushes=false、allow_deletions=false |
+| 管理员 | enforce_admins=false，A 保留绕过权限，处理自己的变更 |
+| 自动指定审核人 | 非草稿 PR 应自动请求 @lifan25；草稿需先 Ready for review |
+| 自动测试门槛 | 尚未配置 required_status_checks；不能声称合并前自动测试已强制通过 |
+| 最终点击合并 | 仍约定仅 A 操作；批准后具有 write 权限的成员技术上也可能合并 |
 
-因此目前不能声称其他成员“技术上没有 main 写权限”或“平台已强制你的批准”。仅添加文件不能实现强制审批，也不为此改变仓库可见性、购买套餐或移除同学。
+当前配置符合本项目方案：普通成员不能直接向 main 推送，其 PR 必须由 @lifan25 批准；管理员例外保留。本轮核验依据为服务端配置读取与 CODEOWNERS 有效性检查。
 
-未来如果现有套餐支持私有分支保护，由 A 在 Settings → Branches 中为 main 设置：必须通过 PR、至少一次批准、必须由 Code Owner 批准、追加提交后撤销旧批准、解决全部讨论、禁止强推和删除。保留 A 必要的管理员集成权限，避免唯一 Code Owner 无法处理自己的 PR；其他成员仍不得代为合并。
+这些设置不限制成员只能编辑特定目录，也不会在批准后把合并按钮只留给 A。目录范围和仅 A 合并仍遵守本文件。后续增加可运行的自动检查后，再将具体检查配置为 main 的必需状态；不要先设置不存在的检查阻塞合并。
 
 官方依据：[CODEOWNERS 的可用范围及作用](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)、[分支保护](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)。
 
