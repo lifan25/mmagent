@@ -13,7 +13,7 @@ CASE_FIELDS = ("contract_version", "data_kind", "case_id", "diagnoses", "procedu
 
 
 class MedicationAgent:
-    def __init__(self, recommender=None, rules=None, checker=None):
+    def __init__(self, recommender=None, rules=None, checker=None, product_metadata=None):
         if rules is None:
             from src.knowledge.check import load_rules
             rules = load_rules(DEFAULT_AGENT_RULES)
@@ -21,8 +21,9 @@ class MedicationAgent:
             from src.recommendation.predict import SSPNetRecommender
             recommender = SSPNetRecommender()
         if checker is None:
+            from functools import partial
             from src.knowledge.check import check
-            checker = check
+            checker = check if product_metadata is None else partial(check, product_metadata=product_metadata)
         self.recommender, self.rules, self.checker = recommender, rules, checker
 
     def run_with_scores(self, case):
@@ -104,6 +105,7 @@ if __name__ == "__main__":
     parser.add_argument("--rules", type=Path, help="Defaults to the reviewed LLM package; specify reference rules for the control")
     parser.add_argument("--checkpoint", type=Path, help="Explicit alternate trained medication space; default remains ATC3")
     parser.add_argument("--context", type=Path, help="Frozen same-encounter context snapshot; optional, never inferred")
+    parser.add_argument("--products", type=Path, help="Explicit frozen product identity snapshot for the chosen rule package")
     parser.add_argument("--output", type=Path, required=True, help="New local result file; cases are not committed")
     args = parser.parse_args()
     if args.output.exists():
@@ -120,7 +122,8 @@ if __name__ == "__main__":
     if args.context:
         from src.data_evaluation.prepare_context import apply_context
         case = apply_context(case, json.loads(args.context.read_text(encoding="utf-8")))
-    report = MedicationAgent(recommender=recommender, rules=rules).run(case)
+    products = json.loads(args.products.read_text(encoding="utf-8")) if args.products else None
+    report = MedicationAgent(recommender=recommender, rules=rules, product_metadata=products).run(case)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
         json.dump(report, stream, ensure_ascii=False, indent=2, allow_nan=False)

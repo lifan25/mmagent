@@ -1,0 +1,173 @@
+{
+  "version": "source-authored-check-reference-v1",
+  "data_kind": "synthetic_reference",
+  "created": "2026-11-14",
+  "provenance": {
+    "author_role": "independent_check_eval agent; same base model as implementation agents",
+    "method": "Each expected state and rationale was written explicitly after separately reading official source text; no production condition tree or checker call generated expected labels.",
+    "legacy_checker_and_tests_read": true,
+    "new_production_rules_or_implementation_read": false,
+    "production_case_predictions_or_check_outputs_read": false,
+    "frozen_before_first_reference_execution": true,
+    "is_expert_clinical_gold_standard": false,
+    "is_statistically_independent_adjudication": false,
+    "population_sampling": "Purposive source and scope scenarios, not sampled patient records; frequencies do not estimate clinical prevalence.",
+    "negative_fact_policy": "Explicit false values below are authored facts in hypothetical cases. They never authorize turning absent source records into false.",
+    "unit": "One hypothetical candidate set and one specified rule family. clear_within_rule does not mean safe prescription.",
+    "scope_policy": "A resolved product outside the frozen source scope is not_applicable; identity that cannot be resolved is unknown. Candidate-pair flags request potential simultaneous-use review and do not assert actual coadministration."
+  },
+  "families": {
+    "metformin_renal": {
+      "rule_ids": ["medication.metformin.egfr"],
+      "action_type": "contraindication_flag",
+      "scope": "Metformin ER 500 mg original RxCUI 860975; renal threshold only, not initiation or overall eligibility."
+    },
+    "ibuprofen_cabg": {
+      "rule_ids": ["medication.ibuprofen.cabg"],
+      "action_type": "do_not_use_flag",
+      "scope": "Ibuprofen 200 mg oral tablet 310965; current CABG surgical setting. The reference does not extend the direct product source to 100 mg 198405."
+    },
+    "naproxen_cabg": {
+      "rule_ids": ["medication.naproxen.cabg"],
+      "action_type": "contraindication_or_do_not_use_flag",
+      "scope": "Naproxen 500 mg 198014 or naproxen sodium 220 mg 849574, oral tablets; current CABG surgical setting."
+    },
+    "methylphenidate_cad": {
+      "rule_ids": ["medication.methylphenidate.cad"],
+      "action_type": "avoid_use_warning",
+      "scope": "Methylphenidate hydrochloride 20 mg oral tablet 1091392 with known coronary artery disease. This limited family does not cover all serious cardiac diseases in the source."
+    },
+    "opioid_benzodiazepine_pair": {
+      "rule_ids": ["medication.opioid_benzodiazepine.candidates"],
+      "action_type": "potential_combination_review",
+      "scope": "Both an identified opioid product and an identified benzodiazepine appear in the current proposed candidate set. No actual coadministration or automatic prohibition is inferred."
+    }
+  },
+  "sources": {
+    "metformin_er_label": {
+      "title": "Metformin hydrochloride extended-release tablets",
+      "publisher": "NLM DailyMed; PD-Rx Pharmaceuticals",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=17050df5-9e95-4e1b-ac75-34add289b139",
+      "section": "2.4 and 4; RxNorm table",
+      "label_date": "2026-07-07",
+      "retrieved": "2026-11-14",
+      "paraphrase": "该缓释制剂在eGFR低于30 mL/min/1.73m2时禁用；30–45另属不建议起始治疗范围，不能冒充同一禁忌阈值。"
+    },
+    "ibuprofen_200_label": {
+      "title": "Ibuprofen 200 mg tablet",
+      "publisher": "NLM DailyMed; Trifecta Pharmaceuticals",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09972806-e064-238d-e063-6394a90a7434",
+      "section": "Active Ingredient; Do Not Use; RxNorm table",
+      "label_date": "2024-12-31",
+      "retrieved": "2026-11-14",
+      "paraphrase": "200mg片剂标签禁止在心脏手术紧邻前后使用；本参照只取明确CABG场景，不把远期手术史当同次围术期。"
+    },
+    "naproxen_500_label": {
+      "title": "Naproxen tablets",
+      "publisher": "NLM DailyMed; Bryant Ranch Prepack",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bbc61c0a-491a-4f50-a7bf-2ca94c771568",
+      "section": "3, 4 and 5.1",
+      "label_date": "2026-05-15",
+      "retrieved": "2026-11-14",
+      "paraphrase": "口服片剂范围包含500mg；CABG手术场景为禁忌，不能由普通冠心病史替代手术条件。"
+    },
+    "naproxen_sodium_220_label": {
+      "title": "Naproxen sodium tablets USP 220 mg",
+      "publisher": "NLM DailyMed; SAM'S WEST",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=7a87a339-4482-ec9e-3c77-7ccb9cea2c4c",
+      "section": "Active ingredient; Do not use",
+      "label_date": "2025-07-22",
+      "retrieved": "2026-11-14",
+      "paraphrase": "该220mg萘普生钠片标签禁止在心脏手术紧邻前后使用；这里仅核查明确CABG场景。"
+    },
+    "methylphenidate_label": {
+      "title": "Methylphenidate hydrochloride tablets",
+      "publisher": "NLM DailyMed; Amneal Pharmaceuticals",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c614cf55-b462-4f7e-b19c-6d22a47e509f",
+      "section": "5.2; 3; RxNorm table",
+      "label_date": "2025-02-19",
+      "retrieved": "2026-11-14",
+      "paraphrase": "5.2节建议冠状动脉病等已知严重心脏疾病患者避免使用；这是警告而非第4节绝对禁忌，普通血压或脉搏不能确定CAD是否存在。"
+    },
+    "fda_opioid_benzo": {
+      "title": "New safety measures for opioid analgesics and benzodiazepines",
+      "publisher": "U.S. FDA",
+      "url": "https://www.fda.gov/drugs/food-and-drug-administration-overdose-prevention-framework/new-safety-measures-announced-opioid-analgesics-prescription-opioid-cough-products-and",
+      "section": "Class-wide labeling warning and patient information",
+      "label_date": "2016-08-31",
+      "retrieved": "2026-11-14",
+      "paraphrase": "阿片类与苯二氮䓬类同时使用可产生严重中枢和呼吸抑制风险。两个产品同时被推荐只能支持潜在组合复核，不能证明已经同时服用。"
+    },
+    "diazepam_label": {
+      "title": "Diazepam tablets USP 5 mg",
+      "publisher": "NLM DailyMed; PD-Rx Pharmaceuticals",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cd02d7f0-0fbe-4829-9a05-99a261972805",
+      "section": "Boxed warning; description",
+      "retrieved": "2026-11-14",
+      "paraphrase": "地西泮5mg片是苯二氮䓬类；与阿片并用需限制情形、剂量和疗程并监测，不能改写成所有组合一律绝对禁用。"
+    },
+    "clonazepam_label": {
+      "title": "Clonazepam tablets",
+      "publisher": "NLM DailyMed; TruPharma",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fa50aceb-a113-4c07-98e0-f1824d4ff30e",
+      "section": "Boxed warning; description; product scope",
+      "label_date": "2026-09-18",
+      "retrieved": "2026-11-14",
+      "paraphrase": "氯硝西泮片的黑框警告保留与阿片合用的条件、最小剂量疗程及监测要求；参照将其用于候选组合复核，不推断实际用药。"
+    },
+    "input_contract": {
+      "title": "Frozen shared Case and CheckReport semantics",
+      "publisher": "Project protocol 0.1-draft",
+      "url": "https://github.com/lifan25/mmagent/blob/b37ae2097495b853d9f66755a95236c2f5315a58/docs/protocol.md",
+      "section": "1, 2, 4, 5 and 7.4",
+      "retrieved": "2026-11-14",
+      "paraphrase": "缺字段、类型错误、无效测量和未知药品身份不转换为临床阴性；这里的输入有效性条目是工程语义对照。"
+    }
+  },
+  "cases": [
+    {"reference_id":"R001","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":29.5},"candidates":[{"system":"RxNorm","code":"860975"}],"expected":"flag","rationale":"29.5低于该缓释制剂的30阈值。","sources":["metformin_er_label"],"dimension":"clinical_threshold"},
+    {"reference_id":"R002","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":30},"candidates":[{"system":"RxNorm","code":"860975"}],"expected":"clear_within_rule","rationale":"等于30不满足低于30；这里只判断这条阈值规则。","sources":["metformin_er_label"],"dimension":"clinical_threshold"},
+    {"reference_id":"R003","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":44},"candidates":[{"system":"RxNorm","code":"860975"}],"expected":"clear_within_rule","rationale":"44不触发低于30；不能把另一个起始治疗限制合并进来。","sources":["metformin_er_label"],"dimension":"clinical_threshold"},
+    {"reference_id":"R004","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":92},"candidates":[{"system":"RxNorm","code":"860975"}],"expected":"clear_within_rule","rationale":"92在这条禁忌阈值以上，不代表整处方安全。","sources":["metformin_er_label"],"dimension":"clinical_threshold"},
+    {"reference_id":"R005","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":null},"candidates":[{"system":"RxNorm","code":"860975"}],"expected":"unknown","rationale":"没有可用eGFR，不能判断阈值。","sources":["metformin_er_label","input_contract"],"dimension":"missing_fact"},
+    {"reference_id":"R006","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":-5},"candidates":[{"system":"RxNorm","code":"860975"}],"expected":"unknown","rationale":"负数不属于有效eGFR输入域。","sources":["input_contract"],"dimension":"input_validity"},
+    {"reference_id":"R007","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":"29.5"},"candidates":[{"system":"RxNorm","code":"860975"}],"expected":"unknown","rationale":"字符串不能在核查器内静默变成确认的数值测量。","sources":["input_contract"],"dimension":"input_validity"},
+    {"reference_id":"R008","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":20},"candidates":[{"system":"RxNorm","code":"310965"}],"expected":"not_applicable","rationale":"已识别候选是布洛芬，不是该二甲双胍制剂。","sources":["metformin_er_label","ibuprofen_200_label"],"dimension":"scope_control"},
+    {"reference_id":"R009","family":"metformin_renal","rule_ids":["medication.metformin.egfr"],"context":{"egfr_ml_min_1_73m2":20},"candidates":[{"system":"RxNorm","code":"fictional-unresolved-product"}],"expected":"unknown","rationale":"不能解析身份，不能确定这条规则是否适用。","sources":["input_contract"],"dimension":"scope_control"},
+
+    {"reference_id":"R010","family":"ibuprofen_cabg","rule_ids":["medication.ibuprofen.cabg"],"context":{"perioperative_cabg":true},"candidates":[{"system":"RxNorm","code":"310965"}],"expected":"flag","rationale":"明确处于CABG手术场景，200mg来源范围匹配。","sources":["ibuprofen_200_label"],"dimension":"clinical_condition"},
+    {"reference_id":"R011","family":"ibuprofen_cabg","rule_ids":["medication.ibuprofen.cabg"],"context":{"perioperative_cabg":false},"candidates":[{"system":"RxNorm","code":"310965"}],"expected":"clear_within_rule","rationale":"此虚构病例明确否定当前CABG场景；不是由无记录推断。","sources":["ibuprofen_200_label","input_contract"],"dimension":"explicit_negative"},
+    {"reference_id":"R012","family":"ibuprofen_cabg","rule_ids":["medication.ibuprofen.cabg"],"context":{"perioperative_cabg":null},"candidates":[{"system":"RxNorm","code":"310965"}],"expected":"unknown","rationale":"当前手术场景未取得。","sources":["ibuprofen_200_label","input_contract"],"dimension":"missing_fact"},
+    {"reference_id":"R013","family":"ibuprofen_cabg","rule_ids":["medication.ibuprofen.cabg"],"context":{"remote_cabg_history":true},"candidates":[{"system":"RxNorm","code":"310965"}],"expected":"unknown","rationale":"只有远期CABG史，不能替代当前围术事实。","sources":["ibuprofen_200_label","input_contract"],"dimension":"temporal_scope"},
+    {"reference_id":"R014","family":"ibuprofen_cabg","rule_ids":["medication.ibuprofen.cabg"],"context":{"perioperative_cabg":true},"candidates":[{"system":"RxNorm","code":"198405"}],"expected":"not_applicable","rationale":"100mg原码身份已知，但不在本轮直接来源支持的200mg冻结范围；并非认定100mg可安全使用。","sources":["ibuprofen_200_label"],"dimension":"source_scope"},
+    {"reference_id":"R015","family":"ibuprofen_cabg","rule_ids":["medication.ibuprofen.cabg"],"context":{"perioperative_cabg":true},"candidates":[{"system":"RxNorm","code":"198014"}],"expected":"not_applicable","rationale":"萘普生另有自己的规则；不能把它算成本条布洛芬检查。","sources":["ibuprofen_200_label","naproxen_500_label"],"dimension":"scope_control"},
+    {"reference_id":"R016","family":"ibuprofen_cabg","rule_ids":["medication.ibuprofen.cabg"],"context":{"perioperative_cabg":"true"},"candidates":[{"system":"RxNorm","code":"310965"}],"expected":"unknown","rationale":"字符串不是已确认的布尔患者事实。","sources":["input_contract"],"dimension":"input_validity"},
+
+    {"reference_id":"R017","family":"naproxen_cabg","rule_ids":["medication.naproxen.cabg"],"context":{"perioperative_cabg":true},"candidates":[{"system":"RxNorm","code":"198014"}],"expected":"flag","rationale":"500mg片与明确CABG手术场景匹配。","sources":["naproxen_500_label"],"dimension":"clinical_condition"},
+    {"reference_id":"R018","family":"naproxen_cabg","rule_ids":["medication.naproxen.cabg"],"context":{"perioperative_cabg":true},"candidates":[{"system":"RxNorm","code":"849574"}],"expected":"flag","rationale":"220mg萘普生钠片也有紧邻心脏手术的禁用表述。","sources":["naproxen_sodium_220_label"],"dimension":"clinical_condition"},
+    {"reference_id":"R019","family":"naproxen_cabg","rule_ids":["medication.naproxen.cabg"],"context":{"perioperative_cabg":false},"candidates":[{"system":"RxNorm","code":"198014"}],"expected":"clear_within_rule","rationale":"虚构事实明确非当前CABG场景，只排除该单项条件。","sources":["naproxen_500_label","input_contract"],"dimension":"explicit_negative"},
+    {"reference_id":"R020","family":"naproxen_cabg","rule_ids":["medication.naproxen.cabg"],"context":{"perioperative_cabg":false},"candidates":[{"system":"RxNorm","code":"849574"}],"expected":"clear_within_rule","rationale":"同样仅判断已明确否定的当前CABG条件。","sources":["naproxen_sodium_220_label","input_contract"],"dimension":"explicit_negative"},
+    {"reference_id":"R021","family":"naproxen_cabg","rule_ids":["medication.naproxen.cabg"],"context":{"perioperative_cabg":null},"candidates":[{"system":"RxNorm","code":"198014"}],"expected":"unknown","rationale":"缺少当前CABG事实不能放行。","sources":["naproxen_500_label","input_contract"],"dimension":"missing_fact"},
+    {"reference_id":"R022","family":"naproxen_cabg","rule_ids":["medication.naproxen.cabg"],"context":{"remote_cabg_history":true},"candidates":[{"system":"RxNorm","code":"849574"}],"expected":"unknown","rationale":"远期手术史没有提供本次是否处于手术紧邻阶段。","sources":["naproxen_sodium_220_label","input_contract"],"dimension":"temporal_scope"},
+    {"reference_id":"R023","family":"naproxen_cabg","rule_ids":["medication.naproxen.cabg"],"context":{"perioperative_cabg":true},"candidates":[{"system":"RxNorm","code":"310965"}],"expected":"not_applicable","rationale":"布洛芬不是这条萘普生规则的候选。","sources":["naproxen_500_label","ibuprofen_200_label"],"dimension":"scope_control"},
+    {"reference_id":"R024","family":"naproxen_cabg","rule_ids":["medication.naproxen.cabg"],"context":{"perioperative_cabg":true},"candidates":[{"system":"RxNorm","code":"fictional-unresolved-product"}],"expected":"unknown","rationale":"即使患者事实明确，未知产品仍不能确定适用范围。","sources":["input_contract"],"dimension":"scope_control"},
+
+    {"reference_id":"R025","family":"methylphenidate_cad","rule_ids":["medication.methylphenidate.cad"],"context":{"coronary_artery_disease":true},"candidates":[{"system":"RxNorm","code":"1091392"}],"expected":"flag","rationale":"明确CAD支持来源5.2的避用警告，不升级成绝对禁忌。","sources":["methylphenidate_label"],"dimension":"clinical_condition"},
+    {"reference_id":"R026","family":"methylphenidate_cad","rule_ids":["medication.methylphenidate.cad"],"context":{"coronary_artery_disease":false},"candidates":[{"system":"RxNorm","code":"1091392"}],"expected":"clear_within_rule","rationale":"虚构事实明确否定CAD，仅排除该窄规则，未评价其他心脏疾病。","sources":["methylphenidate_label","input_contract"],"dimension":"explicit_negative"},
+    {"reference_id":"R027","family":"methylphenidate_cad","rule_ids":["medication.methylphenidate.cad"],"context":{"coronary_artery_disease":null},"candidates":[{"system":"RxNorm","code":"1091392"}],"expected":"unknown","rationale":"未取得CAD状态。","sources":["methylphenidate_label","input_contract"],"dimension":"missing_fact"},
+    {"reference_id":"R028","family":"methylphenidate_cad","rule_ids":["medication.methylphenidate.cad"],"context":{"heart_rate_bpm":75},"candidates":[{"system":"RxNorm","code":"1091392"}],"expected":"unknown","rationale":"正常脉搏不能确认不存在CAD。","sources":["methylphenidate_label","input_contract"],"dimension":"non_substitution"},
+    {"reference_id":"R029","family":"methylphenidate_cad","rule_ids":["medication.methylphenidate.cad"],"context":{"hypertension":true},"candidates":[{"system":"RxNorm","code":"1091392"}],"expected":"unknown","rationale":"高血压记录不是CAD阳性或阴性的替代证据。","sources":["methylphenidate_label","input_contract"],"dimension":"non_substitution"},
+    {"reference_id":"R030","family":"methylphenidate_cad","rule_ids":["medication.methylphenidate.cad"],"context":{"coronary_artery_disease":true},"candidates":[{"system":"RxNorm","code":"860975"}],"expected":"not_applicable","rationale":"候选是二甲双胍，不在哌甲酯规则范围。","sources":["methylphenidate_label","metformin_er_label"],"dimension":"scope_control"},
+    {"reference_id":"R031","family":"methylphenidate_cad","rule_ids":["medication.methylphenidate.cad"],"context":{"coronary_artery_disease":"true"},"candidates":[{"system":"RxNorm","code":"1091392"}],"expected":"unknown","rationale":"未验证字符串不能作为确认诊断布尔值。","sources":["input_contract"],"dimension":"input_validity"},
+    {"reference_id":"R032","family":"methylphenidate_cad","rule_ids":["medication.methylphenidate.cad"],"context":{"coronary_artery_disease":true},"candidates":[{"system":"RxNorm","code":"fictional-unresolved-product"}],"expected":"unknown","rationale":"缺产品身份，不能把CAD警告套到未知药物。","sources":["input_contract"],"dimension":"scope_control"},
+
+    {"reference_id":"R033","family":"opioid_benzodiazepine_pair","rule_ids":["medication.opioid_benzodiazepine.candidates"],"context":{},"candidates":[{"system":"RxNorm","code":"1860154"},{"system":"RxNorm","code":"197591"}],"expected":"flag","rationale":"羟考酮与地西泮同在候选中，应提示潜在并用复核；不能断言已同时服药。","sources":["fda_opioid_benzo","diazepam_label"],"dimension":"pair_scope"},
+    {"reference_id":"R034","family":"opioid_benzodiazepine_pair","rule_ids":["medication.opioid_benzodiazepine.candidates"],"context":{},"candidates":[{"system":"RxNorm","code":"833036"},{"system":"RxNorm","code":"204892"}],"expected":"flag","rationale":"复方中的氢可酮仍属阿片，与氯硝西泮形成待复核候选组合。","sources":["fda_opioid_benzo","clonazepam_label"],"dimension":"combination_product"},
+    {"reference_id":"R035","family":"opioid_benzodiazepine_pair","rule_ids":["medication.opioid_benzodiazepine.candidates"],"context":{},"candidates":[{"system":"RxNorm","code":"1049221"},{"system":"RxNorm","code":"197591"}],"expected":"flag","rationale":"含羟考酮的复方与地西泮仍需潜在并用复核；不是全组合绝对禁用判断。","sources":["fda_opioid_benzo","diazepam_label"],"dimension":"combination_product"},
+    {"reference_id":"R036","family":"opioid_benzodiazepine_pair","rule_ids":["medication.opioid_benzodiazepine.candidates"],"context":{},"candidates":[{"system":"RxNorm","code":"197591"}],"expected":"not_applicable","rationale":"候选仅一项，没有本规则定义的候选药对；未核对其他实际用药。","sources":["fda_opioid_benzo","input_contract"],"dimension":"pair_scope"},
+    {"reference_id":"R037","family":"opioid_benzodiazepine_pair","rule_ids":["medication.opioid_benzodiazepine.candidates"],"context":{},"candidates":[{"system":"RxNorm","code":"1860154"},{"system":"RxNorm","code":"860975"}],"expected":"not_applicable","rationale":"二甲双胍不是苯二氮䓬类，本条特定组合不适用；并非全面无相互作用。","sources":["fda_opioid_benzo","metformin_er_label"],"dimension":"pair_scope"},
+    {"reference_id":"R038","family":"opioid_benzodiazepine_pair","rule_ids":["medication.opioid_benzodiazepine.candidates"],"context":{},"candidates":[{"system":"RxNorm","code":"197591"},{"system":"RxNorm","code":"fictional-unresolved-product"}],"expected":"unknown","rationale":"另一候选身份未知，不能确认或排除阿片—苯二氮䓬候选组合。","sources":["fda_opioid_benzo","input_contract"],"dimension":"scope_control"},
+    {"reference_id":"R039","family":"opioid_benzodiazepine_pair","rule_ids":["medication.opioid_benzodiazepine.candidates"],"context":{"historical_benzodiazepine_recorded":true},"candidates":[{"system":"RxNorm","code":"1860154"}],"expected":"not_applicable","rationale":"既往记录不自动成为本次候选，也不能证明药物仍在同时使用。","sources":["fda_opioid_benzo","input_contract"],"dimension":"temporal_scope"},
+    {"reference_id":"R040","family":"opioid_benzodiazepine_pair","rule_ids":["medication.opioid_benzodiazepine.candidates"],"context":{},"candidates":[{"system":"RxNorm","code":"197591"},{"system":"RxNorm","code":"204892"}],"expected":"not_applicable","rationale":"两个已识别候选均属苯二氮䓬，本条跨阿片组合不适用；没有评价重复镇静风险。","sources":["fda_opioid_benzo","diazepam_label","clonazepam_label"],"dimension":"pair_scope"}
+  ]
+}

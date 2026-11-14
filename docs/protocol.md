@@ -254,3 +254,13 @@ DDInter参照预设：仅大小写/空白标准化药名；多ID名称未知；�
 
 DDInter实际可得性修订（任何该基线结果产生前）：R类官方文件持续TLS/连接失败，已取得并冻结A/B/D/H/L/P/V七类。允许显式`--allow-partial`只验证这七类快照，输出独立`partial`版本，并报告缺R的覆盖局限；默认完整模式仍要求八类，不能用七类结果冒充完整数据库。该范围由可得性确定，不根据实验命中率选择类别。
 
+### 10.2 来源范围与核查参照
+
+复用原72标签预测，不新增模型。上下文v2保留原同次eGFR/CABG，加年龄及记录态CAD：精确SNOMED53741008，来源就诊在当前开始前已结束或为当前同次，截止前没有已记缓解；STOP在截止日的时间不明确则unknown。诊断日期不是录入时间，未来来源不回填，未来缓解日期不进入当前上下文。没有疾病、过敏、妊娠记录不能推false，年龄本轮不产生“已核查”计数。
+
+单药`coverage`仍按候选—患者条件判断；`pair_coverage`单列本次候选无序对及其匹配/待补/未覆盖数量。组合finding使用`candidate_indices`、`evaluation_unit=candidate_pair`、`classification=potential_combination_review`、`actual_concurrent_use=unknown`。候选同时出现仅要求复核是否计划并用，不证明实际给药；不在当前药对范围不能说安全。
+
+精确allowlist以外、且已由官方原码清单确认的药品标为`outside_reviewed_product_scope`，不冒充等待补患者事实。任意未知编码或范围内缺身份仍unknown。新规则/新产品表必须显式配套传入，旧默认保留。单次规则完成、药对匹配、整体处方覆盖和临床正确性是不同指标。
+
+来源参照采用独立角色逐条编写的明确虚构案例，期待在新增实现运行前冻结，不能调用生产规则生成真值。报告flag／clear_within_rule／unknown／not_applicable四态混淆矩阵和未知误清等错误；该参照不称临床金标准。真实固定病例四分支只报覆盖和来源证据，没有独立标签时clinical_accuracy为null。首次范围计数错误及修正保留版本，不能将pending减少算覆盖提升。
+

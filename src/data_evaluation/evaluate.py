@@ -14,7 +14,7 @@ from src.recommendation.prepare import read_jsonl
 from src.recommendation.train import metrics
 
 
-def run(split, output, rules_path=None, config_path=None, context_path=None):
+def run(split, output, rules_path=None, config_path=None, context_path=None, products_path=None):
     if output.exists():
         raise ValueError("Run directory exists; preserve the existing evidence")
     config_path = config_path or ROOT / "src/recommendation/configs/sspnet-synthea-product.json"
@@ -30,7 +30,9 @@ def run(split, output, rules_path=None, config_path=None, context_path=None):
     rules_path = rules_path or DEFAULT_AGENT_RULES
     rules = load_rules(rules_path)
     from src.recommendation.predict import SSPNetRecommender
-    agent = MedicationAgent(recommender=SSPNetRecommender(ROOT / config["run_dir"] / "best.pt"), rules=rules)
+    products = json.loads(products_path.read_text(encoding="utf-8")) if products_path else None
+    agent = MedicationAgent(recommender=SSPNetRecommender(ROOT / config["run_dir"] / "best.pt"), rules=rules,
+                            product_metadata=products)
     context = json.loads(context_path.read_text(encoding="utf-8")) if context_path else None
     original_scores = np.load(ROOT / config["run_dir"] / "test-scores.npy") if split == "test" else None
     if original_scores is not None and len(original_scores) != len(encoded):
@@ -90,6 +92,7 @@ def run(split, output, rules_path=None, config_path=None, context_path=None):
         "a1_directory": config["a1_dir"], "prepared_directory": config["prepared_dir"],
         "checkpoint_directory": config["run_dir"], "model_manifest": agent.recommender.manifest,
         "context_file": str(context_path) if context_path else None,
+        "product_metadata_file": str(products_path) if products_path else None,
         "context_policy": context["policy"] if context else "original A1 context only",
         "rules_file": str(Path(rules_path).resolve().relative_to(ROOT)),
         "rule_versions": [{"rule_id": r["rule_id"], "version": r["version"],
@@ -134,5 +137,6 @@ if __name__ == "__main__":
     parser.add_argument("--rules", type=Path, help="Reviewed package for a fixed-candidate comparison")
     parser.add_argument("--config", type=Path, help="Existing training config and checkpoint; no retraining here")
     parser.add_argument("--context", type=Path, help="Frozen optional same-encounter context")
+    parser.add_argument("--products", type=Path, help="Frozen product identity snapshot for selected rules")
     args = parser.parse_args()
-    run(args.split, args.output, args.rules, args.config, args.context)
+    run(args.split, args.output, args.rules, args.config, args.context, args.products)

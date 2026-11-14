@@ -1,0 +1,609 @@
+{
+  "version": "medication-source-reviewed-v2",
+  "description": "Two source-reviewed patient-rule additions and one separately counted candidate-pair review. Old LLM-derived conditions and rejection retained; ibuprofen product scope narrowed after independent source review. No new model or LLM call.",
+  "products_file": "src/knowledge/rules/rxnorm-rule-products-v2.json",
+  "review": "Agent source review only; no clinician approval; separate source-derived evaluation is not clinical ground truth.",
+  "rules": [
+    {
+      "rule_id": "medication.metformin.egfr",
+      "version": "1.1-llm-v2-rxnorm-scope",
+      "kind": "medication",
+      "origin": "local_llm_extraction",
+      "statement": "Contraindicate metformin use when eGFR is less than 30 mL/min/1.73m²; do not extend this contraindication to eGFR values from 30 to 45 mL/min/1.73m².",
+      "selector": {
+        "system": "RxNormIngredient",
+        "ingredient_rxcui": "6809",
+        "route": "oral",
+        "single_ingredient": true,
+        "allowed_dose_form_rxcuis": [
+          "317541",
+          "316945"
+        ],
+        "allowed_product_rxcuis": [
+          "860975"
+        ]
+      },
+      "possible_atc3": [
+        "A10B"
+      ],
+      "condition": {
+        "all": [
+          {
+            "field": "egfr_ml_min_1_73m2",
+            "op": "lt",
+            "value": 30
+          }
+        ]
+      },
+      "required_fields": [
+        "egfr_ml_min_1_73m2"
+      ],
+      "predicate_definitions": {
+        "egfr_ml_min_1_73m2": "Current eGFR, a nonnegative number in mL/min/1.73m2; unknown is null."
+      },
+      "source": {
+        "title": "METFORMIN HYDROCHLORIDE tablet, film coated",
+        "publisher": "NLM DailyMed; label repackager Preferred Pharmaceuticals Inc.",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ca71c133-6c38-4b9e-80af-1949634157f4",
+        "section": "2.3 Recommendations for Use in Renal Impairment; 4 Contraindications",
+        "version_date": "2026-01-19",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "Oral metformin tablets must not be used when renal impairment gives an eGFR under 30 mL/min/1.73m2. The separate advice against starting therapy at 30 to 45 does not extend this contraindication threshold."
+      },
+      "code_mapping": {
+        "system": "ATC5",
+        "code": "A10BA02",
+        "ingredient": "metformin",
+        "url": "https://atcddd.fhi.no/atc_ddd_index/?code=A10BA02",
+        "index_date": "2026-01-20",
+        "limitation": "A10B is a parent class only; no reverse ingredient inference. This rule covers oral tablets only."
+      },
+      "action": "flag",
+      "review_status": "reviewed",
+      "review_record": {
+        "author": "qwen3-4b-instruct-2507-q4km",
+        "reviewer": "Codex agent ddi_source_audit",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "decision": "reviewed",
+        "reason": "The model preserves the strict eGFR <30 threshold and does not extend this contraindication to 30-45. Fixed input-domain validation enforces the already supplied nonnegative eGFR predicate independently of generated condition syntax. Clinical condition and statement are unchanged.",
+        "run_directory": "outputs/knowledge/bibm-medication-extraction-v2-20261114",
+        "raw_call_line": 3,
+        "raw_stage": "rewrite",
+        "raw_response_sha256": "d56ba9edd6e568c25123cf87571c9135a67381e694de13b9969ffa180828699d",
+        "model_statement_and_condition_preserved": true,
+        "provided_metadata": [
+          "source",
+          "evidence",
+          "selector",
+          "possible_atc3",
+          "code_mapping",
+          "required_fields",
+          "predicate_definitions"
+        ],
+        "finite_synthetic_comparison": {
+          "valid": true,
+          "synthetic_context_count": 6,
+          "mismatch_count": 0,
+          "matches_finite_reference": true
+        },
+        "limitations": "Agent review only; no human/clinical expert review, no clinical validity or extraction generalization established."
+      },
+      "scope_review": {
+        "reviewer": "Codex agent ddi_source_audit",
+        "date": "2026-11-14",
+        "kind": "agent_scope_adaptation_not_new_llm_extraction",
+        "parent_package": "src/knowledge/rules/medication-llm-reviewed-v2.json",
+        "parent_version": "1.0-llm-v2-source-review",
+        "parent_selector": {
+          "system": "ATC5",
+          "code": "A10BA02",
+          "route": "oral",
+          "dose_form": "tablet"
+        },
+        "statement_unchanged": true,
+        "condition_unchanged": true,
+        "metadata_version": "rxnorm-rule-products-v1",
+        "reason": "Match original RxNorm ingredient and exact permitted dose form; preserve route/release distinction. No ATC3 reverse inference. No additional clinical conditions.",
+        "limitations": "Agent source/logic verification only; no human or clinical expert validation."
+      },
+      "scope_evidence": [
+        {
+          "source": {
+            "title": "METFORMIN HYDROCHLORIDE tablet, extended release; METFORMIN HYDROCHLORIDE ER",
+            "publisher": "NLM DailyMed; PD-Rx Pharmaceuticals, Inc. repackaged label",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=17050df5-9e95-4e1b-ac75-34add289b139",
+            "setid": "17050df5-9e95-4e1b-ac75-34add289b139",
+            "version_date": "2026-07-07",
+            "label_revised": "2026-05",
+            "retrieved": "2026-11-14",
+            "section": "2.4 Renal Impairment; 4 Contraindications; RxNorm mapping table"
+          },
+          "evidence": {
+            "type": "faithful_paraphrase",
+            "text": "This extended-release metformin label contraindicates treatment when eGFR is below 30 mL/min/1.73m2. The separate restriction on starting treatment at 30-45 is not the same contraindication. Its RxNorm table explicitly includes product 860975, the 500 mg 24-hour extended-release oral tablet."
+          },
+          "rxcui": "860975",
+          "dose_form_rxcui": "316945",
+          "scope_review": "Agent checked official source; extension of formulation scope only, not a new model-generated clinical condition. No human or clinical expert review."
+        }
+      ],
+      "classification": "contraindication"
+    },
+    {
+      "rule_id": "medication.ibuprofen.cabg",
+      "version": "1.2-source-product-scope",
+      "kind": "medication",
+      "origin": "local_llm_extraction",
+      "statement": "Flag if the patient is currently undergoing coronary artery bypass graft surgery.",
+      "selector": {
+        "system": "RxNormIngredient",
+        "ingredient_rxcui": "5640",
+        "route": "oral",
+        "single_ingredient": true,
+        "allowed_dose_form_rxcuis": [
+          "317541"
+        ],
+        "allowed_product_rxcuis": [
+          "310965"
+        ]
+      },
+      "possible_atc3": [
+        "M01A"
+      ],
+      "condition": {
+        "field": "perioperative_cabg",
+        "op": "eq",
+        "value": true
+      },
+      "required_fields": [
+        "perioperative_cabg"
+      ],
+      "predicate_definitions": {
+        "perioperative_cabg": "Boolean: current coronary artery bypass graft surgery setting, not merely remote surgical history. Unknown is null."
+      },
+      "source": {
+        "title": "IBUPROFEN tablet, film coated",
+        "publisher": "NLM DailyMed official prescription labeling",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eeb8312f-7fd9-4c4f-8264-a7e63ff1aa9d",
+        "section": "CONTRAINDICATIONS",
+        "version_date": "2024-10-10",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "The oral ibuprofen tablet label lists coronary artery bypass graft surgery as a contraindicated treatment setting. This does not identify every member of the broad M01A drug class as ibuprofen."
+      },
+      "code_mapping": {
+        "system": "ATC5",
+        "code": "M01AE01",
+        "ingredient": "ibuprofen",
+        "url": "https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01",
+        "index_date": "2026-01-20",
+        "limitation": "The code also includes non-oral preparations; require route and dose form. M01A cannot identify ibuprofen."
+      },
+      "action": "flag",
+      "review_status": "reviewed",
+      "review_record": {
+        "author": "qwen3-4b-instruct-2507-q4km",
+        "reviewer": "Codex agent ddi_source_audit",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "decision": "reviewed",
+        "reason": "The Boolean predicate preserves the CABG surgery setting. Exact oral ibuprofen tablet identity is checked separately by the preprovided selector; the short model statement is not a stand-alone statement of drug scope.",
+        "run_directory": "outputs/knowledge/bibm-medication-extraction-v2-20261114",
+        "raw_call_line": 4,
+        "raw_stage": "generate",
+        "raw_response_sha256": "cee345480b11d884c3c12536efef138cec73aff393f5543dcedfaae8d471d551",
+        "model_statement_and_condition_preserved": true,
+        "provided_metadata": [
+          "source",
+          "evidence",
+          "selector",
+          "possible_atc3",
+          "code_mapping",
+          "required_fields",
+          "predicate_definitions"
+        ],
+        "finite_synthetic_comparison": {
+          "valid": true,
+          "synthetic_context_count": 3,
+          "mismatch_count": 0,
+          "matches_finite_reference": true
+        },
+        "limitations": "Agent review only; no human/clinical expert review, no clinical validity or extraction generalization established."
+      },
+      "scope_review": "Direct 200 mg label added. The prior prescription source listed 300/400/600/800 mg. 198405 100 mg identity remains resolved but is excluded from v2 clinical scope without direct evidence. Original generated condition unchanged.",
+      "classification": "contraindication",
+      "scope_evidence": [
+        {
+          "rxcui": "310965",
+          "source": {
+            "title": "Ibuprofen 200 mg oral tablet",
+            "publisher": "NLM DailyMed / FDA official labeling",
+            "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09972806-e064-238d-e063-6394a90a7434",
+            "section": "Drug Facts: Do Not Use; RxNorm product mapping",
+            "version_date": "2024-12-31",
+            "retrieved": "2026-11-14"
+          },
+          "type": "faithful_paraphrase",
+          "text": "The 200 mg oral tablet label disallows use immediately around heart surgery; CABG is a narrower included setting."
+        }
+      ],
+      "scope_exclusions": [
+        {
+          "rxcui": "198405",
+          "reason": "Insufficient directly verified label evidence for this 100 mg ordinary tablet; not extrapolated from a suspension or chewable tablet."
+        }
+      ]
+    },
+    {
+      "rule_id": "medication.warfarin.pregnancy",
+      "version": "1.1-llm-v2-rxnorm-scope",
+      "kind": "medication",
+      "origin": "local_llm_extraction",
+      "statement": "Warfarin is contraindicated in pregnancy unless the patient has a mechanical heart valve, is documented to have high thromboembolic risk, and a documented individual clinical assessment determines that the benefits of warfarin outweigh the risks.",
+      "selector": {
+        "system": "RxNormIngredient",
+        "ingredient_rxcui": "11289",
+        "route": "oral",
+        "single_ingredient": true,
+        "allowed_dose_form_rxcuis": [
+          "317541"
+        ]
+      },
+      "possible_atc3": [
+        "B01A"
+      ],
+      "condition": {
+        "all": [
+          {
+            "field": "pregnant",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "field": "mechanical_heart_valve",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "high_thromboembolism_risk",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "warfarin_benefit_outweighs_risk",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "required_fields": [
+        "pregnant",
+        "mechanical_heart_valve",
+        "high_thromboembolism_risk",
+        "warfarin_benefit_outweighs_risk"
+      ],
+      "predicate_definitions": {
+        "pregnant": "Boolean: currently pregnant; unknown is null.",
+        "mechanical_heart_valve": "Boolean: has a mechanical heart valve; unknown is null.",
+        "high_thromboembolism_risk": "Boolean: documented high thromboembolism risk; unknown is null.",
+        "warfarin_benefit_outweighs_risk": "Boolean: a documented individual clinical assessment judges warfarin benefits to outweigh pregnancy risks. Do not infer from the other predicates or a medication record; unknown is null."
+      },
+      "source": {
+        "title": "WARFARIN SODIUM tablet",
+        "publisher": "NLM DailyMed; label repackager REMEDYREPACK INC.",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72d3ea20-27e4-4368-a666-a9b76530dbb9",
+        "section": "8.1 Pregnancy, Risk Summary; 5.7 Use in Pregnant Women with Mechanical Heart Valves",
+        "version_date": "2026-10-27",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "Warfarin oral tablets are generally contraindicated in pregnancy. An exception concerns women with mechanical heart valves and high thromboembolic risk when individual benefits may exceed harms. The decision requires an individual benefit-risk review; a valve alone does not establish the full exception."
+      },
+      "code_mapping": {
+        "system": "ATC5",
+        "code": "B01AA03",
+        "ingredient": "warfarin",
+        "url": "https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03",
+        "index_date": "2026-01-20",
+        "limitation": "B01A contains multiple antithrombotics. ATC5 alone does not specify oral tablets; route and form are required."
+      },
+      "action": "flag",
+      "review_status": "rejected",
+      "review_record": {
+        "author": "qwen3-4b-instruct-2507-q4km",
+        "reviewer": "Codex agent ddi_source_audit",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "decision": "rejected",
+        "reason": "Rejected: the natural-language statement preserves the exception, but the final condition conjoins pregnancy with the full exception rather than negating that exception. This can flag an exception and miss a contraindication. No clinical-logic repair is performed.",
+        "run_directory": "outputs/knowledge/bibm-medication-extraction-v2-20261114",
+        "raw_call_line": 8,
+        "raw_stage": "rewrite",
+        "raw_response_sha256": "5918213dd2756c84682ab72661d178bd6fa1d09b27733e1f1ad9dd7ac8bc276d",
+        "model_statement_and_condition_preserved": true,
+        "provided_metadata": [
+          "source",
+          "evidence",
+          "selector",
+          "possible_atc3",
+          "code_mapping",
+          "required_fields",
+          "predicate_definitions"
+        ],
+        "finite_synthetic_comparison": {
+          "valid": true,
+          "synthetic_context_count": 81,
+          "mismatch_count": 40,
+          "matches_finite_reference": false
+        },
+        "limitations": "Agent review only; no human/clinical expert review, no clinical validity or extraction generalization established."
+      },
+      "scope_review": {
+        "reviewer": "Codex agent ddi_source_audit",
+        "date": "2026-11-14",
+        "kind": "agent_scope_adaptation_not_new_llm_extraction",
+        "parent_package": "src/knowledge/rules/medication-llm-reviewed-v2.json",
+        "parent_version": "1.0-llm-v2-source-review",
+        "parent_selector": {
+          "system": "ATC5",
+          "code": "B01AA03",
+          "route": "oral",
+          "dose_form": "tablet"
+        },
+        "statement_unchanged": true,
+        "condition_unchanged": true,
+        "metadata_version": "rxnorm-rule-products-v1",
+        "reason": "Match original RxNorm ingredient and exact permitted dose form; preserve route/release distinction. No ATC3 reverse inference. No additional clinical conditions.",
+        "limitations": "Agent source/logic verification only; no human or clinical expert validation."
+      }
+    },
+    {
+      "rule_id": "medication.naproxen.cabg",
+      "version": "1.0-source-reviewed",
+      "kind": "medication",
+      "origin": "agent_source_formalization",
+      "statement": "Flag these naproxen tablets in the immediate CABG surgery setting; a remote CABG history alone is not this setting.",
+      "selector": {
+        "system": "RxNormIngredient",
+        "ingredient_rxcui": "7258",
+        "route": "oral",
+        "single_ingredient": true,
+        "allowed_dose_form_rxcuis": [
+          "317541"
+        ],
+        "allowed_product_rxcuis": [
+          "198014",
+          "849574"
+        ]
+      },
+      "possible_atc3": [],
+      "condition": {
+        "field": "perioperative_cabg",
+        "op": "eq",
+        "value": true
+      },
+      "required_fields": [
+        "perioperative_cabg"
+      ],
+      "predicate_definitions": {
+        "perioperative_cabg": "Explicit current perioperative CABG context; true or an explicitly recorded false, otherwise unknown. No missing procedure record is treated as false."
+      },
+      "source": {
+        "title": "Naproxen 500 mg oral tablet",
+        "publisher": "NLM DailyMed / FDA official labeling",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d564f52d-171c-4e7d-974c-3a0e192e6c12",
+        "section": "4; 5.1; dosage forms and RxNorm",
+        "version_date": "2024-01-11",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "The prescription naproxen label excludes use in CABG surgery. The 220 mg naproxen sodium OTC label separately disallows use immediately around heart surgery."
+      },
+      "action": "flag",
+      "classification": "contraindication",
+      "review_status": "reviewed",
+      "review_record": {
+        "reviewer": "Codex sourced_rule_audit agent",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "reason": "Official label and exact source-supported product scope checked before evaluating test predictions; independently authored reference is separate."
+      },
+      "scope_evidence": [
+        {
+          "rxcui": "198014",
+          "source": {
+            "title": "Naproxen 500 mg oral tablet",
+            "publisher": "NLM DailyMed / FDA official labeling",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d564f52d-171c-4e7d-974c-3a0e192e6c12",
+            "section": "4; 5.1; dosage forms and RxNorm",
+            "version_date": "2024-01-11",
+            "retrieved": "2026-11-14"
+          }
+        },
+        {
+          "rxcui": "849574",
+          "source": {
+            "title": "Naproxen sodium 220 mg oral tablet",
+            "publisher": "NLM DailyMed / FDA official labeling",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=7a87a339-4482-ec9e-3c77-7ccb9cea2c4c",
+            "section": "Drug Facts: Do Not Use",
+            "version_date": "2025-07",
+            "retrieved": "2026-11-14"
+          }
+        }
+      ],
+      "scope_review": "Both exact tablet strengths independently verified; no CrCl rule or inferred eGFR threshold."
+    },
+    {
+      "rule_id": "medication.methylphenidate.cad",
+      "version": "1.0-source-reviewed",
+      "kind": "medication",
+      "origin": "agent_source_formalization",
+      "statement": "Known coronary artery disease requires review of methylphenidate against the label advice to avoid use; this is a warning, not a newly declared absolute contraindication.",
+      "selector": {
+        "system": "RxNormIngredient",
+        "ingredient_rxcui": "6901",
+        "route": "oral",
+        "single_ingredient": true,
+        "allowed_dose_form_rxcuis": [
+          "317541"
+        ],
+        "allowed_product_rxcuis": [
+          "1091392"
+        ]
+      },
+      "possible_atc3": [],
+      "condition": {
+        "field": "coronary_artery_disease",
+        "op": "eq",
+        "value": true
+      },
+      "required_fields": [
+        "coronary_artery_disease"
+      ],
+      "predicate_definitions": {
+        "coronary_artery_disease": "Documented coronary artery disease available by the retrospective cutoff and not recorded resolved. A missing diagnosis, isolated hypertension, symptoms or a family history do not establish either true or false."
+      },
+      "source": {
+        "title": "Methylphenidate hydrochloride oral tablet",
+        "publisher": "NLM DailyMed / FDA official labeling",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c614cf55-b462-4f7e-b19c-6d22a47e509f",
+        "section": "5.2; dosage forms and RxNorm",
+        "version_date": "2025-02-19",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "The oral methylphenidate label advises avoiding use in known coronary artery disease among its serious cardiac disease warnings."
+      },
+      "action": "flag",
+      "classification": "avoid_use_warning",
+      "review_status": "reviewed",
+      "review_record": {
+        "reviewer": "Codex sourced_rule_audit agent",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "reason": "Official label and exact source-supported product scope checked before evaluating test predictions; independently authored reference is separate."
+      }
+    },
+    {
+      "rule_id": "medication.opioid_benzodiazepine.candidates",
+      "version": "1.0-source-reviewed",
+      "kind": "medication_pair",
+      "origin": "agent_source_formalization",
+      "action": "flag",
+      "classification": "potential_combination_review",
+      "review_status": "reviewed",
+      "statement": "An opioid-containing product and a benzodiazepine appear together among proposed candidates. Confirm whether concurrent use is intended and review alternatives, doses, duration and monitoring; the candidate set does not establish actual coadministration.",
+      "selector": {
+        "system": "RxNormIngredientPair",
+        "route": "oral",
+        "allowed_dose_form_rxcuis": [
+          "317541",
+          "316945"
+        ],
+        "left": {
+          "ingredient_rxcuis": [
+            "7804",
+            "5489",
+            "6754"
+          ],
+          "allowed_product_rxcuis": [
+            "1049221",
+            "1860154",
+            "833036",
+            "856987",
+            "857005",
+            "861467"
+          ]
+        },
+        "right": {
+          "ingredient_rxcuis": [
+            "3322",
+            "2598"
+          ],
+          "allowed_product_rxcuis": [
+            "197591",
+            "204892"
+          ]
+        }
+      },
+      "required_fields": [],
+      "source": {
+        "title": "Class-wide opioid and benzodiazepine warning",
+        "publisher": "NLM DailyMed / FDA official labeling",
+        "url": "https://www.fda.gov/drugs/information-drug-class/new-safety-measures-announced-opioid-analgesics-prescription-opioid-cough-products-and",
+        "section": "Class-wide safety labeling changes",
+        "version_date": "2016-08-31",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "FDA class-wide warnings and the two benzodiazepine labels describe potentially severe additive sedation and respiratory effects when opioids and benzodiazepines are actually used together; use is reserved for inadequate alternatives with limited dose/duration and close monitoring. Candidate co-selection warrants confirmation, not a claim of actual exposure or an automatic prohibition."
+      },
+      "scope_evidence": [
+        {
+          "rxcui": "197591",
+          "source": {
+            "title": "Diazepam 5 mg oral tablet",
+            "publisher": "NLM DailyMed / FDA official labeling",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cd02d7f0-0fbe-4829-9a05-99a261972805",
+            "section": "Boxed warning; Risks from Concomitant Use with Opioids",
+            "version_date": "2025-11-18",
+            "retrieved": "2026-11-14"
+          }
+        },
+        {
+          "rxcui": "204892",
+          "source": {
+            "title": "Clonazepam 0.25 mg oral tablet",
+            "publisher": "NLM DailyMed / FDA official labeling",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fa50aceb-a113-4c07-98e0-f1824d4ff30e",
+            "section": "Boxed warning; Risks from Concomitant Use with Opioids",
+            "version_date": "2026-09-18",
+            "retrieved": "2026-11-14"
+          }
+        },
+        {
+          "ingredient_rxcuis": [
+            "7804",
+            "5489",
+            "6754"
+          ],
+          "source": {
+            "title": "FDA opioid medicine list",
+            "publisher": "NLM DailyMed / FDA official labeling",
+            "url": "https://www.fda.gov/media/96472/download",
+            "section": "List of Opioids",
+            "version_date": "2016-03-22",
+            "retrieved": "2026-11-14"
+          }
+        }
+      ],
+      "review_record": {
+        "reviewer": "Codex sourced_rule_audit agent",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "reason": "Exact frozen full ingredients; official class-wide opioid warning includes combination analgesics, with diazepam/clonazepam tablet labels. No inference from current target prescriptions or historical use."
+      },
+      "evaluation_unit": "Unordered distinct candidate pair, separately counted from patient-condition rules.",
+      "limitations": [
+        "No dose schedule or actual overlapping administration is observed.",
+        "A nonmatching pair is outside this one rule, not a safe pair.",
+        "Review flags are not independent clinical outcome labels."
+      ]
+    }
+  ]
+}

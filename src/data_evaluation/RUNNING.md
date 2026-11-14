@@ -82,6 +82,36 @@ v5独立训练72个原始RxNorm标签（69完整制剂、2包装、1成分＋规
 
 对照入口还读取旧版`agent-integration-auto-20261114`的固定351条预测；没有它时先按上一节重建旧模型结果。所有输出目录/文件都拒绝覆盖，复跑改`--output`并相应修改后续输入。新增事实前后候选及全分数必须相同；缺信息、未覆盖和禁忌标记分别计数。即使状态为checked，也只说明至少一条已覆盖规则完成判断，不能说整份处方安全。
 
+## 来源范围v2与独立编写参照
+
+本版本使用原72原码权重，未增加模型。先复用前文已生成的v1上下文和已保存的351条预测；缺少它们时按前文步骤准备。下面的新增事实只来自原本地patients/conditions/encounters表：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_context --base-context data/processed/data_evaluation/synthea-context-v1/context.json --output data/processed/data_evaluation/synthea-context-v2/context.json
+```
+
+v2原样保留v1的同次eGFR/CABG，只添加年龄、明确已记录且截至当前无缓解记录的CAD。年龄本轮没有对应规则，不增加执行数。历史来源须在当前开始前结束；STOP在截止当日因时分未知不转阳性，缺失不转false，不读取药物答案。它仍是回顾性源记录状态，不是新临床诊断。
+
+复用固定预测，运行旧/新规则×旧/新事实四个分支，以及独立角色预先编写的40条来源参照：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.evaluate_checks --output outputs/data_evaluation/check-coverage-v2-20261114
+```
+
+此命令不加载模型或重新预测。默认读取 `agent-rxnorm-context-20261114/agent-results.jsonl`、两版上下文、两版规则和产品表，以及 `resources/check-reference-v1.json`；可用对应 `--saved-run`、`--old-context`、`--new-context`、`--old-rules`、`--new-rules`、`--old-products`、`--new-products`、`--reference` 指定新位置。原药物目标留在评价数据侧，只用Case与已保存候选核查。
+
+结果目录含results.json、四个分支逐例核查和reference-evaluations.jsonl；病例输出不提交。已存在目录拒绝覆盖，复跑换新`--output`。旧分支必须逐例复现原报告，任一分支修改候选即报错。参照期望为静态标签，不由生产执行器生成；相同率只解释为来源语义一致性，不叫临床准确率。
+
+新规则依赖新产品表，单病例实际推理需同时显式指定：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.pipeline --input data/processed/data_evaluation/synthea-apr2020-v3/main_prediction_examples.jsonl --index 0 --checkpoint outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8/best.pt --rules src/knowledge/rules/medication-source-reviewed-v2.json --products src/knowledge/rules/rxnorm-rule-products-v2.json --context data/processed/data_evaluation/synthea-context-v2/context.json --output outputs/data_evaluation/agent-case-check-coverage-v2-20261114.json
+```
+
+如需重新核验整批真实模型调用，原 `evaluate` 也支持同一 `--products` 参数；本轮固定四分支不必重复模型推理。单药—患者规则与候选药对分别计数；范围外不等于安全，组合匹配也不证明实际并用。
+
+本机已完成：40/40参照一致，82项相关单元检查通过，原351条仍344支持／7拒绝。**实际规则执行仍2/344，覆盖未提高**；新状态为244未覆盖、98条件不足、2 checked。首次范围计数修正及完整原因见[报告](reports/check-coverage-20261114.md)，不要只引用“40/40”掩盖低覆盖。
+
 ## 验证
 
 ```powershell

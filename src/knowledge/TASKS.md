@@ -10,11 +10,25 @@
 
 ## 本轮交付记录
 
+### 2026-11-14 来源核查扩展v2
+
+- [x] 根据训练/验证源字段及官方标签冻结两个患者规则族：naproxen围CABG、methylphenidate明确冠心病警告；不根据test预测凑规则。
+- [x] 新增opioid＋benzodiazepine候选对复核，只核对本次候选共同出现，不宣称已并用；组合计数与单药计数分开。
+- [x] 独立产品表v2含15个公开药物完整身份；新ibuprofen范围收窄为有直接200mg证据的310965，100mg身份明确但不纳入临床规则；旧v1和拒绝的warfarin保留。
+- [x] C50项检查通过（原39＋新增11）；无新增模型、依赖或LLM调用。新条件是agent来源形式化，不称自动提取改进。
+- [x] 已知77个源术语中明确超出允许产品清单的原码单列范围外，真正未知身份仍未知；产品审计版本v2.1。保留首次pending误计结果，临床条件、范围和独立参考不改。
+- [x] A完成固定候选四分支及40条冻结来源参照评分：40/40一致，未知误清、漏标和误标均0，旧基线逐例完整重现。新包仍仅2/344执行患者条件规则；244条未覆盖、98条缺信息、2条checked，0警告，覆盖未提高。
+- [x] 候选—单药规则共2次执行、116次待补事实（55次ibuprofen CABG、34次naproxen CABG、27次metformin eGFR）；387个候选药对全部在该组合规则范围外，0次pending/0次执行，不表示药对安全。首次223个pair pending是范围语义记账错误，修正未改临床规则、参考或执行数。
+- [x] 本轮相关检查A32＋C50共82项通过；B源码和模型未改，不重复B测试或训练。四分支结果在`outputs/data_evaluation/check-coverage-v2-20261114/results.json`，首次结果保留。
+- [ ] 临床有效性、真实核查标签和独立人群验证尚未验收；40条agent独立编写的来源参照不是临床金标准，不根据这批无提升结果继续凑规则。
+
+实施与命令见[来源说明](MEDICATION_CHECK.md#来源与事实扩展v22026-11-14)，实际结果统一在[A核查报告](../data_evaluation/reports/check-coverage-20261114.md)。当前规则临床条件和允许药品范围已冻结，不按结果继续增加条目。
+
 | 任务 | 状态 | 已交付与证据 | 当前边界 |
 |---|---|---|---|
 | C1：来源、谓词与自动形式化 | 待审核（最小实现） | bibm_diagnosis.py、extract.py、prompts/、rules/；[诊断说明](BIBM_DIAGNOSIS.md)、[药物说明](MEDICATION_CHECK.md) | 来源挑选/摘要/编码由agent预先完成；非完整自动知识获取，非人类或专家审核 |
 | C2：DXY受限MLN | 待审核（最小实现） | mln.py、证据隔离与数学检查；[聚合JSON](reports/bibm-dxy-mln-20261114.json) | 精确枚举受限规则族，非Alchemy/MCMC；47/104低于旧Diaformer79/104 |
-| C3：药物核查与A/B集成 | 待审核（最小实现） | check.py、两份规则包、状态/例外检查；[集成报告](../data_evaluation/reports/agent-integration-20261114.md) | 默认自动包2条启用、1条拒绝；ATC3缺成分身份，实际完整规则判断为0 |
+| C3：药物核查与A/B集成 | 待审核（来源扩展v2已运行） | check.py、新旧规则/产品包、40条冻结参照与四分支；[最新核查报告](../data_evaluation/reports/check-coverage-20261114.md) | 新包4个患者条件规则＋1个候选对复核；仍仅2/344完成单药规则，覆盖未提升；原ATC3阶段0次结果保留 |
 
 本轮交付归入现有 [PR #1](https://github.com/lifan25/mmagent/pull/1)，分支 a/prepare-one-patient，由 A 审核。PR 当前开放、未合并，不因完成实现而标为“已合并”。后续状态沿用待实现／进行中／受阻／待审核／已合并。
 

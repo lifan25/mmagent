@@ -1,6 +1,6 @@
 # 有来源的用药规则与核查
 
-这是 BIBM 知识提取思路在用药核查上的适配。它接收 SSPNet 候选并标记问题，不改变候选集合；原 BIBM 的症状问诊、疾病规则和 MLN 诊断是另一条实现。当前 SSPNet 输出 ATC 第三级类别，不能据此认定具体成分。
+这是 BIBM 知识提取思路在用药核查上的适配。它接收 SSPNet 候选并标记问题，不改变候选集合；原 BIBM 的症状问诊、疾病规则和 MLN 诊断是另一条实现。旧 SSPNet 输出 ATC 第三级类别，新版另支持72个原始RxNorm标签；粗类别不能据此认定具体成分。最新来源扩展见下方v2，旧阶段记录保留。
 
 ## 方法与边界
 
@@ -120,3 +120,55 @@ report = check(case, recommendation, rules)
 廉价对照将旧ATC3模型的每个预测类别替换为该类在训练就诊中最常见的原RxCUI，在相同上下文中执行4次规则、产生1次警告。这是独立的产品预测基线，不是从粗类恢复真实成分；与新模型候选不同，现有计数不构成新模型核查效果更好的证据，也没有独立临床审核标签可判断警告准确率。
 
 最终集成验证为90项单元测试通过，其中C模块39项；上面的21项是药物核查子集。C本次适配与集成未增加LLM调用；已有规则日常执行不需要启动Qwen。最小调用链已完成，仍待A审核，不能标为原BIBM完整复现。详细配置、上下文审计、推荐对照与结果见 [A的RxNorm集成报告](../data_evaluation/reports/rxnorm-agent-20261114.md)及[聚合JSON](../data_evaluation/reports/rxnorm-agent-20261114.json)。
+
+## 来源与事实扩展v2（2026-11-14）
+
+先检查训练/验证源字段和官方药品标签，冻结少量可表达规则，再对固定推荐执行核查。没有根据测试预测选择新阈值或药物。新增条件由agent直接形式化来源，**没有新模型或LLM调用，不能当作BIBM自动提取性能提升**。设计、来源参照与实际四分支结果由A统一报告：[核查覆盖实验](../data_evaluation/reports/check-coverage-20261114.md)。
+
+新包 `rules/medication-source-reviewed-v2.json` 显式配 `rules/rxnorm-rule-products-v2.json`；原默认规则、v1产品及历史结果保持不变。v2有4个启用单药患者条件规则、1个候选对复核规则；旧华法林模型条件仍拒绝，不改成手写答案。15个冻结产品的完整成分、盐和剂型来自已提交NLM快照；口服途径由明确的Oral Product剂型组及口服片剂支持，复方不压成单一成分。
+
+| 规则与产品 | 官方依据 | 所需事实和分类 |
+|---|---|---|
+| metformin ER 500mg，860975 | 既有[ER标签](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=17050df5-9e95-4e1b-ac75-34add289b139)，2.4/4 | eGFR严格低于30，`contraindication`；CrCl不是eGFR |
+| ibuprofen 200mg，310965 | [200mg标签](https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09972806-e064-238d-e063-6394a90a7434)，Do Not Use及RxNorm表 | 明确本次围CABG情境，`contraindication`；远期手术史不等于本次 |
+| naproxen 500mg／naproxen sodium 220mg，198014／849574 | [500mg标签](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d564f52d-171c-4e7d-974c-3a0e192e6c12)，4/5.1及RxNorm表；[220mg标签](https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=7a87a339-4482-ec9e-3c77-7ccb9cea2c4c)，Do Not Use | 同一CABG事实，`contraindication`；两个规格分别有证据 |
+| methylphenidate 20mg，1091392 | [口服片标签](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c614cf55-b462-4f7e-b19c-6d22a47e509f)，5.2及RxNorm表 | 明确冠心病阳性时`avoid_use_warning`；不是新宣布的绝对禁忌 |
+| 含oxycodone/hydrocodone/meperidine的6产品＋diazepam/clonazepam的2产品 | [FDA类别警告](https://www.fda.gov/drugs/information-drug-class/new-safety-measures-announced-opioid-analgesics-prescription-opioid-cough-products-and)、[成分列表](https://www.fda.gov/media/96472/download)、[diazepam 5mg](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cd02d7f0-0fbe-4829-9a05-99a261972805)及[clonazepam 0.25mg](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fa50aceb-a113-4c07-98e0-f1824d4ff30e)的boxed warning | 仅本次候选两类同时出现时`potential_combination_review`；确认是否拟并用，复核替代方案、剂量、时长和监测；**不是实际并用、已发生DDI或自动停药结论** |
+
+独立来源复核发现旧ibuprofen处方标签列300/400/600/800mg，不能冒充100/200mg精确产品证据。新包补200mg直接标签；**100mg普通片198405虽身份明确，临床范围暂不覆盖**，不用100mg/5mL混悬液或咀嚼片冒充。旧v1结果保留并注明范围不足。naproxen500mg最终采用明确列198014的页面，不依赖仅375mg包装的页面。这些是证据核对后的范围修正，不是按覆盖结果调条件。
+
+`coronary_artery_disease`表示截止前已可取得、未记录缓解的明确冠心病来源记录，不是新的临床诊断确认。来源就诊必须已结束，缓解日当天时分不明则未知；没有诊断不填false，不从药物、血压、症状或家族史推断CAD。A保存原始出处和时间。
+
+未加入的候选：将CrCl偷换为eGFR；没有正常上限或病情判断的肝功能规则；一般哮喘当NSAID过敏；由性别/年龄猜妊娠；单孕激素norethindrone套用雌激素复方的吸烟禁忌；仅因年龄普遍可得就增加泛泛规则。现有过敏表也没有药物过敏或明确无过敏证据。能提取一个字段不等于它足以执行医学判断。
+
+### 调用与计数
+
+```python
+from src.knowledge.check import check, load_rules, load_product_metadata
+rules = load_rules("src/knowledge/rules/medication-source-reviewed-v2.json")
+products = load_product_metadata("src/knowledge/rules/rxnorm-rule-products-v2.json")
+report = check(case, recommendation, rules, product_metadata=products)
+```
+
+不传新产品表时默认仍用v1，不会静默替换旧结果。该v2文件中的产品审计版本现为`rxnorm-rule-products-v2.1`：补充77个已经有NLM源记录的原码清单。对于已知原码但明确不在任何规则允许产品清单内，记录`outside_reviewed_product_scope`，不再误报为缺患者事实或可补的身份；任意未知原码或范围内缺身份仍为未知。该清单不宣称77个药品的制剂或身份都完整解析，也不扩充临床范围。首次运行的过度pending计数保留，A用新输出目录复核修正，临床条件、允许范围和参考标签不变。
+
+`coverage.checked_rule_count/pending_rule_count/checked_candidate_count`只统计单药—患者条件。`pair_coverage`另列`candidate_pair_count`（候选无序对总数）、`checked_pair_count`（匹配的组合复核）、`pending_pair_count`（可能匹配但身份或范围不明确）、`uncovered_pair_count`（不在该组合规则内）。本版本仅1个组合规则，不匹配不等于安全，药对不计入单药计数或称为患者数。
+
+组合结果仍在`findings`，使用`candidate_indices`、`evaluation_unit=candidate_pair`、`classification=potential_combination_review`及`actual_concurrent_use=unknown`。不读取当前监督处方或历史药物猜并用；只有一个opioid候选时不会因历史有benzodiazepine产生组合警告。成分不完整或伙伴未知不产生阳性。
+
+```powershell
+.venv/Scripts/python.exe -m unittest src.knowledge.tests.test_source_rules_v2 -v
+.venv/Scripts/python.exe -m unittest discover -s src/knowledge/tests -v
+```
+
+C50项单元测试通过（原39＋新增11），覆盖旧默认、范围收窄、CAD警告、复方完整性、候选不修改、组合顺序、未知伙伴和两种分母。最后一项专门区分已知范围外与真正未知；不是增加医学规则或提高覆盖的补丁。独立来源参照由另一角色在读新实现与生产输出前写固定标签；它是来源语义与实现一致性检查，与开发单元测试、真实病例覆盖和临床专家金标准分别报告。实际评分及集成结果见A报告。
+
+### v2最终验收结果
+
+固定候选四分支已完成，新旧病例与分数保持原样，旧基线逐例完整重现。最终本地产物为`outputs/data_evaluation/check-coverage-v2-20261114/results.json`；原351条输入中344条推荐支持、7条拒绝。新包和新事实下，344条的状态为244条`not_checked`、98条`insufficient_information`、2条`checked`，无警告。
+
+**至少完成一个患者条件规则的病例仍为2/344（0.58%），没有提高覆盖。** 两次仍是metformin eGFR规则。单药—候选规则待补事实共116次：ibuprofen围CABG 55次、naproxen围CABG 34次、metformin eGFR 27次；次数不是患者数。新增CAD事实没有产生实际核查，因为本批预测中methylphenidate候选为0。29次metformin候选中只有2次具有可用eGFR，不能以其他诊断或旧测量填造当前值。
+
+本批387个候选药对全部在这一组合规则范围外，`pending_pair_count=0`、`checked_pair_count=0`。opioid产品出现4次（1860154一次、833036三次），diazepam出现1次，但未在同一候选清单相交；不由此宣称不存在其他DDI或实际用药安全。首次运行的223个pair pending来自把已有源记录但明确范围外的原码误当身份未知；证据保留在`outputs/data_evaluation/check-coverage-20261114/`，更正仅改变范围与未知的记账，未改临床条件、允许范围、参考期望、实际执行或警告数。
+
+由另一agent角色预先冻结的40条来源参照全部一致，未知误清、漏标、误标均为0；这证明该有限来源语义范围的实现一致性，**不是临床正确率或独立专家金标准**。本轮相关单元检查为A32＋C50共82项；B模型与源码未改，不重复B测试或训练。覆盖无提升这一结果保留，不为增加数字继续添加医学条件。完整四分支、分母和后续缺口见[A报告](../data_evaluation/reports/check-coverage-20261114.md)及[聚合JSON](../data_evaluation/reports/check-coverage-20261114.json)。
