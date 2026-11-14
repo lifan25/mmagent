@@ -6,6 +6,8 @@
 
 研究阶段先看[当前研究设计（含零样本对照）](docs/research-design.md)和[MIMIC-IV本人申请步骤](docs/mimic-access.md)。现有Synthea测试已用于错误分析，作为探索性结果；正式确认需未参与开发的真实数据。
 
+最新推进暂不依赖申请中数据：已取得DDICorpus-2013、DDInter七分类和DialMed的dev/test，实际完成文本抽取轻量训练、清单位置基线与独立知识库检索实验，见[新数据与实验报告](src/knowledge/reports/open-data-pilot-20261114.md)。发现原清单位置泄露参考后已固定置换；大模型下载尚未完成，零样本推理没有结果。
+
 **刚拉取仓库：先看 [三人开工步骤](docs/onboarding.md)，再进入自己的模块 README 和 TASKS。**A1 数据准备与B的Synthea训练运行已实现，分别见 [A 模块说明](src/data_evaluation/README.md)和 [SSPNet运行步骤](src/recommendation/RUNNING.md)；共享推荐接口、C及A2/A3集成待继续。
 
 ## 目录框架
@@ -51,7 +53,8 @@ flowchart LR
 | MIMIC-III Demo | 五张表可读取，覆盖 100 名患者；仅用于流程开发 |
 | Synthea 合成病历 | 已下载官方历史 CSV 样本并检查：1,171 名合成患者，可用于推荐流程开发和模拟实验 |
 | 药物映射、参考预处理与 DDI | 当前38类词表、EHR172边/DDI75边已生成；DDI来源逐项重建与梯度核验通过 |
-| MIMIC-IV Demo / DDI外部核查清单 | 新增五表100人/275次原始住院；250例清单；均本地下载核验，尚未用于模型测试 |
+| MIMIC-IV Demo / DDI外部核查清单 | 五表100人/275次原始住院尚待适配；250例清单已冻结50/5/195划分，位置与知识库基线已运行 |
+| DDICorpus / DDInter / DialMed | 关系抽取数据已完整取得并训练轻量基线；DDInter七类检索已运行；DialMed dev/test已取得，推荐前输入待准备 |
 | DXY / Muzhi | 已实际读取，样本数量、疾病和症状数与 BIBM 表 I 一致 |
 | Synthetic 诊断集 | 文件可读取；采用现有 266 症状版本时记录与 BIBM 的差异，不等待同版本数据 |
 | DXY / Diaformer 基线 | 环境、训练、问诊、保存与重载测试已通过；[结果与命令](docs/dxy-diaformer.md) |

@@ -1,0 +1,679 @@
+{
+  "date": "2026-11-14",
+  "scope": "Exploratory open-data pilots; no LLM inference has been completed at this report version.",
+  "text_extraction": {
+    "training": {
+      "method": "supervised TF-IDF + fixed logistic regression; not zero-shot",
+      "seed": 20261114,
+      "train_pairs": 27792,
+      "train_documents": 624,
+      "features": 35877,
+      "threshold": 0.5,
+      "seconds": 1.7140144000004511,
+      "parameters": {
+        "ngram_range": [
+          1,
+          2
+        ],
+        "min_df": 2,
+        "max_features": 40000,
+        "sublinear_tf": true,
+        "C": 1,
+        "solver": "liblinear",
+        "class_weight": "balanced",
+        "max_iter": 1000
+      },
+      "fit_iterations": [
+        7
+      ],
+      "metrics": {
+        "samples": 80,
+        "positive": 16,
+        "negative": 64,
+        "true_positive": 10,
+        "false_positive": 20,
+        "true_negative": 44,
+        "all_sample_accuracy": 0.675,
+        "positive_precision": 0.3333333333333333,
+        "positive_recall": 0.625,
+        "positive_f1": 0.43478260869565216,
+        "negative_recognition_rate": 0.6875,
+        "balanced_accuracy": 0.65625,
+        "answered": 80,
+        "answer_coverage": 1.0,
+        "answered_accuracy": 0.675,
+        "unknown": 0,
+        "invalid_or_missing": 0
+      },
+      "scope": "All preprocessing fitted on official train; no test vocabulary or parameter selection. Same fixed 80-pair exploratory pilot."
+    },
+    "comparison": {
+      "always_not_stated": {
+        "samples": 80,
+        "positive": 16,
+        "negative": 64,
+        "true_positive": 0,
+        "false_positive": 0,
+        "true_negative": 64,
+        "all_sample_accuracy": 0.8,
+        "positive_precision": 0.0,
+        "positive_recall": 0.0,
+        "positive_f1": 0.0,
+        "negative_recognition_rate": 1.0,
+        "balanced_accuracy": 0.5,
+        "answered": 80,
+        "answer_coverage": 1.0,
+        "answered_accuracy": 0.8,
+        "unknown": 0,
+        "invalid_or_missing": 0
+      },
+      "always_interaction": {
+        "samples": 80,
+        "positive": 16,
+        "negative": 64,
+        "true_positive": 16,
+        "false_positive": 64,
+        "true_negative": 0,
+        "all_sample_accuracy": 0.2,
+        "positive_precision": 0.2,
+        "positive_recall": 1.0,
+        "positive_f1": 0.3333333333333333,
+        "negative_recognition_rate": 0.0,
+        "balanced_accuracy": 0.5,
+        "answered": 80,
+        "answer_coverage": 1.0,
+        "answered_accuracy": 0.2,
+        "unknown": 0,
+        "invalid_or_missing": 0
+      },
+      "sentence_keyword": {
+        "samples": 80,
+        "positive": 16,
+        "negative": 64,
+        "true_positive": 11,
+        "false_positive": 51,
+        "true_negative": 13,
+        "all_sample_accuracy": 0.3,
+        "positive_precision": 0.1774193548387097,
+        "positive_recall": 0.6875,
+        "positive_f1": 0.28205128205128205,
+        "negative_recognition_rate": 0.203125,
+        "balanced_accuracy": 0.4453125,
+        "answered": 80,
+        "answer_coverage": 1.0,
+        "answered_accuracy": 0.3,
+        "unknown": 0,
+        "invalid_or_missing": 0
+      },
+      "supervised_tfidf": {
+        "samples": 80,
+        "positive": 16,
+        "negative": 64,
+        "true_positive": 10,
+        "false_positive": 20,
+        "true_negative": 44,
+        "all_sample_accuracy": 0.675,
+        "positive_precision": 0.3333333333333333,
+        "positive_recall": 0.625,
+        "positive_f1": 0.43478260869565216,
+        "negative_recognition_rate": 0.6875,
+        "balanced_accuracy": 0.65625,
+        "answered": 80,
+        "answer_coverage": 1.0,
+        "answered_accuracy": 0.675,
+        "unknown": 0,
+        "invalid_or_missing": 0
+      }
+    },
+    "sampled_test_pairs": 80,
+    "sampled_test_documents": 47,
+    "exact_training_sentence_overlap": 0,
+    "exact_training_pair_input_overlap": 0
+  },
+  "drug_list_localization": {
+    "original_first_two": {
+      "counts": {
+        "total_lists": 50,
+        "scorable_lists": 49,
+        "answered": 50,
+        "scorable_answered": 49,
+        "exact_matches": 49,
+        "mapping_issue_lists": 1,
+        "answered_with_unmappable_reference": 1,
+        "unknown": 0,
+        "missing": 0,
+        "invalid": 0
+      },
+      "metrics": {
+        "interaction_localization_exact_match": {
+          "numerator": 49,
+          "denominator": 49,
+          "value": 1.0
+        },
+        "answer_coverage": {
+          "numerator": 50,
+          "denominator": 50,
+          "value": 1.0
+        },
+        "answered_precision_on_mappable_references": {
+          "numerator": 49,
+          "denominator": 49,
+          "value": 1.0
+        },
+        "confirmed_exact_matches_over_all_lists": {
+          "numerator": 49,
+          "denominator": 50,
+          "value": 0.98
+        },
+        "invalid_response_rate": {
+          "numerator": 0,
+          "denominator": 50,
+          "value": 0.0
+        }
+      },
+      "limitations": [
+        "Only the designated reference pair is scored; another predicted pair is not thereby proven clinically false.",
+        "Unknown, missing and invalid answers do not count as exact matches on mappable cases.",
+        "Unmappable references remain in coverage and total-list counts; their correctness is not scored.",
+        "Positive-list localization only: no negative-list false-positive rate, clinical safety, or efficacy estimate."
+      ]
+    },
+    "permuted_first_two": {
+      "counts": {
+        "total_lists": 50,
+        "scorable_lists": 49,
+        "answered": 50,
+        "scorable_answered": 49,
+        "exact_matches": 8,
+        "mapping_issue_lists": 1,
+        "answered_with_unmappable_reference": 1,
+        "unknown": 0,
+        "missing": 0,
+        "invalid": 0
+      },
+      "metrics": {
+        "interaction_localization_exact_match": {
+          "numerator": 8,
+          "denominator": 49,
+          "value": 0.16326530612244897
+        },
+        "answer_coverage": {
+          "numerator": 50,
+          "denominator": 50,
+          "value": 1.0
+        },
+        "answered_precision_on_mappable_references": {
+          "numerator": 8,
+          "denominator": 49,
+          "value": 0.16326530612244897
+        },
+        "confirmed_exact_matches_over_all_lists": {
+          "numerator": 8,
+          "denominator": 50,
+          "value": 0.16
+        },
+        "invalid_response_rate": {
+          "numerator": 0,
+          "denominator": 50,
+          "value": 0.0
+        }
+      },
+      "limitations": [
+        "Only the designated reference pair is scored; another predicted pair is not thereby proven clinically false.",
+        "Unknown, missing and invalid answers do not count as exact matches on mappable cases.",
+        "Unmappable references remain in coverage and total-list counts; their correctness is not scored.",
+        "Positive-list localization only: no negative-list false-positive rate, clinical safety, or efficacy estimate."
+      ]
+    },
+    "ddinter_seven_categories": {
+      "counts": {
+        "total_lists": 50,
+        "scorable_lists": 49,
+        "unknown": 34,
+        "answered": 16,
+        "scorable_answered": 16,
+        "exact_matches": 12,
+        "mapping_issue_lists": 1,
+        "missing": 0,
+        "invalid": 0,
+        "answered_with_unmappable_reference": 0
+      },
+      "metrics": {
+        "interaction_localization_exact_match": {
+          "numerator": 12,
+          "denominator": 49,
+          "value": 0.24489795918367346
+        },
+        "answer_coverage": {
+          "numerator": 16,
+          "denominator": 50,
+          "value": 0.32
+        },
+        "answered_precision_on_mappable_references": {
+          "numerator": 12,
+          "denominator": 16,
+          "value": 0.75
+        },
+        "confirmed_exact_matches_over_all_lists": {
+          "numerator": 12,
+          "denominator": 50,
+          "value": 0.24
+        },
+        "invalid_response_rate": {
+          "numerator": 0,
+          "denominator": 50,
+          "value": 0.0
+        }
+      },
+      "limitations": [
+        "Only the designated reference pair is scored; another predicted pair is not thereby proven clinically false.",
+        "Unknown, missing and invalid answers do not count as exact matches on mappable cases.",
+        "Unmappable references remain in coverage and total-list counts; their correctness is not scored.",
+        "Positive-list localization only: no negative-list false-positive rate, clinical safety, or efficacy estimate.",
+        "Missing names/edges and Unknown levels are unresolved, never negative or safe.",
+        "A selected pair is highest only among retrieved rankable evidence; other pairs can remain unresolved.",
+        "DDInter levels are not equated with reference C/D/X classifications.",
+        "Exploratory partial snapshot: R was unavailable. Missing R can change name/edge coverage, highest-level selection and abstention; these are not complete-DDInter results."
+      ]
+    },
+    "uniform_random_expected_match_on_scorable": 0.15034013605442179
+  },
+  "ddinter_retrieval": {
+    "retrieval_summary": {
+      "drug_name_mentions": {
+        "matched_unique": 177,
+        "unmatched": 36
+      },
+      "drug_pair_mentions": {
+        "unmatched_name": 113,
+        "not_in_snapshot": 178,
+        "ranked_evidence": 17,
+        "unknown_level": 44
+      },
+      "decisions": {
+        "no_ranked_evidence": 34,
+        "unique_highest_retrieved": 16
+      },
+      "retrieved_original_levels": {
+        "Moderate": 9,
+        "Unknown": 44,
+        "Major": 6,
+        "Minor": 2
+      },
+      "source_summary": {
+        "csv_files": 7,
+        "source_rows": 191820,
+        "unique_unordered_id_pairs": 146518,
+        "duplicate_pair_rows": 45302,
+        "normalized_names": 1937,
+        "ambiguous_normalized_names": 0,
+        "level_conflict_pairs": 0
+      }
+    },
+    "source_scope": {
+      "status": "partial_exploratory",
+      "expected_categories": [
+        "A",
+        "B",
+        "D",
+        "H",
+        "L",
+        "P",
+        "R",
+        "V"
+      ],
+      "available_categories": [
+        "A",
+        "B",
+        "D",
+        "H",
+        "L",
+        "P",
+        "V"
+      ],
+      "missing_categories": [
+        "R"
+      ],
+      "scope_reason": "Frozen before model results based on network availability; no performance-based category selection."
+    },
+    "provenance_reproduction": {
+      "all_comparisons_equal": true,
+      "comparisons": {
+        "counts": true,
+        "metrics": true,
+        "retrieval_summary": true,
+        "source_scope": true,
+        "responses.jsonl": true,
+        "retrieval-evidence.jsonl": true,
+        "source-level-conflicts.jsonl": true
+      },
+      "historical_manifest_sha256": "202c83583341a283bfc1f28735389d760740a24e5183a9147544605d57cc9a0e",
+      "current_manifest_sha256": "d60a282890a714a05a5313ae6d507c0adc31ac8395cfb8019188637ae080fe2a",
+      "all_source_file_hashes_unchanged": true,
+      "original_output_directory_unchanged": true,
+      "manifest_repeat_read_hash_and_mtime_unchanged": true,
+      "network_requests": 0,
+      "output_directory": "outputs/knowledge/ddinter-lists-partial-repro-v1",
+      "note": "The historical metadata object below reconstructs the original manifest; metadata was enriched without changing any source file. A separate rerun with the new manifest produced identical predictions and metrics."
+    }
+  },
+  "data_sources": {
+    "ddicorpus": {
+      "dataset": "DDICorpus-2013",
+      "commit": "819b0fa538ed83ab2a8b4f5417bba3c03249b7f3",
+      "source_page": "https://github.com/isegura/DDICorpus",
+      "license": "CC BY-NC 4.0; author license statement retained in README",
+      "files": [
+        {
+          "filename": "DDICorpus-2013.zip",
+          "url": "https://raw.githubusercontent.com/isegura/DDICorpus/819b0fa538ed83ab2a8b4f5417bba3c03249b7f3/DDICorpus-2013.zip",
+          "bytes": 1545162,
+          "sha256": "87fc63e32ebce20d9841c372e0c594ec72d60882ab5621550ca73c3eaf80ab60"
+        },
+        {
+          "filename": "README",
+          "url": "https://raw.githubusercontent.com/isegura/DDICorpus/819b0fa538ed83ab2a8b4f5417bba3c03249b7f3/README",
+          "bytes": 966,
+          "sha256": "ce3a7609630ed0efe0842ed6a222e4656fa14a49b532b8bcf599d55154bf8b4e"
+        }
+      ],
+      "aggregate_summary": {
+        "DDICorpus/Test/Test for DDI Extraction task/DrugBank": {
+          "documents": 158,
+          "sentences": 973,
+          "entities": 2512,
+          "pair_false": 4381,
+          "pair_mechanism": 278,
+          "pair_effect": 298,
+          "pair_advise": 214,
+          "pair_int": 94
+        },
+        "DDICorpus/Test/Test for DDI Extraction task/MedLine": {
+          "documents": 33,
+          "sentences": 326,
+          "entities": 528,
+          "pair_false": 356,
+          "pair_effect": 62,
+          "pair_mechanism": 24,
+          "pair_advise": 7,
+          "pair_int": 2
+        },
+        "DDICorpus/Test/Test for DrugNER task/DrugBank": {
+          "documents": 54,
+          "sentences": 145,
+          "entities": 304,
+          "pair_false": 606
+        },
+        "DDICorpus/Test/Test for DrugNER task/MedLine": {
+          "documents": 58,
+          "sentences": 520,
+          "entities": 382,
+          "pair_false": 335
+        },
+        "DDICorpus/Train/DrugBank": {
+          "documents": 572,
+          "sentences": 5675,
+          "entities": 12929,
+          "pair_false": 22216,
+          "pair_effect": 1535,
+          "pair_advise": 818,
+          "pair_mechanism": 1257,
+          "pair_int": 178,
+          "pair_positive_untyped": 1
+        },
+        "DDICorpus/Train/MedLine": {
+          "documents": 142,
+          "sentences": 1301,
+          "entities": 1836,
+          "pair_false": 1555,
+          "pair_effect": 152,
+          "pair_int": 10,
+          "pair_advise": 8,
+          "pair_mechanism": 62
+        }
+      },
+      "cautions": [
+        "ddi=false denotes no annotated relation expressed by the sentence, not clinical absence of an interaction.",
+        "Preserve official training and Task 9.2 testing; Task 9.1 is a different named-entity task.",
+        "Public benchmark may have appeared in language model pretraining."
+      ],
+      "retrieved_at_utc": "2026-11-14T07:47:51.533467+00:00"
+    },
+    "ddinter_partial": {
+      "dataset": "DDInter official public download snapshot",
+      "status": "incomplete",
+      "snapshot_date": "2026-11-14",
+      "checked_at_utc": "2026-11-14T08:03:06.605547+00:00",
+      "source_page": "https://ddinter.scbdd.com/download/",
+      "license": "CC BY-NC-SA 4.0",
+      "files": [
+        {
+          "filename": "ddinter_downloads_code_A.csv",
+          "url": "https://ddinter.scbdd.com/static/media/download/ddinter_downloads_code_A.csv",
+          "bytes": 3343434,
+          "sha256": "a22ca451d2b755ca2331886f7e00540c86f555f9f55704a59a19c691251f52e0",
+          "rows": 56367,
+          "columns": [
+            "DDInterID_A",
+            "Drug_A",
+            "DDInterID_B",
+            "Drug_B",
+            "Level"
+          ],
+          "level_counts": {
+            "Moderate": 33057,
+            "Major": 4906,
+            "Minor": 3637,
+            "Unknown": 14767
+          }
+        },
+        {
+          "filename": "ddinter_downloads_code_B.csv",
+          "url": "https://ddinter.scbdd.com/static/media/download/ddinter_downloads_code_B.csv",
+          "bytes": 867726,
+          "sha256": "76de5115a55587f0e822e1096b684fd3ddde058fbefcbb19896df58820ace130",
+          "rows": 15140,
+          "columns": [
+            "DDInterID_A",
+            "Drug_A",
+            "DDInterID_B",
+            "Drug_B",
+            "Level"
+          ],
+          "level_counts": {
+            "Major": 2739,
+            "Moderate": 7359,
+            "Minor": 800,
+            "Unknown": 4242
+          }
+        },
+        {
+          "filename": "ddinter_downloads_code_D.csv",
+          "url": "https://ddinter.scbdd.com/static/media/download/ddinter_downloads_code_D.csv",
+          "bytes": 1520704,
+          "sha256": "c0627ec39965dbe27829e4934cd20d71eb079f4e373287678737bba9423a306a",
+          "rows": 25681,
+          "columns": [
+            "DDInterID_A",
+            "Drug_A",
+            "DDInterID_B",
+            "Drug_B",
+            "Level"
+          ],
+          "level_counts": {
+            "Minor": 2015,
+            "Major": 2314,
+            "Moderate": 13519,
+            "Unknown": 7833
+          }
+        },
+        {
+          "filename": "ddinter_downloads_code_H.csv",
+          "url": "https://ddinter.scbdd.com/static/media/download/ddinter_downloads_code_H.csv",
+          "bytes": 705088,
+          "sha256": "f0f925f0ba1ee68c4668d3e7a6732719b34623b22a0f5d017f9090e59f63c88e",
+          "rows": 11727,
+          "columns": [
+            "DDInterID_A",
+            "Drug_A",
+            "DDInterID_B",
+            "Drug_B",
+            "Level"
+          ],
+          "level_counts": {
+            "Minor": 707,
+            "Moderate": 7051,
+            "Major": 1203,
+            "Unknown": 2766
+          }
+        },
+        {
+          "filename": "ddinter_downloads_code_L.csv",
+          "url": "https://ddinter.scbdd.com/static/media/download/ddinter_downloads_code_L.csv",
+          "bytes": 3885702,
+          "sha256": "f54f4486cc00344f8c86508c31c2ca3fad6d1d37ec3af5bcf609b4bbda5507ef",
+          "rows": 65389,
+          "columns": [
+            "DDInterID_A",
+            "Drug_A",
+            "DDInterID_B",
+            "Drug_B",
+            "Level"
+          ],
+          "level_counts": {
+            "Moderate": 39985,
+            "Major": 15915,
+            "Minor": 2076,
+            "Unknown": 7413
+          }
+        },
+        {
+          "filename": "ddinter_downloads_code_P.csv",
+          "url": "https://ddinter.scbdd.com/static/media/download/ddinter_downloads_code_P.csv",
+          "bytes": 317460,
+          "sha256": "83f8c0edb20d09ef29b8500b48f9623e208379525688ade9e70a7df2d8749d55",
+          "rows": 5492,
+          "columns": [
+            "DDInterID_A",
+            "Drug_A",
+            "DDInterID_B",
+            "Drug_B",
+            "Level"
+          ],
+          "level_counts": {
+            "Minor": 278,
+            "Moderate": 3270,
+            "Major": 1278,
+            "Unknown": 666
+          }
+        },
+        {
+          "filename": "ddinter_downloads_code_V.csv",
+          "url": "https://ddinter.scbdd.com/static/media/download/ddinter_downloads_code_V.csv",
+          "bytes": 700777,
+          "sha256": "353973fb300453946aea95733e8fb52338e4b59426d2ce6ca318363d4f84f10a",
+          "rows": 12024,
+          "columns": [
+            "DDInterID_A",
+            "Drug_A",
+            "DDInterID_B",
+            "Drug_B",
+            "Level"
+          ],
+          "level_counts": {
+            "Moderate": 6451,
+            "Minor": 287,
+            "Major": 2924,
+            "Unknown": 2362
+          }
+        },
+        {
+          "filename": "terms.html",
+          "url": "https://ddinter.scbdd.com/terms/",
+          "bytes": 13715,
+          "sha256": "d00f8b4e8c6b31a0ac4142ba1eca14c8b0a35d407595191fafc710cf86a19ceb"
+        }
+      ],
+      "missing_files": [
+        "ddinter_downloads_code_R.csv"
+      ],
+      "failure": "Official HTTPS R file repeatedly returned TLS unexpected EOF; bounded retries stopped. HTTP attempts timed out. No complete source.json issued.",
+      "partial_summary": {
+        "unique_unordered_pairs": 146518,
+        "pairs_with_conflicting_levels": 0,
+        "unique_pair_level_sets": {
+          "Moderate": 86904,
+          "Major": 25678,
+          "Minor": 6528,
+          "Unknown": 27408
+        }
+      },
+      "cautions": [
+        "Partial snapshot is not ready for the complete DDInter reference baseline.",
+        "No edge is not a negative interaction label.",
+        "CSV has no mechanism text or reference passages."
+      ]
+    },
+    "dialmed_partial": {
+      "dataset": "DialMed",
+      "status": "incomplete",
+      "commit": "4cd19719ad8a25e0d2cb411cdede3aea9d9e095f",
+      "checked_at_utc": "2026-11-14T08:03:06.605547+00:00",
+      "source_page": "https://github.com/f-window/DialMed",
+      "license": "Author repository MIT LICENSE; retained without modification",
+      "files": [
+        {
+          "filename": "LICENSE",
+          "url": "https://raw.githubusercontent.com/f-window/DialMed/4cd19719ad8a25e0d2cb411cdede3aea9d9e095f/LICENSE",
+          "bytes": 1065,
+          "sha256": "f4245e50f38ea093986df6b884de426a3f6d5bbf248eba790d20b93ec651377a"
+        },
+        {
+          "filename": "README.md",
+          "url": "https://raw.githubusercontent.com/f-window/DialMed/4cd19719ad8a25e0d2cb411cdede3aea9d9e095f/README.md",
+          "bytes": 1284,
+          "sha256": "7fd8239f730ee773a2bebd6a2bdd8f77d31601c9d29a7a4644ca805b46e96473"
+        },
+        {
+          "filename": "label.json",
+          "url": "https://raw.githubusercontent.com/f-window/DialMed/4cd19719ad8a25e0d2cb411cdede3aea9d9e095f/data/dataset/label.json",
+          "bytes": 1607,
+          "sha256": "207329f4024aecadbfba214b5368f4cb35121e768800c27038e7de3a506fcb68"
+        },
+        {
+          "filename": "dev.txt",
+          "url": "https://raw.githubusercontent.com/f-window/DialMed/4cd19719ad8a25e0d2cb411cdede3aea9d9e095f/data/dataset/dev.txt",
+          "bytes": 1814683,
+          "sha256": "4f240d14720e34da14d692eb6850f496037b6ebe3d8b4e5854b121d5e437c066"
+        },
+        {
+          "filename": "test.txt",
+          "url": "https://raw.githubusercontent.com/f-window/DialMed/4cd19719ad8a25e0d2cb411cdede3aea9d9e095f/data/dataset/test.txt",
+          "bytes": 1783995,
+          "sha256": "7f1853dbab171437cf3169c6f6d7be02eeb74835791e3c335deec153acb6840b"
+        },
+        {
+          "filename": "ddi.json",
+          "url": "https://raw.githubusercontent.com/f-window/DialMed/4cd19719ad8a25e0d2cb411cdede3aea9d9e095f/appendix/ddi.json",
+          "bytes": 4229,
+          "sha256": "a1e301a615ff72b7400670f7641b51fc51f5853b1ea299f7f4f20e03ed23557c"
+        },
+        {
+          "filename": "medication_normalization.json",
+          "url": "https://raw.githubusercontent.com/f-window/DialMed/4cd19719ad8a25e0d2cb411cdede3aea9d9e095f/appendix/medication_normalization.json",
+          "bytes": 35267,
+          "sha256": "cbc682c02c1e9de2d90ab700a85307044d8388a18cbd7165c19cded8137b72d6"
+        }
+      ],
+      "missing_files": [
+        "train.txt"
+      ],
+      "failure": "Full train.txt download interrupted after TLS EOF and slow transfers to prioritize DDInter and current experiments. Other files are complete.",
+      "cautions": [
+        "No longitudinal patient ID/order; dialogue-based medication recommendation only.",
+        "Author input field is dialog; do not substitute original_dialog or feed label answers.",
+        "Do not assume public zero-shot evaluation was unseen in pretraining."
+      ]
+    }
+  }
+}

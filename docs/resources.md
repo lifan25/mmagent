@@ -4,6 +4,8 @@
 
 准备结论：A1 v3已就绪；当前推荐实验为38类、训练1433/验证354/测试351条，已完成20轮训练及重载，见[SSPNet报告](../src/recommendation/reports/sspnet-synthea-product-v4.md)。DDI来源、分母和第一批简单对照已实际核验，见[DDI诊断](../src/recommendation/reports/ddi-audit-20261114.md)。新下载MIMIC-IV Demo五表和250例DDI核查清单；真实大规模主队列仍未取得，用户愿意本人申请。本地病例、图和权重不随克隆取得，其他成员按说明重建。研究方向与零样本对照见[实验设计](research-design.md)。
 
+用户最新要求暂不依赖申请中的队列：已完整取得DDICorpus-2013并实际跑完关系抽取轻量基线；七分类DDInter已做明确partial的检索实验；DialMed的dev/test及70药词表已到齐。数据与成绩各自对应任务，不能当作新增纵向临床验证。详细证据见[公开数据实验](../src/knowledge/reports/open-data-pilot-20261114.md)。
+
 新成员按 [三人开工步骤](onboarding.md) 取得材料并做本机检查；不要把资源清单中组长电脑的已完成结果当作自己的验证记录。
 
 当前路线：用户已同意采用相关公开数据和上游材料，不再等待作者提供完全相同的实验产物。保留 DXY 基线；推荐流程先用 MIMIC Demo 和 Synthea 合成病历开发，正式真实病例实验仍需足够规模的真实数据。更换数据属于适配实验，不能直接沿用原论文指标，也不单独构成研究贡献。
@@ -69,7 +71,11 @@ Demo 支持数据流程开发，不足以复现论文指标。完整MIMIC-III权
 - **LLM-Uncertainty-DDI**：固定提交 `9872bb0c3e28cd03a7d460cdde3f01e0e8a26542`，已下载 `drug5.csv`、MIT许可及来源记录到 `data/local/llm-uncertainty-ddi/`。250份清单，C/D/X为81/92/77；每份均含目标交互，只用于核查定位/拒答评价，不是纵向病例或阴性清单误报验证。
 - 下载/核验命令：`.venv/Scripts/python.exe src/data_evaluation/fetch_public_validation.py`。只读取公开固定文件，无额外依赖；以上数据均被Git忽略，不上传。路径、许可、本人申请步骤见[MIMIC访问说明](mimic-access.md)。
 - **MIMIC-IV 3.1**：首选真实主队列，尚无权限。**AmsterdamUMCdb 1.0.2**作为跨来源外验候选，尚未申请/下载；需处理ICU入科与住院粒度、药物和诊断差异。[官方版本说明](https://amsterdammedicaldatascience.nl/)、[患者关联字段](https://github.com/AmsterdamUMC/AmsterdamUMCdb/wiki/admissions)。不能用同院MIMIC-III/IV自动宣称跨医院验证。
-- **DDInter**：已核查[下载入口](https://ddinter.scbdd.com/download/)及[CC BY-NC-SA 4.0条款](https://ddinter.scbdd.com/terms/)，尚未下载或用于实验。可作独立证据库；若参与训练/调参，不把同一批边当独立真值。未收录不等于安全。
+- **DDInter**：本地 `data/local/ddinter-public-20261114/` 已取得A/B/D/H/L/P/V七类、191820行、去重146518药对，缺R；来源在source.partial.json。已实际进行七分类检索实验，不能冒充完整库。[官方源](https://ddinter.scbdd.com/download/)与[CC BY-NC-SA 4.0条款](https://ddinter.scbdd.com/terms/)保留。未收录/Unknown不等于安全，CSV没有机制原文；若参与训练/调参，不把同一批边作独立真值。
+- **DDICorpus-2013**：本地 `data/local/ddicorpus-2013/` 的作者ZIP、README许可及source.json完整；训练27792药对、正式关系测试5716药对。固定commit `819b0fa538ed83ab2a8b4f5417bba3c03249b7f3`、CC BY-NC 4.0。[作者仓库](https://github.com/isegura/DDICorpus)。文本关系任务与临床DDI安全判断分开，DrugNER占位false标签不进入关系实验。
+- **DialMed**：本地 `data/local/dialmed/` 已有dev1192条、test1199条、70药标签、原MIT许可及附录，train未齐；固定commit `4cd19719ad8a25e0d2cb411cdede3aea9d9e095f`。[作者仓库](https://github.com/f-window/DialMed)。现有部分足以准备零样本，但对话推荐句仍含掩码结构，必须先冻结推荐前截断；本轮没有运行DialMed模型。
+
+新增材料下载入口：`.venv/Scripts/python.exe src/data_evaluation/fetch_open_ddi.py --dataset ddicorpus`；七分类冻结参照加 `--dataset ddinter --seven-category-snapshot`；完整DialMed使用 `--dataset dialmed`。全部数据本地保留，不随Git上传。
 
 ### 直接查看病例
 
@@ -119,13 +125,13 @@ Synthea当前图与模型词表一致，仅从训练就诊建立EHR图，不混�
 
 Diaformer作者报告Python3.8/PyTorch1.8.0，当前使用现代环境记录差异。SSPNet已补齐PyG、torch-scatter、OGB、RDKit、scikit-learn等，58包兼容检查与正常包导入通过；20轮主运行使用更快的CPU逐样本计算。完整快照及安装脚本见 src/recommendation/environment-lock.txt 和 setup_environment.ps1。
 
-用户尚无完整MIMIC-IV权限且愿意申请；本人身份、培训和协议尚待完成。零样本路线已纳入，工作区尚未接入可复现的大模型推理入口，当前没有大模型核查结果或付费调用。DXY本机GPU运行不表示BIBM整体已复现。
+用户尚无完整MIMIC-IV权限且愿意申请；本人身份、培训和协议尚待完成，本轮先推进无需申请数据。零样本本地调用、输入过滤和评价入口已实现，模型与CUDA运行库仍在下载，尚无大模型核查结果或付费调用。续接见[本地环境](../src/knowledge/LOCAL_INFERENCE.md)。DXY本机GPU运行不表示BIBM整体已复现。
 
 ## 现在可以推进什么
 
-- A：已有A1不重写；适配新下载MIMIC-IV Demo，冻结新真实患者划分与核查评价，办理本人完整库权限。
+- A：已有A1不重写；先准备DialMed推荐前输入与排除计数，维护固定划分和统一评价；MIMIC-IV Demo适配及本人完整库申请保留为后续。
 - B：复核DDI诊断并交付类别编码边界，补公共recommend接口，固定候选给C；需要训练分母对照时只改一个因素。
-- C：先准备3–5条有来源条件规则及成对缺失测试，加入简单规则、零样本无检索/有检索核查和直接推荐对照；原BIBM诊断复现单列。
+- C：完成本地模型校验和格式检查，运行冻结的文本/清单零样本pilot，再与已完成的轻量训练及知识库参照比较；条件规则与原BIBM诊断复现单列。
 
-当前优先级：DDI口径与简单对照 → 新真实数据适配/规则小实验 → 零样本与缺失感知核查对照 → 独立确认 → 必要的agent展示。不把包装、数据替换或“零样本”本身当作创新。
+当前优先级：已有公开数据与简单对照 → 冻结pilot的零样本实验/DialMed输入准备 → 依据结果选择后续假设 → 独立确认 → 必要的agent展示。不把包装、数据替换或“零样本”本身当作创新。
 
