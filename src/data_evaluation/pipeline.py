@@ -68,6 +68,9 @@ class MedicationAgent:
                       "applied_rules": checked["applied_rules"],
                       "loaded_rules": [{"rule_id": r["rule_id"], "version": r["version"],
                                         "review_status": r["review_status"]} for r in self.rules]})
+        if clean["context"].get("context_version"):
+            trace[-1]["patient_fact_context"] = {key: clean["context"].get(key) for key in
+                ("context_version", "knowledge_cutoff", "knowledge_time_scope", "knowledge_fact_provenance")}
         # Candidate sets are never rewritten by the checker or the agent.
         return report, local_scores
 
@@ -99,6 +102,8 @@ if __name__ == "__main__":
     parser.add_argument("--input", type=Path, required=True, help="Case JSON or existing A1 JSONL")
     parser.add_argument("--index", type=int, default=0)
     parser.add_argument("--rules", type=Path, help="Defaults to the reviewed LLM package; specify reference rules for the control")
+    parser.add_argument("--checkpoint", type=Path, help="Explicit alternate trained medication space; default remains ATC3")
+    parser.add_argument("--context", type=Path, help="Frozen same-encounter context snapshot; optional, never inferred")
     parser.add_argument("--output", type=Path, required=True, help="New local result file; cases are not committed")
     args = parser.parse_args()
     if args.output.exists():
@@ -107,7 +112,15 @@ if __name__ == "__main__":
     if args.rules:
         from src.knowledge.check import load_rules
         rules = load_rules(args.rules)
-    report = MedicationAgent(rules=rules).run(read_case(args.input, args.index))
+    recommender = None
+    if args.checkpoint:
+        from src.recommendation.predict import SSPNetRecommender
+        recommender = SSPNetRecommender(args.checkpoint)
+    case = read_case(args.input, args.index)
+    if args.context:
+        from src.data_evaluation.prepare_context import apply_context
+        case = apply_context(case, json.loads(args.context.read_text(encoding="utf-8")))
+    report = MedicationAgent(recommender=recommender, rules=rules).run(case)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
         json.dump(report, stream, ensure_ascii=False, indent=2, allow_nan=False)

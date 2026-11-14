@@ -2,6 +2,7 @@
 
 import argparse
 import csv
+import hashlib
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -145,10 +146,33 @@ def prepare(config):
         raise ValueError("Patient splits overlap")
     if any(v["split"] != memberships[v["patient_id"]] for v in visits):
         raise ValueError("A1 patient split mismatch")
-    mapping = rxnorm_mapping(reference / "ndc2atc_level4.csv")
+    space = config.get("medication_space", "ATC3")
+    if space not in {"ATC3", "RxNorm"}:
+        raise ValueError("Unsupported medication space")
+    fine = space == "RxNorm"
+    catalog = None
+    mapping = rxnorm_mapping(reference / "ndc2atc_level4.csv") if not fine else {
+        item["code"]: {item["code"]} for visit in visits for item in visit["medications"]}
     mapping_info = "Exact RXCUI -> unambiguous four-character ATC level 3; ambiguous/missing excluded and counted"
     decisions = None
-    if config.get("mapping_snapshot"):
+    if fine:
+        if __package__:
+            from .rxnorm import product_catalog, outside_input_codes, ddi_graph as product_ddi_graph
+        else:
+            from rxnorm import product_catalog, outside_input_codes, ddi_graph as product_ddi_graph
+        snapshot = json.loads((ROOT / config["rxnorm_snapshot"]).read_text(encoding="utf-8"))
+        bridge = json.loads((ROOT / config["ddi_mapping_snapshot"]).read_text(encoding="utf-8"))
+        snapshot_hash = hashlib.sha256((ROOT / config["rxnorm_snapshot"]).read_bytes()).hexdigest()
+        if bridge.get("products_source", {}).get("sha256", snapshot_hash) != snapshot_hash:
+            raise ValueError("CID bridge was built from a different product snapshot")
+        catalog = product_catalog(snapshot, sorted(mapping))
+        decisions = {code: {"source": "Original A1 RxCUI; no remapping", "codes": [code]} for code in mapping}
+        mapping_info = {"policy": "Exact original product RxCUI, including historical IDs; train-visit vocabulary only",
+                        "snapshot": config["rxnorm_snapshot"], "version": snapshot["version"],
+                        "snapshot_sha256": snapshot_hash,
+                        "ddi_mapping_snapshot": config["ddi_mapping_snapshot"],
+                        "ddi_mapping_sha256": hashlib.sha256((ROOT / config["ddi_mapping_snapshot"]).read_bytes()).hexdigest()}
+    elif config.get("mapping_snapshot"):
         snapshot = json.loads((ROOT / config["mapping_snapshot"]).read_text(encoding="utf-8"))
         mapping, decisions = product_mapping(snapshot, mapping)
         mapping_info = {"policy": "ATCPROD first, ATC ingredient fallback, legacy only if both absent; singleton ATC3 only",
@@ -185,10 +209,10 @@ def prepare(config):
             history.append([encode_codes(visit["diagnoses"], indices["diagnoses"], audit, "diagnosis"),
                             encode_codes(visit["procedures"], indices["procedures"], audit, "procedure"),
                             meds_to_ids(visit["medications"], audit)])
-        if not target:
+        if not target and not fine:
             audit["excluded_empty_mapped_target"] += 1
             continue
-        if not any(visit[2] for visit in history):
+        if not any(visit[2] for visit in history) and not fine:
             audit["excluded_no_mapped_medication_history"] += 1
             continue
         current = [encode_codes(case["diagnoses"], indices["diagnoses"], audit, "diagnosis"),
@@ -197,18 +221,35 @@ def prepare(config):
                                "input": history + [current], "target": target,
                                "empty_current_procedures": not current[1],
                                "empty_history_procedures": any(not v[1] for v in history)})
+        if fine:
+            target_codes = sorted({m["code"] for m in example["target_medications"]})
+            outside_targets = [code for code in target_codes if code not in indices["medications"]]
+            input_issues = outside_input_codes(case, indices)
+            records[group][-1].update(target_medication_codes=target_codes,
+                outside_train_target_codes=outside_targets, outside_train_input_codes=input_issues,
+                input_supported=not input_issues)
+            audit["unsupported_input_examples"] += bool(input_issues)
+            audit["targets_not_fully_representable"] += bool(outside_targets)
+            audit["targets_wholly_outside_vocabulary"] += not target
         audit["retained_examples"] += 1
     for name, rows in records.items():
         if not rows:
             raise ValueError(f"No usable {name} examples after mapping")
     train_records = [[[], [], [indices["medications"][c] for c in meds]] for _, meds in train]
     ehr = adjacency(train_records, len(vocab["medications"]))
-    ddi, ddi_info = ddi_graph(reference, indices["medications"], config["ddi_least_frequent_events"])
+    if fine:
+        ddi, mask, ddi_info = product_ddi_graph(reference, indices["medications"], config["ddi_least_frequent_events"], bridge)
+    else:
+        ddi, ddi_info = ddi_graph(reference, indices["medications"], config["ddi_least_frequent_events"])
     if not ddi.any():
         raise ValueError("No DDI edges after mapping: cannot claim safety-loss validation")
     output.mkdir(parents=True, exist_ok=True)
     graphs = {"ehr": ehr, "ddi": ddi}
-    if decisions is not None:
+    if fine:
+        graphs["ddi_mapping_mask"] = mask
+        (output / "drug-catalog.json").write_text(json.dumps(
+            {code: catalog[code] for code in vocab["medications"]}, ensure_ascii=False, indent=2), encoding="utf-8")
+    elif decisions is not None:
         graphs["ddi_mapping_mask"], ddi_info["classes_without_cid_mapping"] = ddi_mapping_mask(reference, vocab["medications"])
         ddi_info["rate_scope"] = "Only pairs with both ATC3 nodes linked to source CIDs; absent edges are not clinical negatives"
     np.savez(output / "graphs.npz", **graphs)
@@ -224,6 +265,12 @@ def prepare(config):
               "splits": {name: {**dict(audits[name]), "patients": len({r["patient_id"] for r in rows}),
                                  "empty_current_procedures": sum(r["empty_current_procedures"] for r in rows),
                                  "empty_history_procedures": sum(r["empty_history_procedures"] for r in rows)} for name, rows in records.items()}}
+    if fine:
+        frequencies = Counter(code for e in examples if e["split"] == "train" for code in {m["code"] for m in e["target_medications"]})
+        report.update(medication_space=space, target_policy="All A1 targets retained; unseen labels count as missed; AP only on fully represented targets with supported inputs",
+            input_policy="Preserve all A1 rows; unsupported inputs are marked and never inferred",
+            train_target_frequencies={code: frequencies[code] for code in vocab["medications"]},
+            train_history_only_labels=[code for code in vocab["medications"] if not frequencies[code]])
     (output / "manifest.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     if decisions is not None:
         (output / "mapping-decisions.json").write_text(json.dumps(decisions, indent=2), encoding="utf-8")

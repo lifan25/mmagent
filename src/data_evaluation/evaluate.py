@@ -14,10 +14,11 @@ from src.recommendation.prepare import read_jsonl
 from src.recommendation.train import metrics
 
 
-def run(split, output, rules_path=None):
+def run(split, output, rules_path=None, config_path=None, context_path=None):
     if output.exists():
         raise ValueError("Run directory exists; preserve the existing evidence")
-    config = json.loads((ROOT / "src/recommendation/configs/sspnet-synthea-product.json").read_text())
+    config_path = config_path or ROOT / "src/recommendation/configs/sspnet-synthea-product.json"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
     a1 = ROOT / config["a1_dir"]
     prepared = ROOT / config["prepared_dir"]
     all_examples = [r for r in read_jsonl(a1 / "main_prediction_examples.jsonl") if r["split"] == split]
@@ -28,7 +29,9 @@ def run(split, output, rules_path=None):
     from src.knowledge.check import load_rules
     rules_path = rules_path or DEFAULT_AGENT_RULES
     rules = load_rules(rules_path)
-    agent = MedicationAgent(rules=rules)
+    from src.recommendation.predict import SSPNetRecommender
+    agent = MedicationAgent(recommender=SSPNetRecommender(ROOT / config["run_dir"] / "best.pt"), rules=rules)
+    context = json.loads(context_path.read_text(encoding="utf-8")) if context_path else None
     original_scores = np.load(ROOT / config["run_dir"] / "test-scores.npy") if split == "test" else None
     if original_scores is not None and len(original_scores) != len(encoded):
         raise ValueError("Original score rows no longer match the fixed test cohort")
@@ -41,7 +44,11 @@ def run(split, output, rules_path=None):
     with (output / "agent-results.jsonl").open("x", encoding="utf-8") as stream:
         for number, row in enumerate(all_examples, 1):
             patient_ids.add(row["patient_id"])
-            report, scored = agent.run_with_scores(row["case"])
+            case = row["case"]
+            if context is not None:
+                from src.data_evaluation.prepare_context import apply_context
+                case = apply_context(case, context)
+            report, scored = agent.run_with_scores(case)
             rec, checked = report["recommendation"], report["check_report"]
             statuses[report["status"]] += 1
             recommendation_statuses[rec["status"]] += 1
@@ -82,6 +89,8 @@ def run(split, output, rules_path=None):
         "repository_base_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
         "a1_directory": config["a1_dir"], "prepared_directory": config["prepared_dir"],
         "checkpoint_directory": config["run_dir"], "model_manifest": agent.recommender.manifest,
+        "context_file": str(context_path) if context_path else None,
+        "context_policy": context["policy"] if context else "original A1 context only",
         "rules_file": str(Path(rules_path).resolve().relative_to(ROOT)),
         "rule_versions": [{"rule_id": r["rule_id"], "version": r["version"],
                            "review_status": r["review_status"]} for r in rules],
@@ -103,7 +112,7 @@ def run(split, output, rules_path=None):
         "limitations": [
             "Exploratory Synthea adaptation, not independent clinical validation or a new training result.",
             "Strict public inputs may be rejected where legacy preprocessing used UNK or dropped medications; coverage and supported metrics are separate.",
-            "ATC3 candidates do not identify an ingredient, route or formulation; missing rule prerequisites remain unresolved.",
+            "ATC3 cannot identify an ingredient; RxNorm identity requires a separate frozen product source. Missing prerequisites remain unresolved.",
             "Flag-only checks do not improve medication prediction metrics; no independent clinical adjudication labels are available.",
             "DXY diagnosis is a separate evaluation, never joined to these patients."]}
     if original_scores is not None:
@@ -123,5 +132,7 @@ if __name__ == "__main__":
     parser.add_argument("--split", choices=("validation", "test"), default="test")
     parser.add_argument("--output", type=Path, default=ROOT / "outputs/data_evaluation/agent-integration-20261114")
     parser.add_argument("--rules", type=Path, help="Reviewed package for a fixed-candidate comparison")
+    parser.add_argument("--config", type=Path, help="Existing training config and checkpoint; no retraining here")
+    parser.add_argument("--context", type=Path, help="Frozen optional same-encounter context")
     args = parser.parse_args()
-    run(args.split, args.output, args.rules)
+    run(args.split, args.output, args.rules, args.config, args.context)

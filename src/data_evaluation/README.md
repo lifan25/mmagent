@@ -21,7 +21,7 @@ data_evaluation/
 └── reports/      日后放可提交的聚合统计与验收报告
 ```
 
-当前A1支持Demo/Synthea关联、审计、筛选、患者划分和标签隔离，单患者入口保留。A2/A3已实现固定病例上的真实推荐→规则核查→状态整理及统一评价，命令见[RUNNING.md](RUNNING.md)，结果见[集成报告](reports/agent-integration-20261114.md)。A1统计仍见[data-summary.md](reports/data-summary.md)。
+当前A1支持Demo/Synthea关联、审计、筛选、患者划分和标签隔离，单患者入口保留。A2/A3已实现固定病例上的真实推荐→规则核查→状态整理及统一评价；新增72原始RxNorm标签与同次事实核查，命令见[RUNNING.md](RUNNING.md)，最新结果见[RxNorm报告](reports/rxnorm-agent-20261114.md)，旧38类结果见[原集成报告](reports/agent-integration-20261114.md)。A1统计仍见[data-summary.md](reports/data-summary.md)。
 
 ## 实现文件与后续计划
 
@@ -30,6 +30,8 @@ data_evaluation/
 | prepare.py、cohort.py（A1 已实现） | 全量病例、审计、筛选、患者划分；保留单患者入口 | 不负责药物映射和模型整数词表 |
 | evaluate.py（已实现） | 调用真实链，复用B指标，分别报告全队列覆盖与支持子集分数 | 不训练模型、不根据测试结果选阈值 |
 | pipeline.py（已实现） | 校验输入、调用B推荐和C核查、记录轨迹与下一动作 | 不复制B/C实现、不改候选、不补造病史 |
+| prepare_context.py（已实现） | 从原ZIP提取同次eGFR/阳性CABG及出处，保持未知 | 不读取当前用药答案，不推断缺记录等于阴性 |
+| compare_rxnorm.py（已实现） | 固定病例与目标比较原码、类别投影和训练众数对照 | 不由测试药品挑候选，不按测试选阈值 |
 
 文件名是拆分建议；若发现合并文件更清楚，可以先在 TASKS.md 说明。不要仅为目录齐全创建空 Python 文件。
 

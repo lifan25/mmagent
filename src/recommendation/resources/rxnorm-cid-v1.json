@@ -1,0 +1,5540 @@
+{
+  "schema_version": "rxnorm-cid-v1",
+  "policy_version": "complete-bases-union-unique-atc5-20261114",
+  "products_source": {
+    "path": "src/recommendation/resources/rxnorm-products-synthea-v1.json",
+    "sha256": "ff874a3081322d75f96511621c77c80d03e568035c6e2142e8f71a4e3e6fd410",
+    "rxnorm_version": {
+      "version": "02-Nov-2026",
+      "apiVersion": "3.1.357"
+    }
+  },
+  "reference_source": {
+    "path": "data/reference/MoleRec/drug-atc.csv",
+    "sha256": "4af2a496e81ea0f0d36120dd503e3b01ec9db6d15fdbac12bc2acf71d9b41173"
+  },
+  "method": "All baseRxcui components; official ATC properties restricted to seven-character ATC5; exact reference join. Each component needs at least one match and exactly one CID across all matched ATC5 codes; every product component must qualify.",
+  "scope": "Uniquely connected CID in this fixed reference, not independent chemical identity validation or complete DDI evidence coverage. Missing ATC5 branches are audited, not treated as alternative identity evidence. No ATC3 reverse inference.",
+  "api_documentation": [
+    "https://lhncbc.nlm.nih.gov/RxNav/APIs/api-RxNorm.getAllProperties.html",
+    "https://lhncbc.nlm.nih.gov/RxNav/APIs/api-RxNorm.getRxcuiHistoryStatus.html"
+  ],
+  "drug_cids": {
+    "1014676": [
+      "CID000002678"
+    ],
+    "1043400": [],
+    "1049221": [
+      "CID000002519",
+      "CID000004635"
+    ],
+    "1049630": [
+      "CID000003100"
+    ],
+    "105078": [
+      "CID000002349"
+    ],
+    "105585": [
+      "CID000004112"
+    ],
+    "106892": [],
+    "1091392": [
+      "CID000004158"
+    ],
+    "1094107": [],
+    "1190795": [
+      "CID000003661"
+    ],
+    "1650142": [
+      "CID000003161"
+    ],
+    "1652673": [
+      "CID000003161"
+    ],
+    "1660014": [
+      "CID000000838"
+    ],
+    "1804799": [],
+    "1860154": [
+      "CID000004635"
+    ],
+    "1860480": [
+      "CID000003143"
+    ],
+    "197319": [
+      "CID000083786"
+    ],
+    "197361": [
+      "CID000002162"
+    ],
+    "197378": [],
+    "197591": [
+      "CID000003016"
+    ],
+    "197604": [
+      "CID000003062"
+    ],
+    "198014": [],
+    "198031": [
+      "CID000000942"
+    ],
+    "198405": [
+      "CID000003672"
+    ],
+    "204892": [
+      "CID000002802"
+    ],
+    "205923": [],
+    "2123111": [
+      "CID000002083"
+    ],
+    "243670": [
+      "CID000002244"
+    ],
+    "259255": [
+      "CID000002250"
+    ],
+    "308182": [
+      "CID000002171"
+    ],
+    "308192": [
+      "CID000002171"
+    ],
+    "308971": [
+      "CID000002554"
+    ],
+    "309043": [
+      "CID000002609"
+    ],
+    "309045": [
+      "CID000002609"
+    ],
+    "309097": [
+      "CID000002658"
+    ],
+    "309362": [
+      "CID000002806"
+    ],
+    "310325": [],
+    "310385": [],
+    "310436": [
+      "CID000003449"
+    ],
+    "310798": [],
+    "310965": [
+      "CID000003672"
+    ],
+    "311989": [
+      "CID000004509"
+    ],
+    "312617": [],
+    "312961": [
+      "CID000054454"
+    ],
+    "313185": [
+      "CID000001935"
+    ],
+    "313782": [
+      "CID000002519"
+    ],
+    "313820": [
+      "CID000002519"
+    ],
+    "314231": [
+      "CID000054454"
+    ],
+    "429503": [],
+    "477045": [
+      "CID000002725"
+    ],
+    "562251": [],
+    "608139": [
+      "CID000054841"
+    ],
+    "665078": [
+      "CID000003957"
+    ],
+    "705129": [
+      "CID000004510"
+    ],
+    "746030": [
+      "CID000002249",
+      "CID000002732"
+    ],
+    "752899": [],
+    "757594": [
+      "CID000004536"
+    ],
+    "789980": [
+      "CID000002173"
+    ],
+    "831533": [
+      "CID000004536"
+    ],
+    "833036": [],
+    "834061": [],
+    "834102": [],
+    "834357": [
+      "CID000002156"
+    ],
+    "849574": [],
+    "855332": [
+      "CID000006691"
+    ],
+    "856987": [],
+    "857005": [],
+    "860975": [
+      "CID000004091"
+    ],
+    "861467": [
+      "CID000004058"
+    ],
+    "895994": [],
+    "896209": [],
+    "897718": [
+      "CID000002520"
+    ],
+    "904419": [],
+    "966222": [],
+    "997223": [],
+    "997488": [
+      "CID000003348"
+    ],
+    "999967": []
+  },
+  "partial_drug_cids": {
+    "1014676": [
+      "CID000002678"
+    ],
+    "1043400": [
+      "CID000002519"
+    ],
+    "1049221": [
+      "CID000002519",
+      "CID000004635"
+    ],
+    "1049630": [
+      "CID000003100"
+    ],
+    "105078": [
+      "CID000002349"
+    ],
+    "105585": [
+      "CID000004112"
+    ],
+    "106892": [],
+    "1091392": [
+      "CID000004158"
+    ],
+    "1094107": [],
+    "1190795": [
+      "CID000003661"
+    ],
+    "1650142": [
+      "CID000003161"
+    ],
+    "1652673": [
+      "CID000003161"
+    ],
+    "1660014": [
+      "CID000000838"
+    ],
+    "1804799": [],
+    "1860154": [
+      "CID000004635"
+    ],
+    "1860480": [
+      "CID000003143"
+    ],
+    "197319": [
+      "CID000083786"
+    ],
+    "197361": [
+      "CID000002162"
+    ],
+    "197378": [],
+    "197591": [
+      "CID000003016"
+    ],
+    "197604": [
+      "CID000003062"
+    ],
+    "198014": [],
+    "198031": [
+      "CID000000942"
+    ],
+    "198405": [
+      "CID000003672"
+    ],
+    "204892": [
+      "CID000002802"
+    ],
+    "205923": [],
+    "2123111": [
+      "CID000002083"
+    ],
+    "243670": [
+      "CID000002244"
+    ],
+    "259255": [
+      "CID000002250"
+    ],
+    "308182": [
+      "CID000002171"
+    ],
+    "308192": [
+      "CID000002171"
+    ],
+    "308971": [
+      "CID000002554"
+    ],
+    "309043": [
+      "CID000002609"
+    ],
+    "309045": [
+      "CID000002609"
+    ],
+    "309097": [
+      "CID000002658"
+    ],
+    "309362": [
+      "CID000002806"
+    ],
+    "310325": [],
+    "310385": [],
+    "310436": [
+      "CID000003449"
+    ],
+    "310798": [],
+    "310965": [
+      "CID000003672"
+    ],
+    "311989": [
+      "CID000004509"
+    ],
+    "312617": [],
+    "312961": [
+      "CID000054454"
+    ],
+    "313185": [
+      "CID000001935"
+    ],
+    "313782": [
+      "CID000002519"
+    ],
+    "313820": [
+      "CID000002519"
+    ],
+    "314231": [
+      "CID000054454"
+    ],
+    "429503": [],
+    "477045": [
+      "CID000002725"
+    ],
+    "562251": [
+      "CID000002171"
+    ],
+    "608139": [
+      "CID000054841"
+    ],
+    "665078": [
+      "CID000003957"
+    ],
+    "705129": [
+      "CID000004510"
+    ],
+    "746030": [
+      "CID000002249",
+      "CID000002732"
+    ],
+    "752899": [],
+    "757594": [
+      "CID000004536"
+    ],
+    "789980": [
+      "CID000002173"
+    ],
+    "831533": [
+      "CID000004536"
+    ],
+    "833036": [
+      "CID000002519"
+    ],
+    "834061": [],
+    "834102": [],
+    "834357": [
+      "CID000002156"
+    ],
+    "849574": [],
+    "855332": [
+      "CID000006691"
+    ],
+    "856987": [
+      "CID000002519"
+    ],
+    "857005": [
+      "CID000002519"
+    ],
+    "860975": [
+      "CID000004091"
+    ],
+    "861467": [
+      "CID000004058"
+    ],
+    "895994": [],
+    "896209": [
+      "CID000005152"
+    ],
+    "897718": [
+      "CID000002520"
+    ],
+    "904419": [],
+    "966222": [],
+    "997223": [],
+    "997488": [
+      "CID000003348"
+    ],
+    "999967": [
+      "CID000002162"
+    ]
+  },
+  "mapping_complete": {
+    "1014676": true,
+    "1043400": false,
+    "1049221": true,
+    "1049630": true,
+    "105078": true,
+    "105585": true,
+    "106892": false,
+    "1091392": true,
+    "1094107": false,
+    "1190795": true,
+    "1650142": true,
+    "1652673": true,
+    "1660014": true,
+    "1804799": false,
+    "1860154": true,
+    "1860480": true,
+    "197319": true,
+    "197361": true,
+    "197378": false,
+    "197591": true,
+    "197604": true,
+    "198014": false,
+    "198031": true,
+    "198405": true,
+    "204892": true,
+    "205923": false,
+    "2123111": true,
+    "243670": true,
+    "259255": true,
+    "308182": true,
+    "308192": true,
+    "308971": true,
+    "309043": true,
+    "309045": true,
+    "309097": true,
+    "309362": true,
+    "310325": false,
+    "310385": false,
+    "310436": true,
+    "310798": false,
+    "310965": true,
+    "311989": true,
+    "312617": false,
+    "312961": true,
+    "313185": true,
+    "313782": true,
+    "313820": true,
+    "314231": true,
+    "429503": false,
+    "477045": true,
+    "562251": false,
+    "608139": true,
+    "665078": true,
+    "705129": true,
+    "746030": true,
+    "752899": false,
+    "757594": true,
+    "789980": true,
+    "831533": true,
+    "833036": false,
+    "834061": false,
+    "834102": false,
+    "834357": true,
+    "849574": false,
+    "855332": true,
+    "856987": false,
+    "857005": false,
+    "860975": true,
+    "861467": true,
+    "895994": false,
+    "896209": false,
+    "897718": true,
+    "904419": false,
+    "966222": false,
+    "997223": false,
+    "997488": true,
+    "999967": false
+  },
+  "products": {
+    "1014676": {
+      "rxcui": "1014676",
+      "name": "cetirizine hydrochloride 5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "20610"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "20610",
+          "baseName": "cetirizine",
+          "bossRxcui": "203150",
+          "bossName": "cetirizine hydrochloride",
+          "activeIngredientRxcui": "203150",
+          "activeIngredientName": "cetirizine hydrochloride",
+          "moietyRxcui": "20610",
+          "moietyName": "cetirizine",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "20610"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002678"
+      ],
+      "drug_cids": [
+        "CID000002678"
+      ],
+      "partial_drug_cids": [
+        "CID000002678"
+      ]
+    },
+    "1043400": {
+      "rxcui": "1043400",
+      "name": "acetaminophen 21.7 MG/ML / dextromethorphan hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "161",
+        "3289",
+        "3642"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "161",
+          "baseName": "acetaminophen",
+          "bossRxcui": "161",
+          "bossName": "acetaminophen",
+          "activeIngredientRxcui": "161",
+          "activeIngredientName": "acetaminophen",
+          "moietyRxcui": "161",
+          "moietyName": "acetaminophen",
+          "numeratorValue": "21.7",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        },
+        {
+          "baseRxcui": "3289",
+          "baseName": "dextromethorphan",
+          "bossRxcui": "102490",
+          "bossName": "dextromethorphan hydrobromide",
+          "activeIngredientRxcui": "102490",
+          "activeIngredientName": "dextromethorphan hydrobromide",
+          "moietyRxcui": "3289",
+          "moietyName": "dextromethorphan",
+          "numeratorValue": "1",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        },
+        {
+          "baseRxcui": "3642",
+          "baseName": "doxylamine",
+          "bossRxcui": "23665",
+          "bossName": "doxylamine succinate",
+          "activeIngredientRxcui": "23665",
+          "activeIngredientName": "doxylamine succinate",
+          "moietyRxcui": "3642",
+          "moietyName": "doxylamine",
+          "numeratorValue": "0.417",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "161",
+        "3289",
+        "3642"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "3289",
+        "3642"
+      ],
+      "all_candidate_cids": [
+        "CID000002519"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": [
+        "CID000002519"
+      ]
+    },
+    "1049221": {
+      "rxcui": "1049221",
+      "name": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "161",
+        "7804"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "161",
+          "baseName": "acetaminophen",
+          "bossRxcui": "161",
+          "bossName": "acetaminophen",
+          "activeIngredientRxcui": "161",
+          "activeIngredientName": "acetaminophen",
+          "moietyRxcui": "161",
+          "moietyName": "acetaminophen",
+          "numeratorValue": "325",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        },
+        {
+          "baseRxcui": "7804",
+          "baseName": "oxycodone",
+          "bossRxcui": "82063",
+          "bossName": "oxycodone hydrochloride",
+          "activeIngredientRxcui": "82063",
+          "activeIngredientName": "oxycodone hydrochloride",
+          "moietyRxcui": "7804",
+          "moietyName": "oxycodone",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "161",
+        "7804"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002519",
+        "CID000004635"
+      ],
+      "drug_cids": [
+        "CID000002519",
+        "CID000004635"
+      ],
+      "partial_drug_cids": [
+        "CID000002519",
+        "CID000004635"
+      ]
+    },
+    "1049630": {
+      "rxcui": "1049630",
+      "name": "diphenhydramine hydrochloride 25 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "3498"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "3498",
+          "baseName": "diphenhydramine",
+          "bossRxcui": "1362",
+          "bossName": "diphenhydramine hydrochloride",
+          "activeIngredientRxcui": "1362",
+          "activeIngredientName": "diphenhydramine hydrochloride",
+          "moietyRxcui": "3498",
+          "moietyName": "diphenhydramine",
+          "numeratorValue": "25",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "3498"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003100"
+      ],
+      "drug_cids": [
+        "CID000003100"
+      ],
+      "partial_drug_cids": [
+        "CID000003100"
+      ]
+    },
+    "105078": {
+      "rxcui": "105078",
+      "name": "penicillin G 375 MG/ML Injectable Solution",
+      "tty": "SCD",
+      "rxnorm_status": "Obsolete",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7980"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7980",
+          "baseName": "penicillin G",
+          "bossRxcui": "7980",
+          "bossName": "penicillin G",
+          "activeIngredientRxcui": "203133",
+          "activeIngredientName": "penicillin G potassium",
+          "moietyRxcui": "7980",
+          "moietyName": "penicillin G",
+          "numeratorValue": "375",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7980"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002349"
+      ],
+      "drug_cids": [
+        "CID000002349"
+      ],
+      "partial_drug_cids": [
+        "CID000002349"
+      ]
+    },
+    "105585": {
+      "rxcui": "105585",
+      "name": "methotrexate 2.5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "6851"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "6851",
+          "baseName": "methotrexate",
+          "bossRxcui": "6851",
+          "bossName": "methotrexate",
+          "activeIngredientRxcui": "287734",
+          "activeIngredientName": "methotrexate sodium",
+          "moietyRxcui": "6851",
+          "moietyName": "methotrexate",
+          "numeratorValue": "2.5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "6851"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004112"
+      ],
+      "drug_cids": [
+        "CID000004112"
+      ],
+      "partial_drug_cids": [
+        "CID000004112"
+      ]
+    },
+    "106892": {
+      "rxcui": "106892",
+      "name": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]",
+      "tty": "SBD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "1605101",
+        "253182"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "1605101",
+          "baseName": "insulin isophane",
+          "bossRxcui": "253181",
+          "bossName": "insulin isophane, human",
+          "activeIngredientRxcui": "253181",
+          "activeIngredientName": "insulin isophane, human",
+          "moietyRxcui": "253181",
+          "moietyName": "insulin isophane, human",
+          "numeratorValue": "70",
+          "numeratorUnit": "UNT",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        },
+        {
+          "baseRxcui": "253182",
+          "baseName": "insulin, regular, human",
+          "bossRxcui": "253182",
+          "bossName": "insulin, regular, human",
+          "activeIngredientRxcui": "253182",
+          "activeIngredientName": "insulin, regular, human",
+          "moietyRxcui": "253182",
+          "moietyName": "insulin, regular, human",
+          "numeratorValue": "30",
+          "numeratorUnit": "UNT",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "1605101",
+        "253182"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "1605101",
+        "253182"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "1091392": {
+      "rxcui": "1091392",
+      "name": "methylphenidate hydrochloride 20 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "6901"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "6901",
+          "baseName": "methylphenidate",
+          "bossRxcui": "203188",
+          "bossName": "methylphenidate hydrochloride",
+          "activeIngredientRxcui": "203188",
+          "activeIngredientName": "methylphenidate hydrochloride",
+          "moietyRxcui": "6901",
+          "moietyName": "methylphenidate",
+          "numeratorValue": "20",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "6901"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004158"
+      ],
+      "drug_cids": [
+        "CID000004158"
+      ],
+      "partial_drug_cids": [
+        "CID000004158"
+      ]
+    },
+    "1094107": {
+      "rxcui": "1094107",
+      "name": "phenazopyridine hydrochloride 100 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "8120"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "8120",
+          "baseName": "phenazopyridine",
+          "bossRxcui": "203197",
+          "bossName": "phenazopyridine hydrochloride",
+          "activeIngredientRxcui": "203197",
+          "activeIngredientName": "phenazopyridine hydrochloride",
+          "moietyRxcui": "8120",
+          "moietyName": "phenazopyridine",
+          "numeratorValue": "100",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "8120"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "8120"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "1190795": {
+      "rxcui": "1190795",
+      "name": "1 ML atropine sulfate 1 MG/ML Injection",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "1223"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "1223",
+          "baseName": "atropine",
+          "bossRxcui": "153971",
+          "bossName": "atropine sulfate",
+          "activeIngredientRxcui": "153971",
+          "activeIngredientName": "atropine sulfate",
+          "moietyRxcui": "1223",
+          "moietyName": "atropine",
+          "numeratorValue": "1",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "1223"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003661"
+      ],
+      "drug_cids": [
+        "CID000003661"
+      ],
+      "partial_drug_cids": [
+        "CID000003661"
+      ]
+    },
+    "1650142": {
+      "rxcui": "1650142",
+      "name": "doxycycline monohydrate 100 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "3640"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "3640",
+          "baseName": "doxycycline",
+          "bossRxcui": "3640",
+          "bossName": "doxycycline",
+          "activeIngredientRxcui": "203122",
+          "activeIngredientName": "doxycycline monohydrate",
+          "moietyRxcui": "3640",
+          "moietyName": "doxycycline",
+          "numeratorValue": "100",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "3640"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003161"
+      ],
+      "drug_cids": [
+        "CID000003161"
+      ],
+      "partial_drug_cids": [
+        "CID000003161"
+      ]
+    },
+    "1652673": {
+      "rxcui": "1652673",
+      "name": "doxycycline monohydrate 50 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "3640"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "3640",
+          "baseName": "doxycycline",
+          "bossRxcui": "3640",
+          "bossName": "doxycycline",
+          "activeIngredientRxcui": "203122",
+          "activeIngredientName": "doxycycline monohydrate",
+          "moietyRxcui": "3640",
+          "moietyName": "doxycycline",
+          "numeratorValue": "50",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "3640"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003161"
+      ],
+      "drug_cids": [
+        "CID000003161"
+      ],
+      "partial_drug_cids": [
+        "CID000003161"
+      ]
+    },
+    "1660014": {
+      "rxcui": "1660014",
+      "name": "1 ML epinephrine 1 MG/ML Injection",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "3992"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "3992",
+          "baseName": "epinephrine",
+          "bossRxcui": "3992",
+          "bossName": "epinephrine",
+          "activeIngredientRxcui": "3992",
+          "activeIngredientName": "epinephrine",
+          "moietyRxcui": "3992",
+          "moietyName": "epinephrine",
+          "numeratorValue": "1",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "3992"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000000838"
+      ],
+      "drug_cids": [
+        "CID000000838"
+      ],
+      "partial_drug_cids": [
+        "CID000000838"
+      ]
+    },
+    "1804799": {
+      "rxcui": "1804799",
+      "name": "alteplase 100 MG Injection",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "8410"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "8410",
+          "baseName": "alteplase",
+          "bossRxcui": "8410",
+          "bossName": "alteplase",
+          "activeIngredientRxcui": "8410",
+          "activeIngredientName": "alteplase",
+          "moietyRxcui": "8410",
+          "moietyName": "alteplase",
+          "numeratorValue": "100",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "8410"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "8410"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "1860154": {
+      "rxcui": "1860154",
+      "name": "Abuse-Deterrent 12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7804"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7804",
+          "baseName": "oxycodone",
+          "bossRxcui": "82063",
+          "bossName": "oxycodone hydrochloride",
+          "activeIngredientRxcui": "82063",
+          "activeIngredientName": "oxycodone hydrochloride",
+          "moietyRxcui": "7804",
+          "moietyName": "oxycodone",
+          "numeratorValue": "15",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7804"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004635"
+      ],
+      "drug_cids": [
+        "CID000004635"
+      ],
+      "partial_drug_cids": [
+        "CID000004635"
+      ]
+    },
+    "1860480": {
+      "rxcui": "1860480",
+      "name": "1 ML docetaxel 20 MG/ML Injection",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "72962"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "72962",
+          "baseName": "docetaxel",
+          "bossRxcui": "72962",
+          "bossName": "docetaxel",
+          "activeIngredientRxcui": "72962",
+          "activeIngredientName": "docetaxel",
+          "moietyRxcui": "72962",
+          "moietyName": "docetaxel",
+          "numeratorValue": "20",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "72962"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003143"
+      ],
+      "drug_cids": [
+        "CID000003143"
+      ],
+      "partial_drug_cids": [
+        "CID000003143"
+      ]
+    },
+    "197319": {
+      "rxcui": "197319",
+      "name": "allopurinol 100 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "519"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "519",
+          "baseName": "allopurinol",
+          "bossRxcui": "519",
+          "bossName": "allopurinol",
+          "activeIngredientRxcui": "519",
+          "activeIngredientName": "allopurinol",
+          "moietyRxcui": "519",
+          "moietyName": "allopurinol",
+          "numeratorValue": "100",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "519"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000083786"
+      ],
+      "drug_cids": [
+        "CID000083786"
+      ],
+      "partial_drug_cids": [
+        "CID000083786"
+      ]
+    },
+    "197361": {
+      "rxcui": "197361",
+      "name": "amlodipine 5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "17767"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "17767",
+          "baseName": "amlodipine",
+          "bossRxcui": "17767",
+          "bossName": "amlodipine",
+          "activeIngredientRxcui": "104416",
+          "activeIngredientName": "amlodipine besylate",
+          "moietyRxcui": "17767",
+          "moietyName": "amlodipine",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "17767"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002162"
+      ],
+      "drug_cids": [
+        "CID000002162"
+      ],
+      "partial_drug_cids": [
+        "CID000002162"
+      ]
+    },
+    "197378": {
+      "rxcui": "197378",
+      "name": "astemizole 10 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "42328"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "42328",
+          "baseName": "astemizole",
+          "bossRxcui": "42328",
+          "bossName": "astemizole",
+          "activeIngredientRxcui": "42328",
+          "activeIngredientName": "astemizole",
+          "moietyRxcui": "42328",
+          "moietyName": "astemizole",
+          "numeratorValue": "10",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "42328"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "42328"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "197591": {
+      "rxcui": "197591",
+      "name": "diazepam 5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "3322"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "3322",
+          "baseName": "diazepam",
+          "bossRxcui": "3322",
+          "bossName": "diazepam",
+          "activeIngredientRxcui": "3322",
+          "activeIngredientName": "diazepam",
+          "moietyRxcui": "3322",
+          "moietyName": "diazepam",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "3322"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003016"
+      ],
+      "drug_cids": [
+        "CID000003016"
+      ],
+      "partial_drug_cids": [
+        "CID000003016"
+      ]
+    },
+    "197604": {
+      "rxcui": "197604",
+      "name": "digoxin 0.125 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "3407"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "3407",
+          "baseName": "digoxin",
+          "bossRxcui": "3407",
+          "bossName": "digoxin",
+          "activeIngredientRxcui": "3407",
+          "activeIngredientName": "digoxin",
+          "moietyRxcui": "3407",
+          "moietyName": "digoxin",
+          "numeratorValue": "0.125",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "3407"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003062"
+      ],
+      "drug_cids": [
+        "CID000003062"
+      ],
+      "partial_drug_cids": [
+        "CID000003062"
+      ]
+    },
+    "198014": {
+      "rxcui": "198014",
+      "name": "naproxen 500 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7258"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7258",
+          "baseName": "naproxen",
+          "bossRxcui": "7258",
+          "bossName": "naproxen",
+          "activeIngredientRxcui": "7258",
+          "activeIngredientName": "naproxen",
+          "moietyRxcui": "7258",
+          "moietyName": "naproxen",
+          "numeratorValue": "500",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7258"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "7258"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "198031": {
+      "rxcui": "198031",
+      "name": "24 HR nicotine 0.292 MG/HR Transdermal System",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7407"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7407",
+          "baseName": "nicotine",
+          "bossRxcui": "7407",
+          "bossName": "nicotine",
+          "activeIngredientRxcui": "7407",
+          "activeIngredientName": "nicotine",
+          "moietyRxcui": "7407",
+          "moietyName": "nicotine",
+          "numeratorValue": "7",
+          "numeratorUnit": "MG",
+          "denominatorValue": "24",
+          "denominatorUnit": "HR"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7407"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000000942"
+      ],
+      "drug_cids": [
+        "CID000000942"
+      ],
+      "partial_drug_cids": [
+        "CID000000942"
+      ]
+    },
+    "198405": {
+      "rxcui": "198405",
+      "name": "ibuprofen 100 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "5640"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "5640",
+          "baseName": "ibuprofen",
+          "bossRxcui": "5640",
+          "bossName": "ibuprofen",
+          "activeIngredientRxcui": "5640",
+          "activeIngredientName": "ibuprofen",
+          "moietyRxcui": "5640",
+          "moietyName": "ibuprofen",
+          "numeratorValue": "100",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "5640"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003672"
+      ],
+      "drug_cids": [
+        "CID000003672"
+      ],
+      "partial_drug_cids": [
+        "CID000003672"
+      ]
+    },
+    "204892": {
+      "rxcui": "204892",
+      "name": "clonazepam 0.25 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "2598"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "2598",
+          "baseName": "clonazepam",
+          "bossRxcui": "2598",
+          "bossName": "clonazepam",
+          "activeIngredientRxcui": "2598",
+          "activeIngredientName": "clonazepam",
+          "moietyRxcui": "2598",
+          "moietyName": "clonazepam",
+          "numeratorValue": "0.25",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "2598"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002802"
+      ],
+      "drug_cids": [
+        "CID000002802"
+      ],
+      "partial_drug_cids": [
+        "CID000002802"
+      ]
+    },
+    "205923": {
+      "rxcui": "205923",
+      "name": "1 ML epoetin alfa 4000 UNT/ML Injection [Epogen]",
+      "tty": "SBD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "105694"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "105694",
+          "baseName": "epoetin alfa",
+          "bossRxcui": "105694",
+          "bossName": "epoetin alfa",
+          "activeIngredientRxcui": "105694",
+          "activeIngredientName": "epoetin alfa",
+          "moietyRxcui": "105694",
+          "moietyName": "epoetin alfa",
+          "numeratorValue": "4000",
+          "numeratorUnit": "UNT",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "105694"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "105694"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "2123111": {
+      "rxcui": "2123111",
+      "name": "NDA020503 200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "435"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "435",
+          "baseName": "albuterol",
+          "bossRxcui": "435",
+          "bossName": "albuterol",
+          "activeIngredientRxcui": "142153",
+          "activeIngredientName": "albuterol sulfate",
+          "moietyRxcui": "435",
+          "moietyName": "albuterol",
+          "numeratorValue": "0.09",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ACTUAT"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "435"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002083"
+      ],
+      "drug_cids": [
+        "CID000002083"
+      ],
+      "partial_drug_cids": [
+        "CID000002083"
+      ]
+    },
+    "243670": {
+      "rxcui": "243670",
+      "name": "aspirin 81 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "1191"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "1191",
+          "baseName": "aspirin",
+          "bossRxcui": "1191",
+          "bossName": "aspirin",
+          "activeIngredientRxcui": "1191",
+          "activeIngredientName": "aspirin",
+          "moietyRxcui": "1191",
+          "moietyName": "aspirin",
+          "numeratorValue": "81",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "1191"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002244"
+      ],
+      "drug_cids": [
+        "CID000002244"
+      ],
+      "partial_drug_cids": [
+        "CID000002244"
+      ]
+    },
+    "259255": {
+      "rxcui": "259255",
+      "name": "atorvastatin 80 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "83367"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "83367",
+          "baseName": "atorvastatin",
+          "bossRxcui": "83367",
+          "bossName": "atorvastatin",
+          "activeIngredientRxcui": "83366",
+          "activeIngredientName": "atorvastatin calcium",
+          "moietyRxcui": "83367",
+          "moietyName": "atorvastatin",
+          "numeratorValue": "80",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "83367"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002250"
+      ],
+      "drug_cids": [
+        "CID000002250"
+      ],
+      "partial_drug_cids": [
+        "CID000002250"
+      ]
+    },
+    "308182": {
+      "rxcui": "308182",
+      "name": "amoxicillin 250 MG Oral Capsule",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "723"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "723",
+          "baseName": "amoxicillin",
+          "bossRxcui": "723",
+          "bossName": "amoxicillin",
+          "activeIngredientRxcui": "723",
+          "activeIngredientName": "amoxicillin",
+          "moietyRxcui": "723",
+          "moietyName": "amoxicillin",
+          "numeratorValue": "250",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "723"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002171"
+      ],
+      "drug_cids": [
+        "CID000002171"
+      ],
+      "partial_drug_cids": [
+        "CID000002171"
+      ]
+    },
+    "308192": {
+      "rxcui": "308192",
+      "name": "amoxicillin 500 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "723"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "723",
+          "baseName": "amoxicillin",
+          "bossRxcui": "723",
+          "bossName": "amoxicillin",
+          "activeIngredientRxcui": "723",
+          "activeIngredientName": "amoxicillin",
+          "moietyRxcui": "723",
+          "moietyName": "amoxicillin",
+          "numeratorValue": "500",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "723"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002171"
+      ],
+      "drug_cids": [
+        "CID000002171"
+      ],
+      "partial_drug_cids": [
+        "CID000002171"
+      ]
+    },
+    "308971": {
+      "rxcui": "308971",
+      "name": "carbamazepine 20 MG/ML Oral Suspension [Tegretol]",
+      "tty": "SBD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "2002"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "2002",
+          "baseName": "carbamazepine",
+          "bossRxcui": "2002",
+          "bossName": "carbamazepine",
+          "activeIngredientRxcui": "2002",
+          "activeIngredientName": "carbamazepine",
+          "moietyRxcui": "2002",
+          "moietyName": "carbamazepine",
+          "numeratorValue": "20",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "2002"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002554"
+      ],
+      "drug_cids": [
+        "CID000002554"
+      ],
+      "partial_drug_cids": [
+        "CID000002554"
+      ]
+    },
+    "309043": {
+      "rxcui": "309043",
+      "name": "12 HR cefaclor 500 MG Extended Release Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "2176"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "2176",
+          "baseName": "cefaclor",
+          "bossRxcui": "2176",
+          "bossName": "cefaclor",
+          "activeIngredientRxcui": "2176",
+          "activeIngredientName": "cefaclor",
+          "moietyRxcui": "2176",
+          "moietyName": "cefaclor",
+          "numeratorValue": "500",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "2176"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002609"
+      ],
+      "drug_cids": [
+        "CID000002609"
+      ],
+      "partial_drug_cids": [
+        "CID000002609"
+      ]
+    },
+    "309045": {
+      "rxcui": "309045",
+      "name": "cefaclor 250 MG Oral Capsule",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "2176"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "2176",
+          "baseName": "cefaclor",
+          "bossRxcui": "1450910",
+          "bossName": "cefaclor anhydrous",
+          "activeIngredientRxcui": "2176",
+          "activeIngredientName": "cefaclor",
+          "moietyRxcui": "1450910",
+          "moietyName": "cefaclor anhydrous",
+          "numeratorValue": "250",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "2176"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002609"
+      ],
+      "drug_cids": [
+        "CID000002609"
+      ],
+      "partial_drug_cids": [
+        "CID000002609"
+      ]
+    },
+    "309097": {
+      "rxcui": "309097",
+      "name": "cefuroxime 250 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "2194"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "2194",
+          "baseName": "cefuroxime",
+          "bossRxcui": "2194",
+          "bossName": "cefuroxime",
+          "activeIngredientRxcui": "20493",
+          "activeIngredientName": "cefuroxime axetil",
+          "moietyRxcui": "2194",
+          "moietyName": "cefuroxime",
+          "numeratorValue": "250",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "2194"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002658"
+      ],
+      "drug_cids": [
+        "CID000002658"
+      ],
+      "partial_drug_cids": [
+        "CID000002658"
+      ]
+    },
+    "309362": {
+      "rxcui": "309362",
+      "name": "clopidogrel 75 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "32968"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "32968",
+          "baseName": "clopidogrel",
+          "bossRxcui": "32968",
+          "bossName": "clopidogrel",
+          "activeIngredientRxcui": "236991",
+          "activeIngredientName": "clopidogrel bisulfate",
+          "moietyRxcui": "32968",
+          "moietyName": "clopidogrel",
+          "numeratorValue": "75",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "32968"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002806"
+      ],
+      "drug_cids": [
+        "CID000002806"
+      ],
+      "partial_drug_cids": [
+        "CID000002806"
+      ]
+    },
+    "310325": {
+      "rxcui": "310325",
+      "name": "ferrous sulfate 325 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "24947"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "24947",
+          "baseName": "ferrous sulfate",
+          "bossRxcui": "1541238",
+          "bossName": "ferrous cation",
+          "activeIngredientRxcui": "24947",
+          "activeIngredientName": "ferrous sulfate",
+          "moietyRxcui": "1541238",
+          "moietyName": "ferrous cation",
+          "numeratorValue": "325",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "24947"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "24947"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "310385": {
+      "rxcui": "310385",
+      "name": "fluoxetine 20 MG Oral Capsule",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "4493"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "4493",
+          "baseName": "fluoxetine",
+          "bossRxcui": "4493",
+          "bossName": "fluoxetine",
+          "activeIngredientRxcui": "227224",
+          "activeIngredientName": "fluoxetine hydrochloride",
+          "moietyRxcui": "4493",
+          "moietyName": "fluoxetine",
+          "numeratorValue": "20",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "4493"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "4493"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "310436": {
+      "rxcui": "310436",
+      "name": "galantamine 4 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "4637"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "4637",
+          "baseName": "galantamine",
+          "bossRxcui": "4637",
+          "bossName": "galantamine",
+          "activeIngredientRxcui": "860693",
+          "activeIngredientName": "galantamine hydrobromide",
+          "moietyRxcui": "4637",
+          "moietyName": "galantamine",
+          "numeratorValue": "4",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "4637"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003449"
+      ],
+      "drug_cids": [
+        "CID000003449"
+      ],
+      "partial_drug_cids": [
+        "CID000003449"
+      ]
+    },
+    "310798": {
+      "rxcui": "310798",
+      "name": "hydrochlorothiazide 25 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "5487"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "5487",
+          "baseName": "hydrochlorothiazide",
+          "bossRxcui": "5487",
+          "bossName": "hydrochlorothiazide",
+          "activeIngredientRxcui": "5487",
+          "activeIngredientName": "hydrochlorothiazide",
+          "moietyRxcui": "5487",
+          "moietyName": "hydrochlorothiazide",
+          "numeratorValue": "25",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "5487"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "5487"
+      ],
+      "all_candidate_cids": [
+        "CID000002720",
+        "CID000003639"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "310965": {
+      "rxcui": "310965",
+      "name": "ibuprofen 200 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "5640"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "5640",
+          "baseName": "ibuprofen",
+          "bossRxcui": "5640",
+          "bossName": "ibuprofen",
+          "activeIngredientRxcui": "5640",
+          "activeIngredientName": "ibuprofen",
+          "moietyRxcui": "5640",
+          "moietyName": "ibuprofen",
+          "numeratorValue": "200",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "5640"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003672"
+      ],
+      "drug_cids": [
+        "CID000003672"
+      ],
+      "partial_drug_cids": [
+        "CID000003672"
+      ]
+    },
+    "311989": {
+      "rxcui": "311989",
+      "name": "nitrofurantoin 5 MG/ML Oral Suspension",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7454"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7454",
+          "baseName": "nitrofurantoin",
+          "bossRxcui": "7454",
+          "bossName": "nitrofurantoin",
+          "activeIngredientRxcui": "7454",
+          "activeIngredientName": "nitrofurantoin",
+          "moietyRxcui": "7454",
+          "moietyName": "nitrofurantoin",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7454"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004509"
+      ],
+      "drug_cids": [
+        "CID000004509"
+      ],
+      "partial_drug_cids": [
+        "CID000004509"
+      ]
+    },
+    "312617": {
+      "rxcui": "312617",
+      "name": "prednisone 5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "8640"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "8640",
+          "baseName": "prednisone",
+          "bossRxcui": "8640",
+          "bossName": "prednisone",
+          "activeIngredientRxcui": "8640",
+          "activeIngredientName": "prednisone",
+          "moietyRxcui": "8640",
+          "moietyName": "prednisone",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "8640"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "8640"
+      ],
+      "all_candidate_cids": [
+        "CID000004894",
+        "CID000004900"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "312961": {
+      "rxcui": "312961",
+      "name": "simvastatin 20 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "36567"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "36567",
+          "baseName": "simvastatin",
+          "bossRxcui": "36567",
+          "bossName": "simvastatin",
+          "activeIngredientRxcui": "36567",
+          "activeIngredientName": "simvastatin",
+          "moietyRxcui": "36567",
+          "moietyName": "simvastatin",
+          "numeratorValue": "20",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "36567"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000054454"
+      ],
+      "drug_cids": [
+        "CID000054454"
+      ],
+      "partial_drug_cids": [
+        "CID000054454"
+      ]
+    },
+    "313185": {
+      "rxcui": "313185",
+      "name": "tacrine 10 MG Oral Capsule",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "10318"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "10318",
+          "baseName": "tacrine",
+          "bossRxcui": "10318",
+          "bossName": "tacrine",
+          "activeIngredientRxcui": "10318",
+          "activeIngredientName": "tacrine",
+          "moietyRxcui": "10318",
+          "moietyName": "tacrine",
+          "numeratorValue": "10",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "10318"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000001935"
+      ],
+      "drug_cids": [
+        "CID000001935"
+      ],
+      "partial_drug_cids": [
+        "CID000001935"
+      ]
+    },
+    "313782": {
+      "rxcui": "313782",
+      "name": "acetaminophen 325 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "161"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "161",
+          "baseName": "acetaminophen",
+          "bossRxcui": "161",
+          "bossName": "acetaminophen",
+          "activeIngredientRxcui": "161",
+          "activeIngredientName": "acetaminophen",
+          "moietyRxcui": "161",
+          "moietyName": "acetaminophen",
+          "numeratorValue": "325",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "161"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002519"
+      ],
+      "drug_cids": [
+        "CID000002519"
+      ],
+      "partial_drug_cids": [
+        "CID000002519"
+      ]
+    },
+    "313820": {
+      "rxcui": "313820",
+      "name": "acetaminophen 160 MG Chewable Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "161"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "161",
+          "baseName": "acetaminophen",
+          "bossRxcui": "161",
+          "bossName": "acetaminophen",
+          "activeIngredientRxcui": "161",
+          "activeIngredientName": "acetaminophen",
+          "moietyRxcui": "161",
+          "moietyName": "acetaminophen",
+          "numeratorValue": "160",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "161"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002519"
+      ],
+      "drug_cids": [
+        "CID000002519"
+      ],
+      "partial_drug_cids": [
+        "CID000002519"
+      ]
+    },
+    "314231": {
+      "rxcui": "314231",
+      "name": "simvastatin 10 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "36567"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "36567",
+          "baseName": "simvastatin",
+          "bossRxcui": "36567",
+          "bossName": "simvastatin",
+          "activeIngredientRxcui": "36567",
+          "activeIngredientName": "simvastatin",
+          "moietyRxcui": "36567",
+          "moietyName": "simvastatin",
+          "numeratorValue": "10",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "36567"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000054454"
+      ],
+      "drug_cids": [
+        "CID000054454"
+      ],
+      "partial_drug_cids": [
+        "CID000054454"
+      ]
+    },
+    "429503": {
+      "rxcui": "429503",
+      "name": "hydrochlorothiazide 12.5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "5487"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "5487",
+          "baseName": "hydrochlorothiazide",
+          "bossRxcui": "5487",
+          "bossName": "hydrochlorothiazide",
+          "activeIngredientRxcui": "5487",
+          "activeIngredientName": "hydrochlorothiazide",
+          "moietyRxcui": "5487",
+          "moietyName": "hydrochlorothiazide",
+          "numeratorValue": "12.5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "5487"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "5487"
+      ],
+      "all_candidate_cids": [
+        "CID000002720",
+        "CID000003639"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "477045": {
+      "rxcui": "477045",
+      "name": "chlorpheniramine maleate 2 MG/ML Oral Solution",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "2400"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "2400",
+          "baseName": "chlorpheniramine",
+          "bossRxcui": "142429",
+          "bossName": "chlorpheniramine maleate",
+          "activeIngredientRxcui": "142429",
+          "activeIngredientName": "chlorpheniramine maleate",
+          "moietyRxcui": "2400",
+          "moietyName": "chlorpheniramine",
+          "numeratorValue": "2",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "2400"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002725"
+      ],
+      "drug_cids": [
+        "CID000002725"
+      ],
+      "partial_drug_cids": [
+        "CID000002725"
+      ]
+    },
+    "562251": {
+      "rxcui": "562251",
+      "name": "amoxicillin 250 MG / clavulanate 125 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "48203",
+        "723"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "48203",
+          "baseName": "clavulanate",
+          "bossRxcui": "21216",
+          "bossName": "clavulanic acid",
+          "activeIngredientRxcui": "831418",
+          "activeIngredientName": "clavulanate potassium",
+          "moietyRxcui": "21216",
+          "moietyName": "clavulanic acid",
+          "numeratorValue": "125",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        },
+        {
+          "baseRxcui": "723",
+          "baseName": "amoxicillin",
+          "bossRxcui": "1297882",
+          "bossName": "amoxicillin anhydrous",
+          "activeIngredientRxcui": "723",
+          "activeIngredientName": "amoxicillin",
+          "moietyRxcui": "1297882",
+          "moietyName": "amoxicillin anhydrous",
+          "numeratorValue": "250",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "48203",
+        "723"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "48203"
+      ],
+      "all_candidate_cids": [
+        "CID000002171"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": [
+        "CID000002171"
+      ]
+    },
+    "608139": {
+      "rxcui": "608139",
+      "name": "atomoxetine 100 MG Oral Capsule",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "38400"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "38400",
+          "baseName": "atomoxetine",
+          "bossRxcui": "38400",
+          "bossName": "atomoxetine",
+          "activeIngredientRxcui": "353103",
+          "activeIngredientName": "atomoxetine hydrochloride",
+          "moietyRxcui": "38400",
+          "moietyName": "atomoxetine",
+          "numeratorValue": "100",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "38400"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000054841"
+      ],
+      "drug_cids": [
+        "CID000054841"
+      ],
+      "partial_drug_cids": [
+        "CID000054841"
+      ]
+    },
+    "665078": {
+      "rxcui": "665078",
+      "name": "loratadine 5 MG Chewable Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "28889"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "28889",
+          "baseName": "loratadine",
+          "bossRxcui": "28889",
+          "bossName": "loratadine",
+          "activeIngredientRxcui": "28889",
+          "activeIngredientName": "loratadine",
+          "moietyRxcui": "28889",
+          "moietyName": "loratadine",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "28889"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003957"
+      ],
+      "drug_cids": [
+        "CID000003957"
+      ],
+      "partial_drug_cids": [
+        "CID000003957"
+      ]
+    },
+    "705129": {
+      "rxcui": "705129",
+      "name": "nitroglycerin 0.4 MG/ACTUAT Mucosal Spray",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "4917"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "4917",
+          "baseName": "nitroglycerin",
+          "bossRxcui": "4917",
+          "bossName": "nitroglycerin",
+          "activeIngredientRxcui": "4917",
+          "activeIngredientName": "nitroglycerin",
+          "moietyRxcui": "4917",
+          "moietyName": "nitroglycerin",
+          "numeratorValue": "0.4",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ACTUAT"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "4917"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004510"
+      ],
+      "drug_cids": [
+        "CID000004510"
+      ],
+      "partial_drug_cids": [
+        "CID000004510"
+      ]
+    },
+    "746030": {
+      "rxcui": "746030",
+      "name": "atenolol 50 MG / chlorthalidone 25 MG Oral Tablet [Tenoretic]",
+      "tty": "SBD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "1202",
+        "2409"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "1202",
+          "baseName": "atenolol",
+          "bossRxcui": "1202",
+          "bossName": "atenolol",
+          "activeIngredientRxcui": "1202",
+          "activeIngredientName": "atenolol",
+          "moietyRxcui": "1202",
+          "moietyName": "atenolol",
+          "numeratorValue": "50",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        },
+        {
+          "baseRxcui": "2409",
+          "baseName": "chlorthalidone",
+          "bossRxcui": "2409",
+          "bossName": "chlorthalidone",
+          "activeIngredientRxcui": "2409",
+          "activeIngredientName": "chlorthalidone",
+          "moietyRxcui": "2409",
+          "moietyName": "chlorthalidone",
+          "numeratorValue": "25",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "1202",
+        "2409"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002249",
+        "CID000002732"
+      ],
+      "drug_cids": [
+        "CID000002249",
+        "CID000002732"
+      ],
+      "partial_drug_cids": [
+        "CID000002249",
+        "CID000002732"
+      ]
+    },
+    "752899": {
+      "rxcui": "752899",
+      "name": "0.25 ML leuprolide acetate 30 MG/ML Prefilled Syringe",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "42375"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "42375",
+          "baseName": "leuprolide",
+          "bossRxcui": "203217",
+          "bossName": "leuprolide acetate",
+          "activeIngredientRxcui": "203217",
+          "activeIngredientName": "leuprolide acetate",
+          "moietyRxcui": "42375",
+          "moietyName": "leuprolide",
+          "numeratorValue": "30",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "42375"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "42375"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "757594": {
+      "rxcui": "757594",
+      "name": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Jolivette 28 Day]",
+      "tty": "BPCK",
+      "rxnorm_status": "Obsolete",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7514"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7514",
+          "baseName": "norethindrone",
+          "bossRxcui": "7514",
+          "bossName": "norethindrone",
+          "activeIngredientRxcui": "7514",
+          "activeIngredientName": "norethindrone",
+          "moietyRxcui": "7514",
+          "moietyName": "norethindrone",
+          "numeratorValue": "0.35",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7514"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004536"
+      ],
+      "drug_cids": [
+        "CID000004536"
+      ],
+      "partial_drug_cids": [
+        "CID000004536"
+      ]
+    },
+    "789980": {
+      "rxcui": "789980",
+      "name": "ampicillin 100 MG/ML Injectable Solution",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "733"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "733",
+          "baseName": "ampicillin",
+          "bossRxcui": "733",
+          "bossName": "ampicillin",
+          "activeIngredientRxcui": "81953",
+          "activeIngredientName": "ampicillin sodium",
+          "moietyRxcui": "733",
+          "moietyName": "ampicillin",
+          "numeratorValue": "100",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "733"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002173"
+      ],
+      "drug_cids": [
+        "CID000002173"
+      ],
+      "partial_drug_cids": [
+        "CID000002173"
+      ]
+    },
+    "831533": {
+      "rxcui": "831533",
+      "name": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Errin 28 Day]",
+      "tty": "BPCK",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7514"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7514",
+          "baseName": "norethindrone",
+          "bossRxcui": "7514",
+          "bossName": "norethindrone",
+          "activeIngredientRxcui": "7514",
+          "activeIngredientName": "norethindrone",
+          "moietyRxcui": "7514",
+          "moietyName": "norethindrone",
+          "numeratorValue": "0.35",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7514"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004536"
+      ],
+      "drug_cids": [
+        "CID000004536"
+      ],
+      "partial_drug_cids": [
+        "CID000004536"
+      ]
+    },
+    "833036": {
+      "rxcui": "833036",
+      "name": "acetaminophen 750 MG / hydrocodone bitartrate 7.5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "161",
+        "5489"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "161",
+          "baseName": "acetaminophen",
+          "bossRxcui": "161",
+          "bossName": "acetaminophen",
+          "activeIngredientRxcui": "161",
+          "activeIngredientName": "acetaminophen",
+          "moietyRxcui": "161",
+          "moietyName": "acetaminophen",
+          "numeratorValue": "750",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        },
+        {
+          "baseRxcui": "5489",
+          "baseName": "hydrocodone",
+          "bossRxcui": "142439",
+          "bossName": "hydrocodone bitartrate",
+          "activeIngredientRxcui": "142439",
+          "activeIngredientName": "hydrocodone bitartrate",
+          "moietyRxcui": "5489",
+          "moietyName": "hydrocodone",
+          "numeratorValue": "7.5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "161",
+        "5489"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "5489"
+      ],
+      "all_candidate_cids": [
+        "CID000002519"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": [
+        "CID000002519"
+      ]
+    },
+    "834061": {
+      "rxcui": "834061",
+      "name": "penicillin V potassium 250 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7984"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7984",
+          "baseName": "penicillin V",
+          "bossRxcui": "203195",
+          "bossName": "penicillin V potassium",
+          "activeIngredientRxcui": "203195",
+          "activeIngredientName": "penicillin V potassium",
+          "moietyRxcui": "7984",
+          "moietyName": "penicillin V",
+          "numeratorValue": "250",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7984"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "7984"
+      ],
+      "all_candidate_cids": [
+        "CID000002349",
+        "CID000004730"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "834102": {
+      "rxcui": "834102",
+      "name": "penicillin V potassium 500 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7984"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7984",
+          "baseName": "penicillin V",
+          "bossRxcui": "7984",
+          "bossName": "penicillin V",
+          "activeIngredientRxcui": "203195",
+          "activeIngredientName": "penicillin V potassium",
+          "moietyRxcui": "7984",
+          "moietyName": "penicillin V",
+          "numeratorValue": "500",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7984"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "7984"
+      ],
+      "all_candidate_cids": [
+        "CID000002349",
+        "CID000004730"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "834357": {
+      "rxcui": "834357",
+      "name": "3 ML amiodarone hydrochloride 50 MG/ML Prefilled Syringe",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "703"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "703",
+          "baseName": "amiodarone",
+          "bossRxcui": "203114",
+          "bossName": "amiodarone hydrochloride",
+          "activeIngredientRxcui": "203114",
+          "activeIngredientName": "amiodarone hydrochloride",
+          "moietyRxcui": "703",
+          "moietyName": "amiodarone",
+          "numeratorValue": "50",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ML"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "703"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002156"
+      ],
+      "drug_cids": [
+        "CID000002156"
+      ],
+      "partial_drug_cids": [
+        "CID000002156"
+      ]
+    },
+    "849574": {
+      "rxcui": "849574",
+      "name": "naproxen sodium 220 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "7258"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "7258",
+          "baseName": "naproxen",
+          "bossRxcui": "142442",
+          "bossName": "naproxen sodium",
+          "activeIngredientRxcui": "142442",
+          "activeIngredientName": "naproxen sodium",
+          "moietyRxcui": "7258",
+          "moietyName": "naproxen",
+          "numeratorValue": "220",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "7258"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "7258"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "855332": {
+      "rxcui": "855332",
+      "name": "warfarin sodium 5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "11289"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "11289",
+          "baseName": "warfarin",
+          "bossRxcui": "114194",
+          "bossName": "warfarin sodium",
+          "activeIngredientRxcui": "114194",
+          "activeIngredientName": "warfarin sodium",
+          "moietyRxcui": "11289",
+          "moietyName": "warfarin",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "11289"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000006691"
+      ],
+      "drug_cids": [
+        "CID000006691"
+      ],
+      "partial_drug_cids": [
+        "CID000006691"
+      ]
+    },
+    "856987": {
+      "rxcui": "856987",
+      "name": "acetaminophen 300 MG / hydrocodone bitartrate 5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "161",
+        "5489"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "161",
+          "baseName": "acetaminophen",
+          "bossRxcui": "161",
+          "bossName": "acetaminophen",
+          "activeIngredientRxcui": "161",
+          "activeIngredientName": "acetaminophen",
+          "moietyRxcui": "161",
+          "moietyName": "acetaminophen",
+          "numeratorValue": "300",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        },
+        {
+          "baseRxcui": "5489",
+          "baseName": "hydrocodone",
+          "bossRxcui": "142439",
+          "bossName": "hydrocodone bitartrate",
+          "activeIngredientRxcui": "142439",
+          "activeIngredientName": "hydrocodone bitartrate",
+          "moietyRxcui": "5489",
+          "moietyName": "hydrocodone",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "161",
+        "5489"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "5489"
+      ],
+      "all_candidate_cids": [
+        "CID000002519"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": [
+        "CID000002519"
+      ]
+    },
+    "857005": {
+      "rxcui": "857005",
+      "name": "acetaminophen 325 MG / hydrocodone bitartrate 7.5 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "161",
+        "5489"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "161",
+          "baseName": "acetaminophen",
+          "bossRxcui": "161",
+          "bossName": "acetaminophen",
+          "activeIngredientRxcui": "161",
+          "activeIngredientName": "acetaminophen",
+          "moietyRxcui": "161",
+          "moietyName": "acetaminophen",
+          "numeratorValue": "325",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        },
+        {
+          "baseRxcui": "5489",
+          "baseName": "hydrocodone",
+          "bossRxcui": "142439",
+          "bossName": "hydrocodone bitartrate",
+          "activeIngredientRxcui": "142439",
+          "activeIngredientName": "hydrocodone bitartrate",
+          "moietyRxcui": "5489",
+          "moietyName": "hydrocodone",
+          "numeratorValue": "7.5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "161",
+        "5489"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "5489"
+      ],
+      "all_candidate_cids": [
+        "CID000002519"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": [
+        "CID000002519"
+      ]
+    },
+    "860975": {
+      "rxcui": "860975",
+      "name": "24 HR metformin hydrochloride 500 MG Extended Release Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "6809"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "6809",
+          "baseName": "metformin",
+          "bossRxcui": "235743",
+          "bossName": "metformin hydrochloride",
+          "activeIngredientRxcui": "235743",
+          "activeIngredientName": "metformin hydrochloride",
+          "moietyRxcui": "6809",
+          "moietyName": "metformin",
+          "numeratorValue": "500",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "6809"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004091"
+      ],
+      "drug_cids": [
+        "CID000004091"
+      ],
+      "partial_drug_cids": [
+        "CID000004091"
+      ]
+    },
+    "861467": {
+      "rxcui": "861467",
+      "name": "meperidine hydrochloride 50 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "6754"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "6754",
+          "baseName": "meperidine",
+          "bossRxcui": "103755",
+          "bossName": "meperidine hydrochloride",
+          "activeIngredientRxcui": "103755",
+          "activeIngredientName": "meperidine hydrochloride",
+          "moietyRxcui": "6754",
+          "moietyName": "meperidine",
+          "numeratorValue": "50",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "6754"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000004058"
+      ],
+      "drug_cids": [
+        "CID000004058"
+      ],
+      "partial_drug_cids": [
+        "CID000004058"
+      ]
+    },
+    "895994": {
+      "rxcui": "895994",
+      "name": "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "41126"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "41126",
+          "baseName": "fluticasone",
+          "bossRxcui": "50121",
+          "bossName": "fluticasone propionate",
+          "activeIngredientRxcui": "50121",
+          "activeIngredientName": "fluticasone propionate",
+          "moietyRxcui": "41126",
+          "moietyName": "fluticasone",
+          "numeratorValue": "0.044",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ACTUAT"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "41126"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "41126"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "896209": {
+      "rxcui": "896209",
+      "name": "60 ACTUAT fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "36117",
+        "41126"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "36117",
+          "baseName": "salmeterol",
+          "bossRxcui": "36117",
+          "bossName": "salmeterol",
+          "activeIngredientRxcui": "72616",
+          "activeIngredientName": "salmeterol xinafoate",
+          "moietyRxcui": "36117",
+          "moietyName": "salmeterol",
+          "numeratorValue": "50",
+          "numeratorUnit": "MCG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ACTUAT"
+        },
+        {
+          "baseRxcui": "41126",
+          "baseName": "fluticasone",
+          "bossRxcui": "50121",
+          "bossName": "fluticasone propionate",
+          "activeIngredientRxcui": "50121",
+          "activeIngredientName": "fluticasone propionate",
+          "moietyRxcui": "41126",
+          "moietyName": "fluticasone",
+          "numeratorValue": "0.25",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "ACTUAT"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "36117",
+        "41126"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "41126"
+      ],
+      "all_candidate_cids": [
+        "CID000005152"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": [
+        "CID000005152"
+      ]
+    },
+    "897718": {
+      "rxcui": "897718",
+      "name": "verapamil hydrochloride 40 MG",
+      "tty": "SCDC",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "11170"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "11170",
+          "baseName": "verapamil",
+          "bossRxcui": "",
+          "bossName": "",
+          "activeIngredientRxcui": "",
+          "activeIngredientName": "",
+          "moietyRxcui": "",
+          "moietyName": "",
+          "numeratorValue": "40",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "11170"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000002520"
+      ],
+      "drug_cids": [
+        "CID000002520"
+      ],
+      "partial_drug_cids": [
+        "CID000002520"
+      ]
+    },
+    "904419": {
+      "rxcui": "904419",
+      "name": "alendronic acid 10 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "46041"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "46041",
+          "baseName": "alendronate",
+          "bossRxcui": "236083",
+          "bossName": "alendronic acid",
+          "activeIngredientRxcui": "203152",
+          "activeIngredientName": "alendronate sodium",
+          "moietyRxcui": "236083",
+          "moietyName": "alendronic acid",
+          "numeratorValue": "10",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "46041"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "46041"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "966222": {
+      "rxcui": "966222",
+      "name": "levothyroxine sodium 0.075 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "10582"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "10582",
+          "baseName": "levothyroxine",
+          "bossRxcui": "40144",
+          "bossName": "levothyroxine sodium",
+          "activeIngredientRxcui": "40144",
+          "activeIngredientName": "levothyroxine sodium",
+          "moietyRxcui": "10582",
+          "moietyName": "levothyroxine",
+          "numeratorValue": "0.075",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "10582"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "10582"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "997223": {
+      "rxcui": "997223",
+      "name": "donepezil hydrochloride 10 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "135447"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "135447",
+          "baseName": "donepezil",
+          "bossRxcui": "236559",
+          "bossName": "donepezil hydrochloride",
+          "activeIngredientRxcui": "236559",
+          "activeIngredientName": "donepezil hydrochloride",
+          "moietyRxcui": "135447",
+          "moietyName": "donepezil",
+          "numeratorValue": "10",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "135447"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "135447"
+      ],
+      "all_candidate_cids": [],
+      "drug_cids": [],
+      "partial_drug_cids": []
+    },
+    "997488": {
+      "rxcui": "997488",
+      "name": "fexofenadine hydrochloride 30 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "NO",
+      "base_rxcuis": [
+        "87636"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "87636",
+          "baseName": "fexofenadine",
+          "bossRxcui": "236474",
+          "bossName": "fexofenadine hydrochloride",
+          "activeIngredientRxcui": "236474",
+          "activeIngredientName": "fexofenadine hydrochloride",
+          "moietyRxcui": "87636",
+          "moietyName": "fexofenadine",
+          "numeratorValue": "30",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "87636"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": true,
+      "incomplete_ingredients": [],
+      "all_candidate_cids": [
+        "CID000003348"
+      ],
+      "drug_cids": [
+        "CID000003348"
+      ],
+      "partial_drug_cids": [
+        "CID000003348"
+      ]
+    },
+    "999967": {
+      "rxcui": "999967",
+      "name": "amlodipine 5 MG / hydrochlorothiazide 12.5 MG / olmesartan medoxomil 20 MG Oral Tablet",
+      "tty": "SCD",
+      "rxnorm_status": "Active",
+      "is_multiple_ingredient": "YES",
+      "base_rxcuis": [
+        "17767",
+        "321064",
+        "5487"
+      ],
+      "ingredient_and_strength": [
+        {
+          "baseRxcui": "17767",
+          "baseName": "amlodipine",
+          "bossRxcui": "17767",
+          "bossName": "amlodipine",
+          "activeIngredientRxcui": "104416",
+          "activeIngredientName": "amlodipine besylate",
+          "moietyRxcui": "17767",
+          "moietyName": "amlodipine",
+          "numeratorValue": "5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        },
+        {
+          "baseRxcui": "321064",
+          "baseName": "olmesartan",
+          "bossRxcui": "118463",
+          "bossName": "olmesartan medoxomil",
+          "activeIngredientRxcui": "118463",
+          "activeIngredientName": "olmesartan medoxomil",
+          "moietyRxcui": "321064",
+          "moietyName": "olmesartan",
+          "numeratorValue": "20",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        },
+        {
+          "baseRxcui": "5487",
+          "baseName": "hydrochlorothiazide",
+          "bossRxcui": "5487",
+          "bossName": "hydrochlorothiazide",
+          "activeIngredientRxcui": "5487",
+          "activeIngredientName": "hydrochlorothiazide",
+          "moietyRxcui": "5487",
+          "moietyName": "hydrochlorothiazide",
+          "numeratorValue": "12.5",
+          "numeratorUnit": "MG",
+          "denominatorValue": "1",
+          "denominatorUnit": "EACH"
+        }
+      ],
+      "derived_ingredient_rxcuis": [
+        "17767",
+        "321064",
+        "5487"
+      ],
+      "component_list_complete": true,
+      "component_list_issues": [],
+      "mapping_complete": false,
+      "incomplete_ingredients": [
+        "321064",
+        "5487"
+      ],
+      "all_candidate_cids": [
+        "CID000002162",
+        "CID000002720",
+        "CID000003639"
+      ],
+      "drug_cids": [],
+      "partial_drug_cids": [
+        "CID000002162"
+      ]
+    }
+  },
+  "ingredients": {
+    "10318": {
+      "atc5": [
+        "N06DA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N06DA01": [
+          "CID000001935"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000001935"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/10318/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:34.350864+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "5654c8d90e31c784aafdeb82ed66723ef8e817469fc96b8181b659e4beec5665",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-10318-codes.json"
+      }
+    },
+    "105694": {
+      "atc5": [],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {},
+      "unmatched_atc5": [],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/105694/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:34.353321+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "6337f509af9e48962104ffeb18f85cdc0bf74e353fb2f4ba441b4c19f5247218",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-105694-codes.json"
+      }
+    },
+    "10582": {
+      "atc5": [],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {},
+      "unmatched_atc5": [],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/10582/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:35.881785+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "e3cf191a93ef0ac642d54ab005951e6b548697299009d647ce20437f9d0e3f8d",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-10582-codes.json"
+      }
+    },
+    "11170": {
+      "atc5": [
+        "C08DA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C08DA01": [
+          "CID000002520"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002520"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/11170/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:35.648796+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "52a5473e883d3ae3320fba3818fc837740f3f045c96a7150e8bf386a60460d97",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-11170-codes.json"
+      }
+    },
+    "11289": {
+      "atc5": [
+        "B01AA03"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "B01AA03": [
+          "CID000006691"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000006691"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/11289/allProperties.json?prop=codes",
+        "retrieved_at": null,
+        "cache_origin": "outputs/data_evaluation/rxnorm-design-20261114/ingredient-11289-codes.json",
+        "note": "Reused preexisting source response; its original retrieval time was not recorded",
+        "sha256": "f9f403936a387c45a9b283ac33620cdd2a476ff49c01683854b4aef947d97af9",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-11289-codes.json"
+      }
+    },
+    "1191": {
+      "atc5": [
+        "A01AD05",
+        "B01AC06",
+        "N02BA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "A01AD05": [
+          "CID000002244"
+        ],
+        "B01AC06": [
+          "CID000002244"
+        ],
+        "N02BA01": [
+          "CID000002244"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002244"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1191/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:37.369243+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "7e23b9682e39c118c2b1b52cc945bb5f612eae581f315896854055a483e07aa2",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-1191-codes.json"
+      }
+    },
+    "1202": {
+      "atc5": [
+        "C07AB03"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C07AB03": [
+          "CID000002249"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002249"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1202/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:37.186127+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "43120e38fd2266949ef114d6bb877088d75bee0fe01ca148c2efdec610882621",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-1202-codes.json"
+      }
+    },
+    "1223": {
+      "atc5": [
+        "A03BA01",
+        "S01FA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "A03BA01": [
+          "CID000003661"
+        ],
+        "S01FA01": [
+          "CID000003661"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003661"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1223/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:38.501575+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "2057e0462ee1b7209285995a10f461b0e5d02ad26983d1b6670689a0993788a8",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-1223-codes.json"
+      }
+    },
+    "135447": {
+      "atc5": [
+        "N06DA02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N06DA02": []
+      },
+      "unmatched_atc5": [
+        "N06DA02"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/135447/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:38.456506+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "1cea61b5ebeefcb8b8120c6fc481332cb6dcdee3358a66aecf054d80e24debae",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-135447-codes.json"
+      }
+    },
+    "1605101": {
+      "atc5": [],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {},
+      "unmatched_atc5": [],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1605101/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:39.567819+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "b22356e8bbc1aa4de1d86726a5d43741607965f7250866ec357afe8b48c9f1e4",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-1605101-codes.json"
+      }
+    },
+    "161": {
+      "atc5": [
+        "N02BE01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N02BE01": [
+          "CID000002519"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002519"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/161/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:40.642421+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "e938b655ef8546f3d5bc867a49803c9ad13f52b2ea9bbe0bd93a8db43a421505",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-161-codes.json"
+      }
+    },
+    "17767": {
+      "atc5": [
+        "C08CA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C08CA01": [
+          "CID000002162"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002162"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/17767/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:40.882129+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "390b3c7d701060c4d0da35de82ebff4bec1c913c3fb73263e040cc2dfc59d449",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-17767-codes.json"
+      }
+    },
+    "2002": {
+      "atc5": [
+        "N03AF01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N03AF01": [
+          "CID000002554"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002554"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/2002/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:41.713209+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "89cd0ba4370da523ebc27920d449399c60ee9209a5d8a96316db0262574a6018",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-2002-codes.json"
+      }
+    },
+    "20610": {
+      "atc5": [
+        "R06AE07",
+        "S01GX12"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R06AE07": [
+          "CID000002678"
+        ],
+        "S01GX12": []
+      },
+      "unmatched_atc5": [
+        "S01GX12"
+      ],
+      "cid_candidates": [
+        "CID000002678"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/20610/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:42.415179+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "c154b35f2900a8c436df589866e2ceb9ec05858fddd14dca5256ba72d77705c1",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-20610-codes.json"
+      }
+    },
+    "2176": {
+      "atc5": [
+        "J01DC04"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "J01DC04": [
+          "CID000002609"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002609"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/2176/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:44.101697+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "46ebf91046aba1797879e1f09ac2eee0608f106ae72e7204fbd7970add2a4508",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-2176-codes.json"
+      }
+    },
+    "2194": {
+      "atc5": [
+        "J01DC02",
+        "S01AA27"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "J01DC02": [
+          "CID000002658"
+        ],
+        "S01AA27": []
+      },
+      "unmatched_atc5": [
+        "S01AA27"
+      ],
+      "cid_candidates": [
+        "CID000002658"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/2194/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:43.516623+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "6904e613a8ba6438d4b89d5791d457cbe95e6440f88aecb808c44cd64afe8e60",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-2194-codes.json"
+      }
+    },
+    "2400": {
+      "atc5": [
+        "R06AB04"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R06AB04": [
+          "CID000002725"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002725"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/2400/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:45.278093+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "683f7c8890e43a791eb1fd39be0ea27020b2529369a975a6e19b2436445fbe2c",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-2400-codes.json"
+      }
+    },
+    "2409": {
+      "atc5": [
+        "C03BA04"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C03BA04": [
+          "CID000002732"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002732"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/2409/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:45.283071+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "c96476c5cbda2865cebdda56d6dacaf997100f85c26cc3f23ba449e7a05aff3b",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-2409-codes.json"
+      }
+    },
+    "24947": {
+      "atc5": [
+        "B03AA07"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "B03AA07": []
+      },
+      "unmatched_atc5": [
+        "B03AA07"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/24947/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:46.409263+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "3a3886277ab46534aa58941f47ad452ed18d30d2baeedbb4f4df028ebae58e40",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-24947-codes.json"
+      }
+    },
+    "253182": {
+      "atc5": [
+        "A10AB01",
+        "A10AC01",
+        "A10AD01",
+        "A10AE01",
+        "A10AF01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "A10AB01": [],
+        "A10AC01": [],
+        "A10AD01": [],
+        "A10AE01": [],
+        "A10AF01": []
+      },
+      "unmatched_atc5": [
+        "A10AB01",
+        "A10AC01",
+        "A10AD01",
+        "A10AE01",
+        "A10AF01"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/253182/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:46.410276+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "c15dc3a5560b8a876468a7482dd6ecf8e4417b0d9a24b184ec53294c04ce4193",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-253182-codes.json"
+      }
+    },
+    "2598": {
+      "atc5": [
+        "N03AE01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N03AE01": [
+          "CID000002802"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002802"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/2598/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:47.727485+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "f77cf9c236228b182e97071ba84ed900da615b9313125102cb96b2933dafd1ee",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-2598-codes.json"
+      }
+    },
+    "28889": {
+      "atc5": [
+        "R06AX13"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R06AX13": [
+          "CID000003957"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003957"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/28889/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:47.956261+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "ac514dcd3b6f746a48962b2eda0bfe59a881e1c3613c202b934394ea9ff49954",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-28889-codes.json"
+      }
+    },
+    "321064": {
+      "atc5": [],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {},
+      "unmatched_atc5": [],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/321064/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:49.014978+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "6029214aaa8a96f75170f8587d98a06ba648890cad19da08e7928900817010c2",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-321064-codes.json"
+      }
+    },
+    "3289": {
+      "atc5": [
+        "R05DA09"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R05DA09": []
+      },
+      "unmatched_atc5": [
+        "R05DA09"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/3289/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:50.081844+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "6c3ae747dea53dd378f542ad7f8d96a8154fabbca0cbd3175b9e5bc70ca82f6e",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-3289-codes.json"
+      }
+    },
+    "32968": {
+      "atc5": [
+        "B01AC04"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "B01AC04": [
+          "CID000002806"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002806"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/32968/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:50.138899+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "ea7471067322788c78793011a1fce7d5dd396942a45ee58acf9d9b71b26d3989",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-32968-codes.json"
+      }
+    },
+    "3322": {
+      "atc5": [
+        "N05BA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N05BA01": [
+          "CID000003016"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003016"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/3322/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:51.394710+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "e77d9d37173b2e51503deb41d65567967e85dc27c4184d49df5003e1426fcee7",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-3322-codes.json"
+      }
+    },
+    "3407": {
+      "atc5": [
+        "C01AA05"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C01AA05": [
+          "CID000003062"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003062"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/3407/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:51.224288+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "45bbf57637f7b7deb1be9ce0512729f24807a3eb8a83a86c1ceee8ed89f8dc14",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-3407-codes.json"
+      }
+    },
+    "3498": {
+      "atc5": [
+        "D04AA32",
+        "R06AA02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "D04AA32": [
+          "CID000003100"
+        ],
+        "R06AA02": [
+          "CID000003100"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003100"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/3498/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:52.998571+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "88ee422d100856f4e202acc1ff40ef004b4b7525db1dcbea21addaa71787db63",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-3498-codes.json"
+      }
+    },
+    "36117": {
+      "atc5": [
+        "R03AC12"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R03AC12": [
+          "CID000005152"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000005152"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/36117/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:52.561291+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "be02c82bb81e5182f87e5cfd21f8b8ae235b9cdc5c45ee7fa74b3d1ad27e2d25",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-36117-codes.json"
+      }
+    },
+    "3640": {
+      "atc5": [
+        "A01AB22",
+        "J01AA02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "A01AB22": [
+          "CID000003161"
+        ],
+        "J01AA02": [
+          "CID000003161"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003161"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/3640/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:53.708396+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "5e05d11c468c087c1fe17f6c8172869a3759bdde8eac3f13478e7c9b0fe0c618",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-3640-codes.json"
+      }
+    },
+    "3642": {
+      "atc5": [
+        "R06AA09"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R06AA09": []
+      },
+      "unmatched_atc5": [
+        "R06AA09"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/3642/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:54.505787+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "1c2b5d8d7cd88a60d4376bab1e452d022ba28735727503d30b216c4aadcd01ff",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-3642-codes.json"
+      }
+    },
+    "36567": {
+      "atc5": [
+        "C10AA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C10AA01": [
+          "CID000054454"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000054454"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/36567/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:55.030104+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "d7a25ed02bf66aff462241ee46dd23a700cb80abe9c84011b42bb78f9db4569b",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-36567-codes.json"
+      }
+    },
+    "38400": {
+      "atc5": [
+        "N06BA09"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N06BA09": [
+          "CID000054841"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000054841"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/38400/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:55.573237+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "f8dec990787ef3de5fabebe8b19d9edf747f16c5c6bd968cc6701ff515325fb8",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-38400-codes.json"
+      }
+    },
+    "3992": {
+      "atc5": [
+        "A01AD01",
+        "B02BC09",
+        "C01CA24",
+        "R01AA14",
+        "R03AA01",
+        "S01EA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "A01AD01": [
+          "CID000000838"
+        ],
+        "B02BC09": [
+          "CID000000838"
+        ],
+        "C01CA24": [
+          "CID000000838"
+        ],
+        "R01AA14": [
+          "CID000000838"
+        ],
+        "R03AA01": [
+          "CID000000838"
+        ],
+        "S01EA01": [
+          "CID000000838"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000000838"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/3992/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:56.551724+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "67d2073aa08e98e047c048c4cf4282c291e4d42be8b520fe463255bb124a3efb",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-3992-codes.json"
+      }
+    },
+    "41126": {
+      "atc5": [
+        "D07AC17",
+        "R01AD08",
+        "R03BA05"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "D07AC17": [],
+        "R01AD08": [],
+        "R03BA05": []
+      },
+      "unmatched_atc5": [
+        "D07AC17",
+        "R01AD08",
+        "R03BA05"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/41126/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:56.875237+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "da9103d22ecc876ab24773e7d4326e9135a5c1015a7dae20a58a210189bf0684",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-41126-codes.json"
+      }
+    },
+    "42328": {
+      "atc5": [
+        "R06AX11"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R06AX11": []
+      },
+      "unmatched_atc5": [
+        "R06AX11"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/42328/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:57.788324+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "19382e41d6e002f014130059b3d105906da94a70e1da66b74c3a11f530fb3b4e",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-42328-codes.json"
+      }
+    },
+    "42375": {
+      "atc5": [
+        "L02AE02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "L02AE02": []
+      },
+      "unmatched_atc5": [
+        "L02AE02"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/42375/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:58.075721+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "3572ad3152b975b886ea331b616130bb133cb9bc0ea39709249bf107b93670e2",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-42375-codes.json"
+      }
+    },
+    "435": {
+      "atc5": [
+        "R03AC02",
+        "R03CC02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R03AC02": [
+          "CID000002083"
+        ],
+        "R03CC02": [
+          "CID000002083"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002083"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/435/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:59.112491+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "8ff6aba23008f21bc3fd227d0be4003d6b7a00d1d88a87208bb2a21e16361f7a",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-435-codes.json"
+      }
+    },
+    "4493": {
+      "atc5": [
+        "N06AB03"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N06AB03": []
+      },
+      "unmatched_atc5": [
+        "N06AB03"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/4493/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:34:59.357352+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "abd8f21a3041a7b7bfe997ab4c644176928a699f2ae1c0f23ba6d4972d161c8b",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-4493-codes.json"
+      }
+    },
+    "46041": {
+      "atc5": [],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {},
+      "unmatched_atc5": [],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/46041/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:00.186236+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "f2add61d518c7d745bf10f87cfaa1afed58af6585e3fcb5ba9f335a9c21c4e6b",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-46041-codes.json"
+      }
+    },
+    "4637": {
+      "atc5": [
+        "N06DA04"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N06DA04": [
+          "CID000003449"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003449"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/4637/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:00.440316+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "452a0b04488b74298c5244667105c4a0d8dfca2632cb92e6ebdb62938938cc13",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-4637-codes.json"
+      }
+    },
+    "48203": {
+      "atc5": [],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {},
+      "unmatched_atc5": [],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/48203/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:01.271199+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "758d95c1e186e5c729daa58078eb6c8133bbb6f55b2457a673ecfb53f381c1a3",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-48203-codes.json"
+      }
+    },
+    "4917": {
+      "atc5": [
+        "C01DA02",
+        "C05AE01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C01DA02": [
+          "CID000004510"
+        ],
+        "C05AE01": []
+      },
+      "unmatched_atc5": [
+        "C05AE01"
+      ],
+      "cid_candidates": [
+        "CID000004510"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/4917/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:01.726741+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "ad860f237cfb38d798b3e6a6584e7ab0c32f8470e81d34e09663ec72077f06ad",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-4917-codes.json"
+      }
+    },
+    "519": {
+      "atc5": [
+        "M04AA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "M04AA01": [
+          "CID000083786"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000083786"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/519/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:02.580195+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "f7b9a9bb2dc9b94b1bd920a24799038f39020559309ff8f9e8f73fb8744b3050",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-519-codes.json"
+      }
+    },
+    "5487": {
+      "atc5": [
+        "C03AA03"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C03AA03": [
+          "CID000002720",
+          "CID000003639"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002720",
+        "CID000003639"
+      ],
+      "mapping_complete": false,
+      "status": "multiple_cid_candidates",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/5487/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:03.230591+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "386e9c02efe9472dd7b59bdd3eb62ad4f18b97baed160fbc234dc2b0cad4cd5a",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-5487-codes.json"
+      }
+    },
+    "5489": {
+      "atc5": [
+        "R05DA03"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R05DA03": []
+      },
+      "unmatched_atc5": [
+        "R05DA03"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/5489/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:03.889675+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "6ea6675ff4c18032abcb9e2c8f7bac414ae218fb847657be0d294027420c9540",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-5489-codes.json"
+      }
+    },
+    "5640": {
+      "atc5": [
+        "C01EB16",
+        "G02CC01",
+        "M01AE01",
+        "M02AA13",
+        "R02AX02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C01EB16": [
+          "CID000003672"
+        ],
+        "G02CC01": [
+          "CID000003672"
+        ],
+        "M01AE01": [
+          "CID000003672"
+        ],
+        "M02AA13": [
+          "CID000003672"
+        ],
+        "R02AX02": []
+      },
+      "unmatched_atc5": [
+        "R02AX02"
+      ],
+      "cid_candidates": [
+        "CID000003672"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/5640/allProperties.json?prop=codes",
+        "retrieved_at": null,
+        "cache_origin": "outputs/data_evaluation/rxnorm-design-20261114/ingredient-5640-codes.json",
+        "note": "Reused preexisting source response; its original retrieval time was not recorded",
+        "sha256": "8311f0fc7cd141db52b8ff56f97ea6cec533d6f5914d6da7b3d96655f34a773a",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-5640-codes.json"
+      }
+    },
+    "6754": {
+      "atc5": [
+        "N02AB02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N02AB02": [
+          "CID000004058"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000004058"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/6754/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:04.333688+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "9f4a1248afadc5c56dcc4bb3b1ae777721c8df94346c2f1f8eeb7605f6898dda",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-6754-codes.json"
+      }
+    },
+    "6809": {
+      "atc5": [
+        "A10BA02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "A10BA02": [
+          "CID000004091"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000004091"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/6809/allProperties.json?prop=codes",
+        "retrieved_at": null,
+        "cache_origin": "outputs/data_evaluation/rxnorm-design-20261114/ingredient-6809-codes.json",
+        "note": "Reused preexisting source response; its original retrieval time was not recorded",
+        "sha256": "6cf3c4db3161d107d0f2ea2965f368d8c9b361267fd876ee7874d9138da63194",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-6809-codes.json"
+      }
+    },
+    "6851": {
+      "atc5": [
+        "L01BA01",
+        "L04AX03"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "L01BA01": [
+          "CID000004112"
+        ],
+        "L04AX03": [
+          "CID000004112"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000004112"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/6851/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:05.103777+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "f31f4eee59c0cbcc9ffbd6096dd078b7ef634eec370baf286abd0aa96b8e7b89",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-6851-codes.json"
+      }
+    },
+    "6901": {
+      "atc5": [
+        "N06BA04"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N06BA04": [
+          "CID000004158"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000004158"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/6901/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:05.811523+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "c9794d5faaed153c1cce34c70721908194c0fc38ac44d3ea456722a7213ad42f",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-6901-codes.json"
+      }
+    },
+    "703": {
+      "atc5": [
+        "C01BD01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C01BD01": [
+          "CID000002156"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002156"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/703/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:06.297781+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "4610048b947a3bd8e4c80832e1317be26ca0b2a6b45efb89e754da09bcf287b2",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-703-codes.json"
+      }
+    },
+    "723": {
+      "atc5": [
+        "J01CA04"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "J01CA04": [
+          "CID000002171"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002171"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/723/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:07.427209+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "ace04474c32a9495146b8e05e796a9eac2e46180aa5c3277c913548bbb7c5827",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-723-codes.json"
+      }
+    },
+    "7258": {
+      "atc5": [
+        "G02CC02",
+        "M01AE02",
+        "M02AA12"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "G02CC02": [],
+        "M01AE02": [],
+        "M02AA12": []
+      },
+      "unmatched_atc5": [
+        "G02CC02",
+        "M01AE02",
+        "M02AA12"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/7258/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:08.038607+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "6dbe837028053773a1f9e3f85ed840c28bd28f6528e2f775596178419c4092f1",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-7258-codes.json"
+      }
+    },
+    "72962": {
+      "atc5": [
+        "L01CD02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "L01CD02": [
+          "CID000003143"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003143"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/72962/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:08.619322+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "4906c15b8ee2e0785f7208f7bfb319d2127f5868db1ce314e924b42b3fe93425",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-72962-codes.json"
+      }
+    },
+    "733": {
+      "atc5": [
+        "J01CA01",
+        "S01AA19"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "J01CA01": [
+          "CID000002173"
+        ],
+        "S01AA19": [
+          "CID000002173"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002173"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/733/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:09.254478+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "a46f141428558d79b006d3b8b1f9882af5725ead869ff5d553af8b7567f9ed6a",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-733-codes.json"
+      }
+    },
+    "7407": {
+      "atc5": [
+        "N07BA01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N07BA01": [
+          "CID000000942"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000000942"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/7407/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:10.485871+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "55a337c9d30fa434c20b9bccfe5fed8cb505f82d6ec0b8e8b31f3ff95ed07ebe",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-7407-codes.json"
+      }
+    },
+    "7454": {
+      "atc5": [
+        "J01XE01"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "J01XE01": [
+          "CID000004509"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000004509"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/7454/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:10.675118+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "0738aad5c02265a09e948e997fd0095755bdfb2af26e05013501ae85a43ca775",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-7454-codes.json"
+      }
+    },
+    "7514": {
+      "atc5": [
+        "G03AC01",
+        "G03DC02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "G03AC01": [
+          "CID000004536"
+        ],
+        "G03DC02": []
+      },
+      "unmatched_atc5": [
+        "G03DC02"
+      ],
+      "cid_candidates": [
+        "CID000004536"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/7514/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:11.881093+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "87d28c342f056f5f5310155cd2e47741d9a4cd71dde1d271f23e34146122a260",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-7514-codes.json"
+      }
+    },
+    "7804": {
+      "atc5": [
+        "N02AA05"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "N02AA05": [
+          "CID000004635"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000004635"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/7804/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:12.068146+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "3f05347b32cc5b15f24aa99f619a8e2dd92f75f874c761cc8c72f5794491bfa6",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-7804-codes.json"
+      }
+    },
+    "7980": {
+      "atc5": [
+        "J01CE01",
+        "S01AA14"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "J01CE01": [
+          "CID000002349"
+        ],
+        "S01AA14": [
+          "CID000002349"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002349"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/7980/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:13.065211+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "19af9758587ab3387d7290788ffddc722668cac17caffc20d46e900d8b94726f",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-7980-codes.json"
+      }
+    },
+    "7984": {
+      "atc5": [
+        "J01CE02"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "J01CE02": [
+          "CID000002349",
+          "CID000004730"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002349",
+        "CID000004730"
+      ],
+      "mapping_complete": false,
+      "status": "multiple_cid_candidates",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/7984/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:13.259700+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "7f2a1dd47e08b7ffe3ab0adea3c551b588541a2db5f4755f2fcb8bb6b6831209",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-7984-codes.json"
+      }
+    },
+    "8120": {
+      "atc5": [
+        "G04BX06"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "G04BX06": []
+      },
+      "unmatched_atc5": [
+        "G04BX06"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/8120/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:14.451142+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "acde77f5fd153b8ab5ab44c5e392b424b17f584881e0a421642ca822e1f33e0b",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-8120-codes.json"
+      }
+    },
+    "83367": {
+      "atc5": [
+        "C10AA05"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "C10AA05": [
+          "CID000002250"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000002250"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/83367/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:14.840249+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "478cd7e1642bc029b4d45a367a3b22f052d7d63ce43779c833365ee31daed4f9",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-83367-codes.json"
+      }
+    },
+    "8410": {
+      "atc5": [
+        "B01AD02",
+        "S01XA13"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "B01AD02": [],
+        "S01XA13": []
+      },
+      "unmatched_atc5": [
+        "B01AD02",
+        "S01XA13"
+      ],
+      "cid_candidates": [],
+      "mapping_complete": false,
+      "status": "no_cid_join",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/8410/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:15.614551+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "9589f354e32143c2e2d28a673566bb6ddb6defa74eeb9571cee461cd54f43de2",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-8410-codes.json"
+      }
+    },
+    "8640": {
+      "atc5": [
+        "A07EA03",
+        "H02AB07"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "A07EA03": [
+          "CID000004900"
+        ],
+        "H02AB07": [
+          "CID000004894",
+          "CID000004900"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000004894",
+        "CID000004900"
+      ],
+      "mapping_complete": false,
+      "status": "multiple_cid_candidates",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/8640/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:16.256919+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "4aa1f1ab3a89075c388cb0a3451dc0c8d8368e6f085570fcdec7fa6a026ea75c",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-8640-codes.json"
+      }
+    },
+    "87636": {
+      "atc5": [
+        "R06AX26"
+      ],
+      "non_atc5_properties": [],
+      "atc5_cid_matches": {
+        "R06AX26": [
+          "CID000003348"
+        ]
+      },
+      "unmatched_atc5": [],
+      "cid_candidates": [
+        "CID000003348"
+      ],
+      "mapping_complete": true,
+      "status": "unique_in_fixed_reference",
+      "source": {
+        "url": "https://rxnav.nlm.nih.gov/REST/rxcui/87636/allProperties.json?prop=codes",
+        "retrieved_at": "2026-11-14T10:35:17.006975+00:00",
+        "cache_origin": "official_NLM_RxNorm_API",
+        "sha256": "42acc9a2a3127aa5cde06c66d122d77dcb8c6559c5a1ecb38ca5d3a14653da75",
+        "cache_file": "outputs/recommendation/rxnorm-cid-v1/ingredient-87636-codes.json"
+      }
+    }
+  },
+  "statistics": {
+    "products": 77,
+    "unique_base_ingredients": 67,
+    "complete_products": 51,
+    "complete_ingredients": 45,
+    "multicomponent_products": 10,
+    "complete_multicomponent_products": 2,
+    "ingredient_statuses": {
+      "unique_in_fixed_reference": 45,
+      "no_cid_join": 19,
+      "multiple_cid_candidates": 3
+    },
+    "source_fetch_failures": 0,
+    "reference_atc5_codes": 1103,
+    "ambiguous_reference_atc5": 43
+  },
+  "status": "complete_source_collection"
+}

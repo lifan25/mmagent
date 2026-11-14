@@ -1,0 +1,1191 @@
+{
+  "date": "2026-11-14",
+  "scope": "Original RxNorm labels and retrospective same-encounter rule checking; exploratory Synthea adaptation",
+  "training": {
+    "config": {
+      "a1_dir": "data/processed/data_evaluation/synthea-apr2020-v3",
+      "reference_dir": "data/reference/MoleRec",
+      "prepared_dir": "data/processed/recommendation/synthea-v3-rxnorm-product-v5",
+      "run_dir": "outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8",
+      "medication_space": "RxNorm",
+      "rxnorm_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json",
+      "ddi_mapping_snapshot": "src/recommendation/resources/rxnorm-cid-v1.json",
+      "protocol": {
+        "status": "frozen_before_training_2026-11-14",
+        "label_policy": "Original train-visit RxCUI vocabulary; no product/brand/ingredient merging",
+        "cohort_policy": "Retain all A1 cases and patient splits, including unseen targets and unsupported inputs",
+        "input_policy": "Strict rejection of unknown diagnosis, procedure or historical medication codes; rejected rows have NaN scores and an explicit availability mask",
+        "target_policy": "Unseen target RxCUIs remain false negatives in full-target Jaccard/F1",
+        "model_selection": "Maximum validation full-target mean Jaccard across all 355 cases; rejected inputs score zero; earliest epoch wins ties",
+        "average_precision": "Supported inputs with every target in the training vocabulary only; report subset size and coverage",
+        "ddi_policy": "Same 40 least-frequent event-group selection; complete unique ingredient-CID mappings only; partial positive evidence reported separately"
+      },
+      "ddi_least_frequent_events": 40,
+      "seed": 8,
+      "dim": 64,
+      "epochs": 20,
+      "lr": 0.0001,
+      "target_ddi": 0.06,
+      "coef": 2.5,
+      "threshold": 0.5,
+      "initial_inter": 0.1,
+      "initial_garm": 0.1,
+      "device": "cpu"
+    },
+    "device": "cpu",
+    "torch": "2.7.1+cu128",
+    "gpu": null,
+    "epochs_completed": 20,
+    "best_epoch": 16,
+    "best_validation_jaccard": 0.5844131455399061,
+    "threshold": 0.5,
+    "test_evaluations": 1,
+    "test": {
+      "overall": {
+        "samples": 351,
+        "patients": 135,
+        "jaccard": 0.6530084113417447,
+        "f1": 0.7104890993779882,
+        "prauc_average_precision": 0.8221036435785816,
+        "average_medications": 1.6894586894586894,
+        "ddi_rate": 0.005025125628140704,
+        "ddi_pairs": 1,
+        "predicted_pairs": 199,
+        "total_predicted_pairs": 387,
+        "unmapped_predicted_pairs": 188,
+        "ddi_mapping_pair_coverage": 0.5142118863049095,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6212014991181657,
+          "f1": 0.6756995884773661,
+          "prauc_average_precision": 0.7996847410686667
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 344,
+        "input_rejected_samples": 7,
+        "recommendation_coverage": 0.98005698005698,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 341,
+        "ap_case_coverage": 0.9715099715099715,
+        "ap_evaluable_patients": 134,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      },
+      "empty_current_procedures": {
+        "samples": 212,
+        "patients": 107,
+        "jaccard": 0.6856918238993711,
+        "f1": 0.7461420131231452,
+        "prauc_average_precision": 0.8339639315439222,
+        "average_medications": 1.7358490566037736,
+        "ddi_rate": 0.009433962264150943,
+        "ddi_pairs": 1,
+        "predicted_pairs": 106,
+        "total_predicted_pairs": 230,
+        "unmapped_predicted_pairs": 124,
+        "ddi_mapping_pair_coverage": 0.4608695652173913,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6558337041981904,
+          "f1": 0.7166838613100295,
+          "prauc_average_precision": 0.8160988339103156
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 211,
+        "input_rejected_samples": 1,
+        "recommendation_coverage": 0.9952830188679245,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 208,
+        "ap_case_coverage": 0.9811320754716981,
+        "ap_evaluable_patients": 106,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      },
+      "nonempty_current_procedures": {
+        "samples": 139,
+        "patients": 90,
+        "jaccard": 0.6031603288797533,
+        "f1": 0.6561119935220655,
+        "prauc_average_precision": 0.8035552233019585,
+        "average_medications": 1.618705035971223,
+        "ddi_rate": 0.0,
+        "ddi_pairs": 0,
+        "predicted_pairs": 93,
+        "total_predicted_pairs": 157,
+        "unmapped_predicted_pairs": 64,
+        "ddi_mapping_pair_coverage": 0.5923566878980892,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6172288359788359,
+          "f1": 0.6667708834375499,
+          "prauc_average_precision": 0.8096242122333629
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 133,
+        "input_rejected_samples": 6,
+        "recommendation_coverage": 0.9568345323741008,
+        "outside_train_target_occurrences": 0,
+        "targets_not_fully_representable": 0,
+        "ap_evaluable_samples": 133,
+        "ap_case_coverage": 0.9568345323741008,
+        "ap_evaluable_patients": 88,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      },
+      "empty_history_procedures": {
+        "samples": 312,
+        "patients": 112,
+        "jaccard": 0.6643887362637363,
+        "f1": 0.7233386983386983,
+        "prauc_average_precision": 0.83281444207919,
+        "average_medications": 1.6794871794871795,
+        "ddi_rate": 0.005681818181818182,
+        "ddi_pairs": 1,
+        "predicted_pairs": 176,
+        "total_predicted_pairs": 349,
+        "unmapped_predicted_pairs": 173,
+        "ddi_mapping_pair_coverage": 0.504297994269341,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6433133149092971,
+          "f1": 0.6987351190476191,
+          "prauc_average_precision": 0.8161448711714119
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 305,
+        "input_rejected_samples": 7,
+        "recommendation_coverage": 0.9775641025641025,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 302,
+        "ap_case_coverage": 0.967948717948718,
+        "ap_evaluable_patients": 111,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      },
+      "both_current_and_history_empty": {
+        "samples": 190,
+        "patients": 94,
+        "jaccard": 0.6944736842105262,
+        "f1": 0.7569233690286323,
+        "prauc_average_precision": 0.8417382112093836,
+        "average_medications": 1.7210526315789474,
+        "ddi_rate": 0.010638297872340425,
+        "ddi_pairs": 1,
+        "predicted_pairs": 94,
+        "total_predicted_pairs": 204,
+        "unmapped_predicted_pairs": 110,
+        "ddi_mapping_pair_coverage": 0.46078431372549017,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6649738264099968,
+          "f1": 0.7294521967394307,
+          "prauc_average_precision": 0.8280735642350379
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 189,
+        "input_rejected_samples": 1,
+        "recommendation_coverage": 0.9947368421052631,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 186,
+        "ap_case_coverage": 0.9789473684210527,
+        "ap_evaluable_patients": 93,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      }
+    },
+    "checks": {
+      "train_steps": 28660,
+      "empty_current_train_steps": 16180,
+      "empty_history_train_steps": 24400,
+      "empty_current_parameter_update_verified": true,
+      "parameters_changed": true,
+      "reload_equal": true
+    },
+    "seconds": 2230.340960100002,
+    "peak_gpu_memory_mb": null,
+    "parameters": 570051
+  },
+  "data": {
+    "vocabulary_sizes": {
+      "diagnoses": 96,
+      "procedures": 62,
+      "medications": 72
+    },
+    "ehr_edges": 254,
+    "ddi": {
+      "policy": "Same least-frequent event/name selection; only completely mapped original RxCUI pairs",
+      "event_groups": 40,
+      "selected_events": [
+        [
+          "C0034494",
+          "rabies"
+        ],
+        [
+          "C0011593",
+          "skin abrasion"
+        ],
+        [
+          "C0013336",
+          "dwarfism"
+        ],
+        [
+          "C0014935",
+          "estrogen replacement"
+        ],
+        [
+          "C0022735",
+          "hypogonadotropic hypogonadism"
+        ],
+        [
+          "C0162678",
+          "neurofibromatosis"
+        ],
+        [
+          "C0000817",
+          "septic abortion"
+        ],
+        [
+          "C0281985",
+          "splinter"
+        ],
+        [
+          "C0542519",
+          "renal agenesis"
+        ],
+        [
+          "C0036916",
+          "sexually transmitted diseases"
+        ],
+        [
+          "C0266011",
+          "supernumerary nipple"
+        ],
+        [
+          "C0025218",
+          "chloasma"
+        ],
+        [
+          "C0269199",
+          "cervical stenosis"
+        ],
+        [
+          "C0149783",
+          "corticosteroid therapy"
+        ],
+        [
+          "C0035579",
+          "rickets"
+        ],
+        [
+          "C0003175",
+          "anthrax"
+        ],
+        [
+          "C0035920",
+          "Rubella"
+        ],
+        [
+          "C0021832",
+          "parasitic infection intestinal"
+        ],
+        [
+          "C0041466",
+          "Typhoid"
+        ],
+        [
+          "C0155118",
+          "corneal degeneration"
+        ],
+        [
+          "C0002694",
+          "traumatic amputation"
+        ],
+        [
+          "C0025362",
+          "mental retardation"
+        ],
+        [
+          "C0429468",
+          "anovulatory"
+        ],
+        [
+          "C0020545",
+          "renovascular hypertension"
+        ],
+        [
+          "C0027086",
+          "myoma"
+        ],
+        [
+          "C1260881",
+          "allergic bronchitis"
+        ],
+        [
+          "C0001206",
+          "Acromegaly"
+        ],
+        [
+          "C0266008",
+          "breast malformation"
+        ],
+        [
+          "C0039614",
+          "tetanus"
+        ],
+        [
+          "C0684275",
+          "Haemophilia"
+        ],
+        [
+          "C0008497",
+          "choriocarcinoma"
+        ],
+        [
+          "C0008533",
+          "hemophilia B"
+        ],
+        [
+          "C0014390",
+          "entropion"
+        ],
+        [
+          "C0032024",
+          "pityriasis"
+        ],
+        [
+          "C0027134",
+          "Myringitis"
+        ],
+        [
+          "C0549398",
+          "meibomianitis"
+        ],
+        [
+          "C0008513",
+          "chorioretinitis"
+        ],
+        [
+          "C0155707",
+          "trifascicular block"
+        ],
+        [
+          "C0156273",
+          "bladder diverticulum"
+        ],
+        [
+          "C0035460",
+          "Vasomotor Rhinitis"
+        ]
+      ],
+      "source_rows": 4649441,
+      "selected_source_rows": 476,
+      "undirected_edges": 7,
+      "complete_products": 46,
+      "product_count": 72,
+      "incomplete_products": [
+        "1043400",
+        "106892",
+        "1094107",
+        "1804799",
+        "197378",
+        "198014",
+        "205923",
+        "310325",
+        "310385",
+        "310798",
+        "312617",
+        "429503",
+        "562251",
+        "752899",
+        "833036",
+        "834061",
+        "834102",
+        "849574",
+        "856987",
+        "857005",
+        "895994",
+        "896209",
+        "904419",
+        "966222",
+        "997223",
+        "999967"
+      ],
+      "partial_positive_edges_excluded": 1,
+      "partial_positive_source_rows": 1,
+      "rate_scope": "Pairs where every ingredient of both products has a unique source CID; unmarked is not clinically safe",
+      "bridge_policy": "complete-bases-union-unique-atc5-20261114",
+      "bridge_method": "All baseRxcui components; official ATC properties restricted to seven-character ATC5; exact reference join. Each component needs at least one match and exactly one CID across all matched ATC5 codes; every product component must qualify."
+    },
+    "splits": {
+      "train": {
+        "source_examples": 1433,
+        "mapped": 7192,
+        "outside_train_med_vocabulary": 0,
+        "unsupported_input_examples": 0,
+        "targets_not_fully_representable": 0,
+        "targets_wholly_outside_vocabulary": 0,
+        "retained_examples": 1433,
+        "patients": 534,
+        "empty_current_procedures": 809,
+        "empty_history_procedures": 1220
+      },
+      "validation": {
+        "source_examples": 355,
+        "mapped": 1648,
+        "outside_train_med_vocabulary": 12,
+        "unsupported_input_examples": 23,
+        "targets_not_fully_representable": 1,
+        "targets_wholly_outside_vocabulary": 0,
+        "retained_examples": 355,
+        "unknown_diagnosis_codes": 16,
+        "patients": 133,
+        "empty_current_procedures": 202,
+        "empty_history_procedures": 307
+      },
+      "test": {
+        "source_examples": 351,
+        "mapped": 1656,
+        "outside_train_med_vocabulary": 3,
+        "unsupported_input_examples": 7,
+        "targets_not_fully_representable": 3,
+        "targets_wholly_outside_vocabulary": 1,
+        "retained_examples": 351,
+        "unknown_diagnosis_codes": 5,
+        "unknown_procedure_codes": 6,
+        "patients": 135,
+        "empty_current_procedures": 212,
+        "empty_history_procedures": 312
+      }
+    },
+    "train_history_only_labels": [
+      "1049630",
+      "197378",
+      "310325",
+      "477045",
+      "665078",
+      "997488"
+    ]
+  },
+  "training_label_types": {
+    "SCD": 65,
+    "SBD": 4,
+    "BPCK": 2,
+    "SCDC": 1
+  },
+  "cid_bridge": {
+    "products": 77,
+    "unique_base_ingredients": 67,
+    "complete_products": 51,
+    "complete_ingredients": 45,
+    "multicomponent_products": 10,
+    "complete_multicomponent_products": 2,
+    "ingredient_statuses": {
+      "unique_in_fixed_reference": 45,
+      "no_cid_join": 19,
+      "multiple_cid_candidates": 3
+    },
+    "source_fetch_failures": 0,
+    "reference_atc5_codes": 1103,
+    "ambiguous_reference_atc5": 43
+  },
+  "context_preparation": {
+    "splits": {
+      "train": {
+        "cases": 1433,
+        "known_egfr": 48,
+        "known_current_cabg_positive": 10
+      },
+      "validation": {
+        "cases": 355,
+        "known_egfr": 13,
+        "known_current_cabg_positive": 1
+      },
+      "test": {
+        "cases": 351,
+        "known_egfr": 14,
+        "known_current_cabg_positive": 3
+      }
+    },
+    "audit": {
+      "explicit_indexed_unit": 65,
+      "indexed_description_unit_alias": 44,
+      "conflicting_latest_egfr": 17,
+      "egfr_outside_encounter_interval": 20
+    }
+  },
+  "without_added_context": {
+    "task": "Existing SSPNet checkpoint with public Case interface and sourced rule-check agent",
+    "contract_version": "0.1-draft",
+    "split": "test",
+    "repository_base_commit": "c1c7adc1a94607c13d980127743b9138faf47cb0",
+    "a1_directory": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "prepared_directory": "data/processed/recommendation/synthea-v3-rxnorm-product-v5",
+    "checkpoint_directory": "outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8",
+    "model_manifest": {
+      "model_version": "sspnet-case-v1-310ea9023b03cfcb",
+      "contract_version": "0.1-draft",
+      "checkpoint_epoch": 16,
+      "threshold": 0.5,
+      "drug_system": "RxNorm",
+      "drug_level": "original_product_rxcui",
+      "medication_codes": [
+        "1014676",
+        "1043400",
+        "1049221",
+        "1049630",
+        "105078",
+        "105585",
+        "106892",
+        "1091392",
+        "1094107",
+        "1190795",
+        "1660014",
+        "1804799",
+        "1860154",
+        "1860480",
+        "197361",
+        "197378",
+        "197591",
+        "197604",
+        "198014",
+        "198405",
+        "204892",
+        "205923",
+        "2123111",
+        "243670",
+        "259255",
+        "308182",
+        "308192",
+        "308971",
+        "309043",
+        "309045",
+        "309097",
+        "309362",
+        "310325",
+        "310385",
+        "310436",
+        "310798",
+        "310965",
+        "311989",
+        "312617",
+        "312961",
+        "313185",
+        "313782",
+        "313820",
+        "429503",
+        "477045",
+        "562251",
+        "608139",
+        "665078",
+        "705129",
+        "746030",
+        "752899",
+        "757594",
+        "789980",
+        "831533",
+        "833036",
+        "834061",
+        "834102",
+        "834357",
+        "849574",
+        "855332",
+        "856987",
+        "857005",
+        "860975",
+        "861467",
+        "895994",
+        "896209",
+        "897718",
+        "904419",
+        "966222",
+        "997223",
+        "997488",
+        "999967"
+      ],
+      "vocabulary_sizes": {
+        "diagnoses": 96,
+        "procedures": 62,
+        "medications": 72
+      },
+      "files": {
+        "vocabulary": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\vocabulary.json",
+        "graphs": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\graphs.npz",
+        "mapping": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\mapping-decisions.json",
+        "preparation": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\manifest.json",
+        "catalog": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\drug-catalog.json",
+        "checkpoint": "D:\\Frank\\agent_explore\\medical-medication-agent\\outputs\\recommendation\\sspnet-synthea-v3-rxnorm-cpu-seed8\\best.pt",
+        "adapter": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\recommendation\\model.py",
+        "interface": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\recommendation\\predict.py",
+        "upstream": "D:\\Frank\\agent_explore\\medical-medication-agent\\third_party\\SSPNet\\src\\modules\\MoleRec.py"
+      },
+      "sha256": {
+        "vocabulary": "3e584de86cbd45fe2b9c8ac343d7b6d80f020802ade0b4baecbc3a6866153c8e",
+        "graphs": "3ee0093bf37b4c3618b979bf45a8d3fb4552d7e8a44790d2141ffd8918922711",
+        "mapping": "708014f015e0d9c0549896c964291760d4f44244e018a71a5d15cae56aebde93",
+        "preparation": "c2392f55c0f9f922e3f1f4dd6f685710beb2d857fc1ab02959407425e70d7106",
+        "catalog": "6e7449bfbd2250c1265298f88a062a2042f206b9d3880702fdd91417352460fb",
+        "checkpoint": "a51a9fc297a0061871d49c1e12e5ce9fe2fa580293ccd3cf1ee08c6659970082",
+        "adapter": "0f8bf56344f64823f44a0e21558c65e32f1fc0decada435a51b79b18da1544ec",
+        "interface": "9568992ff48e52df3fe7942ce70a7302faf876aeeddb5e74326d6fba6bc4836c",
+        "upstream": "0064314808dd9cd9a79bc47f3029743aa5291e7710e1067aec5cb09f759f681b"
+      },
+      "source_a1": "data/processed/data_evaluation/synthea-apr2020-v3",
+      "mapping": {
+        "policy": "Exact original product RxCUI, including historical IDs; train-visit vocabulary only",
+        "snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json",
+        "version": {
+          "version": "02-Nov-2026",
+          "apiVersion": "3.1.357"
+        },
+        "snapshot_sha256": "ff874a3081322d75f96511621c77c80d03e568035c6e2142e8f71a4e3e6fd410",
+        "ddi_mapping_snapshot": "src/recommendation/resources/rxnorm-cid-v1.json",
+        "ddi_mapping_sha256": "8e8bda8dc51fdb443a20ac1e550e9cc5894288ea8f6b3df15ea6d03315ba570a"
+      },
+      "device": "cpu",
+      "torch": "2.7.1+cu128",
+      "torch_threads": 1,
+      "unknown_policy": "reject; no implicit UNK or medication dropping",
+      "context_policy": "context is preserved by the caller but is not an SSPNet model input"
+    },
+    "context_file": null,
+    "context_policy": "original A1 context only",
+    "rules_file": "src\\knowledge\\rules\\medication-llm-rxnorm-scope-v1.json",
+    "rule_versions": [
+      {
+        "rule_id": "medication.metformin.egfr",
+        "version": "1.1-llm-v2-rxnorm-scope",
+        "review_status": "reviewed"
+      },
+      {
+        "rule_id": "medication.ibuprofen.cabg",
+        "version": "1.1-llm-v2-rxnorm-scope",
+        "review_status": "reviewed"
+      },
+      {
+        "rule_id": "medication.warfarin.pregnancy",
+        "version": "1.1-llm-v2-rxnorm-scope",
+        "review_status": "rejected"
+      }
+    ],
+    "training_performed": false,
+    "threshold_changed": false,
+    "candidate_modification": false,
+    "input_cases": 351,
+    "input_patients": 135,
+    "prepared_evaluable_cases": 351,
+    "supported_evaluable_cases": 344,
+    "supported_patients": 134,
+    "recommendation_coverage": 0.98005698005698,
+    "supported_predictions_without_evaluable_target": 0,
+    "recommendation_statuses": {
+      "ok": 344,
+      "unsupported_input": 7
+    },
+    "agent_statuses": {
+      "not_checked": 247,
+      "needs_information": 97,
+      "unsupported_input": 7
+    },
+    "knowledge_statuses": {
+      "not_checked": 247,
+      "insufficient_information": 97
+    },
+    "input_issue_counts": {
+      "unsupported_code": 11
+    },
+    "missing_field_occurrences": {
+      "candidates[0].drug.identity": 255,
+      "context.perioperative_cabg": 68,
+      "candidates[1].drug.identity": 160,
+      "candidates[2].drug.identity": 54,
+      "context.egfr_ml_min_1_73m2": 29,
+      "candidates[3].drug.identity": 14,
+      "candidates[4].drug.identity": 7,
+      "candidates[5].drug.identity": 3,
+      "candidates[7].drug.identity": 1
+    },
+    "checked_rule_instances": 0,
+    "pending_rule_instances": 97,
+    "supported_metrics": {
+      "samples": 344,
+      "patients": 134,
+      "jaccard": 0.666296373200443,
+      "f1": 0.7249467264002147,
+      "prauc_average_precision": 0.8221036435785816,
+      "average_medications": 1.7238372093023255,
+      "ddi_rate": 0.005025125628140704,
+      "ddi_pairs": 1,
+      "predicted_pairs": 199,
+      "total_predicted_pairs": 387,
+      "unmapped_predicted_pairs": 188,
+      "ddi_mapping_pair_coverage": 0.5142118863049095,
+      "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+      "patient_macro": {
+        "jaccard": 0.6301905650319829,
+        "f1": 0.6861940298507461,
+        "prauc_average_precision": 0.7996847410686667
+      },
+      "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+      "input_supported_samples": 344,
+      "input_rejected_samples": 0,
+      "recommendation_coverage": 1.0,
+      "outside_train_target_occurrences": 3,
+      "targets_not_fully_representable": 3,
+      "ap_evaluable_samples": 341,
+      "ap_case_coverage": 0.9912790697674418,
+      "ap_evaluable_patients": 134,
+      "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+    },
+    "all_input_cases_with_nonanswers_scored_zero": {
+      "denominator": 351,
+      "jaccard": 0.6530084113417447,
+      "f1": 0.7104890993779882,
+      "scope": "Unsupported inputs remain in denominator; AP is not defined for nonanswers and is not filled with invented scores."
+    },
+    "encoded_inputs_equal_on_supported": true,
+    "seconds": 33.71072309999727,
+    "limitations": [
+      "Exploratory Synthea adaptation, not independent clinical validation or a new training result.",
+      "Strict public inputs may be rejected where legacy preprocessing used UNK or dropped medications; coverage and supported metrics are separate.",
+      "ATC3 cannot identify an ingredient; RxNorm identity requires a separate frozen product source. Missing prerequisites remain unresolved.",
+      "Flag-only checks do not improve medication prediction metrics; no independent clinical adjudication labels are available.",
+      "DXY diagnosis is a separate evaluation, never joined to these patients."
+    ],
+    "stored_scores_comparison": {
+      "max_absolute_difference": 0.0,
+      "allclose_atol_1e_7_rtol_0": true,
+      "original_same_supported_cases": {
+        "samples": 344,
+        "patients": 134,
+        "jaccard": 0.666296373200443,
+        "f1": 0.7249467264002147,
+        "prauc_average_precision": 0.8221036435785816,
+        "average_medications": 1.7238372093023255,
+        "ddi_rate": 0.005025125628140704,
+        "ddi_pairs": 1,
+        "predicted_pairs": 199,
+        "total_predicted_pairs": 387,
+        "unmapped_predicted_pairs": 188,
+        "ddi_mapping_pair_coverage": 0.5142118863049095,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6301905650319829,
+          "f1": 0.6861940298507461,
+          "prauc_average_precision": 0.7996847410686667
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 344,
+        "input_rejected_samples": 0,
+        "recommendation_coverage": 1.0,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 341,
+        "ap_case_coverage": 0.9912790697674418,
+        "ap_evaluable_patients": 134,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      }
+    },
+    "cases_with_any_executed_rule": 0,
+    "applied_rule_case_counts": {},
+    "flagged_rule_instances": {},
+    "missing_reason_occurrences": {
+      "frozen_product_identity_unavailable": 494,
+      "missing_or_invalid_required_fact": 97
+    }
+  },
+  "with_recorded_context": {
+    "task": "Existing SSPNet checkpoint with public Case interface and sourced rule-check agent",
+    "contract_version": "0.1-draft",
+    "split": "test",
+    "repository_base_commit": "c1c7adc1a94607c13d980127743b9138faf47cb0",
+    "a1_directory": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "prepared_directory": "data/processed/recommendation/synthea-v3-rxnorm-product-v5",
+    "checkpoint_directory": "outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8",
+    "model_manifest": {
+      "model_version": "sspnet-case-v1-310ea9023b03cfcb",
+      "contract_version": "0.1-draft",
+      "checkpoint_epoch": 16,
+      "threshold": 0.5,
+      "drug_system": "RxNorm",
+      "drug_level": "original_product_rxcui",
+      "medication_codes": [
+        "1014676",
+        "1043400",
+        "1049221",
+        "1049630",
+        "105078",
+        "105585",
+        "106892",
+        "1091392",
+        "1094107",
+        "1190795",
+        "1660014",
+        "1804799",
+        "1860154",
+        "1860480",
+        "197361",
+        "197378",
+        "197591",
+        "197604",
+        "198014",
+        "198405",
+        "204892",
+        "205923",
+        "2123111",
+        "243670",
+        "259255",
+        "308182",
+        "308192",
+        "308971",
+        "309043",
+        "309045",
+        "309097",
+        "309362",
+        "310325",
+        "310385",
+        "310436",
+        "310798",
+        "310965",
+        "311989",
+        "312617",
+        "312961",
+        "313185",
+        "313782",
+        "313820",
+        "429503",
+        "477045",
+        "562251",
+        "608139",
+        "665078",
+        "705129",
+        "746030",
+        "752899",
+        "757594",
+        "789980",
+        "831533",
+        "833036",
+        "834061",
+        "834102",
+        "834357",
+        "849574",
+        "855332",
+        "856987",
+        "857005",
+        "860975",
+        "861467",
+        "895994",
+        "896209",
+        "897718",
+        "904419",
+        "966222",
+        "997223",
+        "997488",
+        "999967"
+      ],
+      "vocabulary_sizes": {
+        "diagnoses": 96,
+        "procedures": 62,
+        "medications": 72
+      },
+      "files": {
+        "vocabulary": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\vocabulary.json",
+        "graphs": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\graphs.npz",
+        "mapping": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\mapping-decisions.json",
+        "preparation": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\manifest.json",
+        "catalog": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\recommendation\\synthea-v3-rxnorm-product-v5\\drug-catalog.json",
+        "checkpoint": "D:\\Frank\\agent_explore\\medical-medication-agent\\outputs\\recommendation\\sspnet-synthea-v3-rxnorm-cpu-seed8\\best.pt",
+        "adapter": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\recommendation\\model.py",
+        "interface": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\recommendation\\predict.py",
+        "upstream": "D:\\Frank\\agent_explore\\medical-medication-agent\\third_party\\SSPNet\\src\\modules\\MoleRec.py"
+      },
+      "sha256": {
+        "vocabulary": "3e584de86cbd45fe2b9c8ac343d7b6d80f020802ade0b4baecbc3a6866153c8e",
+        "graphs": "3ee0093bf37b4c3618b979bf45a8d3fb4552d7e8a44790d2141ffd8918922711",
+        "mapping": "708014f015e0d9c0549896c964291760d4f44244e018a71a5d15cae56aebde93",
+        "preparation": "c2392f55c0f9f922e3f1f4dd6f685710beb2d857fc1ab02959407425e70d7106",
+        "catalog": "6e7449bfbd2250c1265298f88a062a2042f206b9d3880702fdd91417352460fb",
+        "checkpoint": "a51a9fc297a0061871d49c1e12e5ce9fe2fa580293ccd3cf1ee08c6659970082",
+        "adapter": "0f8bf56344f64823f44a0e21558c65e32f1fc0decada435a51b79b18da1544ec",
+        "interface": "9568992ff48e52df3fe7942ce70a7302faf876aeeddb5e74326d6fba6bc4836c",
+        "upstream": "0064314808dd9cd9a79bc47f3029743aa5291e7710e1067aec5cb09f759f681b"
+      },
+      "source_a1": "data/processed/data_evaluation/synthea-apr2020-v3",
+      "mapping": {
+        "policy": "Exact original product RxCUI, including historical IDs; train-visit vocabulary only",
+        "snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json",
+        "version": {
+          "version": "02-Nov-2026",
+          "apiVersion": "3.1.357"
+        },
+        "snapshot_sha256": "ff874a3081322d75f96511621c77c80d03e568035c6e2142e8f71a4e3e6fd410",
+        "ddi_mapping_snapshot": "src/recommendation/resources/rxnorm-cid-v1.json",
+        "ddi_mapping_sha256": "8e8bda8dc51fdb443a20ac1e550e9cc5894288ea8f6b3df15ea6d03315ba570a"
+      },
+      "device": "cpu",
+      "torch": "2.7.1+cu128",
+      "torch_threads": 1,
+      "unknown_policy": "reject; no implicit UNK or medication dropping",
+      "context_policy": "context is preserved by the caller but is not an SSPNet model input"
+    },
+    "context_file": "data\\processed\\data_evaluation\\synthea-context-v1\\context.json",
+    "context_policy": "Same encounter only, latest valid eGFR at/before discharge; conflicting latest values unknown. Legacy mL/min accepted only with exact indexed LOINC and description containing 1.73. CABG recorded within encounter gives true; missing never gives false. No drug targets or future encounters used; this is retrospective, not prospective advice.",
+    "rules_file": "src\\knowledge\\rules\\medication-llm-rxnorm-scope-v1.json",
+    "rule_versions": [
+      {
+        "rule_id": "medication.metformin.egfr",
+        "version": "1.1-llm-v2-rxnorm-scope",
+        "review_status": "reviewed"
+      },
+      {
+        "rule_id": "medication.ibuprofen.cabg",
+        "version": "1.1-llm-v2-rxnorm-scope",
+        "review_status": "reviewed"
+      },
+      {
+        "rule_id": "medication.warfarin.pregnancy",
+        "version": "1.1-llm-v2-rxnorm-scope",
+        "review_status": "rejected"
+      }
+    ],
+    "training_performed": false,
+    "threshold_changed": false,
+    "candidate_modification": false,
+    "input_cases": 351,
+    "input_patients": 135,
+    "prepared_evaluable_cases": 351,
+    "supported_evaluable_cases": 344,
+    "supported_patients": 134,
+    "recommendation_coverage": 0.98005698005698,
+    "supported_predictions_without_evaluable_target": 0,
+    "recommendation_statuses": {
+      "ok": 344,
+      "unsupported_input": 7
+    },
+    "agent_statuses": {
+      "not_checked": 247,
+      "needs_information": 95,
+      "completed": 2,
+      "unsupported_input": 7
+    },
+    "knowledge_statuses": {
+      "not_checked": 247,
+      "insufficient_information": 95,
+      "checked": 2
+    },
+    "input_issue_counts": {
+      "unsupported_code": 11
+    },
+    "missing_field_occurrences": {
+      "candidates[0].drug.identity": 255,
+      "context.perioperative_cabg": 68,
+      "candidates[1].drug.identity": 160,
+      "candidates[2].drug.identity": 54,
+      "context.egfr_ml_min_1_73m2": 27,
+      "candidates[3].drug.identity": 14,
+      "candidates[4].drug.identity": 7,
+      "candidates[5].drug.identity": 3,
+      "candidates[7].drug.identity": 1
+    },
+    "checked_rule_instances": 2,
+    "pending_rule_instances": 95,
+    "supported_metrics": {
+      "samples": 344,
+      "patients": 134,
+      "jaccard": 0.666296373200443,
+      "f1": 0.7249467264002147,
+      "prauc_average_precision": 0.8221036435785816,
+      "average_medications": 1.7238372093023255,
+      "ddi_rate": 0.005025125628140704,
+      "ddi_pairs": 1,
+      "predicted_pairs": 199,
+      "total_predicted_pairs": 387,
+      "unmapped_predicted_pairs": 188,
+      "ddi_mapping_pair_coverage": 0.5142118863049095,
+      "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+      "patient_macro": {
+        "jaccard": 0.6301905650319829,
+        "f1": 0.6861940298507461,
+        "prauc_average_precision": 0.7996847410686667
+      },
+      "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+      "input_supported_samples": 344,
+      "input_rejected_samples": 0,
+      "recommendation_coverage": 1.0,
+      "outside_train_target_occurrences": 3,
+      "targets_not_fully_representable": 3,
+      "ap_evaluable_samples": 341,
+      "ap_case_coverage": 0.9912790697674418,
+      "ap_evaluable_patients": 134,
+      "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+    },
+    "all_input_cases_with_nonanswers_scored_zero": {
+      "denominator": 351,
+      "jaccard": 0.6530084113417447,
+      "f1": 0.7104890993779882,
+      "scope": "Unsupported inputs remain in denominator; AP is not defined for nonanswers and is not filled with invented scores."
+    },
+    "encoded_inputs_equal_on_supported": true,
+    "seconds": 33.55793489998905,
+    "limitations": [
+      "Exploratory Synthea adaptation, not independent clinical validation or a new training result.",
+      "Strict public inputs may be rejected where legacy preprocessing used UNK or dropped medications; coverage and supported metrics are separate.",
+      "ATC3 cannot identify an ingredient; RxNorm identity requires a separate frozen product source. Missing prerequisites remain unresolved.",
+      "Flag-only checks do not improve medication prediction metrics; no independent clinical adjudication labels are available.",
+      "DXY diagnosis is a separate evaluation, never joined to these patients."
+    ],
+    "stored_scores_comparison": {
+      "max_absolute_difference": 0.0,
+      "allclose_atol_1e_7_rtol_0": true,
+      "original_same_supported_cases": {
+        "samples": 344,
+        "patients": 134,
+        "jaccard": 0.666296373200443,
+        "f1": 0.7249467264002147,
+        "prauc_average_precision": 0.8221036435785816,
+        "average_medications": 1.7238372093023255,
+        "ddi_rate": 0.005025125628140704,
+        "ddi_pairs": 1,
+        "predicted_pairs": 199,
+        "total_predicted_pairs": 387,
+        "unmapped_predicted_pairs": 188,
+        "ddi_mapping_pair_coverage": 0.5142118863049095,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6301905650319829,
+          "f1": 0.6861940298507461,
+          "prauc_average_precision": 0.7996847410686667
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 344,
+        "input_rejected_samples": 0,
+        "recommendation_coverage": 1.0,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 341,
+        "ap_case_coverage": 0.9912790697674418,
+        "ap_evaluable_patients": 134,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      }
+    },
+    "cases_with_any_executed_rule": 2,
+    "applied_rule_case_counts": {
+      "medication.metformin.egfr": 2
+    },
+    "flagged_rule_instances": {},
+    "missing_reason_occurrences": {
+      "frozen_product_identity_unavailable": 494,
+      "missing_or_invalid_required_fact": 95
+    }
+  },
+  "comparison": {
+    "input_cases": 351,
+    "paired_supported_cases": 344,
+    "outside_paired_support": 7,
+    "predictions_unchanged_with_context": true,
+    "mode_policy": "Most frequent original RxCUI per fixed ATC3 among training main_visits; lexical tie break; no test targets.",
+    "train_mode_products": {
+      "J01C": "562251",
+      "N02A": "1049221",
+      "N02B": "313782",
+      "C01A": "197604",
+      "B01A": "309362",
+      "C08D": "897718",
+      "M01A": "849574",
+      "C07C": "746030",
+      "N05B": "197591",
+      "A10B": "860975",
+      "R03A": "2123111",
+      "C08C": "197361",
+      "C10A": "312961",
+      "C01D": "705129",
+      "C03A": "310798",
+      "R06A": "1049630",
+      "N03A": "204892",
+      "L01C": "1860480",
+      "L02A": "752899",
+      "N06B": "1091392",
+      "C09D": "999967",
+      "L01B": "105585",
+      "N06A": "310385",
+      "H02A": "312617",
+      "R03B": "895994",
+      "M05B": "904419",
+      "A03B": "1190795",
+      "C01C": "1660014",
+      "C01B": "834357",
+      "J01D": "309097",
+      "A10A": "106892",
+      "B03X": "205923",
+      "N06D": "310436",
+      "H03A": "966222",
+      "G04B": "1094107",
+      "J01X": "311989",
+      "G03A": "757594",
+      "B03A": "310325"
+    },
+    "same_case_comparison": {
+      "rxnorm_model": {
+        "cases": 344,
+        "jaccard": 0.666296373200443,
+        "f1": 0.7249467264002142,
+        "average_predicted_items": 1.7238372093023255
+      },
+      "coarse_plus_train_mode": {
+        "cases": 344,
+        "jaccard": 0.5638496677740865,
+        "f1": 0.605823536928188,
+        "average_predicted_items": 1.6453488372093024
+      },
+      "rxnorm_projected_atc3": {
+        "cases": 344,
+        "jaccard": 0.754716915836102,
+        "f1": 0.8170978891909123,
+        "average_predicted_items": 1.622093023255814
+      },
+      "original_atc3": {
+        "cases": 344,
+        "jaccard": 0.7466985049833886,
+        "f1": 0.8091319533179998,
+        "average_predicted_items": 1.6453488372093024
+      }
+    },
+    "coarse_mode_check_statuses": {
+      "not_checked": 312,
+      "insufficient_information": 28,
+      "checked": 3,
+      "issues_found": 1
+    },
+    "coarse_mode_check_coverage": {
+      "checked_rule_count": 4,
+      "pending_rule_count": 28,
+      "checked_candidate_count": 4
+    },
+    "fine_predicted_ingredient_pair_audit": {
+      "all_predicted_product_pairs": 387,
+      "complete_mapping_product_pairs": 199,
+      "same_single_cid_product_pairs": 0,
+      "overlapping_cid_product_pairs": 0
+    },
+    "limitations": [
+      "Exploratory one-seed adaptation; label space, graph and validation input policy changed.",
+      "ATC3 projection measures a common coarse task, not exact-product correctness.",
+      "A training-mode product is a baseline prediction, not known identity of a coarse category.",
+      "Checks have no independent clinical correctness labels; context is retrospective."
+    ]
+  },
+  "verification": {
+    "data_evaluation_tests": 24,
+    "recommendation_tests": 27,
+    "knowledge_tests": 39,
+    "total_unit_tests": 90,
+    "bridge_self_checks": 5,
+    "new_dependencies_installed": false,
+    "zero_shot_run": false
+  },
+  "limitations": [
+    "72 original labels are 69 fully specified formulations, two packs and one ingredient-strength component without dose form.",
+    "One seed, synthetic historical cohort, altered output space and graph plus strict validation input policy; not a pure granularity ablation.",
+    "Only two active sourced rule scopes; missing facts stay unknown and a checked case is not a fully checked prescription.",
+    "Retrospective facts through encounter end, not admission-time or prospective treatment advice.",
+    "DDI numbers describe partially connected source-graph product pairs, not clinical risk or duplicate-treatment safety."
+  ]
+}

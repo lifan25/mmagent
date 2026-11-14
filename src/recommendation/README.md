@@ -2,6 +2,8 @@
 
 负责人：成员 B，账号待 A 指定。任务状态只更新 [TASKS.md](TASKS.md)，公共修改与 PR 规则见 [CONTRIBUTING.md](../../CONTRIBUTING.md)。
 
+2026-11-14新增原RxNorm药品标签v5：72个训练标签，全部1433/355/351病例保留；新训练与严格评价说明见 [RUNNING第9节](RUNNING.md#9-原始rxnorm药品标签v5)和[v5报告](reports/sspnet-synthea-rxnorm-v5.md)。原38类默认接口与历史产物继续保留，新模型需显式选择独立检查点。
+
 EHR 是电子健康记录，DDI 是药物相互作用；这里的两种图分别表示药物在记录中共同出现，以及外部数据记录的药物相互作用。它们的节点必须对应同一药物词表。
 
 ## 先从这里开始
@@ -23,7 +25,7 @@ recommendation/
 └── reports/      映射覆盖与实际运行的聚合报告
 ```
 
-当前已实现 prepare.py、model.py、train.py、predict.py，原 SSPNet 仍在 third_party/SSPNet/，未修改子模块。现有38类权重可通过 `SSPNetRecommender.score_case(case)` 接入A/C；使用方式见 [RUNNING.md第8节](RUNNING.md#8-共享case推理与交接不重训)。这是 Synthea 受限映射药物空间上的适配，不是原论文数据的严格复现。
+当前已实现 prepare.py、model.py、train.py、predict.py，原 SSPNet 仍在 third_party/SSPNet/，未修改子模块。`SSPNetRecommender.score_case(case)`默认加载旧38类，显式指定独立检查点可加载已训练的72原始RxNorm标签模型；两者均已接入A/C。用法见 [RUNNING.md第8节](RUNNING.md#8-共享case推理与交接不重训)和[第9节](RUNNING.md#9-原始rxnorm药品标签v5)。这是 Synthea 药物空间适配，不是原论文数据的严格复现。
 
 早期24类版本完成过20轮训练、验证选模、保存重载和最终测试：216条测试样本的Jaccard79.81%、F1 83.04%，其中137条当前操作为空的样本均正常完成。该历史结果见 [实际运行报告](reports/sspnet-synthea-v3.md)及[聚合JSON](reports/sspnet-synthea-v3-results.json)；当前默认推理使用38类新版，不加载24类权重。
 
@@ -31,11 +33,11 @@ recommendation/
 
 | 文件 | 建议职责 |
 |---|---|
-| prepare.py（已实现） | 精确 RXCUI → 无歧义 ATC 第三级类别；训练词表、EHR/DDI图和病例；NDC 输入尚未实现 |
+| prepare.py（已实现） | 旧版RxCUI → 无歧义ATC第三级类别；v5保留原始RxCUI；生成对应训练词表、EHR/DDI图和病例；NDC输入尚未实现 |
 | model.py（已实现） | 正常导入原模型的继承适配；禁用诊断绘图，明确初始化和调用参数 |
 | train.py（已实现） | 实际训练、验证选模、保存并重载、最终测试及空操作分组统计 |
-| predict.py（已实现） | 缓存加载38类模型；严格编码共享Case；输出recommend(case)与独立全词表分数 |
-| verify_predict.py（已实现） | 固定测试分数同值核验、原始Case与既有编码对照和本地交接 |
+| predict.py（已实现） | 默认缓存加载旧38类模型，也支持显式加载72原始RxNorm标签检查点；严格编码共享Case，输出recommend(case)与独立全词表分数 |
+| verify_predict.py（已实现） | 旧38类固定测试分数同值核验、原始Case与既有编码对照和本地交接；v5证据与统一评价入口见RUNNING第9节 |
 
 药物映射与 prepare.py 合并。推理读取同版 `mapping-decisions.json`，不重新查询或选择映射。公共接口实现现有 `0.1-draft`，协议仍待三人正式冻结；agent整体由A集成、评价，B只提供候选与分数。
 
@@ -72,10 +74,12 @@ recommendation/
 
 旧配置的源数据是 A1 Synthea v3 的2139个有历史样本。旧映射排除无匹配、多类别歧义及空目标/无已知药物历史后，实际训练822条、验证198条、测试216条，不能将其分数当成全部原始处方准确率。旧词表为96个诊断/62个操作（各含内部UNK）及24个ATC第三级药物类别。
 
-当前空操作保留：训练475条、验证123条、测试137条；含空操作历史的样本分别为724/170/200。当前药物只作为目标，不传入模型输入；预测与病例标识仅保存在本地。
+历史24类版本的当前操作为空样本：训练475条、验证123条、测试137条；含空操作历史的样本分别为724/170/200。这些数量不是38类或v5当前队列统计。当前药物只作为目标，不传入模型输入；预测与病例标识仅保存在本地。
 
 2026-11-07映射复核：产品级映射恢复至38类、训练1433/验证354/测试351条。新配置、完整依据与DDI未覆盖范围见[映射复核](reports/mapping-coverage.md)和[运行说明](RUNNING.md)。新版已完成20轮完整训练，测试Jaccard74.65%、F1 80.91%、AP89.44%；DDI率47.30%，尚未达到低冲突目标。详见[新版结果](reports/sspnet-synthea-product-v4.md)，旧版20轮结果保留作历史对照。
 
-2026-11-14已完成[DDI溯源与第一批对照](reports/ddi-audit-20261114.md)：75条类别边重建一致，概率外积/梯度正确；47.30%是选定图在CID可映射对上的标记比例，不能直接解释成临床风险。新增历史、频次基线和分组结果支持继续保留空操作与一次历史样本。零样本核查与直接推荐已纳入[研究设计](../../docs/research-design.md)，尚未运行大模型；后续具体交付见TASKS.md。
+2026-11-14已完成[DDI溯源与第一批对照](reports/ddi-audit-20261114.md)：75条类别边重建一致，概率外积/梯度正确；47.30%是选定图在CID可映射对上的标记比例，不能直接解释成临床风险。新增历史、频次基线和分组结果支持继续保留空操作与一次历史样本。零样本核查与直接推荐纳入[研究设计](../../docs/research-design.md)，其运行状态以C模块记录为准；B的后续具体交付见TASKS.md。
 
 同日完成[共享推理接口核验](reports/predict-interface-20261114.md)：351条旧编码预测逐位一致；严格公共接口支持344条原始Case，明确拒绝7条未知诊断/操作病例，未静默送入UNK。344条支持病例的编码与原产物一致，其中211条当前操作为空。当前用药答案不进入模型；历史RxNorm映射与输出ATC3类别层级可追溯。
+
+同日后续v5已完成独立20轮训练和351条公开接口核验，344条支持病例的72维分数与保存值逐位相等。A加入有来源的同次上下文后，2条病例各执行一条二甲双胍规则、0警告，尚不能说明整份处方安全或优于廉价对照；见[v5报告](reports/sspnet-synthea-rxnorm-v5.md)与[A统一报告](../data_evaluation/reports/rxnorm-agent-20261114.md)。

@@ -70,4 +70,53 @@ report = check(case, recommendation, load_rules("src/knowledge/rules/medication-
 - 华法林的模型自然语言保留了完整例外，但最终条件树写成“妊娠且满足例外”时触发，缺少对例外的否定；81个虚构三值上下文中40个与参照不同。整条标为`rejected`，未用参照树替换，也未做第三轮提取。
 - 最终自动包`rules/medication-llm-reviewed-v2.json`保留三条原始模型条件及文本；二甲双胍、布洛芬为`reviewed`，华法林为`rejected`。各条记录源义核对理由、原始调用行号和响应摘要、前置元数据及agent审核身份。前两条在6个、3个有限输入中与参照一致，不解释为总体准确率。
 
-后续真实候选核查的首要缺口是有依据的具体药物身份及规则必要事实。不能为了提高覆盖率，把源标签的成分禁忌扩大为整类禁忌，或从测试真实用药填入预测候选。
+上述ATC3阶段的首要缺口是有依据的具体药物身份及规则必要事实；下方RxNorm集成解决了其中的最小连接问题。不能为了提高覆盖率，把源标签的成分禁忌扩大为整类禁忌，或从测试真实用药填入预测候选。
+
+## RxNorm产品适配（2026-11-14，待审核）
+
+新增独立包 `rules/medication-llm-rxnorm-scope-v1.json`，已接入A/B的RxNorm产品输出；旧自动包、来源参照和ATC3行为保留。模型原始 `statement`、`condition` 和审核状态逐项保持相同，只由agent适配身份范围并补充来源，未调用新语言模型、未新增临床条件。华法林错误条件继续 `rejected`。
+
+```python
+from src.knowledge.check import check, load_rules
+rules = load_rules("src/knowledge/rules/medication-llm-rxnorm-scope-v1.json")
+# recommendation.candidates[].drug 只需保持原产品编码，如 system=RxNorm, code=860975。
+report = check(case, recommendation, rules)
+```
+
+`check` 按原RxCUI查独立冻结文件 `rules/rxnorm-rule-products-v1.json` 的 `products[code].identity`，不相信候选临时自报的身份，不把产品反推成ATC3再猜成分。该文件仅包含与三条既有规则有关的4个产品，并非完整药物词表。规则按单成分IN、口服途径、允许的精确剂型RxCUI匹配；复方没有在本次范围内扩展。
+
+| 产品RxCUI | 原成分IN / 精确活性成分 | 官方剂型RxCUI | 保留的范围 |
+|---|---|---|---|
+| 198405、310965 | 5640 ibuprofen | 317541 Oral Tablet | 100mg/200mg口服片；release未特别声明 |
+| 855332 | 11289 warfarin / 114194 warfarin sodium | 317541 Oral Tablet | 5mg口服片；规则仍拒绝 |
+| 860975 | 6809 metformin / 235743 metformin hydrochloride | 316945 Extended Release Oral Tablet | 500mg、24HR缓释口服片；不得压成普通片 |
+
+以上四产品在冻结时均为Active/SCD/单成分，RxTerms的途径原值均为 `Oral Pill`，规范化为 `oral`；普通 `Oral Tablet` 不额外编造“明确即释”属性。版本为 RxNorm `02-Nov-2026`、RxTerms `RxTerms202611`。成分/剂型依据 [NLM getRxcuiHistoryStatus](https://lhncbc.nlm.nih.gov/RxNav/APIs/api-RxNorm.getRxcuiHistoryStatus.html)，途径依据 [NLM RxTerms](https://lhncbc.nlm.nih.gov/RxNav/APIs/api-RxTerms.getAllRxTermInfo.html)；每个公开条目保留具体请求URL和原响应摘要，原JSON在本地 `outputs/knowledge/rxnorm-feasibility-20261114/`，没有发送病例。
+
+二甲双胍新增ER范围有直接证据：[DailyMed缓释标签](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=17050df5-9e95-4e1b-ac75-34add289b139)（2026-07-07更新）的RxNorm表明确列860975，2.4/4节支持同一低于30的禁忌；不把30–45起始治疗限制改为同一禁忌。新增范围允许317541和316945，源文证据随触发结果输出。此为agent核对后的范围版本，不是新的LLM抽取成果或人类专家审核。
+
+未知产品没有冻结元数据时返回 `not_checked`，明确 `product_metadata_missing` 与缺失身份，不造“无风险”；已确定适用成分而缺eGFR/CABG时仍为 `insufficient_information`。元数据中剂型/途径缺失也不执行。已有21项药物检查通过（原13项、新增8项），新增覆盖4产品分型、ER不能匹配普通片限定范围、缺元数据、缺事实、eGFR阈值、旧ATC3行为和拒绝规则保持不变：
+
+```powershell
+.venv/Scripts/python.exe -m unittest src.knowledge.tests.test_medication_check src.knowledge.tests.test_rxnorm_check -v
+```
+
+上下文已由A从原表提取，截止时点为同次就诊结束。eGFR采用同次就诊区间内最新有效值，同一最新时点有冲突则未知；CABG仅采用同次区间内已记录的阳性事实，缺记录不填阴性，远期CABG史不等于本次手术场景。这是回顾性核查，不能称入院时建议。
+
+### 固定候选集成验收
+
+本轮351条测试输入中，344条获得推荐，7条因不支持的编码明确拒绝。对同一RxNorm模型的固定候选，仅改变是否提供上述上下文；两次候选及完整分数向量完全一致。以下病例状态的分母为344条支持病例：
+
+| 核查结果 | 不新增上下文 | 加入原表同次上下文 |
+|---|---:|---:|
+| `not_checked` | 247 | 247 |
+| `insufficient_information` | 97 | 95 |
+| `checked` | 0 | 2 |
+| 执行的规则实例 | 0 | 2 |
+| 触发警告的规则实例 | 0 | 0 |
+
+351条测试输入中，14条有可用eGFR、3条有同次CABG阳性记录；与实际预测产品及启用规则匹配后，只执行了2次 `medication.metformin.egfr`，均未触发。**2/344=0.58%仅表示至少执行一条现有规则的支持病例比例，不是整张处方的核查覆盖率或安全验证。** 剩余规则和药物范围、缺失事实仍须保留为未知；0次警告不能解释为模型推荐安全。
+
+廉价对照将旧ATC3模型的每个预测类别替换为该类在训练就诊中最常见的原RxCUI，在相同上下文中执行4次规则、产生1次警告。这是独立的产品预测基线，不是从粗类恢复真实成分；与新模型候选不同，现有计数不构成新模型核查效果更好的证据，也没有独立临床审核标签可判断警告准确率。
+
+最终集成验证为90项单元测试通过，其中C模块39项；上面的21项是药物核查子集。C本次适配与集成未增加LLM调用；已有规则日常执行不需要启动Qwen。最小调用链已完成，仍待A审核，不能标为原BIBM完整复现。详细配置、上下文审计、推荐对照与结果见 [A的RxNorm集成报告](../data_evaluation/reports/rxnorm-agent-20261114.md)及[聚合JSON](../data_evaluation/reports/rxnorm-agent-20261114.json)。

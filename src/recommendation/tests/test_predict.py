@@ -136,6 +136,30 @@ class PredictTests(unittest.TestCase):
         self.assertEqual(output["recommendation"]["candidates"], [])
         self.assertIsNone(output["full_scores"])
 
+    def test_original_rxnorm_product_space_does_not_apply_atc_mapping(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)
+            checkpoint = torch.load(self.path / "best.pt", weights_only=True)
+            checkpoint["config"].update(medication_space="RxNorm", prepared_dir=str(path))
+            checkpoint["vocabulary"]["medications"] = ["100", "200", "300"]
+            torch.save(checkpoint, path / "best.pt")
+            (path / "vocabulary.json").write_text(json.dumps(checkpoint["vocabulary"]), encoding="utf-8")
+            (path / "mapping-decisions.json").write_text("{}", encoding="utf-8")
+            (path / "manifest.json").write_text('{"medication_space":"RxNorm"}', encoding="utf-8")
+            (path / "drug-catalog.json").write_text(json.dumps({code: {"code": code, "system": "RxNorm"}
+                for code in ["100", "200", "300"]}), encoding="utf-8")
+            np.savez(path / "graphs.npz", ehr=self.graph, ddi=self.graph)
+            predictor = SSPNetRecommender(path / "best.pt")
+            result = predictor.score_case(self.case)
+            self.assertEqual(result["recommendation"]["status"], "ok")
+            self.assertEqual(result["encoded_input"][0][2], [0])
+            self.assertEqual(result["medication_codes"], ["100", "200", "300"])
+            self.assertTrue(all(x["drug"]["system"] == "RxNorm" for x in result["recommendation"]["candidates"]))
+            self.assertEqual(predictor.manifest["drug_system"], "RxNorm")
+            for item in ({"system": "ATC3", "code": "A10A"}, {"system": "RxNorm", "code": "999"}):
+                case = copy.deepcopy(self.case); case["history"][0]["medications"] = [item]
+                self.assertEqual(predictor.recommend(case)["status"], "unsupported_input")
+
     def test_checkpoint_rejects_reordered_vocabulary_and_changed_ddi(self):
         path = self.path / "vocabulary.json"
         changed = copy.deepcopy(self.vocabulary); changed["medications"].reverse()

@@ -152,3 +152,37 @@ recommendation = scored["recommendation"]
 当前维护环境已完成上述核验。新增9项检查通过；351条旧编码测试分数与已存结果逐位一致；严格Case接口支持344/351，拒绝7条未知编码病例，支持部分有211条当前空操作。全部344条支持病例的编码一致，核验脚本另对1条调用公开score_case确认分数一致。A的全量集成评价另外负责逐病例调用共享接口，不将这个单病例检查说成已完成整链路评价。聚合证据见 [接口报告](reports/predict-interface-20261114.md)。
 
 本地 `outputs/recommendation/predict-verification-20261114/` 含 results.json、model-manifest.json、encoded-test-scores.npy、case-encoding-alignment.jsonl 和 a1-case-handoff.json。最后一个文件给出同一条原始A1 Case、encoded_input、分数及独立evaluation_only_target_ids；答案不在Case内部。现有输出不覆盖，确需复查时加 `--output outputs/recommendation/predict-verification-repeat`。351条旧编码口径允许UNK，344条严格支持口径不同；A必须报告完整351分母和7条拒绝，再在同一支持子集比较原模型与知识核查结果。
+
+## 9. 原始RxNorm药品标签v5
+
+v5改为预测原始RxCUI，共72个训练药物标签：69个完整制剂、2个包装、1个成分规格；SCDC897718未给剂型，不补造。保持原A1患者划分与1433/355/351条病例。原38类配置、prepared和权重保留，默认 `get_default_recommender()` 仍加载旧版本。2026-11-14已完成唯一一次20轮CPU训练，实际37.17分钟，按完整355条验证病例选第16轮；完整351条测试Jaccard65.30%、F1 71.05%，AP82.21%仅341条可评价病例。完整方法和限制见 [v5报告](reports/sspnet-synthea-rxnorm-v5.md)与[聚合JSON](reports/sspnet-synthea-rxnorm-v5-results.json)。
+
+公开药品元数据与CID桥已固定到本目录resources，不含病例。`fetch_rxnorm.py`仅查询标准药品编号的NLM historystatus，记录原响应、版本和来源；产品名称优先采用元数据，原始历史编号不自动改成现行替代品。`build_rxnorm_cid.py`将完整成分连接到固定参考CID；无法唯一关联的成分保留未知。DDI图仅包含完整映射产品对，部分阳性另行审计。首次克隆已包含这两个公开快照，取得A1和原DDI文件后直接准备及训练：
+
+```powershell
+.venv\Scripts\python.exe src/recommendation/prepare.py --config src/recommendation/configs/sspnet-synthea-rxnorm-v5.json
+.venv\Scripts\python.exe -u src/recommendation/train.py --config src/recommendation/configs/sspnet-synthea-rxnorm-v5.json
+```
+
+本机快照、prepared与完整训练已完成，无需重下或覆盖。只有主动重建公开来源时才使用fetch_rxnorm/build_rxnorm_cid，并指定新的输出快照路径。桥脚本的`--offline`需要先前保存的67份官方成分响应缓存；新机器没有缓存时不能使用该选项，须联网取得元数据并记录版本差异。已有输出目录不能复用，复查另用新目录配置。
+
+`data/processed/recommendation/synthea-v3-rxnorm-product-v5/`在原文件基础上增加drug-catalog.json。每条模型记录保留完整target_medication_codes、outside_train_target_codes、input_supported和outside_train_input_codes。未知输入的整数记录只为审计保留，evaluate不会运行它们。原始目标全未见的病例仍保留；Jaccard/F1中这些未见目标计漏报。AP只对真实推理且完整目标均在词表内的病例计算，单列样本/患者覆盖；没有可评价AP时返回null。
+
+新版运行目录 `outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8/` 沿用history.jsonl、best.pt、results.json等。test-scores.npy始终与351条prepared测试病例同序，7条输入拒绝的行是NaN，test-score-available.npy明确记录可用行；这些NaN表示没有预测，不能填零后算AP。test-predictions.jsonl为拒绝行写predicted=null，并保存input_supported和完整目标/OOV字段。验证选模按全部355条full-target Jaccard，拒绝病例计0，20轮与阈值0.5预先固定。
+
+显式选择已训练的新版模型：
+
+```python
+from src.recommendation.predict import ROOT, SSPNetRecommender
+
+engine = SSPNetRecommender(
+    checkpoint_path=ROOT / "outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8/best.pt")
+scored = engine.score_case(case)
+# scored结构不变；medication_codes是72个原RxCUI。
+# recommendation候选为{"drug": {"system": "RxNorm", "code": ...}, "score": ...}。
+# engine.drug_catalog含该训练词表的来源元数据，不能用当前目标处方补全候选。
+```
+
+需要比较旧38类与新72药品时，先由A固定相同病例、可支持子集和投影口径。药品级分数、ATC3投影分数以及DDI映射覆盖的分母分别报告；同CID的多个产品不等于独立化学对，没有DDI边也不能证明重复用药安全。
+
+本机已完成351条公开score_case调用核验：344条支持病例编码一致，72维分数与保存值逐位相等；7条拒绝无前向、无伪造分数。证据在运行目录interface-verification.json，model-manifest.json记录模型版本`sspnet-case-v1-310ea9023b03cfcb`和权重/词表/图/源码指纹。run-source.json为运行中记录，训练后复核所列12个文件均未变化。第8节verify_predict.py是旧38类核验入口；新版整链路复核使用A统一评价入口及本节列出的独立检查点，不把旧入口当成新版验证命令。

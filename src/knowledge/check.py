@@ -5,12 +5,18 @@ import math
 from pathlib import Path
 
 DEFAULT_RULES = Path(__file__).with_name("rules") / "medication-reference-v1.json"
+DEFAULT_PRODUCTS = Path(__file__).with_name("rules") / "rxnorm-rule-products-v1.json"
 
 
 def load_rules(path=None):
     """Load reference rules, including disabled drafts for explicit accounting."""
     value = json.loads(Path(path or DEFAULT_RULES).read_text(encoding="utf-8"))
     return value["rules"] if isinstance(value, dict) else value
+
+
+def load_product_metadata(path=None):
+    """Read a frozen public NLM identity snapshot; never infer from patient targets."""
+    return json.loads(Path(path or DEFAULT_PRODUCTS).read_text(encoding="utf-8"))
 
 
 def evaluate_condition(node, context):
@@ -54,7 +60,7 @@ def evaluate_condition(node, context):
     raise ValueError("Unsupported predicate operator: " + op)
 
 
-def check(case, recommendation, rules=None):
+def check(case, recommendation, rules=None, product_metadata=None):
     """Implement CheckReport. Counts refer to candidate-rule evaluations, not patients."""
     rules = load_rules() if rules is None else rules
     report = {key: case.get(key) for key in ("contract_version", "data_kind", "case_id")}
@@ -95,6 +101,11 @@ def check(case, recommendation, rules=None):
                 report["execution"] = "synthetic_fixture"
     if not active:
         reasons.append({"code": "no_reviewed_medication_rules"})
+    use_products = any(rule["selector"]["system"] == "RxNormIngredient" for rule in active)
+    if use_products:
+        product_metadata = load_product_metadata() if product_metadata is None else product_metadata
+        products = product_metadata["products"]
+        report["coverage"]["product_metadata_version"] = product_metadata["version"]
     checked_candidates = set()
     applied = set()
     context = case.get("context") if isinstance(case.get("context"), dict) else {}
@@ -102,10 +113,27 @@ def check(case, recommendation, rules=None):
         drug = candidate.get("drug", {}) if isinstance(candidate, dict) else {}
         if not isinstance(drug, dict):
             drug = {}
+        identity = None
+        product = None
+        if use_products and drug.get("system") == "RxNorm":
+            product = products.get(drug.get("code"))
+            identity = product.get("identity") if isinstance(product, dict) else None
+            if not identity or identity.get("status") != "resolved" or not identity.get("ingredient_rxcuis"):
+                reasons.append({"code": "product_metadata_missing", "candidate_index": index,
+                                "drug": dict(drug), "metadata_version": product_metadata["version"]})
+                report["missing_fields"].append({"candidate_index": index,
+                    "fields": [f"candidates[{index}].drug.identity"],
+                    "reason": "frozen_product_identity_unavailable"})
+                continue
         matched = False
         for rule in active:
             selector = rule["selector"]
-            exact = drug.get("system") == selector["system"] and drug.get("code") == selector["code"]
+            product_rule = selector["system"] == "RxNormIngredient"
+            if product_rule:
+                exact = (identity is not None and identity.get("single_ingredient") is True
+                         and set(identity["ingredient_rxcuis"]) == {selector["ingredient_rxcui"]})
+            else:
+                exact = drug.get("system") == selector["system"] and drug.get("code") == selector["code"]
             broad = drug.get("system") == "ATC3" and drug.get("code") in rule.get("possible_atc3", [])
             if not (exact or broad):
                 continue
@@ -113,6 +141,18 @@ def check(case, recommendation, rules=None):
             fields = []
             if broad:
                 fields = [f"candidates[{index}].drug.exact_ingredient_identity"]
+            elif product_rule:
+                mismatch = []
+                if identity.get("route") is not None and identity["route"] != selector["route"]:
+                    mismatch.append("route")
+                if identity.get("dose_form_rxcui") is not None and identity["dose_form_rxcui"] not in selector["allowed_dose_form_rxcuis"]:
+                    mismatch.append("dose_form_rxcui")
+                if mismatch:
+                    reasons.append({"code": "outside_label_scope", "candidate_index": index,
+                                    "rule_id": rule["rule_id"], "fields": mismatch})
+                    continue
+                fields = [f"candidates[{index}].drug.identity.{name}" for name in ("route", "dose_form_rxcui")
+                          if identity.get(name) is None]
             else:
                 scope_mismatch = [name for name in ("route", "dose_form")
                                   if drug.get(name) is not None and drug[name] != selector[name]]
@@ -140,10 +180,14 @@ def check(case, recommendation, rules=None):
                 report["applied_rules"].append({"rule_id": identifier[0], "version": identifier[1]})
                 applied.add(identifier)
             if value:
-                report["findings"].append({"rule_id": rule["rule_id"], "version": rule["version"],
+                finding = {"rule_id": rule["rule_id"], "version": rule["version"],
                     "candidate_index": index, "drug": dict(drug), "action": "flag", "statement": rule["statement"],
                     "known_facts": {key: context[key] for key in rule["required_fields"] if context.get(key) is not None},
-                    "source": rule["source"], "evidence": rule["evidence"]})
+                    "source": rule["source"], "evidence": rule["evidence"]}
+                if product_rule:
+                    finding.update(identity=dict(identity), identity_sources=product["sources"],
+                                   scope_review=rule.get("scope_review"), scope_evidence=rule.get("scope_evidence", []))
+                report["findings"].append(finding)
         if not matched:
             reasons.append({"code": "candidate_not_covered", "candidate_index": index, "drug": dict(drug)})
     report["coverage"]["checked_candidate_count"] = len(checked_candidates)

@@ -48,11 +48,39 @@ result = agent.run(case)
 .\.venv\Scripts\python.exe -m src.data_evaluation.evaluate --split test --rules src/knowledge/rules/medication-reference-v1.json --output outputs/data_evaluation/agent-integration-reference-20261114
 ```
 
-评价器只读取原A1患者划分，复用已存权重和0.5阈值，不训练、不选参。它一次调用取得推荐与全38类分数，再交核查。原351条全部计入输入分母；严格接口支持子集另报，与旧模型在同一子集上的分数逐项比较。不支持病例保留原因，不能以支持子集成绩冒充全队列成绩。
+评价器只读取原A1患者划分，复用指定权重和0.5阈值，不训练、不选参。它一次调用取得推荐与全词表分数，再交核查。原351条全部计入输入分母；严格接口支持子集另报，与对应训练运行在同一子集上的分数逐项比较。不支持病例保留原因，不能以支持子集成绩冒充全队列成绩。
 
 传`--rules <已审核规则包.json>`可在相同候选上比较来源参照与自动提取规则；逐例结果和分数写到本地，Git仅提交聚合报告。核查只加标记，不据此声称药物预测F1提高。实际数字见[本次集成报告](reports/agent-integration-20261114.md)。
 
 当前ATC3输出不能确定具体成分、途径和制剂，不能用目标处方把这些字段补全。因此现有病例中可能全部缺少执行成分级规则的前提；规则触发和例外用明确虚构边界样例另外检查，不混入病例效果指标。DXY诊断单独运行，不接到不相干的Synthea患者上。
+
+## RxNorm产品级版本与同次就诊事实
+
+v5独立训练72个原始RxNorm标签（69完整制剂、2包装、1成分＋规格），未给剂型的897718保留未知。默认旧38类入口保持兼容。新版本准备/训练见[B的v5报告](../recommendation/reports/sspnet-synthea-rxnorm-v5.md)，本轮结果见[RxNorm集成报告](reports/rxnorm-agent-20261114.md)。本机已有产物时直接推理；同学首次拉取仍须按B说明准备权重，Git不含权重或病例。药品名称和原始类型见新prepared目录的drug-catalog.json。
+
+从原ZIP生成核查事实，不另下数据、不读取当前药物答案：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_context --output data/processed/data_evaluation/synthea-context-v1/context.json
+```
+
+仅使用同次就诊结束前的eGFR和明确记录的CABG；取值、单位原文和时间留在context快照。旧单位只在LOINC和名称明确标准化至1.73平方米时接受，最新同刻冲突不取平均而保留未知。缺CABG记录不补false。这是**回顾性核查**，不宣称这些信息入院时已知。context只交核查工具，不改变SSPNet输入。
+
+单病例运行（取固定原始第0条，不按结果挑病例）：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.pipeline --input data/processed/data_evaluation/synthea-apr2020-v3/main_prediction_examples.jsonl --index 0 --checkpoint outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8/best.pt --rules src/knowledge/rules/medication-llm-rxnorm-scope-v1.json --context data/processed/data_evaluation/synthea-context-v1/context.json --output outputs/data_evaluation/agent-case-rxnorm-20261114.json
+```
+
+固定测试输入，分别不补和补真实记录上下文，最后与旧类别及训练内众数产品基线对照：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.evaluate --config src/recommendation/configs/sspnet-synthea-rxnorm-v5.json --rules src/knowledge/rules/medication-llm-rxnorm-scope-v1.json --output outputs/data_evaluation/agent-rxnorm-no-context-20261114
+.\.venv\Scripts\python.exe -m src.data_evaluation.evaluate --config src/recommendation/configs/sspnet-synthea-rxnorm-v5.json --rules src/knowledge/rules/medication-llm-rxnorm-scope-v1.json --context data/processed/data_evaluation/synthea-context-v1/context.json --output outputs/data_evaluation/agent-rxnorm-context-20261114
+.\.venv\Scripts\python.exe -m src.data_evaluation.compare_rxnorm --fine-run outputs/data_evaluation/agent-rxnorm-context-20261114 --without-context-run outputs/data_evaluation/agent-rxnorm-no-context-20261114 --context data/processed/data_evaluation/synthea-context-v1/context.json --rules src/knowledge/rules/medication-llm-rxnorm-scope-v1.json --output outputs/data_evaluation/rxnorm-comparison-20261114
+```
+
+对照入口还读取旧版`agent-integration-auto-20261114`的固定351条预测；没有它时先按上一节重建旧模型结果。所有输出目录/文件都拒绝覆盖，复跑改`--output`并相应修改后续输入。新增事实前后候选及全分数必须相同；缺信息、未覆盖和禁忌标记分别计数。即使状态为checked，也只说明至少一条已覆盖规则完成判断，不能说整份处方安全。
 
 ## 验证
 

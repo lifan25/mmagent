@@ -39,12 +39,23 @@ def metrics(rows, probabilities, size, ddi, threshold, mapping_mask=None):
     labels = np.zeros((len(rows), size), dtype=np.int32)
     for i, row in enumerate(rows):
         labels[i, row["target"]] = 1
-    predicted = probabilities >= threshold
+    fine = any("outside_train_target_codes" in row for row in rows)
+    available = np.array([row.get("input_supported", True) for row in rows], dtype=bool)
+    probabilities = np.asarray(probabilities)
+    if probabilities.shape != (len(rows), size) or not np.isfinite(probabilities[available]).all():
+        raise ValueError("Scores must be aligned and finite for every supported input")
+    predicted = (probabilities >= threshold) & available[:, None]
     intersection = (predicted * labels).sum(axis=1)
-    target_counts, pred_counts = labels.sum(axis=1), predicted.sum(axis=1)
+    outside = np.array([len(set(row.get("outside_train_target_codes", []))) for row in rows])
+    target_counts, pred_counts = labels.sum(axis=1) + outside, predicted.sum(axis=1)
+    if np.any(target_counts == 0):
+        raise ValueError("An evaluation target must include at least one original medication")
     ja = intersection / (target_counts + pred_counts - intersection)
     f1 = 2*intersection / (target_counts + pred_counts)
-    ap = np.array([average_precision_score(y, p) for y, p in zip(labels, probabilities)])
+    ap_eligible = available & (outside == 0)
+    ap = np.full(len(rows), np.nan)
+    for i in np.flatnonzero(ap_eligible):
+        ap[i] = average_precision_score(labels[i], probabilities[i])
     patient_values = defaultdict(list)
     interactions = pairs = 0
     for row, j, f, a, pred in zip(rows, ja, f1, ap, predicted):
@@ -52,17 +63,32 @@ def metrics(rows, probabilities, size, ddi, threshold, mapping_mask=None):
         n, d = ddi_counts(pred, ddi, mapping_mask)
         interactions += n
         pairs += d
-    patient_macro = np.mean([np.mean(values, axis=0) for values in patient_values.values()], axis=0)
+    patient_ja_f1 = np.mean([np.mean(np.asarray(values)[:, :2], axis=0)
+                             for values in patient_values.values()], axis=0)
+    patient_ap = [float(np.mean([v[2] for v in values if np.isfinite(v[2])]))
+                  for values in patient_values.values() if any(np.isfinite(v[2]) for v in values)]
     total_pairs = sum(int(p.sum())*(int(p.sum())-1)//2 for p in predicted)
-    return {"samples": len(rows), "patients": len(patient_values), "jaccard": float(ja.mean()),
-            "f1": float(f1.mean()), "prauc_average_precision": float(ap.mean()),
+    report = {"samples": len(rows), "patients": len(patient_values), "jaccard": float(ja.mean()),
+            "f1": float(f1.mean()), "prauc_average_precision": float(ap[ap_eligible].mean()) if ap_eligible.any() else None,
             "average_medications": float(pred_counts.mean()),
             "ddi_rate": interactions/pairs if pairs else (None if mapping_mask is not None else 0.),
             "ddi_pairs": interactions, "predicted_pairs": pairs,
             "total_predicted_pairs": total_pairs, "unmapped_predicted_pairs": total_pairs-pairs,
             "ddi_mapping_pair_coverage": pairs / total_pairs if total_pairs else None,
             "ddi_rate_scope": "CID-mapped pairs" if mapping_mask is not None else "all pairs (legacy)",
-            "patient_macro": dict(zip(["jaccard", "f1", "prauc_average_precision"], map(float, patient_macro)))}
+            "patient_macro": {"jaccard": float(patient_ja_f1[0]), "f1": float(patient_ja_f1[1]),
+                              "prauc_average_precision": float(np.mean(patient_ap)) if patient_ap else None}}
+    if fine:
+        report.update(target_scope="All original RxCUI targets; unseen target labels count as false negatives",
+            input_supported_samples=int(available.sum()), input_rejected_samples=int((~available).sum()),
+            recommendation_coverage=float(available.mean()),
+            outside_train_target_occurrences=int(outside.sum()),
+            targets_not_fully_representable=int((outside > 0).sum()),
+            ap_evaluable_samples=int(ap_eligible.sum()), ap_case_coverage=float(ap_eligible.mean()),
+            ap_evaluable_patients=len(patient_ap),
+            ap_scope="Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers",
+            ddi_rate_scope="Pairs of original products with complete unique ingredient-CID mappings")
+    return report
 
 
 def evaluate(model, rows, size, ddi, threshold, mapping_mask=None):
@@ -70,6 +96,9 @@ def evaluate(model, rows, size, ddi, threshold, mapping_mask=None):
     scores = []
     with torch.no_grad():
         for row in rows:
+            if not row.get("input_supported", True):
+                scores.append(np.full(size, np.nan, dtype=np.float32))
+                continue
             output, loss_ddi = model(row["input"])
             if not torch.isfinite(output).all() or not torch.isfinite(loss_ddi):
                 raise FloatingPointError("Nonfinite evaluation output")
@@ -104,6 +133,8 @@ def run(config):
     ehr, ddi = graph["ehr"], graph["ddi"]
     mapping_mask = graph["ddi_mapping_mask"] if "ddi_mapping_mask" in graph else None
     data = {name: read_jsonl(prepared/f"{name}.jsonl") for name in ["train", "validation", "test"]}
+    if any(not row.get("input_supported", True) or row.get("outside_train_target_codes") for row in data["train"]):
+        raise ValueError("Training inputs and labels must all belong to the training vocabulary")
     sizes = tuple(len(vocab[key]) for key in ["diagnoses", "procedures", "medications"])
     model = SSPNetAdapter(config, sizes, ehr, ddi, device)
     optimizer = torch.optim.Adam(model.parameters(), lr=config["lr"])
@@ -174,22 +205,30 @@ def run(config):
         raise ValueError("Checkpoint vocabulary mismatch")
     model.load_state_dict(checkpoint["state_dict"])
     model.eval()
+    reload_example = next(row for row in data["validation"] if row.get("input_supported", True))
     with torch.no_grad():
-        before_reload = model(data["validation"][0]["input"])[0].clone()
+        before_reload = model(reload_example["input"])[0].clone()
     fresh = SSPNetAdapter(config, sizes, ehr, ddi, device)
     fresh.load_state_dict(checkpoint["state_dict"])
     fresh.eval()
     with torch.no_grad():
-        after_reload = fresh(data["validation"][0]["input"])[0]
+        after_reload = fresh(reload_example["input"])[0]
     checks["reload_equal"] = torch.equal(before_reload, after_reload)
     if not all(checks[k] for k in ["parameters_changed", "empty_current_parameter_update_verified", "reload_equal"]):
         raise AssertionError(checks)
     test, probabilities = evaluate(fresh, data["test"], sizes[2], ddi, config["threshold"], mapping_mask)
     np.save(output/"test-scores.npy", probabilities)
+    if config.get("medication_space") == "RxNorm":
+        np.save(output/"test-score-available.npy", np.array([r["input_supported"] for r in data["test"]], dtype=bool))
     with (output/"test-predictions.jsonl").open("w", encoding="utf-8") as f:
         for row, scores in zip(data["test"], probabilities):
-            f.write(json.dumps({"case_id": row["case_id"], "patient_id": row["patient_id"],
-                                "target": row["target"], "predicted": np.flatnonzero(scores >= config["threshold"]).tolist()})+"\n")
+            prediction = {"case_id": row["case_id"], "patient_id": row["patient_id"], "target": row["target"],
+                          "predicted": np.flatnonzero(scores >= config["threshold"]).tolist() if row.get("input_supported", True) else None}
+            if config.get("medication_space") == "RxNorm":
+                prediction.update(input_supported=row["input_supported"],
+                    outside_train_target_codes=row["outside_train_target_codes"],
+                    target_medication_codes=row["target_medication_codes"])
+            f.write(json.dumps(prediction)+"\n")
     report = {"config": config, "device": str(device), "torch": torch.__version__,
               "gpu": torch.cuda.get_device_name(device) if device.type == "cuda" else None,
               "epochs_completed": len(history), "best_epoch": best_epoch, "best_validation_jaccard": best_score,

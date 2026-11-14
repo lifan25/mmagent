@@ -76,6 +76,15 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "must not alter"):
             MedicationAgent(Recommender(), rules=[], checker=mutating).run(case())
 
+    def test_patient_fact_source_is_preserved_in_check_trace(self):
+        value = case()
+        value["context"].update(context_version="fictional-context",
+            knowledge_cutoff="fictional-time", knowledge_time_scope="retrospective",
+            knowledge_fact_provenance=[{"field": "egfr_ml_min_1_73m2", "source": "fictional-test"}])
+        result = MedicationAgent(Recommender(), rules=[], checker=checker("checked")).run(value)
+        recorded = result["trace"][-1]["patient_fact_context"]
+        self.assertEqual(recorded["knowledge_fact_provenance"], value["context"]["knowledge_fact_provenance"])
+
 
 if __name__ == "__main__":
     unittest.main()

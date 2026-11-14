@@ -1,0 +1,676 @@
+{
+  "schema_version": "recommendation-rxnorm-v5-results-v1",
+  "status": "completed",
+  "data_scope": "Exploratory Synthea Apr2020 A1 v3; not independent clinical confirmation",
+  "run_directory": "outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8",
+  "prepared_directory": "data/processed/recommendation/synthea-v3-rxnorm-product-v5",
+  "label_semantics": {
+    "original_rxcui_count": 72,
+    "term_types": {
+      "SCD": 65,
+      "SBD": 4,
+      "BPCK": 2,
+      "SCDC": 1
+    },
+    "status_counts": {
+      "Active": 70,
+      "Obsolete": 2
+    },
+    "complete_formulations": 69,
+    "packs": 2,
+    "ingredient_strength_without_dose_form": 1,
+    "historical_codes_preserved": true,
+    "train_history_only_labels": [
+      "1049630",
+      "197378",
+      "310325",
+      "477045",
+      "665078",
+      "997488"
+    ]
+  },
+  "preparation": {
+    "source_a1": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "mapping": {
+      "policy": "Exact original product RxCUI, including historical IDs; train-visit vocabulary only",
+      "snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json",
+      "version": {
+        "version": "02-Nov-2026",
+        "apiVersion": "3.1.357"
+      },
+      "snapshot_sha256": "ff874a3081322d75f96511621c77c80d03e568035c6e2142e8f71a4e3e6fd410",
+      "ddi_mapping_snapshot": "src/recommendation/resources/rxnorm-cid-v1.json",
+      "ddi_mapping_sha256": "8e8bda8dc51fdb443a20ac1e550e9cc5894288ea8f6b3df15ea6d03315ba570a"
+    },
+    "vocabulary_sizes": {
+      "diagnoses": 96,
+      "procedures": 62,
+      "medications": 72
+    },
+    "ehr_edges": 254,
+    "ddi": {
+      "policy": "Same least-frequent event/name selection; only completely mapped original RxCUI pairs",
+      "event_groups": 40,
+      "selected_events": [
+        [
+          "C0034494",
+          "rabies"
+        ],
+        [
+          "C0011593",
+          "skin abrasion"
+        ],
+        [
+          "C0013336",
+          "dwarfism"
+        ],
+        [
+          "C0014935",
+          "estrogen replacement"
+        ],
+        [
+          "C0022735",
+          "hypogonadotropic hypogonadism"
+        ],
+        [
+          "C0162678",
+          "neurofibromatosis"
+        ],
+        [
+          "C0000817",
+          "septic abortion"
+        ],
+        [
+          "C0281985",
+          "splinter"
+        ],
+        [
+          "C0542519",
+          "renal agenesis"
+        ],
+        [
+          "C0036916",
+          "sexually transmitted diseases"
+        ],
+        [
+          "C0266011",
+          "supernumerary nipple"
+        ],
+        [
+          "C0025218",
+          "chloasma"
+        ],
+        [
+          "C0269199",
+          "cervical stenosis"
+        ],
+        [
+          "C0149783",
+          "corticosteroid therapy"
+        ],
+        [
+          "C0035579",
+          "rickets"
+        ],
+        [
+          "C0003175",
+          "anthrax"
+        ],
+        [
+          "C0035920",
+          "Rubella"
+        ],
+        [
+          "C0021832",
+          "parasitic infection intestinal"
+        ],
+        [
+          "C0041466",
+          "Typhoid"
+        ],
+        [
+          "C0155118",
+          "corneal degeneration"
+        ],
+        [
+          "C0002694",
+          "traumatic amputation"
+        ],
+        [
+          "C0025362",
+          "mental retardation"
+        ],
+        [
+          "C0429468",
+          "anovulatory"
+        ],
+        [
+          "C0020545",
+          "renovascular hypertension"
+        ],
+        [
+          "C0027086",
+          "myoma"
+        ],
+        [
+          "C1260881",
+          "allergic bronchitis"
+        ],
+        [
+          "C0001206",
+          "Acromegaly"
+        ],
+        [
+          "C0266008",
+          "breast malformation"
+        ],
+        [
+          "C0039614",
+          "tetanus"
+        ],
+        [
+          "C0684275",
+          "Haemophilia"
+        ],
+        [
+          "C0008497",
+          "choriocarcinoma"
+        ],
+        [
+          "C0008533",
+          "hemophilia B"
+        ],
+        [
+          "C0014390",
+          "entropion"
+        ],
+        [
+          "C0032024",
+          "pityriasis"
+        ],
+        [
+          "C0027134",
+          "Myringitis"
+        ],
+        [
+          "C0549398",
+          "meibomianitis"
+        ],
+        [
+          "C0008513",
+          "chorioretinitis"
+        ],
+        [
+          "C0155707",
+          "trifascicular block"
+        ],
+        [
+          "C0156273",
+          "bladder diverticulum"
+        ],
+        [
+          "C0035460",
+          "Vasomotor Rhinitis"
+        ]
+      ],
+      "source_rows": 4649441,
+      "selected_source_rows": 476,
+      "undirected_edges": 7,
+      "complete_products": 46,
+      "product_count": 72,
+      "incomplete_products": [
+        "1043400",
+        "106892",
+        "1094107",
+        "1804799",
+        "197378",
+        "198014",
+        "205923",
+        "310325",
+        "310385",
+        "310798",
+        "312617",
+        "429503",
+        "562251",
+        "752899",
+        "833036",
+        "834061",
+        "834102",
+        "849574",
+        "856987",
+        "857005",
+        "895994",
+        "896209",
+        "904419",
+        "966222",
+        "997223",
+        "999967"
+      ],
+      "partial_positive_edges_excluded": 1,
+      "partial_positive_source_rows": 1,
+      "rate_scope": "Pairs where every ingredient of both products has a unique source CID; unmarked is not clinically safe",
+      "bridge_policy": "complete-bases-union-unique-atc5-20261114",
+      "bridge_method": "All baseRxcui components; official ATC properties restricted to seven-character ATC5; exact reference join. Each component needs at least one match and exactly one CID across all matched ATC5 codes; every product component must qualify."
+    },
+    "splits": {
+      "train": {
+        "source_examples": 1433,
+        "mapped": 7192,
+        "outside_train_med_vocabulary": 0,
+        "unsupported_input_examples": 0,
+        "targets_not_fully_representable": 0,
+        "targets_wholly_outside_vocabulary": 0,
+        "retained_examples": 1433,
+        "patients": 534,
+        "empty_current_procedures": 809,
+        "empty_history_procedures": 1220
+      },
+      "validation": {
+        "source_examples": 355,
+        "mapped": 1648,
+        "outside_train_med_vocabulary": 12,
+        "unsupported_input_examples": 23,
+        "targets_not_fully_representable": 1,
+        "targets_wholly_outside_vocabulary": 0,
+        "retained_examples": 355,
+        "unknown_diagnosis_codes": 16,
+        "patients": 133,
+        "empty_current_procedures": 202,
+        "empty_history_procedures": 307
+      },
+      "test": {
+        "source_examples": 351,
+        "mapped": 1656,
+        "outside_train_med_vocabulary": 3,
+        "unsupported_input_examples": 7,
+        "targets_not_fully_representable": 3,
+        "targets_wholly_outside_vocabulary": 1,
+        "retained_examples": 351,
+        "unknown_diagnosis_codes": 5,
+        "unknown_procedure_codes": 6,
+        "patients": 135,
+        "empty_current_procedures": 212,
+        "empty_history_procedures": 312
+      }
+    },
+    "medication_space": "RxNorm",
+    "target_policy": "All A1 targets retained; unseen labels count as missed; AP only on fully represented targets with supported inputs",
+    "input_policy": "Preserve all A1 rows; unsupported inputs are marked and never inferred",
+    "train_target_frequencies": {
+      "1014676": 1,
+      "1043400": 58,
+      "1049221": 19,
+      "1049630": 0,
+      "105078": 2,
+      "105585": 1,
+      "106892": 46,
+      "1091392": 2,
+      "1094107": 28,
+      "1190795": 8,
+      "1660014": 8,
+      "1804799": 13,
+      "1860154": 10,
+      "1860480": 14,
+      "197361": 38,
+      "197378": 0,
+      "197591": 7,
+      "197604": 40,
+      "198014": 3,
+      "198405": 55,
+      "204892": 1,
+      "205923": 1,
+      "2123111": 47,
+      "243670": 12,
+      "259255": 6,
+      "308182": 38,
+      "308192": 14,
+      "308971": 1,
+      "309043": 1,
+      "309045": 2,
+      "309097": 15,
+      "309362": 43,
+      "310325": 0,
+      "310385": 2,
+      "310436": 8,
+      "310798": 134,
+      "310965": 81,
+      "311989": 28,
+      "312617": 7,
+      "312961": 38,
+      "313185": 4,
+      "313782": 311,
+      "313820": 55,
+      "429503": 64,
+      "477045": 0,
+      "562251": 119,
+      "608139": 1,
+      "665078": 0,
+      "705129": 59,
+      "746030": 81,
+      "752899": 14,
+      "757594": 1,
+      "789980": 2,
+      "831533": 1,
+      "833036": 10,
+      "834061": 38,
+      "834102": 34,
+      "834357": 8,
+      "849574": 92,
+      "855332": 40,
+      "856987": 11,
+      "857005": 9,
+      "860975": 103,
+      "861467": 15,
+      "895994": 47,
+      "896209": 26,
+      "897718": 39,
+      "904419": 22,
+      "966222": 4,
+      "997223": 2,
+      "997488": 0,
+      "999967": 75
+    }
+  },
+  "training_results": {
+    "config": {
+      "a1_dir": "data/processed/data_evaluation/synthea-apr2020-v3",
+      "reference_dir": "data/reference/MoleRec",
+      "prepared_dir": "data/processed/recommendation/synthea-v3-rxnorm-product-v5",
+      "run_dir": "outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8",
+      "medication_space": "RxNorm",
+      "rxnorm_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json",
+      "ddi_mapping_snapshot": "src/recommendation/resources/rxnorm-cid-v1.json",
+      "protocol": {
+        "status": "frozen_before_training_2026-11-14",
+        "label_policy": "Original train-visit RxCUI vocabulary; no product/brand/ingredient merging",
+        "cohort_policy": "Retain all A1 cases and patient splits, including unseen targets and unsupported inputs",
+        "input_policy": "Strict rejection of unknown diagnosis, procedure or historical medication codes; rejected rows have NaN scores and an explicit availability mask",
+        "target_policy": "Unseen target RxCUIs remain false negatives in full-target Jaccard/F1",
+        "model_selection": "Maximum validation full-target mean Jaccard across all 355 cases; rejected inputs score zero; earliest epoch wins ties",
+        "average_precision": "Supported inputs with every target in the training vocabulary only; report subset size and coverage",
+        "ddi_policy": "Same 40 least-frequent event-group selection; complete unique ingredient-CID mappings only; partial positive evidence reported separately"
+      },
+      "ddi_least_frequent_events": 40,
+      "seed": 8,
+      "dim": 64,
+      "epochs": 20,
+      "lr": 0.0001,
+      "target_ddi": 0.06,
+      "coef": 2.5,
+      "threshold": 0.5,
+      "initial_inter": 0.1,
+      "initial_garm": 0.1,
+      "device": "cpu"
+    },
+    "device": "cpu",
+    "torch": "2.7.1+cu128",
+    "gpu": null,
+    "epochs_completed": 20,
+    "best_epoch": 16,
+    "best_validation_jaccard": 0.5844131455399061,
+    "threshold": 0.5,
+    "test_evaluations": 1,
+    "test": {
+      "overall": {
+        "samples": 351,
+        "patients": 135,
+        "jaccard": 0.6530084113417447,
+        "f1": 0.7104890993779882,
+        "prauc_average_precision": 0.8221036435785816,
+        "average_medications": 1.6894586894586894,
+        "ddi_rate": 0.005025125628140704,
+        "ddi_pairs": 1,
+        "predicted_pairs": 199,
+        "total_predicted_pairs": 387,
+        "unmapped_predicted_pairs": 188,
+        "ddi_mapping_pair_coverage": 0.5142118863049095,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6212014991181657,
+          "f1": 0.6756995884773661,
+          "prauc_average_precision": 0.7996847410686667
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 344,
+        "input_rejected_samples": 7,
+        "recommendation_coverage": 0.98005698005698,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 341,
+        "ap_case_coverage": 0.9715099715099715,
+        "ap_evaluable_patients": 134,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      },
+      "empty_current_procedures": {
+        "samples": 212,
+        "patients": 107,
+        "jaccard": 0.6856918238993711,
+        "f1": 0.7461420131231452,
+        "prauc_average_precision": 0.8339639315439222,
+        "average_medications": 1.7358490566037736,
+        "ddi_rate": 0.009433962264150943,
+        "ddi_pairs": 1,
+        "predicted_pairs": 106,
+        "total_predicted_pairs": 230,
+        "unmapped_predicted_pairs": 124,
+        "ddi_mapping_pair_coverage": 0.4608695652173913,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6558337041981904,
+          "f1": 0.7166838613100295,
+          "prauc_average_precision": 0.8160988339103156
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 211,
+        "input_rejected_samples": 1,
+        "recommendation_coverage": 0.9952830188679245,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 208,
+        "ap_case_coverage": 0.9811320754716981,
+        "ap_evaluable_patients": 106,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      },
+      "nonempty_current_procedures": {
+        "samples": 139,
+        "patients": 90,
+        "jaccard": 0.6031603288797533,
+        "f1": 0.6561119935220655,
+        "prauc_average_precision": 0.8035552233019585,
+        "average_medications": 1.618705035971223,
+        "ddi_rate": 0.0,
+        "ddi_pairs": 0,
+        "predicted_pairs": 93,
+        "total_predicted_pairs": 157,
+        "unmapped_predicted_pairs": 64,
+        "ddi_mapping_pair_coverage": 0.5923566878980892,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6172288359788359,
+          "f1": 0.6667708834375499,
+          "prauc_average_precision": 0.8096242122333629
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 133,
+        "input_rejected_samples": 6,
+        "recommendation_coverage": 0.9568345323741008,
+        "outside_train_target_occurrences": 0,
+        "targets_not_fully_representable": 0,
+        "ap_evaluable_samples": 133,
+        "ap_case_coverage": 0.9568345323741008,
+        "ap_evaluable_patients": 88,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      },
+      "empty_history_procedures": {
+        "samples": 312,
+        "patients": 112,
+        "jaccard": 0.6643887362637363,
+        "f1": 0.7233386983386983,
+        "prauc_average_precision": 0.83281444207919,
+        "average_medications": 1.6794871794871795,
+        "ddi_rate": 0.005681818181818182,
+        "ddi_pairs": 1,
+        "predicted_pairs": 176,
+        "total_predicted_pairs": 349,
+        "unmapped_predicted_pairs": 173,
+        "ddi_mapping_pair_coverage": 0.504297994269341,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6433133149092971,
+          "f1": 0.6987351190476191,
+          "prauc_average_precision": 0.8161448711714119
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 305,
+        "input_rejected_samples": 7,
+        "recommendation_coverage": 0.9775641025641025,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 302,
+        "ap_case_coverage": 0.967948717948718,
+        "ap_evaluable_patients": 111,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      },
+      "both_current_and_history_empty": {
+        "samples": 190,
+        "patients": 94,
+        "jaccard": 0.6944736842105262,
+        "f1": 0.7569233690286323,
+        "prauc_average_precision": 0.8417382112093836,
+        "average_medications": 1.7210526315789474,
+        "ddi_rate": 0.010638297872340425,
+        "ddi_pairs": 1,
+        "predicted_pairs": 94,
+        "total_predicted_pairs": 204,
+        "unmapped_predicted_pairs": 110,
+        "ddi_mapping_pair_coverage": 0.46078431372549017,
+        "ddi_rate_scope": "Pairs of original products with complete unique ingredient-CID mappings",
+        "patient_macro": {
+          "jaccard": 0.6649738264099968,
+          "f1": 0.7294521967394307,
+          "prauc_average_precision": 0.8280735642350379
+        },
+        "target_scope": "All original RxCUI targets; unseen target labels count as false negatives",
+        "input_supported_samples": 189,
+        "input_rejected_samples": 1,
+        "recommendation_coverage": 0.9947368421052631,
+        "outside_train_target_occurrences": 3,
+        "targets_not_fully_representable": 3,
+        "ap_evaluable_samples": 186,
+        "ap_case_coverage": 0.9789473684210527,
+        "ap_evaluable_patients": 93,
+        "ap_scope": "Supported inputs whose entire original target is inside the training vocabulary; no scores invented for OOV labels or nonanswers"
+      }
+    },
+    "checks": {
+      "train_steps": 28660,
+      "empty_current_train_steps": 16180,
+      "empty_history_train_steps": 24400,
+      "empty_current_parameter_update_verified": true,
+      "parameters_changed": true,
+      "reload_equal": true
+    },
+    "seconds": 2230.340960100002,
+    "peak_gpu_memory_mb": null,
+    "parameters": 570051
+  },
+  "interface_verification": {
+    "model_version": "sspnet-case-v1-310ea9023b03cfcb",
+    "checkpoint_epoch": 16,
+    "input_cases": 351,
+    "medication_labels": 72,
+    "recommendation_statuses": {
+      "ok": 344,
+      "unsupported_input": 7
+    },
+    "actual_forward_calls": 344,
+    "supported_input_encodings_equal": 344,
+    "supported_scores_bitwise_equal": true,
+    "max_absolute_score_difference": 0.0,
+    "threshold_candidate_sets_equal": true,
+    "nonanswer_score_rows_all_nan": true,
+    "availability_mask_matches_prepared": true,
+    "current_target_excluded": true,
+    "supported_empty_current_procedures": 211,
+    "source_files_unchanged_since_capture": true,
+    "checkpoint_config_matches_frozen_config": true,
+    "seconds_excluding_import_and_model_load": 28.909840100008296,
+    "artifact_sha256": {
+      "vocabulary": "3e584de86cbd45fe2b9c8ac343d7b6d80f020802ade0b4baecbc3a6866153c8e",
+      "graphs": "3ee0093bf37b4c3618b979bf45a8d3fb4552d7e8a44790d2141ffd8918922711",
+      "mapping": "708014f015e0d9c0549896c964291760d4f44244e018a71a5d15cae56aebde93",
+      "preparation": "c2392f55c0f9f922e3f1f4dd6f685710beb2d857fc1ab02959407425e70d7106",
+      "catalog": "6e7449bfbd2250c1265298f88a062a2042f206b9d3880702fdd91417352460fb",
+      "checkpoint": "a51a9fc297a0061871d49c1e12e5ce9fe2fa580293ccd3cf1ee08c6659970082",
+      "adapter": "0f8bf56344f64823f44a0e21558c65e32f1fc0decada435a51b79b18da1544ec",
+      "interface": "9568992ff48e52df3fe7942ce70a7302faf876aeeddb5e74326d6fba6bc4836c",
+      "upstream": "0064314808dd9cd9a79bc47f3029743aa5291e7710e1067aec5cb09f759f681b"
+    }
+  },
+  "run_source": {
+    "captured_utc": "2026-11-14T10:48:43.408625+00:00",
+    "capture_scope": "Recorded during training; these code/config/data files have not been edited since this run started. Not a claim of a prelaunch timestamp.",
+    "repository_base_commit": "c1c7adc1a94607c13d980127743b9138faf47cb0",
+    "training_process_id": 45400,
+    "training_started_local": "2026-11-14T18:39:44+08:00",
+    "execution_device": "cpu",
+    "source_files": {
+      "src/recommendation/train.py": {
+        "sha256": "92d17065645cef253106168115c80171d52cdba13d73a29d5d13d6d753227e01",
+        "modified_utc": "2026-11-14T10:34:00.638134+00:00"
+      },
+      "src/recommendation/model.py": {
+        "sha256": "0f8bf56344f64823f44a0e21558c65e32f1fc0decada435a51b79b18da1544ec",
+        "modified_utc": "2026-11-07T10:48:25.485101+00:00"
+      },
+      "src/recommendation/prepare.py": {
+        "sha256": "6053f17ba0e6bde284c36336b6008b028ce9cb6bacf7864d358970a02516ae73",
+        "modified_utc": "2026-11-14T10:38:07.262476+00:00"
+      },
+      "src/recommendation/rxnorm.py": {
+        "sha256": "56e2270229fbe5abb7d1ff48c9f5cb8ae2e19a5a7555e8623992920b1b38c664",
+        "modified_utc": "2026-11-14T10:38:07.259471+00:00"
+      },
+      "src/recommendation/predict.py": {
+        "sha256": "9568992ff48e52df3fe7942ce70a7302faf876aeeddb5e74326d6fba6bc4836c",
+        "modified_utc": "2026-11-14T10:34:00.641751+00:00"
+      },
+      "src/recommendation/configs/sspnet-synthea-rxnorm-v5.json": {
+        "sha256": "dce6f569a2eaeb9baaf5c6b228a242dd344e930c7e4a110df81f1e64887dd492",
+        "modified_utc": "2026-11-14T10:38:07.270474+00:00"
+      },
+      "third_party/SSPNet/src/modules/MoleRec.py": {
+        "sha256": "0064314808dd9cd9a79bc47f3029743aa5291e7710e1067aec5cb09f759f681b",
+        "modified_utc": "2026-11-07T07:24:54.342762+00:00"
+      },
+      "src/recommendation/resources/rxnorm-products-synthea-v1.json": {
+        "sha256": "ff874a3081322d75f96511621c77c80d03e568035c6e2142e8f71a4e3e6fd410",
+        "modified_utc": "2026-11-14T10:31:12.707010+00:00"
+      },
+      "src/recommendation/resources/rxnorm-cid-v1.json": {
+        "sha256": "8e8bda8dc51fdb443a20ac1e550e9cc5894288ea8f6b3df15ea6d03315ba570a",
+        "modified_utc": "2026-11-14T10:36:57.381074+00:00"
+      },
+      "data/processed/recommendation/synthea-v3-rxnorm-product-v5/manifest.json": {
+        "sha256": "c2392f55c0f9f922e3f1f4dd6f685710beb2d857fc1ab02959407425e70d7106",
+        "modified_utc": "2026-11-14T10:38:38.418303+00:00"
+      },
+      "data/processed/recommendation/synthea-v3-rxnorm-product-v5/graphs.npz": {
+        "sha256": "3ee0093bf37b4c3618b979bf45a8d3fb4552d7e8a44790d2141ffd8918922711",
+        "modified_utc": "2026-11-14T10:38:38.399075+00:00"
+      },
+      "data/processed/recommendation/synthea-v3-rxnorm-product-v5/vocabulary.json": {
+        "sha256": "3e584de86cbd45fe2b9c8ac343d7b6d80f020802ade0b4baecbc3a6866153c8e",
+        "modified_utc": "2026-11-14T10:38:38.399075+00:00"
+      }
+    }
+  },
+  "limitations": [
+    "Fine-label Jaccard/F1 cannot directly be compared to the old 38-class ATC3 scores; A reports matched-case ATC3 projection separately.",
+    "DDI is 1/199 complete-mapping original medication-label pairs, while 188/387 predicted pairs lack complete mappings; neither unknown pairs nor absent edges establish safety.",
+    "The pair denominator is not a count of independent chemical pairs. Distinct labels may share ingredients; same-ingredient duplication is outside this DDI graph.",
+    "Full-cohort Jaccard/F1 use 351 cases; 7 input nonanswers count zero. AP uses only 341 supported cases with fully represented targets.",
+    "Six training labels have no current-target positive examples; two original labels are obsolete and one ingredient-strength label has no official dose form.",
+    "This dataset has already been used in development. Mapping review, independent confirmation, and strict reproduction of the original papers remain incomplete."
+  ]
+}

@@ -41,6 +41,9 @@ class SSPNetRecommender:
             raise RuntimeError("Configured CUDA is unavailable; select CPU explicitly")
         checkpoint = torch.load(self.checkpoint_path, map_location=self.device, weights_only=True)
         self.config = dict(checkpoint["config"])
+        self.medication_space = self.config.get("medication_space", "ATC3")
+        if self.medication_space not in {"ATC3", "RxNorm"}:
+            raise ValueError("Unsupported checkpoint medication space")
         self.prepared_dir = Path(prepared_dir or ROOT / self.config["prepared_dir"]).resolve()
         paths = {name: self.prepared_dir / filename for name, filename in {
             "vocabulary": "vocabulary.json", "graphs": "graphs.npz",
@@ -56,6 +59,14 @@ class SSPNetRecommender:
         self.medication_codes = list(self.vocabulary["medications"])
         self.mapping = json.loads(paths["mapping"].read_text(encoding="utf-8"))
         preparation = json.loads(paths["preparation"].read_text(encoding="utf-8"))
+        if preparation.get("medication_space", "ATC3") != self.medication_space:
+            raise ValueError("Prepared medication space differs from the checkpoint")
+        self.drug_catalog = None
+        if self.medication_space == "RxNorm":
+            paths["catalog"] = self.prepared_dir / "drug-catalog.json"
+            self.drug_catalog = json.loads(paths["catalog"].read_text(encoding="utf-8"))
+            if set(self.drug_catalog) != set(self.medication_codes):
+                raise ValueError("Product catalog differs from the medication vocabulary")
         sizes = tuple(len(self.vocabulary[k]) for k in ("diagnoses", "procedures", "medications"))
         with np.load(paths["graphs"], allow_pickle=False) as graph:
             ehr, ddi = graph["ehr"].copy(), graph["ddi"].copy()
@@ -87,7 +98,8 @@ class SSPNetRecommender:
         self.manifest = {
             "model_version": self.model_version, "contract_version": CONTRACT_VERSION,
             "checkpoint_epoch": checkpoint["epoch"], "threshold": self.threshold,
-            "drug_system": "ATC3", "drug_level": 3, "medication_codes": self.medication_codes,
+            "drug_system": self.medication_space, "drug_level": 3 if self.medication_space == "ATC3" else "original_product_rxcui",
+            "medication_codes": self.medication_codes,
             "vocabulary_sizes": dict(zip(("diagnoses", "procedures", "medications"), sizes)),
             "files": {k: str(p) for k, p in paths.items()}, "sha256": hashes,
             "source_a1": preparation.get("source_a1"), "mapping": preparation.get("mapping"),
@@ -122,14 +134,16 @@ class SSPNetRecommender:
                     continue
                 key = token(item)
                 if vocabulary_field == "medications":
-                    if item["system"] == "ATC3":
+                    if self.medication_space == "RxNorm":
+                        options = [item["code"]] if item["system"] == "RxNorm" else []
+                    elif item["system"] == "ATC3":
                         options = [item["code"]]
                     elif item["system"] == "RxNorm":
                         options = self.mapping.get(item["code"], {}).get("classes", [])
                     else:
                         options = []
                     if len(options) != 1 or options[0] not in self.indices["medications"]:
-                        issue("unsupported_code", location, f"{key}: no unique mapping inside this model's ATC3 vocabulary")
+                        issue("unsupported_code", location, f"{key}: no unique mapping inside this model's {self.medication_space} vocabulary")
                         continue
                     key = options[0]
                 if key not in self.indices[vocabulary_field] or key == "<UNK>":
@@ -214,7 +228,7 @@ class SSPNetRecommender:
                 scores = torch.sigmoid(logits).cpu().numpy()[0]
             result["full_scores"] = scores.tolist()
             recommendation["candidates"] = [
-                {"drug": {"system": "ATC3", "code": code}, "score": float(score)}
+                {"drug": {"system": self.medication_space, "code": code}, "score": float(score)}
                 for code, score in zip(self.medication_codes, scores) if score >= self.threshold]
         except (RuntimeError, FloatingPointError) as error:
             recommendation["status"] = "error"

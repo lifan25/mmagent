@@ -35,6 +35,8 @@ history 的每项含 visit_index、diagnoses、procedures、medications。visit_
 
 context 是否必需由实际采用的规则决定。SSPNet 原输入不包含某字段，不代表核查模块可以假设该字段已知。第一版不自行增加复杂临床数据采集功能；必要事实缺失时标为信息不足。
 
+RxNorm v5的可选context快照仅提供同次就诊截止结束时的eGFR与阳性CABG记录，保留单位、时间、来源及冲突/缺失。该快照不进入SSPNet编码，不能被称作入院时已知事实；来源规则见[A运行说明](../src/data_evaluation/RUNNING.md)。
+
 示例：[case.synthetic.json](../examples/case.synthetic.json)。
 
 ## 3. 推荐接口 Recommendation
@@ -55,7 +57,8 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 - status 非 ok 时，第一版停止向核查模块传递候选；先汇报原因。
 - synthetic_fixture 表示人为编写的协议例子，不能计入指标或展示为模型预测。
 - 输出顺序仅为展示顺序；药物集合一致不因顺序不同视为不同结果。
-- 当前已实现后端输出`ATC3`四字符类别。未知编码显式拒绝，不采用旧预处理中隐式UNK/丢药方式；严格接口覆盖率与既有离线模型指标分别报告。空操作可用，但`procedures=null`表示未取得，不能代替`[]`。
+- 旧后端输出`ATC3`四字符类别；v5以独立训练权重输出原始`RxNorm`产品code，保留剂量/剂型等产品差异，不能混用两套词表。未知输入编码显式拒绝，不采用旧预处理中隐式UNK/丢药方式；严格接口覆盖率与既有离线模型指标分别报告。空操作可用，但`procedures=null`表示未取得，不能代替`[]`。
+- v5真实目标在训练词表外时，仍保留为集合指标漏报，不作为未知输入拒绝理由。AP只在输入支持且目标全可表示的病例计算并报告分母，不伪造词表外分数。药物身份来自预测产品码的冻结公开元数据，不读取当前真实目标补身份。
 
 示例：[recommendation.synthetic.json](../examples/recommendation.synthetic.json)。
 
@@ -86,7 +89,7 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 
 ## 5. 核查接口 CheckReport
 
-入口：`src.knowledge.check.check(case, recommendation, rules=None)`；默认来源核对参照通过`load_rules()`加载。只处理相同case_id和兼容版本；每条规则另检查成分与范围，不把ATC3父类当作ATC5成分。
+入口：`src.knowledge.check.check(case, recommendation, rules=None)`；默认来源核对参照通过`load_rules()`加载。只处理相同case_id和兼容版本；每条规则另检查成分与范围，不把ATC3父类当作ATC5成分。指定RxNorm适配规则包时，从C的冻结产品表核对原产品的成分、途径与精确剂型，不信任候选自行添加的身份字段；未知产品保留缺元数据原因。自动生成的临床条件与agent核对的产品适用范围分别记录，未批准规则继续禁用。
 
 | 字段 | 含义 |
 |---|---|
