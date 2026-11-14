@@ -1,0 +1,139 @@
+{
+  "version": "rxnorm-rule-products-v1",
+  "retrieved": "2026-11-14",
+  "rxnorm_version": {
+    "version": "02-Nov-2026",
+    "apiVersion": "3.1.357"
+  },
+  "rxterms_version": {
+    "rxtermsVersion": "RxTerms202611"
+  },
+  "scope": "Four rule-related public drug products only, not a complete RxNorm vocabulary.",
+  "normalization": "RxTerms Oral Pill is normalized to oral; exact RxNorm dose form retained. Oral Tablet has release not_specified; it is not inferred to be an explicit immediate-release formulation.",
+  "review": "Agent source and encoding verification, not human or clinical validation.",
+  "products": {
+    "198405": {
+      "system": "RxNorm",
+      "code": "198405",
+      "name": "ibuprofen 100 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "5640"
+        ],
+        "active_ingredient_rxcuis": [
+          "5640"
+        ],
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "Oral Pill",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "strength": "100 mg"
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/198405/historystatus.json",
+        "rxterms_url": "https://rxnav.nlm.nih.gov/REST/RxTerms/rxcui/198405/allinfo.json",
+        "history_sha256": "9dba2b646c8cf9d88b51de5dd2934a79418e75065fbfd1e4dfae04ef37d112ca",
+        "rxterms_sha256": "956138bb8a6dc47beaa4f607c4987123c16231fb8781acc437d7f84df457b917"
+      }
+    },
+    "310965": {
+      "system": "RxNorm",
+      "code": "310965",
+      "name": "ibuprofen 200 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "5640"
+        ],
+        "active_ingredient_rxcuis": [
+          "5640"
+        ],
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "Oral Pill",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "strength": "200 mg"
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/310965/historystatus.json",
+        "rxterms_url": "https://rxnav.nlm.nih.gov/REST/RxTerms/rxcui/310965/allinfo.json",
+        "history_sha256": "f605b36335ae7810435c887ab5d1a596178f3ff69ed380aab962605e5078b47c",
+        "rxterms_sha256": "dec51e1e767558039ae36bfa74fe47b7699bfd51daf7a6768217af1decce5688"
+      }
+    },
+    "855332": {
+      "system": "RxNorm",
+      "code": "855332",
+      "name": "warfarin sodium 5 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "11289"
+        ],
+        "active_ingredient_rxcuis": [
+          "114194"
+        ],
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "Oral Pill",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "strength": "5 mg"
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/855332/historystatus.json",
+        "rxterms_url": "https://rxnav.nlm.nih.gov/REST/RxTerms/rxcui/855332/allinfo.json",
+        "history_sha256": "c5ddee8e599c87514dfb320533185629e170cc05705c6271625c7795974d6dc3",
+        "rxterms_sha256": "ed46046016c8d886a1608c3543a2a43d047b284c69268a1f378ccdda99c2a415"
+      }
+    },
+    "860975": {
+      "system": "RxNorm",
+      "code": "860975",
+      "name": "24 HR metformin hydrochloride 500 MG Extended Release Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "6809"
+        ],
+        "active_ingredient_rxcuis": [
+          "235743"
+        ],
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "Oral Pill",
+        "dose_form_rxcui": "316945",
+        "dose_form_name": "Extended Release Oral Tablet",
+        "release": "extended_release",
+        "quantity_factor": {
+          "quantityFactorValue": "24",
+          "quantityFactorUnit": "HR"
+        },
+        "strength": "500 mg"
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/860975/historystatus.json",
+        "rxterms_url": "https://rxnav.nlm.nih.gov/REST/RxTerms/rxcui/860975/allinfo.json",
+        "history_sha256": "e9d7c5cc768093b22287660405bf44787b7362cebff46349073d21d5cdd3d84c",
+        "rxterms_sha256": "05c5402fca5af4cc1c2727d596d6b336490f7d5ce73d41efe362651053300959"
+      }
+    }
+  }
+}

@@ -1,0 +1,506 @@
+{
+  "date": "2026-11-14",
+  "baseline_commit": "b37ae2097495b853d9f66755a95236c2f5315a58",
+  "experiment": {
+    "scope": "Fixed-prediction retrospective rule evaluation; no model inference or training",
+    "reference": {
+      "reference_cases": 40,
+      "agreements": 40,
+      "agreement_rate": 1.0,
+      "confusion_matrix_expected_rows": {
+        "flag": {
+          "flag": 8,
+          "clear_within_rule": 0,
+          "unknown": 0,
+          "not_applicable": 0
+        },
+        "clear_within_rule": {
+          "flag": 0,
+          "clear_within_rule": 7,
+          "unknown": 0,
+          "not_applicable": 0
+        },
+        "unknown": {
+          "flag": 0,
+          "clear_within_rule": 0,
+          "unknown": 16,
+          "not_applicable": 0
+        },
+        "not_applicable": {
+          "flag": 0,
+          "clear_within_rule": 0,
+          "unknown": 0,
+          "not_applicable": 9
+        }
+      },
+      "by_family": {
+        "metformin_renal": {
+          "total": 9,
+          "agreements": 9,
+          "agreement_rate": 1.0
+        },
+        "ibuprofen_cabg": {
+          "total": 7,
+          "agreements": 7,
+          "agreement_rate": 1.0
+        },
+        "naproxen_cabg": {
+          "total": 8,
+          "agreements": 8,
+          "agreement_rate": 1.0
+        },
+        "methylphenidate_cad": {
+          "total": 8,
+          "agreements": 8,
+          "agreement_rate": 1.0
+        },
+        "opioid_benzodiazepine_pair": {
+          "total": 8,
+          "agreements": 8,
+          "agreement_rate": 1.0
+        }
+      },
+      "by_expected_state": {
+        "flag": {
+          "total": 8,
+          "agreements": 8,
+          "agreement_rate": 1.0
+        },
+        "clear_within_rule": {
+          "total": 7,
+          "agreements": 7,
+          "agreement_rate": 1.0
+        },
+        "unknown": {
+          "total": 16,
+          "agreements": 16,
+          "agreement_rate": 1.0
+        },
+        "not_applicable": {
+          "total": 9,
+          "agreements": 9,
+          "agreement_rate": 1.0
+        }
+      },
+      "unknown_misreported_clear": 0,
+      "missed_reference_flags": 0,
+      "false_flags_against_reference": 0,
+      "reference_version": "source-authored-check-reference-v1",
+      "reference_sha256": "30d6694c77f03235588b2793fca85fc35da1593355ab50485c276f16f2a80c8c",
+      "reference_scope": "Independently authored source-reference conformance, not expert clinical ground truth"
+    },
+    "arms": {
+      "old_rules_old_facts": {
+        "input_cases": 351,
+        "supported_cases": 344,
+        "rejected_inputs": 7,
+        "statuses": {
+          "not_checked": 247,
+          "insufficient_information": 95,
+          "checked": 2
+        },
+        "single_rule_coverage": {
+          "checked_rule_count": 2,
+          "pending_rule_count": 95,
+          "checked_candidate_count": 2,
+          "candidate_count": 593
+        },
+        "pair_coverage": {
+          "candidate_pair_count": 0,
+          "checked_pair_count": 0,
+          "pending_pair_count": 0,
+          "uncovered_pair_count": 0
+        },
+        "candidate_pair_universe": 387,
+        "executed_rule_case_counts": {
+          "medication.metformin.egfr": 2
+        },
+        "cases_with_single_rule_executed": 2,
+        "cases_with_pair_rule_executed": 0,
+        "cases_with_any_check_executed": 2,
+        "any_check_case_coverage_supported": 0.005813953488372093,
+        "any_check_case_coverage_all_inputs": 0.005698005698005698,
+        "flagged_cases": 0,
+        "single_rule_flags": {},
+        "potential_pair_flags": {},
+        "candidates_unchanged": true,
+        "clinical_accuracy": null
+      },
+      "old_rules_new_facts": {
+        "input_cases": 351,
+        "supported_cases": 344,
+        "rejected_inputs": 7,
+        "statuses": {
+          "not_checked": 247,
+          "insufficient_information": 95,
+          "checked": 2
+        },
+        "single_rule_coverage": {
+          "checked_rule_count": 2,
+          "pending_rule_count": 95,
+          "checked_candidate_count": 2,
+          "candidate_count": 593
+        },
+        "pair_coverage": {
+          "candidate_pair_count": 0,
+          "checked_pair_count": 0,
+          "pending_pair_count": 0,
+          "uncovered_pair_count": 0
+        },
+        "candidate_pair_universe": 387,
+        "executed_rule_case_counts": {
+          "medication.metformin.egfr": 2
+        },
+        "cases_with_single_rule_executed": 2,
+        "cases_with_pair_rule_executed": 0,
+        "cases_with_any_check_executed": 2,
+        "any_check_case_coverage_supported": 0.005813953488372093,
+        "any_check_case_coverage_all_inputs": 0.005698005698005698,
+        "flagged_cases": 0,
+        "single_rule_flags": {},
+        "potential_pair_flags": {},
+        "candidates_unchanged": true,
+        "clinical_accuracy": null
+      },
+      "new_rules_old_facts": {
+        "input_cases": 351,
+        "supported_cases": 344,
+        "rejected_inputs": 7,
+        "statuses": {
+          "not_checked": 244,
+          "insufficient_information": 98,
+          "checked": 2
+        },
+        "single_rule_coverage": {
+          "checked_rule_count": 2,
+          "pending_rule_count": 116,
+          "checked_candidate_count": 2,
+          "candidate_count": 593
+        },
+        "pair_coverage": {
+          "candidate_pair_count": 387,
+          "checked_pair_count": 0,
+          "pending_pair_count": 0,
+          "uncovered_pair_count": 387
+        },
+        "candidate_pair_universe": 387,
+        "executed_rule_case_counts": {
+          "medication.metformin.egfr": 2
+        },
+        "cases_with_single_rule_executed": 2,
+        "cases_with_pair_rule_executed": 0,
+        "cases_with_any_check_executed": 2,
+        "any_check_case_coverage_supported": 0.005813953488372093,
+        "any_check_case_coverage_all_inputs": 0.005698005698005698,
+        "flagged_cases": 0,
+        "single_rule_flags": {},
+        "potential_pair_flags": {},
+        "candidates_unchanged": true,
+        "clinical_accuracy": null
+      },
+      "new_rules_new_facts": {
+        "input_cases": 351,
+        "supported_cases": 344,
+        "rejected_inputs": 7,
+        "statuses": {
+          "not_checked": 244,
+          "insufficient_information": 98,
+          "checked": 2
+        },
+        "single_rule_coverage": {
+          "checked_rule_count": 2,
+          "pending_rule_count": 116,
+          "checked_candidate_count": 2,
+          "candidate_count": 593
+        },
+        "pair_coverage": {
+          "candidate_pair_count": 387,
+          "checked_pair_count": 0,
+          "pending_pair_count": 0,
+          "uncovered_pair_count": 387
+        },
+        "candidate_pair_universe": 387,
+        "executed_rule_case_counts": {
+          "medication.metformin.egfr": 2
+        },
+        "cases_with_single_rule_executed": 2,
+        "cases_with_pair_rule_executed": 0,
+        "cases_with_any_check_executed": 2,
+        "any_check_case_coverage_supported": 0.005813953488372093,
+        "any_check_case_coverage_all_inputs": 0.005698005698005698,
+        "flagged_cases": 0,
+        "single_rule_flags": {},
+        "potential_pair_flags": {},
+        "candidates_unchanged": true,
+        "clinical_accuracy": null
+      }
+    },
+    "baseline_check_reports_equal": true,
+    "prediction_source": "D:\\Frank\\agent_explore\\medical-medication-agent\\outputs\\data_evaluation\\agent-rxnorm-context-20261114",
+    "reference_path": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\data_evaluation\\resources\\check-reference-v1.json",
+    "rule_paths": {
+      "old": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\knowledge\\rules\\medication-llm-rxnorm-scope-v1.json",
+      "new": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\knowledge\\rules\\medication-source-reviewed-v2.json"
+    },
+    "product_paths": {
+      "old": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\knowledge\\rules\\rxnorm-rule-products-v1.json",
+      "new": "D:\\Frank\\agent_explore\\medical-medication-agent\\src\\knowledge\\rules\\rxnorm-rule-products-v2.json"
+    },
+    "context_paths": {
+      "old": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\data_evaluation\\synthea-context-v1\\context.json",
+      "new": "D:\\Frank\\agent_explore\\medical-medication-agent\\data\\processed\\data_evaluation\\synthea-context-v2\\context.json"
+    },
+    "limitations": [
+      "No independently adjudicated clinical labels for these patient records.",
+      "Source references are synthetic and role-separated, not statistically independent model or expert annotations.",
+      "New scope includes product-source narrowing, additional single-drug rules and potential candidate combinations.",
+      "A checked rule or proposed pair never means a whole prescription is safe or drugs were actually coadministered."
+    ]
+  },
+  "context": {
+    "version": "synthea-recorded-context-v2",
+    "summary": {
+      "splits": {
+        "train": {
+          "cases": 1433,
+          "known_age": 1433,
+          "recorded_cad_positive": 124,
+          "known_egfr": 48,
+          "known_current_cabg_positive": 10
+        },
+        "validation": {
+          "cases": 355,
+          "known_age": 355,
+          "recorded_cad_positive": 32,
+          "known_egfr": 13,
+          "known_current_cabg_positive": 1
+        },
+        "test": {
+          "cases": 351,
+          "known_age": 351,
+          "recorded_cad_positive": 36,
+          "known_egfr": 14,
+          "known_current_cabg_positive": 3
+        }
+      },
+      "audit": {
+        "cad_source_not_available": 59,
+        "cad_same_encounter": 38,
+        "cad_prior_record_unresolved_at_cutoff": 154,
+        "cad_diagnosis_precedes_source_encounter": 29
+      }
+    },
+    "policy": "Same encounter only, latest valid eGFR at/before discharge; conflicting latest values unknown. Legacy mL/min accepted only with exact indexed LOINC and description containing 1.73. CABG recorded within encounter gives true; missing never gives false. No drug targets or future encounters used; this is retrospective, not prospective advice. Age is completed years at encounter end. CAD is exact SNOMED 53741008, recorded in the same encounter or an encounter ended before current start, with no resolution recorded by current end. Resolution on cutoff date is ambiguous. Missing/resolved records do not become false. Later resolution dates are censored, not exposed as current facts. No other diseases or pregnancy inferred from open condition intervals."
+  },
+  "source_field_audit_scope": "Only original train/validation input cases and source tables; no test predictions or medication targets inspected.",
+  "development_observation_counts": {
+    "train": {
+      "8480-6": {
+        "cases_with_in_interval_record": 188,
+        "consistent_latest": 188
+      },
+      "8462-4": {
+        "cases_with_in_interval_record": 188,
+        "consistent_latest": 188
+      },
+      "8867-4": {
+        "cases_with_in_interval_record": 188,
+        "consistent_latest": 188
+      },
+      "29463-7": {
+        "cases_with_in_interval_record": 188,
+        "consistent_latest": 188
+      },
+      "6298-4": {
+        "cases_with_in_interval_record": 97,
+        "consistent_latest": 97
+      },
+      "38483-4": {
+        "cases_with_in_interval_record": 97,
+        "consistent_latest": 76,
+        "conflicting_latest": 21
+      },
+      "33914-3": {
+        "cases_with_in_interval_record": 61,
+        "consistent_latest": 48,
+        "conflicting_latest": 13
+      },
+      "1742-6": {
+        "cases_with_in_interval_record": 22,
+        "consistent_latest": 22
+      },
+      "1920-8": {
+        "cases_with_in_interval_record": 22,
+        "consistent_latest": 22
+      },
+      "72166-2": {
+        "cases_with_in_interval_record": 188,
+        "consistent_latest": 188
+      }
+    },
+    "validation": {
+      "8480-6": {
+        "cases_with_in_interval_record": 47,
+        "consistent_latest": 47
+      },
+      "8462-4": {
+        "cases_with_in_interval_record": 47,
+        "consistent_latest": 47
+      },
+      "8867-4": {
+        "cases_with_in_interval_record": 47,
+        "consistent_latest": 47
+      },
+      "29463-7": {
+        "cases_with_in_interval_record": 47,
+        "consistent_latest": 47
+      },
+      "6298-4": {
+        "cases_with_in_interval_record": 19,
+        "consistent_latest": 19
+      },
+      "38483-4": {
+        "cases_with_in_interval_record": 19,
+        "consistent_latest": 15,
+        "conflicting_latest": 4
+      },
+      "33914-3": {
+        "cases_with_in_interval_record": 13,
+        "consistent_latest": 13
+      },
+      "1742-6": {
+        "cases_with_in_interval_record": 6,
+        "consistent_latest": 6
+      },
+      "1920-8": {
+        "cases_with_in_interval_record": 6,
+        "consistent_latest": 6
+      },
+      "72166-2": {
+        "cases_with_in_interval_record": 47,
+        "consistent_latest": 47
+      }
+    }
+  },
+  "cad_source_audit": {
+    "scope": "Train and validation source records only; no test predictions inspected",
+    "source_definition_correction": "Official CSV dictionary defines conditions START as date diagnosed, STOP as date resolved if applicable, and ENCOUNTER as the diagnostic encounter. The earlier audit field name onset must be read as diagnosis date; it is not authored/recorded time.",
+    "source_dictionary": "https://github.com/synthetichealth/synthea/wiki/CSV-File-Data-Dictionary",
+    "code_system": "SNOMED-CT",
+    "code": "53741008",
+    "source_description": "Coronary Heart Disease",
+    "development_source_condition_rows": 47,
+    "valid_source_encounter_intervals": 47,
+    "matching_source_patient_links": 47,
+    "blank_condition_stop": 47,
+    "diagnosis_date_equal_source_encounter_start_date": 40,
+    "diagnosis_date_one_day_before_source_encounter_start_date": 7,
+    "diagnosis_date_after_source_encounter_end_date": 0,
+    "same_encounter_positive_cases": {
+      "train": 20,
+      "validation": 10
+    },
+    "prior_encounter_ended_by_current_start_positive_cases": {
+      "train": 104,
+      "validation": 22
+    },
+    "record_status_positive_at_current_cutoff": {
+      "train": 124,
+      "validation": 32
+    },
+    "case_denominators": {
+      "train": 1433,
+      "validation": 355
+    },
+    "policy": "Require exact source patient/encounter link, a valid source encounter interval ending no later than current encounter cutoff, condition diagnosis date <= cutoff date, and STOP blank or strictly after cutoff date. STOP on cutoff date is unknown. Preserve this as source-recorded CAD status, not independently verified present disease activity. No row means unknown, never false.",
+    "provenance_fields": [
+      "condition_code",
+      "condition_start_date",
+      "condition_stop_date",
+      "source_encounter_start",
+      "source_encounter_end",
+      "availability_assumption",
+      "current_cutoff"
+    ],
+    "availability_assumption": "The diagnostic source encounter is complete by cutoff. No separate real-time authored/recorded timestamp exists in this CSV, so do not fabricate recorded_at=conditions.START.",
+    "date_gap_note": "Seven records have a one-day diagnosis/source-encounter date gap. No multi-year CAD mismatch was found. Do not repair dates or claim a timezone cause without evidence; source encounter completion supplies the conservative availability boundary.",
+    "negative_evidence": "No explicit CAD-negative field/record was established; absent code or a resolved STOP does not become a clinical absence judgment."
+  },
+  "rule_related_candidate_counts": {
+    "860975": 29,
+    "310965": 55,
+    "198405": 13,
+    "198014": 0,
+    "849574": 34,
+    "1091392": 0,
+    "1049221": 0,
+    "1860154": 1,
+    "833036": 3,
+    "856987": 0,
+    "857005": 0,
+    "861467": 0,
+    "197591": 1,
+    "204892": 0
+  },
+  "pending_rule_instances": {
+    "medication.ibuprofen.cabg": 55,
+    "medication.naproxen.cabg": 34,
+    "medication.metformin.egfr": 27
+  },
+  "scope_accounting_correction": {
+    "initial_output": "outputs/data_evaluation/check-coverage-20261114",
+    "initial_new_rules_new_facts": {
+      "input_cases": 351,
+      "supported_cases": 344,
+      "rejected_inputs": 7,
+      "statuses": {
+        "not_checked": 155,
+        "insufficient_information": 188,
+        "checked": 1
+      },
+      "single_rule_coverage": {
+        "checked_rule_count": 2,
+        "pending_rule_count": 116,
+        "checked_candidate_count": 2,
+        "candidate_count": 593
+      },
+      "pair_coverage": {
+        "candidate_pair_count": 387,
+        "checked_pair_count": 0,
+        "pending_pair_count": 223,
+        "uncovered_pair_count": 164
+      },
+      "candidate_pair_universe": 387,
+      "executed_rule_case_counts": {
+        "medication.metformin.egfr": 2
+      },
+      "cases_with_single_rule_executed": 2,
+      "cases_with_pair_rule_executed": 0,
+      "cases_with_any_check_executed": 2,
+      "any_check_case_coverage_supported": 0.005813953488372093,
+      "any_check_case_coverage_all_inputs": 0.005698005698005698,
+      "flagged_cases": 0,
+      "single_rule_flags": {},
+      "potential_pair_flags": {},
+      "candidates_unchanged": true,
+      "clinical_accuracy": null
+    },
+    "cause": "Known original RxCUIs outside exact product allowlists were counted as missing identity. Added source-known code list without inventing full identity or expanding rules.",
+    "final_product_metadata_version": "rxnorm-rule-products-v2.1",
+    "reference_sha_unchanged": true,
+    "reference_agreement_unchanged": true,
+    "executed_single_rule_count_unchanged": true
+  },
+  "verification": {
+    "data_evaluation_tests_this_turn": 32,
+    "knowledge_tests_this_turn": 50,
+    "total_related_tests_this_turn": 82,
+    "recommendation_module_changed": false,
+    "training_performed": false,
+    "new_model_or_dependencies": false,
+    "single_fixed_index": 0,
+    "single_actual_inference_status": "not_checked",
+    "single_candidate_count": 1
+  },
+  "conclusion": "Actual executable coverage remains 2/344 supported cases (2/351 all inputs); no clinical effectiveness or coverage improvement claim."
+}

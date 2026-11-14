@@ -21,17 +21,22 @@ data_evaluation/
 └── reports/      日后放可提交的聚合统计与验收报告
 ```
 
-目前仅有说明和目录占位，尚无本模块业务实现。配置、检查和报告由 A 随实现填写，不把空目录算作完成。
+当前A1支持Demo/Synthea关联、审计、筛选、患者划分和标签隔离，单患者入口保留。A2/A3已实现固定病例上的真实推荐→规则核查→状态整理及统一评价；新增72原始RxNorm标签与同次事实核查，命令见[RUNNING.md](RUNNING.md)，最新结果见[RxNorm报告](reports/rxnorm-agent-20261114.md)，旧38类结果见[原集成报告](reports/agent-integration-20261114.md)。A1统计仍见[data-summary.md](reports/data-summary.md)。
 
-## 建议实现文件，尚未创建
+## 实现文件与后续计划
 
 | 文件 | 建议职责 | 不承担什么 |
 |---|---|---|
-| prepare.py | 读取源表、组织病例、筛选、按患者划分 | 不负责药物分类映射和模型整数词表 |
-| evaluate.py | 读取标准答案与全词表分数，计算统一指标 | 不训练模型、不根据测试结果选阈值 |
-| pipeline.py | 校验输入、调用 B 推荐和 C 核查、组织结果 | 不复制 B/C 的实现，不训练时临时编造规则 |
+| prepare.py、cohort.py（A1 已实现） | 全量病例、审计、筛选、患者划分；保留单患者入口 | 不负责药物映射和模型整数词表 |
+| evaluate.py（已实现） | 调用真实链，复用B指标，分别报告全队列覆盖与支持子集分数 | 不训练模型、不根据测试结果选阈值 |
+| pipeline.py（已实现） | 校验输入、调用B推荐和C核查、记录轨迹与下一动作 | 不复制B/C实现、不改候选、不补造病史 |
+| prepare_context.py（已实现） | 从原ZIP提取同次eGFR/阳性CABG及出处，保持未知 | 不读取当前用药答案，不推断缺记录等于阴性 |
+| evaluate_checks.py（已实现） | 固定预测四分支重放；读取独立编写的静态来源参照评分 | 不用规则引擎生成真值，不把参照分数称临床准确率 |
+| compare_rxnorm.py（已实现） | 固定病例与目标比较原码、类别投影和训练众数对照 | 不由测试药品挑候选，不按测试选阈值 |
 
 文件名是拆分建议；若发现合并文件更清楚，可以先在 TASKS.md 说明。不要仅为目录齐全创建空 Python 文件。
+
+最新v2上下文另补年龄和记录态CAD；四分支与40条独立角色来源参照已实际完成，覆盖仍2/344，未提高。见[核查报告](reports/check-coverage-20261114.md)和[具体命令](RUNNING.md#来源范围v2与独立编写参照)。来源参照明确虚构，不是新增患者数据。
 
 ## 输入和输出
 
@@ -59,6 +64,57 @@ manifest 是描述数据来源和版本的清单，字段建议见 [协议第 9 
 
 指标的计算方式先固定，再接模型输出。集成阶段先用仓库里的 [虚构 Case](../../examples/case.synthetic.json)、[Recommendation](../../examples/recommendation.synthetic.json)、[CheckReport](../../examples/check.synthetic.json) 对齐字段；这些样例不能计入模型指标。
 
-## 运行说明填写区
+## A1 全量运行
 
-待 A1 实现后补充实际入口、安装依赖、运行命令和产物示例。当前可运行的下载/预览命令见 [开工步骤](../../docs/onboarding.md)，这里尚无可运行的 prepare/evaluate/pipeline 入口。
+在项目根目录执行（仅使用 Python 标准库）：
+
+```powershell
+.venv\Scripts\python.exe src/data_evaluation/prepare.py --dataset all
+.venv\Scripts\python.exe -m unittest discover -s src/data_evaluation/tests -v
+```
+
+其他电脑用自己的 Python 解释器。可单选 --dataset mimic 或 --dataset synthea；--config 可指定 JSON 配置，默认 configs/preparation.json。路径相对仓库根目录。v3 全量层保留全部能关联的就诊；主任务候选默认 seed=8、4:1:1、诊断与药物非空、每人至少两次有效就诊，允许空操作集合，源表不修改。空操作的实际模型路径核验见 [报告](reports/empty-procedures.md)。require_procedures=true 可恢复严格条件供对照，但应换用独立输出目录。
+
+输出目录已存在且非空时拒绝覆盖。重跑请复制配置并改为新版本输出目录，再用 --config 指定。相同源数据、规则和种子得到相同患者划分。
+
+每套数据输出至 data/processed/data_evaluation/<数据集与版本>/：
+
+| 文件 | 内容 |
+|---|---|
+| visits.jsonl | 全量可关联就诊，保留单次就诊、缺失/无效时间和原始药物记录；未分配主任务集合 |
+| visits.audit.jsonl | 与 visits.jsonl 相同的全量审计别名，兼容先前读取方式 |
+| main_visits.jsonl | 至少两次有效就诊患者的有效学习记录，含当前药物监督答案及集合归属 |
+| split.json | 主任务候选患者的训练、验证、测试清单，本地保存；不覆盖全量层单次患者 |
+| prediction_examples.jsonl | 所有主任务候选就诊的 case/target，保留未知历史样例供无历史适配 |
+| main_prediction_examples.jsonl | 主任务实际预测样本：至少有一次已结束且含可用药物历史的就诊，标签单独保存 |
+| manifest.json | 来源、配置、代码提交及脏工作区标记、规则和统计 |
+| summary.json | 聚合统计 |
+
+训练/验证患者数按比例向下取整，其余归测试；至少三名患者但出现空集时，显式调整为验证/测试各一人、其余训练，标记 small_sample_split_adjustment。不足三人直接报错。
+
+空代码和 0 不加入正常代码集合，原始药物记录和无效行数保留；此处不做 NDC/RxNorm → ATC 映射。跨患者关联、重复主键、缺表头报错；孤立明细单独计数。空集合只表示源表没有匹配记录，不证明临床上不存在。
+
+历史只取同患者筛选后已经结束且严格早于当前开始的就诊，并排除日期未知/不早于当前的历史药物记录。history=null 表示未取得符合条件的历史。过敏、肾功能保持未知，不做慢性病跨就诊补全。任务是回顾性就诊集合预测，当前诊断/操作被视为可用，不代表入院时已获知所有信息。
+
+真实 Demo 沿用 restricted 的真实病例处理模式，许可仍为官方公开 Demo 的 ODbL；该字段不表示 Demo 需要访问审批。所有病例、划分、预测样例均被 Git 忽略。
+
+v3 采用独立输出目录，保留 v1/v2 结果供对照。10059 的两次住院均保留，并进入两次就诊主任务候选；其中第二次可形成一条有历史预测样本。单次患者保留于全量层，后续无历史对照需先检查模型支持并制定与当前患者归属兼容的划分，不自动混入本次主任务。
+
+空操作保留为 procedures=[]，context.procedure_record_status 标为 not_recorded；有编码则为 recorded。不代表已确认患者未接受操作，也不为模型虚构操作代码。历史同样保留空集合。A1 的11个标准库测试与模型核验是两套检查；后者需单独执行 probe_empty_procedures.py，使用已有 PyTorch/NumPy，不要求数据读取阶段安装模型依赖。
+
+B 应读取 main_visits.jsonl/split.json 生成模型词表与图，使用 main_prediction_examples.jsonl 做有历史任务。主任务候选的第一条或重叠就诊未必有可用历史，不能把所有候选就诊数当作有历史预测样本数。公开 SSPNet eval_one_epoch 仍有 len(input_seq)<3 的跳过条件，B 必须按新任务显式适配，记录与原公开评估方式的差异，不能直接照搬后悄悄漏评两次就诊患者。
+
+## 单患者教学入口
+
+在项目根目录，用可用 Python 运行（仅使用标准库，无需安装 PyTorch）：
+
+```powershell
+.venv\Scripts\python.exe src/data_evaluation/prepare.py --patient-id 10059
+.venv\Scripts\python.exe -m unittest discover -s src/data_evaluation/tests -v
+```
+
+其他电脑将 .venv\Scripts\python.exe 替换为自己的 Python 解释器。
+
+输出为 outputs/data_evaluation/patient-10059.json，本地保存、不提交 Git。已核验顺序 142582 → 122098，诊断/操作/处方原始行数分别为 9/2/25、14/8/70；三个虚构记录测试通过。
+
+这是 patient-preview-v1 教学格式，尚不是共享协议的最终 visits/Case：diagnosis_codes、procedure_codes 为去重编码，source_records 保留三类完整明细。处方暂不映射、不去重，NDC=0 等原始值保留；空集合只表示本源表中没有匹配记录，不表示临床上确认无相关情况。本步骤未构造历史推理输入，visit_index 只表示排序，不证明所有历史事实当时已可用。

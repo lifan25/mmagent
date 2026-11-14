@@ -1,0 +1,5728 @@
+{
+  "schema_version": "rxnorm-products-v1",
+  "retrieved_at": "2026-11-14T10:31:12.696355+00:00",
+  "version": {
+    "version": "02-Nov-2026",
+    "apiVersion": "3.1.357"
+  },
+  "scope": "Original product IDs, no brand/ingredient remapping and no patient records",
+  "drugs": {
+    "1014676": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "112010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "112010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1014676",
+          "name": "cetirizine hydrochloride 5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "20610",
+              "baseName": "cetirizine",
+              "bossRxcui": "203150",
+              "bossName": "cetirizine hydrochloride",
+              "activeIngredientRxcui": "203150",
+              "activeIngredientName": "cetirizine hydrochloride",
+              "moietyRxcui": "20610",
+              "moietyName": "cetirizine",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "20610",
+              "ingredientName": "cetirizine"
+            }
+          ]
+        }
+      }
+    },
+    "1043400": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "122010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "122010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1043400",
+          "name": "acetaminophen 21.7 MG/ML / dextromethorphan hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "161",
+              "baseName": "acetaminophen",
+              "bossRxcui": "161",
+              "bossName": "acetaminophen",
+              "activeIngredientRxcui": "161",
+              "activeIngredientName": "acetaminophen",
+              "moietyRxcui": "161",
+              "moietyName": "acetaminophen",
+              "numeratorValue": "21.7",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            },
+            {
+              "baseRxcui": "3289",
+              "baseName": "dextromethorphan",
+              "bossRxcui": "102490",
+              "bossName": "dextromethorphan hydrobromide",
+              "activeIngredientRxcui": "102490",
+              "activeIngredientName": "dextromethorphan hydrobromide",
+              "moietyRxcui": "3289",
+              "moietyName": "dextromethorphan",
+              "numeratorValue": "1",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            },
+            {
+              "baseRxcui": "3642",
+              "baseName": "doxylamine",
+              "bossRxcui": "23665",
+              "bossName": "doxylamine succinate",
+              "activeIngredientRxcui": "23665",
+              "activeIngredientName": "doxylamine succinate",
+              "moietyRxcui": "3642",
+              "moietyName": "doxylamine",
+              "numeratorValue": "0.417",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316968",
+              "doseFormName": "Oral Solution"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151137",
+              "doseFormGroupName": "Oral Liquid Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "161",
+              "ingredientName": "acetaminophen"
+            },
+            {
+              "ingredientRxcui": "3289",
+              "ingredientName": "dextromethorphan"
+            },
+            {
+              "ingredientRxcui": "3642",
+              "ingredientName": "doxylamine"
+            }
+          ]
+        }
+      }
+    },
+    "1049221": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "012011",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "012011",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1049221",
+          "name": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "161",
+              "baseName": "acetaminophen",
+              "bossRxcui": "161",
+              "bossName": "acetaminophen",
+              "activeIngredientRxcui": "161",
+              "activeIngredientName": "acetaminophen",
+              "moietyRxcui": "161",
+              "moietyName": "acetaminophen",
+              "numeratorValue": "325",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            },
+            {
+              "baseRxcui": "7804",
+              "baseName": "oxycodone",
+              "bossRxcui": "82063",
+              "bossName": "oxycodone hydrochloride",
+              "activeIngredientRxcui": "82063",
+              "activeIngredientName": "oxycodone hydrochloride",
+              "moietyRxcui": "7804",
+              "moietyName": "oxycodone",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "161",
+              "ingredientName": "acetaminophen"
+            },
+            {
+              "ingredientRxcui": "7804",
+              "ingredientName": "oxycodone"
+            }
+          ]
+        }
+      }
+    },
+    "1049630": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "012011",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "012011",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1049630",
+          "name": "diphenhydramine hydrochloride 25 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "3498",
+              "baseName": "diphenhydramine",
+              "bossRxcui": "1362",
+              "bossName": "diphenhydramine hydrochloride",
+              "activeIngredientRxcui": "1362",
+              "activeIngredientName": "diphenhydramine hydrochloride",
+              "moietyRxcui": "3498",
+              "moietyName": "diphenhydramine",
+              "numeratorValue": "25",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "3498",
+              "ingredientName": "diphenhydramine"
+            }
+          ]
+        }
+      }
+    },
+    "105078": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Obsolete",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "NO",
+          "activeStartDate": "042005",
+          "activeEndDate": "022026",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "105078",
+          "name": "penicillin G 375 MG/ML Injectable Solution",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7980",
+              "baseName": "penicillin G",
+              "bossRxcui": "7980",
+              "bossName": "penicillin G",
+              "activeIngredientRxcui": "203133",
+              "activeIngredientName": "penicillin G potassium",
+              "moietyRxcui": "7980",
+              "moietyName": "penicillin G",
+              "numeratorValue": "375",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316949",
+              "doseFormName": "Injectable Solution"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7980",
+              "ingredientName": "penicillin G"
+            }
+          ]
+        }
+      }
+    },
+    "105585": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "105585",
+          "name": "methotrexate 2.5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "6851",
+              "baseName": "methotrexate",
+              "bossRxcui": "6851",
+              "bossName": "methotrexate",
+              "activeIngredientRxcui": "287734",
+              "activeIngredientName": "methotrexate sodium",
+              "moietyRxcui": "6851",
+              "moietyName": "methotrexate",
+              "numeratorValue": "2.5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "6851",
+              "ingredientName": "methotrexate"
+            }
+          ]
+        }
+      }
+    },
+    "106892": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "062005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "062005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "106892",
+          "name": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]",
+          "tty": "SBD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "YES"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "1605101",
+              "baseName": "insulin isophane",
+              "bossRxcui": "253181",
+              "bossName": "insulin isophane, human",
+              "activeIngredientRxcui": "253181",
+              "activeIngredientName": "insulin isophane, human",
+              "moietyRxcui": "253181",
+              "moietyName": "insulin isophane, human",
+              "numeratorValue": "70",
+              "numeratorUnit": "UNT",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            },
+            {
+              "baseRxcui": "253182",
+              "baseName": "insulin, regular, human",
+              "bossRxcui": "253182",
+              "bossName": "insulin, regular, human",
+              "activeIngredientRxcui": "253182",
+              "activeIngredientName": "insulin, regular, human",
+              "moietyRxcui": "253182",
+              "moietyName": "insulin, regular, human",
+              "numeratorValue": "30",
+              "numeratorUnit": "UNT",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316950",
+              "doseFormName": "Injectable Suspension"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "1605101",
+              "ingredientName": "insulin isophane"
+            },
+            {
+              "ingredientRxcui": "253182",
+              "ingredientName": "insulin, regular, human"
+            }
+          ],
+          "scdConcept": {
+            "scdConceptRxcui": "311048",
+            "scdConceptName": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension"
+          }
+        }
+      }
+    },
+    "1091392": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "032011",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "032011",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1091392",
+          "name": "methylphenidate hydrochloride 20 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "6901",
+              "baseName": "methylphenidate",
+              "bossRxcui": "203188",
+              "bossName": "methylphenidate hydrochloride",
+              "activeIngredientRxcui": "203188",
+              "activeIngredientName": "methylphenidate hydrochloride",
+              "moietyRxcui": "6901",
+              "moietyName": "methylphenidate",
+              "numeratorValue": "20",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "6901",
+              "ingredientName": "methylphenidate"
+            }
+          ]
+        }
+      }
+    },
+    "1094107": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042011",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042011",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1094107",
+          "name": "phenazopyridine hydrochloride 100 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "8120",
+              "baseName": "phenazopyridine",
+              "bossRxcui": "203197",
+              "bossName": "phenazopyridine hydrochloride",
+              "activeIngredientRxcui": "203197",
+              "activeIngredientName": "phenazopyridine hydrochloride",
+              "moietyRxcui": "8120",
+              "moietyName": "phenazopyridine",
+              "numeratorValue": "100",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "8120",
+              "ingredientName": "phenazopyridine"
+            }
+          ]
+        }
+      }
+    },
+    "1190795": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "112011",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "112011",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1190795",
+          "name": "1 ML atropine sulfate 1 MG/ML Injection",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "1223",
+              "baseName": "atropine",
+              "bossRxcui": "153971",
+              "bossName": "atropine sulfate",
+              "activeIngredientRxcui": "153971",
+              "activeIngredientName": "atropine sulfate",
+              "moietyRxcui": "1223",
+              "moietyName": "atropine",
+              "numeratorValue": "1",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "1",
+            "quantityFactorUnit": "ML"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "1649574",
+              "doseFormName": "Injection"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "1223",
+              "ingredientName": "atropine"
+            }
+          ]
+        }
+      }
+    },
+    "1650142": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "062015",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "062015",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1650142",
+          "name": "doxycycline monohydrate 100 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "3640",
+              "baseName": "doxycycline",
+              "bossRxcui": "3640",
+              "bossName": "doxycycline",
+              "activeIngredientRxcui": "203122",
+              "activeIngredientName": "doxycycline monohydrate",
+              "moietyRxcui": "3640",
+              "moietyName": "doxycycline",
+              "numeratorValue": "100",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "3640",
+              "ingredientName": "doxycycline"
+            }
+          ]
+        }
+      }
+    },
+    "1652673": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "072015",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "072015",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1652673",
+          "name": "doxycycline monohydrate 50 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "3640",
+              "baseName": "doxycycline",
+              "bossRxcui": "3640",
+              "bossName": "doxycycline",
+              "activeIngredientRxcui": "203122",
+              "activeIngredientName": "doxycycline monohydrate",
+              "moietyRxcui": "3640",
+              "moietyName": "doxycycline",
+              "numeratorValue": "50",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "3640",
+              "ingredientName": "doxycycline"
+            }
+          ]
+        }
+      }
+    },
+    "1660014": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "092015",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "092015",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1660014",
+          "name": "1 ML epinephrine 1 MG/ML Injection",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "3992",
+              "baseName": "epinephrine",
+              "bossRxcui": "3992",
+              "bossName": "epinephrine",
+              "activeIngredientRxcui": "3992",
+              "activeIngredientName": "epinephrine",
+              "moietyRxcui": "3992",
+              "moietyName": "epinephrine",
+              "numeratorValue": "1",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "1",
+            "quantityFactorUnit": "ML"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "1649574",
+              "doseFormName": "Injection"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "3992",
+              "ingredientName": "epinephrine"
+            }
+          ]
+        }
+      }
+    },
+    "1804799": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "092016",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "092016",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1804799",
+          "name": "alteplase 100 MG Injection",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "8410",
+              "baseName": "alteplase",
+              "bossRxcui": "8410",
+              "bossName": "alteplase",
+              "activeIngredientRxcui": "8410",
+              "activeIngredientName": "alteplase",
+              "moietyRxcui": "8410",
+              "moietyName": "alteplase",
+              "numeratorValue": "100",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "1649574",
+              "doseFormName": "Injection"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "8410",
+              "ingredientName": "alteplase"
+            }
+          ]
+        }
+      }
+    },
+    "1860154": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "012017",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "012017",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1860154",
+          "name": "Abuse-Deterrent 12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7804",
+              "baseName": "oxycodone",
+              "bossRxcui": "82063",
+              "bossName": "oxycodone hydrochloride",
+              "activeIngredientRxcui": "82063",
+              "activeIngredientName": "oxycodone hydrochloride",
+              "moietyRxcui": "7804",
+              "moietyName": "oxycodone",
+              "numeratorValue": "15",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "12",
+            "quantityFactorUnit": "HR"
+          },
+          "qualitativeDistinction": "Abuse-Deterrent",
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316945",
+              "doseFormName": "Extended Release Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7804",
+              "ingredientName": "oxycodone"
+            }
+          ],
+          "qdFreeConcept": {
+            "qdFreeRxcui": "1049543",
+            "qdFreeName": "12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet"
+          }
+        }
+      }
+    },
+    "1860480": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "012017",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "012017",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "1860480",
+          "name": "1 ML docetaxel 20 MG/ML Injection",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "72962",
+              "baseName": "docetaxel",
+              "bossRxcui": "72962",
+              "bossName": "docetaxel",
+              "activeIngredientRxcui": "72962",
+              "activeIngredientName": "docetaxel",
+              "moietyRxcui": "72962",
+              "moietyName": "docetaxel",
+              "numeratorValue": "20",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "1",
+            "quantityFactorUnit": "ML"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "1649574",
+              "doseFormName": "Injection"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "72962",
+              "ingredientName": "docetaxel"
+            }
+          ]
+        }
+      }
+    },
+    "197319": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "197319",
+          "name": "allopurinol 100 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "519",
+              "baseName": "allopurinol",
+              "bossRxcui": "519",
+              "bossName": "allopurinol",
+              "activeIngredientRxcui": "519",
+              "activeIngredientName": "allopurinol",
+              "moietyRxcui": "519",
+              "moietyName": "allopurinol",
+              "numeratorValue": "100",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "519",
+              "ingredientName": "allopurinol"
+            }
+          ]
+        }
+      }
+    },
+    "197361": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "197361",
+          "name": "amlodipine 5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "17767",
+              "baseName": "amlodipine",
+              "bossRxcui": "17767",
+              "bossName": "amlodipine",
+              "activeIngredientRxcui": "104416",
+              "activeIngredientName": "amlodipine besylate",
+              "moietyRxcui": "17767",
+              "moietyName": "amlodipine",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "17767",
+              "ingredientName": "amlodipine"
+            }
+          ]
+        }
+      }
+    },
+    "197378": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "197378",
+          "name": "astemizole 10 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "42328",
+              "baseName": "astemizole",
+              "bossRxcui": "42328",
+              "bossName": "astemizole",
+              "activeIngredientRxcui": "42328",
+              "activeIngredientName": "astemizole",
+              "moietyRxcui": "42328",
+              "moietyName": "astemizole",
+              "numeratorValue": "10",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "42328",
+              "ingredientName": "astemizole"
+            }
+          ]
+        }
+      }
+    },
+    "197591": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "197591",
+          "name": "diazepam 5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "3322",
+              "baseName": "diazepam",
+              "bossRxcui": "3322",
+              "bossName": "diazepam",
+              "activeIngredientRxcui": "3322",
+              "activeIngredientName": "diazepam",
+              "moietyRxcui": "3322",
+              "moietyName": "diazepam",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "3322",
+              "ingredientName": "diazepam"
+            }
+          ]
+        }
+      }
+    },
+    "197604": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "197604",
+          "name": "digoxin 0.125 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "3407",
+              "baseName": "digoxin",
+              "bossRxcui": "3407",
+              "bossName": "digoxin",
+              "activeIngredientRxcui": "3407",
+              "activeIngredientName": "digoxin",
+              "moietyRxcui": "3407",
+              "moietyName": "digoxin",
+              "numeratorValue": "0.125",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "3407",
+              "ingredientName": "digoxin"
+            }
+          ]
+        }
+      }
+    },
+    "198014": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "198014",
+          "name": "naproxen 500 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7258",
+              "baseName": "naproxen",
+              "bossRxcui": "7258",
+              "bossName": "naproxen",
+              "activeIngredientRxcui": "7258",
+              "activeIngredientName": "naproxen",
+              "moietyRxcui": "7258",
+              "moietyName": "naproxen",
+              "numeratorValue": "500",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7258",
+              "ingredientName": "naproxen"
+            }
+          ]
+        }
+      }
+    },
+    "198031": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "198031",
+          "name": "24 HR nicotine 0.292 MG/HR Transdermal System",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7407",
+              "baseName": "nicotine",
+              "bossRxcui": "7407",
+              "bossName": "nicotine",
+              "activeIngredientRxcui": "7407",
+              "activeIngredientName": "nicotine",
+              "moietyRxcui": "7407",
+              "moietyName": "nicotine",
+              "numeratorValue": "7",
+              "numeratorUnit": "MG",
+              "denominatorValue": "24",
+              "denominatorUnit": "HR"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "24",
+            "quantityFactorUnit": "HR"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316987",
+              "doseFormName": "Transdermal System"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151122",
+              "doseFormGroupName": "Topical Product"
+            },
+            {
+              "doseFormGroupRxcui": "1294723",
+              "doseFormGroupName": "Transdermal Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7407",
+              "ingredientName": "nicotine"
+            }
+          ]
+        }
+      }
+    },
+    "198405": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "198405",
+          "name": "ibuprofen 100 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "5640",
+              "baseName": "ibuprofen",
+              "bossRxcui": "5640",
+              "bossName": "ibuprofen",
+              "activeIngredientRxcui": "5640",
+              "activeIngredientName": "ibuprofen",
+              "moietyRxcui": "5640",
+              "moietyName": "ibuprofen",
+              "numeratorValue": "100",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "5640",
+              "ingredientName": "ibuprofen"
+            }
+          ]
+        }
+      }
+    },
+    "204892": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "204892",
+          "name": "clonazepam 0.25 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "2598",
+              "baseName": "clonazepam",
+              "bossRxcui": "2598",
+              "bossName": "clonazepam",
+              "activeIngredientRxcui": "2598",
+              "activeIngredientName": "clonazepam",
+              "moietyRxcui": "2598",
+              "moietyName": "clonazepam",
+              "numeratorValue": "0.25",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "2598",
+              "ingredientName": "clonazepam"
+            }
+          ]
+        }
+      }
+    },
+    "205923": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "205923",
+          "name": "1 ML epoetin alfa 4000 UNT/ML Injection [Epogen]",
+          "tty": "SBD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "YES"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "105694",
+              "baseName": "epoetin alfa",
+              "bossRxcui": "105694",
+              "bossName": "epoetin alfa",
+              "activeIngredientRxcui": "105694",
+              "activeIngredientName": "epoetin alfa",
+              "moietyRxcui": "105694",
+              "moietyName": "epoetin alfa",
+              "numeratorValue": "4000",
+              "numeratorUnit": "UNT",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "1",
+            "quantityFactorUnit": "ML"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "1649574",
+              "doseFormName": "Injection"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "105694",
+              "ingredientName": "epoetin alfa"
+            }
+          ],
+          "scdConcept": {
+            "scdConceptRxcui": "239999",
+            "scdConceptName": "1 ML epoetin alfa 4000 UNT/ML Injection"
+          }
+        }
+      }
+    },
+    "2123111": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "052019",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "052019",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "2123111",
+          "name": "NDA020503 200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "435",
+              "baseName": "albuterol",
+              "bossRxcui": "435",
+              "bossName": "albuterol",
+              "activeIngredientRxcui": "142153",
+              "activeIngredientName": "albuterol sulfate",
+              "moietyRxcui": "435",
+              "moietyName": "albuterol",
+              "numeratorValue": "0.09",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ACTUAT"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "200",
+            "quantityFactorUnit": "ACTUAT"
+          },
+          "qualitativeDistinction": "NDA020503",
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "721654",
+              "doseFormName": "Metered Dose Inhaler"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151123",
+              "doseFormGroupName": "Inhalant Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "435",
+              "ingredientName": "albuterol"
+            }
+          ],
+          "qdFreeConcept": {
+            "qdFreeRxcui": "745679",
+            "qdFreeName": "200 ACTUAT albuterol 0.09 MG/ACTUAT Metered Dose Inhaler"
+          }
+        }
+      }
+    },
+    "243670": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "243670",
+          "name": "aspirin 81 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "1191",
+              "baseName": "aspirin",
+              "bossRxcui": "1191",
+              "bossName": "aspirin",
+              "activeIngredientRxcui": "1191",
+              "activeIngredientName": "aspirin",
+              "moietyRxcui": "1191",
+              "moietyName": "aspirin",
+              "numeratorValue": "81",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "1191",
+              "ingredientName": "aspirin"
+            }
+          ]
+        }
+      }
+    },
+    "259255": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "259255",
+          "name": "atorvastatin 80 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "83367",
+              "baseName": "atorvastatin",
+              "bossRxcui": "83367",
+              "bossName": "atorvastatin",
+              "activeIngredientRxcui": "83366",
+              "activeIngredientName": "atorvastatin calcium",
+              "moietyRxcui": "83367",
+              "moietyName": "atorvastatin",
+              "numeratorValue": "80",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "83367",
+              "ingredientName": "atorvastatin"
+            }
+          ]
+        }
+      }
+    },
+    "308182": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "308182",
+          "name": "amoxicillin 250 MG Oral Capsule",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "723",
+              "baseName": "amoxicillin",
+              "bossRxcui": "723",
+              "bossName": "amoxicillin",
+              "activeIngredientRxcui": "723",
+              "activeIngredientName": "amoxicillin",
+              "moietyRxcui": "723",
+              "moietyName": "amoxicillin",
+              "numeratorValue": "250",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316965",
+              "doseFormName": "Oral Capsule"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "723",
+              "ingredientName": "amoxicillin"
+            }
+          ]
+        }
+      }
+    },
+    "308192": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "308192",
+          "name": "amoxicillin 500 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "723",
+              "baseName": "amoxicillin",
+              "bossRxcui": "723",
+              "bossName": "amoxicillin",
+              "activeIngredientRxcui": "723",
+              "activeIngredientName": "amoxicillin",
+              "moietyRxcui": "723",
+              "moietyName": "amoxicillin",
+              "numeratorValue": "500",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "723",
+              "ingredientName": "amoxicillin"
+            }
+          ]
+        }
+      }
+    },
+    "308971": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "308971",
+          "name": "carbamazepine 20 MG/ML Oral Suspension [Tegretol]",
+          "tty": "SBD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "YES"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "2002",
+              "baseName": "carbamazepine",
+              "bossRxcui": "2002",
+              "bossName": "carbamazepine",
+              "activeIngredientRxcui": "2002",
+              "activeIngredientName": "carbamazepine",
+              "moietyRxcui": "2002",
+              "moietyName": "carbamazepine",
+              "numeratorValue": "20",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316969",
+              "doseFormName": "Oral Suspension"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151137",
+              "doseFormGroupName": "Oral Liquid Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "2002",
+              "ingredientName": "carbamazepine"
+            }
+          ],
+          "scdConcept": {
+            "scdConceptRxcui": "308976",
+            "scdConceptName": "carbamazepine 20 MG/ML Oral Suspension"
+          }
+        }
+      }
+    },
+    "309043": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "309043",
+          "name": "12 HR cefaclor 500 MG Extended Release Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "2176",
+              "baseName": "cefaclor",
+              "bossRxcui": "2176",
+              "bossName": "cefaclor",
+              "activeIngredientRxcui": "2176",
+              "activeIngredientName": "cefaclor",
+              "moietyRxcui": "2176",
+              "moietyName": "cefaclor",
+              "numeratorValue": "500",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "12",
+            "quantityFactorUnit": "HR"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316945",
+              "doseFormName": "Extended Release Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "2176",
+              "ingredientName": "cefaclor"
+            }
+          ]
+        }
+      }
+    },
+    "309045": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "309045",
+          "name": "cefaclor 250 MG Oral Capsule",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "2176",
+              "baseName": "cefaclor",
+              "bossRxcui": "1450910",
+              "bossName": "cefaclor anhydrous",
+              "activeIngredientRxcui": "2176",
+              "activeIngredientName": "cefaclor",
+              "moietyRxcui": "1450910",
+              "moietyName": "cefaclor anhydrous",
+              "numeratorValue": "250",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316965",
+              "doseFormName": "Oral Capsule"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "2176",
+              "ingredientName": "cefaclor"
+            }
+          ]
+        }
+      }
+    },
+    "309097": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "309097",
+          "name": "cefuroxime 250 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "2194",
+              "baseName": "cefuroxime",
+              "bossRxcui": "2194",
+              "bossName": "cefuroxime",
+              "activeIngredientRxcui": "20493",
+              "activeIngredientName": "cefuroxime axetil",
+              "moietyRxcui": "2194",
+              "moietyName": "cefuroxime",
+              "numeratorValue": "250",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "2194",
+              "ingredientName": "cefuroxime"
+            }
+          ]
+        }
+      }
+    },
+    "309362": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "309362",
+          "name": "clopidogrel 75 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "32968",
+              "baseName": "clopidogrel",
+              "bossRxcui": "32968",
+              "bossName": "clopidogrel",
+              "activeIngredientRxcui": "236991",
+              "activeIngredientName": "clopidogrel bisulfate",
+              "moietyRxcui": "32968",
+              "moietyName": "clopidogrel",
+              "numeratorValue": "75",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "32968",
+              "ingredientName": "clopidogrel"
+            }
+          ]
+        }
+      }
+    },
+    "310325": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "310325",
+          "name": "ferrous sulfate 325 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "24947",
+              "baseName": "ferrous sulfate",
+              "bossRxcui": "1541238",
+              "bossName": "ferrous cation",
+              "activeIngredientRxcui": "24947",
+              "activeIngredientName": "ferrous sulfate",
+              "moietyRxcui": "1541238",
+              "moietyName": "ferrous cation",
+              "numeratorValue": "325",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "24947",
+              "ingredientName": "ferrous sulfate"
+            }
+          ]
+        }
+      }
+    },
+    "310385": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "310385",
+          "name": "fluoxetine 20 MG Oral Capsule",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "4493",
+              "baseName": "fluoxetine",
+              "bossRxcui": "4493",
+              "bossName": "fluoxetine",
+              "activeIngredientRxcui": "227224",
+              "activeIngredientName": "fluoxetine hydrochloride",
+              "moietyRxcui": "4493",
+              "moietyName": "fluoxetine",
+              "numeratorValue": "20",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316965",
+              "doseFormName": "Oral Capsule"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "4493",
+              "ingredientName": "fluoxetine"
+            }
+          ]
+        }
+      }
+    },
+    "310436": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "310436",
+          "name": "galantamine 4 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "4637",
+              "baseName": "galantamine",
+              "bossRxcui": "4637",
+              "bossName": "galantamine",
+              "activeIngredientRxcui": "860693",
+              "activeIngredientName": "galantamine hydrobromide",
+              "moietyRxcui": "4637",
+              "moietyName": "galantamine",
+              "numeratorValue": "4",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "4637",
+              "ingredientName": "galantamine"
+            }
+          ]
+        }
+      }
+    },
+    "310798": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "310798",
+          "name": "hydrochlorothiazide 25 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "5487",
+              "baseName": "hydrochlorothiazide",
+              "bossRxcui": "5487",
+              "bossName": "hydrochlorothiazide",
+              "activeIngredientRxcui": "5487",
+              "activeIngredientName": "hydrochlorothiazide",
+              "moietyRxcui": "5487",
+              "moietyName": "hydrochlorothiazide",
+              "numeratorValue": "25",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "5487",
+              "ingredientName": "hydrochlorothiazide"
+            }
+          ]
+        }
+      }
+    },
+    "310965": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "310965",
+          "name": "ibuprofen 200 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "5640",
+              "baseName": "ibuprofen",
+              "bossRxcui": "5640",
+              "bossName": "ibuprofen",
+              "activeIngredientRxcui": "5640",
+              "activeIngredientName": "ibuprofen",
+              "moietyRxcui": "5640",
+              "moietyName": "ibuprofen",
+              "numeratorValue": "200",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "5640",
+              "ingredientName": "ibuprofen"
+            }
+          ]
+        }
+      }
+    },
+    "311989": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "311989",
+          "name": "nitrofurantoin 5 MG/ML Oral Suspension",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7454",
+              "baseName": "nitrofurantoin",
+              "bossRxcui": "7454",
+              "bossName": "nitrofurantoin",
+              "activeIngredientRxcui": "7454",
+              "activeIngredientName": "nitrofurantoin",
+              "moietyRxcui": "7454",
+              "moietyName": "nitrofurantoin",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316969",
+              "doseFormName": "Oral Suspension"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151137",
+              "doseFormGroupName": "Oral Liquid Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7454",
+              "ingredientName": "nitrofurantoin"
+            }
+          ]
+        }
+      }
+    },
+    "312617": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "312617",
+          "name": "prednisone 5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "8640",
+              "baseName": "prednisone",
+              "bossRxcui": "8640",
+              "bossName": "prednisone",
+              "activeIngredientRxcui": "8640",
+              "activeIngredientName": "prednisone",
+              "moietyRxcui": "8640",
+              "moietyName": "prednisone",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "8640",
+              "ingredientName": "prednisone"
+            }
+          ]
+        }
+      }
+    },
+    "312961": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "312961",
+          "name": "simvastatin 20 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "36567",
+              "baseName": "simvastatin",
+              "bossRxcui": "36567",
+              "bossName": "simvastatin",
+              "activeIngredientRxcui": "36567",
+              "activeIngredientName": "simvastatin",
+              "moietyRxcui": "36567",
+              "moietyName": "simvastatin",
+              "numeratorValue": "20",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "36567",
+              "ingredientName": "simvastatin"
+            }
+          ]
+        }
+      }
+    },
+    "313185": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "313185",
+          "name": "tacrine 10 MG Oral Capsule",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "10318",
+              "baseName": "tacrine",
+              "bossRxcui": "10318",
+              "bossName": "tacrine",
+              "activeIngredientRxcui": "10318",
+              "activeIngredientName": "tacrine",
+              "moietyRxcui": "10318",
+              "moietyName": "tacrine",
+              "numeratorValue": "10",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316965",
+              "doseFormName": "Oral Capsule"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "10318",
+              "ingredientName": "tacrine"
+            }
+          ]
+        }
+      }
+    },
+    "313782": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "313782",
+          "name": "acetaminophen 325 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "161",
+              "baseName": "acetaminophen",
+              "bossRxcui": "161",
+              "bossName": "acetaminophen",
+              "activeIngredientRxcui": "161",
+              "activeIngredientName": "acetaminophen",
+              "moietyRxcui": "161",
+              "moietyName": "acetaminophen",
+              "numeratorValue": "325",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "161",
+              "ingredientName": "acetaminophen"
+            }
+          ]
+        }
+      }
+    },
+    "313820": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "313820",
+          "name": "acetaminophen 160 MG Chewable Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "161",
+              "baseName": "acetaminophen",
+              "bossRxcui": "161",
+              "bossName": "acetaminophen",
+              "activeIngredientRxcui": "161",
+              "activeIngredientName": "acetaminophen",
+              "moietyRxcui": "161",
+              "moietyName": "acetaminophen",
+              "numeratorValue": "160",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "91058",
+              "doseFormName": "Chewable Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            },
+            {
+              "doseFormGroupRxcui": "1294716",
+              "doseFormGroupName": "Chewable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "161",
+              "ingredientName": "acetaminophen"
+            }
+          ]
+        }
+      }
+    },
+    "314231": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "314231",
+          "name": "simvastatin 10 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "36567",
+              "baseName": "simvastatin",
+              "bossRxcui": "36567",
+              "bossName": "simvastatin",
+              "activeIngredientRxcui": "36567",
+              "activeIngredientName": "simvastatin",
+              "moietyRxcui": "36567",
+              "moietyName": "simvastatin",
+              "numeratorValue": "10",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "36567",
+              "ingredientName": "simvastatin"
+            }
+          ]
+        }
+      }
+    },
+    "429503": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "429503",
+          "name": "hydrochlorothiazide 12.5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "5487",
+              "baseName": "hydrochlorothiazide",
+              "bossRxcui": "5487",
+              "bossName": "hydrochlorothiazide",
+              "activeIngredientRxcui": "5487",
+              "activeIngredientName": "hydrochlorothiazide",
+              "moietyRxcui": "5487",
+              "moietyName": "hydrochlorothiazide",
+              "numeratorValue": "12.5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "5487",
+              "ingredientName": "hydrochlorothiazide"
+            }
+          ]
+        }
+      }
+    },
+    "477045": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "477045",
+          "name": "chlorpheniramine maleate 2 MG/ML Oral Solution",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "2400",
+              "baseName": "chlorpheniramine",
+              "bossRxcui": "142429",
+              "bossName": "chlorpheniramine maleate",
+              "activeIngredientRxcui": "142429",
+              "activeIngredientName": "chlorpheniramine maleate",
+              "moietyRxcui": "2400",
+              "moietyName": "chlorpheniramine",
+              "numeratorValue": "2",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316968",
+              "doseFormName": "Oral Solution"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151137",
+              "doseFormGroupName": "Oral Liquid Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "2400",
+              "ingredientName": "chlorpheniramine"
+            }
+          ]
+        }
+      }
+    },
+    "562251": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "092005",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "092005",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "562251",
+          "name": "amoxicillin 250 MG / clavulanate 125 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "48203",
+              "baseName": "clavulanate",
+              "bossRxcui": "21216",
+              "bossName": "clavulanic acid",
+              "activeIngredientRxcui": "831418",
+              "activeIngredientName": "clavulanate potassium",
+              "moietyRxcui": "21216",
+              "moietyName": "clavulanic acid",
+              "numeratorValue": "125",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            },
+            {
+              "baseRxcui": "723",
+              "baseName": "amoxicillin",
+              "bossRxcui": "1297882",
+              "bossName": "amoxicillin anhydrous",
+              "activeIngredientRxcui": "723",
+              "activeIngredientName": "amoxicillin",
+              "moietyRxcui": "1297882",
+              "moietyName": "amoxicillin anhydrous",
+              "numeratorValue": "250",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "48203",
+              "ingredientName": "clavulanate"
+            },
+            {
+              "ingredientRxcui": "723",
+              "ingredientName": "amoxicillin"
+            }
+          ]
+        }
+      }
+    },
+    "608139": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "022006",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "022006",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "608139",
+          "name": "atomoxetine 100 MG Oral Capsule",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "38400",
+              "baseName": "atomoxetine",
+              "bossRxcui": "38400",
+              "bossName": "atomoxetine",
+              "activeIngredientRxcui": "353103",
+              "activeIngredientName": "atomoxetine hydrochloride",
+              "moietyRxcui": "38400",
+              "moietyName": "atomoxetine",
+              "numeratorValue": "100",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316965",
+              "doseFormName": "Oral Capsule"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "38400",
+              "ingredientName": "atomoxetine"
+            }
+          ]
+        }
+      }
+    },
+    "665078": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "122006",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "122006",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "665078",
+          "name": "loratadine 5 MG Chewable Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "28889",
+              "baseName": "loratadine",
+              "bossRxcui": "28889",
+              "bossName": "loratadine",
+              "activeIngredientRxcui": "28889",
+              "activeIngredientName": "loratadine",
+              "moietyRxcui": "28889",
+              "moietyName": "loratadine",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "91058",
+              "doseFormName": "Chewable Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            },
+            {
+              "doseFormGroupRxcui": "1294716",
+              "doseFormGroupName": "Chewable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "28889",
+              "ingredientName": "loratadine"
+            }
+          ]
+        }
+      }
+    },
+    "705129": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "062007",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "062007",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "705129",
+          "name": "nitroglycerin 0.4 MG/ACTUAT Mucosal Spray",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "4917",
+              "baseName": "nitroglycerin",
+              "bossRxcui": "4917",
+              "bossName": "nitroglycerin",
+              "activeIngredientRxcui": "4917",
+              "activeIngredientName": "nitroglycerin",
+              "moietyRxcui": "4917",
+              "moietyName": "nitroglycerin",
+              "numeratorValue": "0.4",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ACTUAT"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "346163",
+              "doseFormName": "Mucosal Spray"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151129",
+              "doseFormGroupName": "Mucosal Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "4917",
+              "ingredientName": "nitroglycerin"
+            }
+          ]
+        }
+      }
+    },
+    "746030": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "012008",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "012008",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "746030",
+          "name": "atenolol 50 MG / chlorthalidone 25 MG Oral Tablet [Tenoretic]",
+          "tty": "SBD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "YES"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "1202",
+              "baseName": "atenolol",
+              "bossRxcui": "1202",
+              "bossName": "atenolol",
+              "activeIngredientRxcui": "1202",
+              "activeIngredientName": "atenolol",
+              "moietyRxcui": "1202",
+              "moietyName": "atenolol",
+              "numeratorValue": "50",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            },
+            {
+              "baseRxcui": "2409",
+              "baseName": "chlorthalidone",
+              "bossRxcui": "2409",
+              "bossName": "chlorthalidone",
+              "activeIngredientRxcui": "2409",
+              "activeIngredientName": "chlorthalidone",
+              "moietyRxcui": "2409",
+              "moietyName": "chlorthalidone",
+              "numeratorValue": "25",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "1202",
+              "ingredientName": "atenolol"
+            },
+            {
+              "ingredientRxcui": "2409",
+              "ingredientName": "chlorthalidone"
+            }
+          ],
+          "scdConcept": {
+            "scdConceptRxcui": "197383",
+            "scdConceptName": "atenolol 50 MG / chlorthalidone 25 MG Oral Tablet"
+          }
+        }
+      }
+    },
+    "752899": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "022008",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "022008",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "752899",
+          "name": "0.25 ML leuprolide acetate 30 MG/ML Prefilled Syringe",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "42375",
+              "baseName": "leuprolide",
+              "bossRxcui": "203217",
+              "bossName": "leuprolide acetate",
+              "activeIngredientRxcui": "203217",
+              "activeIngredientName": "leuprolide acetate",
+              "moietyRxcui": "42375",
+              "moietyName": "leuprolide",
+              "numeratorValue": "30",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "0.25",
+            "quantityFactorUnit": "ML"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "721656",
+              "doseFormName": "Prefilled Syringe"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "42375",
+              "ingredientName": "leuprolide"
+            }
+          ]
+        }
+      }
+    },
+    "757594": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Obsolete",
+          "source": "RXNORM",
+          "releaseStartDate": "032008",
+          "releaseEndDate": "",
+          "isCurrent": "NO",
+          "activeStartDate": "032008",
+          "activeEndDate": "072022",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "757594",
+          "name": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Jolivette 28 Day]",
+          "tty": "BPCK",
+          "isMultipleIngredient": "NO",
+          "isBranded": "YES"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7514",
+              "baseName": "norethindrone",
+              "bossRxcui": "7514",
+              "bossName": "norethindrone",
+              "activeIngredientRxcui": "7514",
+              "activeIngredientName": "norethindrone",
+              "moietyRxcui": "7514",
+              "moietyName": "norethindrone",
+              "numeratorValue": "0.35",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "746839",
+              "doseFormName": "Pack"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {
+          "packAlias": "Jolivette 28 Day",
+          "packConcept": [
+            {
+              "packRxcui": "198042",
+              "packName": "norethindrone 0.35 MG Oral Tablet",
+              "packNumber": "28"
+            }
+          ]
+        },
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7514",
+              "ingredientName": "norethindrone"
+            }
+          ]
+        }
+      }
+    },
+    "789980": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042008",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042008",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "789980",
+          "name": "ampicillin 100 MG/ML Injectable Solution",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "733",
+              "baseName": "ampicillin",
+              "bossRxcui": "733",
+              "bossName": "ampicillin",
+              "activeIngredientRxcui": "81953",
+              "activeIngredientName": "ampicillin sodium",
+              "moietyRxcui": "733",
+              "moietyName": "ampicillin",
+              "numeratorValue": "100",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316949",
+              "doseFormName": "Injectable Solution"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "733",
+              "ingredientName": "ampicillin"
+            }
+          ]
+        }
+      }
+    },
+    "831533": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "032009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "032009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "831533",
+          "name": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Errin 28 Day]",
+          "tty": "BPCK",
+          "isMultipleIngredient": "NO",
+          "isBranded": "YES"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7514",
+              "baseName": "norethindrone",
+              "bossRxcui": "7514",
+              "bossName": "norethindrone",
+              "activeIngredientRxcui": "7514",
+              "activeIngredientName": "norethindrone",
+              "moietyRxcui": "7514",
+              "moietyName": "norethindrone",
+              "numeratorValue": "0.35",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "746839",
+              "doseFormName": "Pack"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {
+          "packAlias": "Errin 28 Day",
+          "packConcept": [
+            {
+              "packRxcui": "198042",
+              "packName": "norethindrone 0.35 MG Oral Tablet",
+              "packNumber": "28"
+            }
+          ]
+        },
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7514",
+              "ingredientName": "norethindrone"
+            }
+          ]
+        }
+      }
+    },
+    "833036": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "032009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "032009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "833036",
+          "name": "acetaminophen 750 MG / hydrocodone bitartrate 7.5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "161",
+              "baseName": "acetaminophen",
+              "bossRxcui": "161",
+              "bossName": "acetaminophen",
+              "activeIngredientRxcui": "161",
+              "activeIngredientName": "acetaminophen",
+              "moietyRxcui": "161",
+              "moietyName": "acetaminophen",
+              "numeratorValue": "750",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            },
+            {
+              "baseRxcui": "5489",
+              "baseName": "hydrocodone",
+              "bossRxcui": "142439",
+              "bossName": "hydrocodone bitartrate",
+              "activeIngredientRxcui": "142439",
+              "activeIngredientName": "hydrocodone bitartrate",
+              "moietyRxcui": "5489",
+              "moietyName": "hydrocodone",
+              "numeratorValue": "7.5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "161",
+              "ingredientName": "acetaminophen"
+            },
+            {
+              "ingredientRxcui": "5489",
+              "ingredientName": "hydrocodone"
+            }
+          ]
+        }
+      }
+    },
+    "834061": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "032009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "032009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "834061",
+          "name": "penicillin V potassium 250 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7984",
+              "baseName": "penicillin V",
+              "bossRxcui": "203195",
+              "bossName": "penicillin V potassium",
+              "activeIngredientRxcui": "203195",
+              "activeIngredientName": "penicillin V potassium",
+              "moietyRxcui": "7984",
+              "moietyName": "penicillin V",
+              "numeratorValue": "250",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7984",
+              "ingredientName": "penicillin V"
+            }
+          ]
+        }
+      }
+    },
+    "834102": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "032009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "032009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "834102",
+          "name": "penicillin V potassium 500 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7984",
+              "baseName": "penicillin V",
+              "bossRxcui": "7984",
+              "bossName": "penicillin V",
+              "activeIngredientRxcui": "203195",
+              "activeIngredientName": "penicillin V potassium",
+              "moietyRxcui": "7984",
+              "moietyName": "penicillin V",
+              "numeratorValue": "500",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7984",
+              "ingredientName": "penicillin V"
+            }
+          ]
+        }
+      }
+    },
+    "834357": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "032009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "032009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "834357",
+          "name": "3 ML amiodarone hydrochloride 50 MG/ML Prefilled Syringe",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "703",
+              "baseName": "amiodarone",
+              "bossRxcui": "203114",
+              "bossName": "amiodarone hydrochloride",
+              "activeIngredientRxcui": "203114",
+              "activeIngredientName": "amiodarone hydrochloride",
+              "moietyRxcui": "703",
+              "moietyName": "amiodarone",
+              "numeratorValue": "50",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ML"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "3",
+            "quantityFactorUnit": "ML"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "721656",
+              "doseFormName": "Prefilled Syringe"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151126",
+              "doseFormGroupName": "Injectable Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "703",
+              "ingredientName": "amiodarone"
+            }
+          ]
+        }
+      }
+    },
+    "849574": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "062009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "062009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "849574",
+          "name": "naproxen sodium 220 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "7258",
+              "baseName": "naproxen",
+              "bossRxcui": "142442",
+              "bossName": "naproxen sodium",
+              "activeIngredientRxcui": "142442",
+              "activeIngredientName": "naproxen sodium",
+              "moietyRxcui": "7258",
+              "moietyName": "naproxen",
+              "numeratorValue": "220",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "7258",
+              "ingredientName": "naproxen"
+            }
+          ]
+        }
+      }
+    },
+    "855332": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "082009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "082009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "855332",
+          "name": "warfarin sodium 5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "11289",
+              "baseName": "warfarin",
+              "bossRxcui": "114194",
+              "bossName": "warfarin sodium",
+              "activeIngredientRxcui": "114194",
+              "activeIngredientName": "warfarin sodium",
+              "moietyRxcui": "11289",
+              "moietyName": "warfarin",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "11289",
+              "ingredientName": "warfarin"
+            }
+          ]
+        }
+      }
+    },
+    "856987": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "082009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "082009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "856987",
+          "name": "acetaminophen 300 MG / hydrocodone bitartrate 5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "161",
+              "baseName": "acetaminophen",
+              "bossRxcui": "161",
+              "bossName": "acetaminophen",
+              "activeIngredientRxcui": "161",
+              "activeIngredientName": "acetaminophen",
+              "moietyRxcui": "161",
+              "moietyName": "acetaminophen",
+              "numeratorValue": "300",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            },
+            {
+              "baseRxcui": "5489",
+              "baseName": "hydrocodone",
+              "bossRxcui": "142439",
+              "bossName": "hydrocodone bitartrate",
+              "activeIngredientRxcui": "142439",
+              "activeIngredientName": "hydrocodone bitartrate",
+              "moietyRxcui": "5489",
+              "moietyName": "hydrocodone",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "161",
+              "ingredientName": "acetaminophen"
+            },
+            {
+              "ingredientRxcui": "5489",
+              "ingredientName": "hydrocodone"
+            }
+          ]
+        }
+      }
+    },
+    "857005": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "082009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "082009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "857005",
+          "name": "acetaminophen 325 MG / hydrocodone bitartrate 7.5 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "161",
+              "baseName": "acetaminophen",
+              "bossRxcui": "161",
+              "bossName": "acetaminophen",
+              "activeIngredientRxcui": "161",
+              "activeIngredientName": "acetaminophen",
+              "moietyRxcui": "161",
+              "moietyName": "acetaminophen",
+              "numeratorValue": "325",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            },
+            {
+              "baseRxcui": "5489",
+              "baseName": "hydrocodone",
+              "bossRxcui": "142439",
+              "bossName": "hydrocodone bitartrate",
+              "activeIngredientRxcui": "142439",
+              "activeIngredientName": "hydrocodone bitartrate",
+              "moietyRxcui": "5489",
+              "moietyName": "hydrocodone",
+              "numeratorValue": "7.5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "161",
+              "ingredientName": "acetaminophen"
+            },
+            {
+              "ingredientRxcui": "5489",
+              "ingredientName": "hydrocodone"
+            }
+          ]
+        }
+      }
+    },
+    "860975": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "092009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "092009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "860975",
+          "name": "24 HR metformin hydrochloride 500 MG Extended Release Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "6809",
+              "baseName": "metformin",
+              "bossRxcui": "235743",
+              "bossName": "metformin hydrochloride",
+              "activeIngredientRxcui": "235743",
+              "activeIngredientName": "metformin hydrochloride",
+              "moietyRxcui": "6809",
+              "moietyName": "metformin",
+              "numeratorValue": "500",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "24",
+            "quantityFactorUnit": "HR"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "316945",
+              "doseFormName": "Extended Release Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "6809",
+              "ingredientName": "metformin"
+            }
+          ]
+        }
+      }
+    },
+    "861467": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "092009",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "092009",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "861467",
+          "name": "meperidine hydrochloride 50 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "6754",
+              "baseName": "meperidine",
+              "bossRxcui": "103755",
+              "bossName": "meperidine hydrochloride",
+              "activeIngredientRxcui": "103755",
+              "activeIngredientName": "meperidine hydrochloride",
+              "moietyRxcui": "6754",
+              "moietyName": "meperidine",
+              "numeratorValue": "50",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "6754",
+              "ingredientName": "meperidine"
+            }
+          ]
+        }
+      }
+    },
+    "895994": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "022010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "022010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "895994",
+          "name": "120 ACTUAT fluticasone propionate 0.044 MG/ACTUAT Metered Dose Inhaler",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "41126",
+              "baseName": "fluticasone",
+              "bossRxcui": "50121",
+              "bossName": "fluticasone propionate",
+              "activeIngredientRxcui": "50121",
+              "activeIngredientName": "fluticasone propionate",
+              "moietyRxcui": "41126",
+              "moietyName": "fluticasone",
+              "numeratorValue": "0.044",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ACTUAT"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "120",
+            "quantityFactorUnit": "ACTUAT"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "721654",
+              "doseFormName": "Metered Dose Inhaler"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151123",
+              "doseFormGroupName": "Inhalant Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "41126",
+              "ingredientName": "fluticasone"
+            }
+          ]
+        }
+      }
+    },
+    "896209": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "022010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "022010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "896209",
+          "name": "60 ACTUAT fluticasone propionate 0.25 MG/ACTUAT / salmeterol 0.05 MG/ACTUAT Dry Powder Inhaler",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "36117",
+              "baseName": "salmeterol",
+              "bossRxcui": "36117",
+              "bossName": "salmeterol",
+              "activeIngredientRxcui": "72616",
+              "activeIngredientName": "salmeterol xinafoate",
+              "moietyRxcui": "36117",
+              "moietyName": "salmeterol",
+              "numeratorValue": "50",
+              "numeratorUnit": "MCG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ACTUAT"
+            },
+            {
+              "baseRxcui": "41126",
+              "baseName": "fluticasone",
+              "bossRxcui": "50121",
+              "bossName": "fluticasone propionate",
+              "activeIngredientRxcui": "50121",
+              "activeIngredientName": "fluticasone propionate",
+              "moietyRxcui": "41126",
+              "moietyName": "fluticasone",
+              "numeratorValue": "0.25",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "ACTUAT"
+            }
+          ],
+          "quantityFactor": {
+            "quantityFactorValue": "60",
+            "quantityFactorUnit": "ACTUAT"
+          },
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "744995",
+              "doseFormName": "Dry Powder Inhaler"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151123",
+              "doseFormGroupName": "Inhalant Product"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "36117",
+              "ingredientName": "salmeterol"
+            },
+            {
+              "ingredientRxcui": "41126",
+              "ingredientName": "fluticasone"
+            }
+          ]
+        }
+      }
+    },
+    "897718": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "032010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "032010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "897718",
+          "name": "verapamil hydrochloride 40 MG",
+          "tty": "SCDC",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "11170",
+              "baseName": "verapamil",
+              "bossRxcui": "",
+              "bossName": "",
+              "activeIngredientRxcui": "",
+              "activeIngredientName": "",
+              "moietyRxcui": "",
+              "moietyName": "",
+              "numeratorValue": "40",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "11170",
+              "ingredientName": "verapamil"
+            }
+          ]
+        }
+      }
+    },
+    "904419": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "904419",
+          "name": "alendronic acid 10 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "46041",
+              "baseName": "alendronate",
+              "bossRxcui": "236083",
+              "bossName": "alendronic acid",
+              "activeIngredientRxcui": "203152",
+              "activeIngredientName": "alendronate sodium",
+              "moietyRxcui": "236083",
+              "moietyName": "alendronic acid",
+              "numeratorValue": "10",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "46041",
+              "ingredientName": "alendronate"
+            }
+          ]
+        }
+      }
+    },
+    "966222": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "042010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "042010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "966222",
+          "name": "levothyroxine sodium 0.075 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "10582",
+              "baseName": "levothyroxine",
+              "bossRxcui": "40144",
+              "bossName": "levothyroxine sodium",
+              "activeIngredientRxcui": "40144",
+              "activeIngredientName": "levothyroxine sodium",
+              "moietyRxcui": "10582",
+              "moietyName": "levothyroxine",
+              "numeratorValue": "0.075",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "10582",
+              "ingredientName": "levothyroxine"
+            }
+          ]
+        }
+      }
+    },
+    "997223": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "082010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "082010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "997223",
+          "name": "donepezil hydrochloride 10 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "135447",
+              "baseName": "donepezil",
+              "bossRxcui": "236559",
+              "bossName": "donepezil hydrochloride",
+              "activeIngredientRxcui": "236559",
+              "activeIngredientName": "donepezil hydrochloride",
+              "moietyRxcui": "135447",
+              "moietyName": "donepezil",
+              "numeratorValue": "10",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "135447",
+              "ingredientName": "donepezil"
+            }
+          ]
+        }
+      }
+    },
+    "997488": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "082010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "082010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "997488",
+          "name": "fexofenadine hydrochloride 30 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "NO",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "87636",
+              "baseName": "fexofenadine",
+              "bossRxcui": "236474",
+              "bossName": "fexofenadine hydrochloride",
+              "activeIngredientRxcui": "236474",
+              "activeIngredientName": "fexofenadine hydrochloride",
+              "moietyRxcui": "87636",
+              "moietyName": "fexofenadine",
+              "numeratorValue": "30",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "87636",
+              "ingredientName": "fexofenadine"
+            }
+          ]
+        }
+      }
+    },
+    "999967": {
+      "rxcuiStatusHistory": {
+        "metaData": {
+          "status": "Active",
+          "source": "RXNORM",
+          "releaseStartDate": "092010",
+          "releaseEndDate": "",
+          "isCurrent": "YES",
+          "activeStartDate": "092010",
+          "activeEndDate": "",
+          "remappedDate": ""
+        },
+        "attributes": {
+          "rxcui": "999967",
+          "name": "amlodipine 5 MG / hydrochlorothiazide 12.5 MG / olmesartan medoxomil 20 MG Oral Tablet",
+          "tty": "SCD",
+          "isMultipleIngredient": "YES",
+          "isBranded": "NO"
+        },
+        "definitionalFeatures": {
+          "ingredientAndStrength": [
+            {
+              "baseRxcui": "17767",
+              "baseName": "amlodipine",
+              "bossRxcui": "17767",
+              "bossName": "amlodipine",
+              "activeIngredientRxcui": "104416",
+              "activeIngredientName": "amlodipine besylate",
+              "moietyRxcui": "17767",
+              "moietyName": "amlodipine",
+              "numeratorValue": "5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            },
+            {
+              "baseRxcui": "321064",
+              "baseName": "olmesartan",
+              "bossRxcui": "118463",
+              "bossName": "olmesartan medoxomil",
+              "activeIngredientRxcui": "118463",
+              "activeIngredientName": "olmesartan medoxomil",
+              "moietyRxcui": "321064",
+              "moietyName": "olmesartan",
+              "numeratorValue": "20",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            },
+            {
+              "baseRxcui": "5487",
+              "baseName": "hydrochlorothiazide",
+              "bossRxcui": "5487",
+              "bossName": "hydrochlorothiazide",
+              "activeIngredientRxcui": "5487",
+              "activeIngredientName": "hydrochlorothiazide",
+              "moietyRxcui": "5487",
+              "moietyName": "hydrochlorothiazide",
+              "numeratorValue": "12.5",
+              "numeratorUnit": "MG",
+              "denominatorValue": "1",
+              "denominatorUnit": "EACH"
+            }
+          ],
+          "doseFormConcept": [
+            {
+              "doseFormRxcui": "317541",
+              "doseFormName": "Oral Tablet"
+            }
+          ],
+          "doseFormGroupConcept": [
+            {
+              "doseFormGroupRxcui": "1151131",
+              "doseFormGroupName": "Oral Product"
+            },
+            {
+              "doseFormGroupRxcui": "1151133",
+              "doseFormGroupName": "Pill"
+            }
+          ]
+        },
+        "pack": {},
+        "derivedConcepts": {
+          "ingredientConcept": [
+            {
+              "ingredientRxcui": "17767",
+              "ingredientName": "amlodipine"
+            },
+            {
+              "ingredientRxcui": "321064",
+              "ingredientName": "olmesartan"
+            },
+            {
+              "ingredientRxcui": "5487",
+              "ingredientName": "hydrochlorothiazide"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "requests": [
+    {
+      "rxcui": "1014676",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1014676/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:38.707511+00:00",
+      "sha256": "19947d36fb7589b84428eccc32ea94123dd6d768bd6de4cf00b13039a47cb285",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1043400",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1043400/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:38.680759+00:00",
+      "sha256": "f6c0eceec774c84fcdca186e4f4f78034c3da3b39514b285e8c19d2c9ab99dc7",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1049221",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1049221/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:38.835042+00:00",
+      "sha256": "119be17416050a198c65cf6e074f39da20db41b2d87403564f7180367ebbde00",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1049630",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1049630/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:40.596379+00:00",
+      "sha256": "34693290c5586bae00f0be113a90d18ef524d0b8e5d7c25376a235c362f5a07d",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "105078",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/105078/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:40.987323+00:00",
+      "sha256": "866b748e0b5714611ed6a0d7dab3fe871c929dfeddcc94ae776c4fd112ef502e",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "105585",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/105585/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:41.092543+00:00",
+      "sha256": "893cb71c776f9b8af8e7c6aa5958082d402b4170e9c997d27949c6ed2f61aea8",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "106892",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/106892/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:41.842050+00:00",
+      "sha256": "03554c3bdb47b40bc15c530df33bc6e27c6b1f898b94586d5f454f1e24838d5f",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1091392",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1091392/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:42.279071+00:00",
+      "sha256": "16f8fa28bf11ac5ca0f7642fd16b5819f2f880b1d1fe43ef00e86ea8bf890c64",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1094107",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1094107/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:42.272756+00:00",
+      "sha256": "460302e229415ba346da0c1f23191c5fce7fc5c9e67e2d7b0b576fa7114bc5ea",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1190795",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1190795/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:43.102934+00:00",
+      "sha256": "efd58f7dc755a2838928db6adeba3c50a7c597ff8af9b7985ea6c78f3a66f6d4",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1650142",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1650142/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:43.589315+00:00",
+      "sha256": "415c4c7286952051b93029d30d33300d98c76a44d354d26a4e22ce069de4a6ef",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1652673",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1652673/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:43.593794+00:00",
+      "sha256": "3f962fed72ab7ba3da9ed9a60d3bf9b9ad0aabdb6db91feb2da83fe94d9eab38",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1660014",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1660014/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:44.547934+00:00",
+      "sha256": "cdd94ee713c6a83783e3272795c06ffb5ba775b568e5f43b2643cb5f05b526e5",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1804799",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1804799/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:45.021599+00:00",
+      "sha256": "ef14ed9482c752c073e89c606d6e5715a30220c68ef9ea9ba67fe7531d2991d2",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1860154",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1860154/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:45.019202+00:00",
+      "sha256": "80ebacd9a53245f123ee6ca5df48f5c0e79767f2813be8cb31ba5ab7d2ddab12",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "1860480",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/1860480/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:45.935486+00:00",
+      "sha256": "d11916595bfc0b8d5eb6daf1d1db71b62a734c74ee2463df97241c1e484e4755",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "197319",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/197319/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:46.472481+00:00",
+      "sha256": "48c16dddf5b43e88f2c89ca08cfcc9ffbdbf7c5996e7d51a207af5371ce3eb91",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "197361",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/197361/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:46.467410+00:00",
+      "sha256": "c4d24ec8f56181a6753369d1520b8d0ebc1faef44f6a28f7fb5ab9a0eff4668e",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "197378",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/197378/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:47.296106+00:00",
+      "sha256": "28cd303ce22722601866a446afbca7f6d8b93a61115dcdfd41f909996a811645",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "197591",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/197591/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:47.832862+00:00",
+      "sha256": "cd8c257dfed8939cf2b0d0ac19b6e7197f66b8840b0fe4abfb21a3ba1ea566f7",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "197604",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/197604/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:47.840558+00:00",
+      "sha256": "809ba3900397e15404fc7fbfded424c5650aeea5d6535062a60341aef61a22bb",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "198014",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/198014/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:48.666808+00:00",
+      "sha256": "b382a584447ea5cd4753cd6d39a39c68bbbcc4ffef0765426a11034218daba3d",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "198031",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/198031/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:49.328043+00:00",
+      "sha256": "7fb8216a40773fe5b482984758f9073217dbb6cf9f713ca48b0be1067cf28b0a",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "198405",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/198405/historystatus.json",
+      "retrieved_at": "2026-11-14T10:26:12.818419+00:00",
+      "sha256": "9dba2b646c8cf9d88b51de5dd2934a79418e75065fbfd1e4dfae04ef37d112ca",
+      "cache_origin": "D:\\Frank\\agent_explore\\medical-medication-agent\\outputs\\knowledge\\rxnorm-feasibility-20261114\\198405-history.json"
+    },
+    {
+      "rxcui": "204892",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/204892/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:49.325779+00:00",
+      "sha256": "b1846a624c33988d09e18aa394bf19a58940b1f6eb9dbc64d844bf530cc7b197",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "205923",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/205923/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:50.616524+00:00",
+      "sha256": "be4cd7528aa9ac03b765edc2f1b74be66068f4d68f728ca243c78888d61df89a",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "2123111",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/2123111/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:50.925704+00:00",
+      "sha256": "0a4da6e08ead800b54590f9b3e8f7fa21b2149b329545324b7fba616f2b06d93",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "243670",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/243670/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:50.923170+00:00",
+      "sha256": "862a4301acb32bed78dd47339b7f23ca85eae8ce98748b22d1d535846a7c653b",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "259255",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/259255/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:51.787636+00:00",
+      "sha256": "05f8214ee59984d7a12112a5453f2119844abd028a95c7923ed5aa112584b74f",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "308182",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/308182/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:52.303991+00:00",
+      "sha256": "b3c764728516955579efda096af9f7c9f624ed69b6c816bdc6d362b30883d451",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "308192",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/308192/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:52.204511+00:00",
+      "sha256": "4aaa24985bc1cd41377bc7658c733b8e46c5d64bf30a5d6797a234e5ec1aea5d",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "308971",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/308971/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:53.194239+00:00",
+      "sha256": "5f12a1c2be81ee9d20ab7bc772fcce353e0f874bb92bf7ac61b178772b874619",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "309043",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/309043/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:53.746040+00:00",
+      "sha256": "d48624877fcdf13d8c343704da0cd318359588e06f38357cae4de90480590f12",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "309045",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/309045/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:53.744130+00:00",
+      "sha256": "31cab7ccecfbb5a933ac8b6554390a0ccbda953ef1599b6645c3d27caf6202d0",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "309097",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/309097/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:55.346153+00:00",
+      "sha256": "d57e53fa518980dbbf008ac2867fa11776fd23eae379506e147ea03cc8ed2b3f",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "309362",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/309362/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:55.804869+00:00",
+      "sha256": "1aedcb9f01a64fd8a55fe67751ecde9e7c4a79ae59f3c38429f0e9352f4b4ee1",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "310325",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/310325/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:55.802628+00:00",
+      "sha256": "c13c8979a12744ec658bdd78c8a31d2441ad55f44094c4e892794010d4ab66af",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "310385",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/310385/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:56.607729+00:00",
+      "sha256": "f32f495a49cf170e54654758d4389c5e6e679cbc250ddd12de2aee3319af1b2e",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "310436",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/310436/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:57.184929+00:00",
+      "sha256": "7914d6075afba4caf9e76c6a690b894cfb64dd71ee1239672015cd555acb19a1",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "310798",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/310798/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:57.078156+00:00",
+      "sha256": "b0166a008855faf2a141a64c96b6fa9867bfa0f9042c417d859d93c051026d41",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "310965",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/310965/historystatus.json",
+      "retrieved_at": "2026-11-14T10:26:12.818419+00:00",
+      "sha256": "f605b36335ae7810435c887ab5d1a596178f3ff69ed380aab962605e5078b47c",
+      "cache_origin": "D:\\Frank\\agent_explore\\medical-medication-agent\\outputs\\knowledge\\rxnorm-feasibility-20261114\\310965-history.json"
+    },
+    {
+      "rxcui": "311989",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/311989/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:57.778157+00:00",
+      "sha256": "a48da127af2316ea9c8b61154fdd23ca70bfca4fecc428627ab7e61c4d87af53",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "312617",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/312617/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:58.223122+00:00",
+      "sha256": "d8c8993a9e6d960ead39a5876d340c040c096c6e58137567ad9fdd0f55fcc8d2",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "312961",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/312961/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:58.334786+00:00",
+      "sha256": "e9c41e930a1bba5c046ce5108c838af9ef1fcf508cc48719f7a1c61e754e1165",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "313185",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/313185/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:59.002386+00:00",
+      "sha256": "50325f3816025029ee68b444392592034af7a32fe583a99fd4321619ab2d5a3e",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "313782",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/313782/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:59.432185+00:00",
+      "sha256": "503c635208c2aab7a4a32e3e312f9741f83a7f0ad029231d18d2621ea11aaddd",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "313820",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/313820/historystatus.json",
+      "retrieved_at": "2026-11-14T10:30:59.574441+00:00",
+      "sha256": "5747ba73f4373902128a23c07faf61906bc11757f49d6fc9dbbde216ef36d20b",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "314231",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/314231/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:00.217839+00:00",
+      "sha256": "c9e27286e2c6be9ba61be9ca225583af7fbd96894d9b1e082b75c9d950964778",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "429503",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/429503/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:00.612080+00:00",
+      "sha256": "89d414e2e44be173d5c33c57982aa9f0ba7b2a274586d7fce82634e71562ce0c",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "477045",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/477045/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:00.723558+00:00",
+      "sha256": "d8349ae26393ea8aea020f592b4ed52af4b0d57ab2bd2aac2a91118b955a13db",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "562251",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/562251/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:01.389343+00:00",
+      "sha256": "869277034b56c0280ae7b13a9d540a91d4d464e3a3a57445f3984f7a205948fe",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "608139",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/608139/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:01.796559+00:00",
+      "sha256": "b4c096e06b53f32948b16b6afab1158620b68d5148b329793e471b3a62f09b26",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "665078",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/665078/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:01.906452+00:00",
+      "sha256": "c93da4b41ffc63c4b52127b665fc1db7f327b38f886a1afa327429245c7c2ea7",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "705129",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/705129/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:02.561163+00:00",
+      "sha256": "e3b0005fb4ed8e4ff5b21106629f4d8f451f2bfa2401a91d3dba5967296e8235",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "746030",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/746030/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:02.943682+00:00",
+      "sha256": "9131b956333080a993485175055590228e6bbb250c4c7f772b59d251f79c3b11",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "752899",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/752899/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:03.048932+00:00",
+      "sha256": "a04f2b173f456bb3d3649faa470c2a463322f6efd517c81f06b2087edf5c7b42",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "757594",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/757594/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:03.709360+00:00",
+      "sha256": "115cc675d4fa6799cac8cc255b92c6bb68cd53765b7b239d814b8c664aa9ed08",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "789980",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/789980/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:04.099922+00:00",
+      "sha256": "243f75ae77e9a747e648e66bd9b79e3369b19cbb099cf3859a4c7fc743b28fc8",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "831533",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/831533/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:04.203131+00:00",
+      "sha256": "cf71e18bdb1684cee7bc8e68d669fca30fe90d7946e836d9e764da05e826c03f",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "833036",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/833036/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:04.872989+00:00",
+      "sha256": "fdd35cf214432036e854e19dfbf997876dfd5f8dd4efb749a095b219e57b3f4c",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "834061",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/834061/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:05.347428+00:00",
+      "sha256": "a7382a5cfc28634470b7770ee852052ddd23e10d3506af3eb27681f17748f632",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "834102",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/834102/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:05.352709+00:00",
+      "sha256": "56a411ab0815b050ba98ec3939fceeb13162bf7ae711e00f79fc2afec14c9d48",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "834357",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/834357/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:06.039568+00:00",
+      "sha256": "42923b752127dd0e6e04959ad01a619cda47a702ab7bc5890163d5c02f03d352",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "849574",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/849574/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:06.701011+00:00",
+      "sha256": "035f7beb52226b682a9ccf391f02d49a8a201067fc5d6768072a226c8ddc98f7",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "855332",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/855332/historystatus.json",
+      "retrieved_at": "2026-11-14T10:26:12.818419+00:00",
+      "sha256": "c5ddee8e599c87514dfb320533185629e170cc05705c6271625c7795974d6dc3",
+      "cache_origin": "D:\\Frank\\agent_explore\\medical-medication-agent\\outputs\\knowledge\\rxnorm-feasibility-20261114\\855332-history.json"
+    },
+    {
+      "rxcui": "856987",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/856987/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:06.705496+00:00",
+      "sha256": "0720d2c19515a7c47cbd925262e16a165eaf9d25fa213f7b730893fd26924403",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "857005",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/857005/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:07.281872+00:00",
+      "sha256": "f949402bc38ba214e71f798a390a68789d38598e4b4323e6113cbb80faa898ed",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "860975",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/860975/historystatus.json",
+      "retrieved_at": "2026-11-14T10:26:12.818419+00:00",
+      "sha256": "e9d7c5cc768093b22287660405bf44787b7362cebff46349073d21d5cdd3d84c",
+      "cache_origin": "D:\\Frank\\agent_explore\\medical-medication-agent\\outputs\\knowledge\\rxnorm-feasibility-20261114\\860975-history.json"
+    },
+    {
+      "rxcui": "861467",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/861467/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:07.972440+00:00",
+      "sha256": "ef37d30e8eb474bf72f9a253a13774c53531f30e5986ef3856c74f9be627be28",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "895994",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/895994/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:08.073584+00:00",
+      "sha256": "4488ae7224ce9d705381da5d7b146bd03c7cbd2c3d0b85bf72c6a2ea5abeff2f",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "896209",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/896209/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:08.636315+00:00",
+      "sha256": "908d227d71a356a1e0e0401b4dd2e04d51e4feee7ad635950e9274d6f49cec7c",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "897718",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/897718/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:09.350321+00:00",
+      "sha256": "73ad94dff69125a9aa8ebdc693a5dcd46e0480efde312b55e4684c7371ffa3ab",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "904419",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/904419/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:09.679604+00:00",
+      "sha256": "f870ae52f8d8bde1b83dabaeda61a8aaed3860a7eb9cba23175373fd5d6aefa9",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "966222",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/966222/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:10.146718+00:00",
+      "sha256": "66982baf327840b699037a190e7f90d5c709037e6b4aa58d682bb0d0bfaa86d8",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "997223",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/997223/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:10.638440+00:00",
+      "sha256": "1b9d51d03f733a3e3f5667c437c4d31a9c2f4634dbbe0f2f2dff91490e25627e",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "997488",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/997488/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:10.984116+00:00",
+      "sha256": "825f0d64f753ac34000d4c5baf2b594966dccad19375b114a84937f60802aecf",
+      "cache_origin": null
+    },
+    {
+      "rxcui": "999967",
+      "url": "https://rxnav.nlm.nih.gov/REST/rxcui/999967/historystatus.json",
+      "retrieved_at": "2026-11-14T10:31:11.505164+00:00",
+      "sha256": "40b5405c02f321823a98f7b6f79ff23b5dffca002350483f83db58e46e072ab1",
+      "cache_origin": null
+    }
+  ]
+}

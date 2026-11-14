@@ -1,8 +1,14 @@
 # 数据与代码准备状态
 
-核查日期：2026-11-07。此处记录当前实际文件与检查结果，任务及后续结果由三位负责人更新各自 TASKS.md。
+核查日期：2026-11-14。此处记录当前实际文件与检查结果，任务及后续结果由三位负责人更新各自 TASKS.md。
 
-准备结论：开发用的原始数据、参考预处理、药物映射和 DDI 已找到并在本机保存；SSPNet 输入文件/最终映射图尚未生成，真实大规模验证队列尚未取得。文件已在本机，不代表其他成员克隆仓库后自动取得所有本地大文件。分工和 PR 修改范围见 [协作规则](../CONTRIBUTING.md)。
+准备结论：A1 v3已就绪；新增推荐实验为72个原始RxNorm标签、训练1433/验证355/测试351条，20轮训练、重载及集成完成，见[新SSPNet报告](../src/recommendation/reports/sspnet-synthea-rxnorm-v5.md)。旧38类数据与权重完整保留，其来源、分母及简单对照见[DDI诊断](../src/recommendation/reports/ddi-audit-20261114.md)。MIMIC-IV Demo五表和250例DDI核查清单已在本地；真实大规模主队列仍未取得，用户愿意本人申请。本地病例、图和权重不随克隆取得，其他成员按说明重建。研究方向与零样本对照见[实验设计](research-design.md)。
+
+最新交付：RxNorm公开术语快照支持原码输出，沿用原ZIP补同次eGFR/CABG上下文，无新增数据下载或依赖安装。全351条测试原码Jaccard65.30%、F1 71.05%；344条接口支持，7条拒绝。固定候选核查0→2次，95条缺事实、247条未覆盖，不能称全面核查；90项检查通过。见[RxNorm集成报告](../src/data_evaluation/reports/rxnorm-agent-20261114.md)和[运行说明](../src/data_evaluation/RUNNING.md)。旧38类及DXY诊断结果保留于[原报告](../src/data_evaluation/reports/agent-integration-20261114.md)。
+
+后续来源与事实盘点已完成：v2上下文保留原值并新增确切年龄及已记录未缓解的CAD，测试351条年龄可得、36条CAD阳性；同次测量和患者信息的可用性详见[核查覆盖报告](../src/data_evaluation/reports/check-coverage-20261114.md)。规则增加少量有证据范围，100mg布洛芬反而因证据不足收窄；四分支实际覆盖仍2/344，新版244未覆盖／98缺事实／2 checked。40条独立角色编写的虚构来源参照全部一致，82项相关检查通过，不是独立临床准确率。全77个已有NLM码仅用来区别明确范围外与未知，不能宣称都有完整核查。
+
+用户最新要求暂不依赖申请中的队列：已完整取得DDICorpus-2013并实际跑完关系抽取轻量基线；七分类DDInter已做明确partial的检索实验；DialMed的dev/test及70药词表已到齐。数据与成绩各自对应任务，不能当作新增纵向临床验证。详细证据见[公开数据实验](../src/knowledge/reports/open-data-pilot-20261114.md)。
 
 新成员按 [三人开工步骤](onboarding.md) 取得材料并做本机检查；不要把资源清单中组长电脑的已完成结果当作自己的验证记录。
 
@@ -44,9 +50,9 @@ Synthetic：BIBM 表 I 报告 444 种症状，当前文件实际出现 266 种�
 | PROCEDURES_ICD | 506 | 88 |
 | PRESCRIPTIONS | 10398 | 94 |
 
-已检查字段、非空及患者范围一致性。CSV 列名为小写，上游旧程序可能使用大写，适配时处理。后续就诊关联、时间排序、编码映射和筛选尚未实现。
+已检查字段、非空及患者范围一致性。CSV 列名为小写，上游旧程序可能使用大写。A1 已完成就诊关联、时间排序和候选筛选；药物分类映射仍由 B 实施。
 
-Demo 支持数据流程开发，不足以复现论文指标。完整 MIMIC-III 权限和数据尚未确认取得；MIMIC-IV 放在后续扩展。
+Demo 支持数据流程开发，不足以复现论文指标。完整MIMIC-III权限未取得；当前正式真实主队列优先申请MIMIC-IV。
 
 复查命令：python scripts/fetch_public_demo.py --check-only。
 
@@ -56,12 +62,28 @@ Demo 支持数据流程开发，不足以复现论文指标。完整 MIMIC-III �
 
 实际检查：患者 1,171 人，就诊 53,346 行，诊断 8,376 行，操作 34,981 行，用药 42,989 行，过敏 597 行。下载页的“1K”是样本名称，不是精确统计。
 
-- 1,257 次就诊同时记有诊断、操作、药物；其中有至少两次此类就诊的患者 335 人，至少三次的 117 人。这是原始记录交集检查，尚未做最终筛选或训练划分。
+- 1,257 次就诊同时记有诊断、操作、药物；其中至少两次的患者335人，这是 v2 严格操作条件。v3 允许空操作后，诊断/药物有效就诊3191次，至少两次的患者803人、候选2948次，已独立导出和划分。全量53346次仍全部保留。
 - 本样本使用 SNOMED CT 诊断/操作及 RxNorm 药品编码；不能直接套用 MIMIC 的 ICD/NDC 处理。需按数据集单独建词表，并将药物映射到 DDI 支持的编号。
 - 对 MoleRec 现有映射做 RXCUI 精确匹配：131 种原始 RxNorm 编码中 101 种有匹配，对应用药行 32,062/42,989。这个 131 是本样本的原始药品编码数，不等同于 SSPNet 论文的 131 种药物。尚未做成分归一化；未映射药物不能当作没有相互作用。
 - 合成病历支持开发、接口验证和模拟实验，不能将其得分当作真实临床效果。慢性病的跨就诊延续等处理需单独定义，不默认补全。
 
+新增原码版本使用学习队列中的77个药物编码；训练词表72个（69完整制剂、2包装、1未给剂型的成分规格），仅66个出现在训练预测目标。官方术语与CID桥快照分别在 `src/recommendation/resources/rxnorm-products-synthea-v1.json`、`rxnorm-cid-v1.json`；它们只含公开药物术语，不含病例。训练词表46/72个可完整连接参考CID，26个未知或不完整；新图EHR254边、DDI7边。原ZIP中的observations.csv直接流式读取，无需再下载：新上下文测试14/351有可用同次eGFR、3/351有阳性CABG，缺失不补阴性；用途仅为就诊结束时的回顾性核查。
+
 下载/检查：python scripts/fetch_synthea_sample.py；只检查：python scripts/fetch_synthea_sample.py --check-only。
+
+### 新增公开核查数据与真实队列路线
+
+- **MedPIC-Bench**：本轮选用的患者条件核查开发材料，[作者HF](https://huggingface.co/datasets/TIM0927/MedPIC-Bench)，CC BY 4.0，固定版本`9ef6db4f13865b14fc2e6be3f94dcfaf3a0cf983`。467道模拟情景题及原作者答案已下载到`data/local/medpic-bench-20261114/`，README许可及source.json保留；题库489,402字节。`python -m src.data_evaluation.prepare_medpic --download`可重建20题无答案开发输入与两份空标注模板。没有逐题来源、配对ID或RxNorm；现有规则尚不能直接执行，不称真实患者安全性验证。数据适用性、RxSafeBench未采用原因与实际检查见[报告](../src/data_evaluation/reports/medpic-readiness-20261114.md)。逐题材料留本地，不上传。
+
+- **MIMIC-IV Demo 2.2**：官方五张CSV.gz已下载到 `data/local/mimic-iv-demo-2.2/`。100人、275次住院、4506条诊断、722条操作、18087条处方；保留原LICENSE与source.json。尚未完成该版本纵向有效样本筛选/映射，不能把原始住院数当预测数。
+- **LLM-Uncertainty-DDI**：固定提交 `9872bb0c3e28cd03a7d460cdde3f01e0e8a26542`，已下载 `drug5.csv`、MIT许可及来源记录到 `data/local/llm-uncertainty-ddi/`。250份清单，C/D/X为81/92/77；每份均含目标交互，只用于核查定位/拒答评价，不是纵向病例或阴性清单误报验证。
+- 下载/核验命令：`.venv/Scripts/python.exe src/data_evaluation/fetch_public_validation.py`。只读取公开固定文件，无额外依赖；以上数据均被Git忽略，不上传。路径、许可、本人申请步骤见[MIMIC访问说明](mimic-access.md)。
+- **MIMIC-IV 3.1**：首选真实主队列，尚无权限。**AmsterdamUMCdb 1.0.2**作为跨来源外验候选，尚未申请/下载；需处理ICU入科与住院粒度、药物和诊断差异。[官方版本说明](https://amsterdammedicaldatascience.nl/)、[患者关联字段](https://github.com/AmsterdamUMC/AmsterdamUMCdb/wiki/admissions)。不能用同院MIMIC-III/IV自动宣称跨医院验证。
+- **DDInter**：本地 `data/local/ddinter-public-20261114/` 已取得A/B/D/H/L/P/V七类、191820行、去重146518药对，缺R；来源在source.partial.json。已实际进行七分类检索实验，不能冒充完整库。[官方源](https://ddinter.scbdd.com/download/)与[CC BY-NC-SA 4.0条款](https://ddinter.scbdd.com/terms/)保留。未收录/Unknown不等于安全，CSV没有机制原文；若参与训练/调参，不把同一批边作独立真值。
+- **DDICorpus-2013**：本地 `data/local/ddicorpus-2013/` 的作者ZIP、README许可及source.json完整；训练27792药对、正式关系测试5716药对。固定commit `819b0fa538ed83ab2a8b4f5417bba3c03249b7f3`、CC BY-NC 4.0。[作者仓库](https://github.com/isegura/DDICorpus)。文本关系任务与临床DDI安全判断分开，DrugNER占位false标签不进入关系实验。
+- **DialMed**：本地 `data/local/dialmed/` 已有dev1192条、test1199条、70药标签、原MIT许可及附录，train未齐；固定commit `4cd19719ad8a25e0d2cb411cdede3aea9d9e095f`。[作者仓库](https://github.com/f-window/DialMed)。现有部分足以准备零样本，但对话推荐句仍含掩码结构，必须先冻结推荐前截断；本轮没有运行DialMed模型。
+
+新增材料下载入口：`.venv/Scripts/python.exe src/data_evaluation/fetch_open_ddi.py --dataset ddicorpus`；七分类冻结参照加 `--dataset ddinter --seven-category-snapshot`；完整DialMed使用 `--dataset dialmed`。全部数据本地保留，不随Git上传。
 
 ### 直接查看病例
 
@@ -73,9 +95,9 @@ DXY 包含中文主诉、问诊及症状；MIMIC/Synthea 按多张 CSV 存储就
 
 | 代码 | 位置与版本 | 当前能确认什么 |
 |---|---|---|
-| SSPNet | third_party/SSPNet；4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d | main.py、模型、训练与评价代码存在；尚未运行模型 |
+| SSPNet | third_party/SSPNet；4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d | 正常导入，src/recommendation 适配入口已完成20轮Synthea实际运行，空操作训练/测试通过 |
 | Diaformer | third_party/Diaformer；45491f33145003290278d0eacdc87a1d1d786b2d | DXY 150 轮训练、验证选模、权重保存与重载、最终测试已完成：79/104，75.96%；见运行说明 |
-| BIBM 完整实现 | 尚未取得 | 不能将 Diaformer 记作整篇 BIBM 的实现 |
+| BIBM 完整原始实现 | 尚未取得 | 自行实现了来源摘要形式化、受限条件MLN和适配用药核查；未恢复完整自动检索、迭代优化或Alchemy运行，不能称完整复现 |
 | MoleRec 参考材料 | data/reference/MoleRec/（本地）；dd5afaf0a503fd3de3229f86ec7f26b345d10e3a | 已复制原预处理脚本、映射、分子辅助材料及原 README/LICENSE；不是 SSPNet 作者配套数据 |
 
 原始来源：[SSPNet](https://github.com/ResearchGroupHdZhang/SSPNet)、[Diaformer](https://github.com/jymChen/Diaformer)。
@@ -85,7 +107,7 @@ BIBM DOI：10.1109/BIBM58861.2023.10385557，[作者主页提供的论文 PDF](h
 
 ### SSPNet
 
-当前入口读取下面五个文件，均尚未在该代码的 data/MIMIC_3 目录中准备：
+原 main.py 读取下面五种旧格式文件。当前运行改用本项目的 JSON/NPZ 适配产物，已实际准备，不以这些旧路径作为阻塞：
 
 - records_final.pkl：病例序列。
 - voc_final.pkl：诊断、操作和药物词表。
@@ -95,29 +117,29 @@ BIBM DOI：10.1109/BIBM58861.2023.10385557，[作者主页提供的论文 PDF](h
 
 公开参考材料已经找到并保存到本地 data/reference/MoleRec/：processing.py、ndc2rxnorm_mapping.txt、ndc2atc_level4.csv、drug-atc.csv、atc2rxnorm.pkl、idx2SMILES.pkl、ddi_mask_H.py、ddi_mask_H.pkl、substructure_smiles.pkl。保留原 README、MIT LICENSE 与 source.json；来源是 [MoleRec](https://github.com/yangnianzu0515/MoleRec)，SSPNet README 也致谢该项目和 [SafeDrug](https://github.com/ycq091044/SafeDrug)。使用这些上游材料适配，不再等待相同文件由老师重发。
 
-DDI 原始文件已从 SSPNet/MoleRec 提供的 [公开下载入口](https://drive.google.com/file/d/1s3sHmz9ueVA8YAGTARY8jwrhRdRvVaXs/view) 下载到上述目录 drug-DDI.csv：232,835,373 字节，4,649,441 条数据行，含 STITCH 1、STITCH 2、Polypharmacy Side Effect、Side Effect Name 字段。原始来源为 [TwoSIDES](https://tatonettilab.org/resources/tatonetti-stm.html)。这是药物对与不良事件记录，尚未筛选为模型的 ddi_A_final.pkl，也不等同于这么多独立药物对。
+DDI原始文件已从SSPNet/MoleRec提供的[公开入口](https://drive.google.com/file/d/1s3sHmz9ueVA8YAGTARY8jwrhRdRvVaXs/view)保存为drug-DDI.csv：232,835,373字节、4,649,441行，关联来源为[TwoSIDES](https://tatonettilab.org/resources/tatonetti-stm.html)。按最低频40个事件组筛选得到476行；当前38类图75条无向边，EHR训练图172边，已独立重建核对。源关联不等于临床禁忌，CID映射不等于证据覆盖；与Decagon论文原始计数有差异，细节见DDI报告。旧24类34条DDI边/59条EHR边仅保留历史对照。
 
-下一步对 Demo/Synthea 分别建立病例、词表与图，固定映射及筛选方式。上游预生成的分子矩阵不能与新的药物词表混用。公开 SSPNet 的 training.py 传三个参数、模型 forward 要求四个，需在本项目适配入口修正并实际检查；ddi_mask_H 在该实现的用途仍需梳理。
+Synthea当前图与模型词表一致，仅从训练就诊建立EHR图，不混用上游预生成分子矩阵。适配入口修正四参数调用，ddi_mask_H为未使用的遗留参数，传None；显式初始化inter/garm，禁用绘图，以新循环解决原验证未定义变量和三次就诊跳过等问题。原子模块未改动。公共recommend接口已实现并与旧分数核对，NDC/MIMIC模型适配尚待完成。
 
 作者正文引用的附录尚未取得；正文学习率 1e-4 与当前入口默认 5e-4 不一致，采用设置必须记录。附录与作者精确配置作为可选补充，不阻塞公开材料上的适配开发。
 
 ### BIBM
 
-尚未找到完整知识提取、规则迭代、MLN 学习与推理的公开整套实现和作者生成产物。论文已给出部分提示词模板与设置，不能称提示词全部缺失。[Alchemy](https://alchemy.cs.washington.edu/) 本体公开可得。C 可据原文自行实现最小流程并记录差异，不必先等作者完整代码；作者规则和缓存可后补对照。原诊断任务与用药核查扩展分开实施。
+尚未找到完整知识提取、规则迭代、MLN学习与推理的公开整套实现和作者生成产物。论文已给出部分提示词模板与设置，不能称提示词全部缺失。[Alchemy](https://alchemy.cs.washington.edu/)本体公开可得。本次自行实现受限条件MLN，12条模型生成且经来源核对的规则参与条件似然学习，五个疾病世界精确归一化；未运行Alchemy。与完整原方法的差异见[BIBM_DIAGNOSIS.md](../src/knowledge/BIBM_DIAGNOSIS.md)。原诊断任务与新增用药核查分开验收；后者的真实提取、失败及拒绝记录见[MEDICATION_CHECK.md](../src/knowledge/MEDICATION_CHECK.md)。
 
 ### 环境与资源
 
 项目 .venv 已配置 Python 3.10.22、PyTorch 2.7.1+cu128 和锁定依赖。RTX 5060 Laptop GPU 约 8GB 显存，已通过实际矩阵计算与 DXY 冒烟训练；运行说明见 [DXY 基线](dxy-diaformer.md)。
 
-Diaformer 作者报告 Python 3.8 / PyTorch 1.8.0；本次为适配现有显卡使用现代环境并记录运行差异。SSPNet 原环境与配套依赖仍需单独核对，不能因为 DXY 已运行就视为它也就绪。
+Diaformer作者报告Python3.8/PyTorch1.8.0，当前使用现代环境记录差异。SSPNet已补齐PyG、torch-scatter、OGB、RDKit、scikit-learn等，58包兼容检查与正常包导入通过；20轮主运行使用更快的CPU逐样本计算。完整快照及安装脚本见 src/recommendation/environment-lock.txt 和 setup_environment.ps1。
 
-完整 MIMIC 审批和大模型调用资源仍未确认。DXY 本轮没有付费调用，已使用本机 GPU 完成；这不表示 BIBM 整体或 SSPNet 已具备全部复现条件。
+用户尚无完整MIMIC-IV权限且愿意申请；本人身份、培训和协议尚待完成。Qwen3-4B量化权重已完整下载并校验，本次用CPU完成知识提取，服务随后停止；没有新增CUDA运行库。推荐与已保存规则核查可独立运行。零样本病例实验和付费调用均未启动，详见[本地环境](../src/knowledge/LOCAL_INFERENCE.md)。
 
 ## 现在可以推进什么
 
-- A：使用现有 Demo/Synthea 编写就诊关联、时间组织和数据集独立划分，统计筛选后的有效患者；完整 MIMIC 申请可并行进行。
-- B：基于已找到的 MoleRec 映射和 DDI，与 A 对齐词表，修正运行接口并生成一致的模型输入，先实际跑通入口。
-- C：复用 DXY 基线，按论文已有模板实现最小规则与 MLN 流程；缺付费模型调用条件时先用明确标记的规则样例联调，不能冒充自动知识提取实验。
+- A：审核已完成四分支及40条来源参照；下一步建立独立临床或药物对任务的标签方案，不把虚构参照当患者金标准。
+- B：复核72原码权重、7条输入拒绝、3条未见目标及26个不完整CID连接；在方案固定后规划多种子确认。
+- C：复核新5规则族的来源、产品范围与未执行原因；保持范围外/未知区分，不在本批测试上继续补条件，保留原BIBM差异和低分诊断结果。
 
-当前优先级：公开材料上的数据流程与模型入口 → 两篇核心机制的适配验证 → 推荐与知识核查结合 → agent 展示。真实数据研究与原文严格复现的条件另行记录。
+当前优先级：审核已完成原码主线与对照 → 患者事实/有来源规则覆盖及独立核查参考 → 正式确认 → 必要的零样本补充。现有核查执行比例仅2/344，不用模拟缺失事实凑覆盖率。不把包装、数据替换或“零样本”本身当作创新。
 

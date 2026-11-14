@@ -1,0 +1,150 @@
+# 最小agent调用链
+
+本入口使用已有结构化病例、SSPNet权重和已审核来源规则，依次执行输入检查、推荐、核查和下一动作整理。它是固定顺序的工具调用流程，没有新增大模型决策器，也不自动改处方。
+
+## 本机前提
+
+- 使用仓库已有`.venv`，SSPNet准备方式见[B运行说明](../recommendation/RUNNING.md)。
+- 当前默认病例：`data/processed/data_evaluation/synthea-apr2020-v3/main_prediction_examples.jsonl`。
+- 当前权重：`outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8/best.pt`；词表与图在`data/processed/recommendation/synthea-v3-atc3-product-v4/`。这些文件不随Git克隆取得，缺失时需按B说明重建或在授权范围交接。
+- 默认规则：`src/knowledge/rules/medication-llm-reviewed-v2.json`，真实模型生成后经agent来源/逻辑核对，2条启用、1条拒绝。来源核对参照为`medication-reference-v1.json`，3条；两者分别报告。
+- 推荐与规则执行不需要本地语言模型服务。仅重新运行BIBM知识提取时，才按[本地CPU说明](../knowledge/LOCAL_INFERENCE.md)启动后端。
+
+## 单个病例
+
+在仓库根目录执行。`--index 0`固定取原文件第一条，不按输出挑病例；也可以把完整Case保存为JSON传入。
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.pipeline --input data/processed/data_evaluation/synthea-apr2020-v3/main_prediction_examples.jsonl --index 0 --output outputs/data_evaluation/agent-case-auto-20261114.json
+```
+
+输出存在时拒绝覆盖，复跑换一个文件名。输入JSONL里的`target_medications`留在评价侧，只取`case`传给工具；Case内部出现当前用药答案字段则拒绝调用。
+
+也可直接调用：
+
+```python
+from src.data_evaluation.pipeline import MedicationAgent
+
+agent = MedicationAgent()  # 权重只加载一次
+result = agent.run(case)
+```
+
+结果中的`recommendation`保留原候选；`check_report`记录已执行规则、来源、缺失字段和未覆盖范围；`trace`记录实际调用顺序。未支持输入时不会继续核查。`next_action`只提示补充信息或复核，不会编造患者事实。
+
+| agent状态 | 含义 |
+|---|---|
+| needs_information | 输入或规则所需事实不足，候选如已生成则保留 |
+| unsupported_input | 编码、历史或输入结构不受当前模型支持 |
+| review_required | 至少一条有来源规则触发标记 |
+| not_checked | 当前候选未获得适用的完整规则检查 |
+| completed | 已覆盖规则检查完成；仍需看未覆盖范围，不表示临床安全 |
+| error | 模型运行失败，不能显示候选为成功结果 |
+
+## 固定队列集成核验
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.evaluate --split test --output outputs/data_evaluation/agent-integration-auto-20261114
+# 同样病例与候选，换成来源核对参照；不重训。
+.\.venv\Scripts\python.exe -m src.data_evaluation.evaluate --split test --rules src/knowledge/rules/medication-reference-v1.json --output outputs/data_evaluation/agent-integration-reference-20261114
+```
+
+评价器只读取原A1患者划分，复用指定权重和0.5阈值，不训练、不选参。它一次调用取得推荐与全词表分数，再交核查。原351条全部计入输入分母；严格接口支持子集另报，与对应训练运行在同一子集上的分数逐项比较。不支持病例保留原因，不能以支持子集成绩冒充全队列成绩。
+
+传`--rules <已审核规则包.json>`可在相同候选上比较来源参照与自动提取规则；逐例结果和分数写到本地，Git仅提交聚合报告。核查只加标记，不据此声称药物预测F1提高。实际数字见[本次集成报告](reports/agent-integration-20261114.md)。
+
+当前ATC3输出不能确定具体成分、途径和制剂，不能用目标处方把这些字段补全。因此现有病例中可能全部缺少执行成分级规则的前提；规则触发和例外用明确虚构边界样例另外检查，不混入病例效果指标。DXY诊断单独运行，不接到不相干的Synthea患者上。
+
+## RxNorm产品级版本与同次就诊事实
+
+v5独立训练72个原始RxNorm标签（69完整制剂、2包装、1成分＋规格），未给剂型的897718保留未知。默认旧38类入口保持兼容。新版本准备/训练见[B的v5报告](../recommendation/reports/sspnet-synthea-rxnorm-v5.md)，本轮结果见[RxNorm集成报告](reports/rxnorm-agent-20261114.md)。本机已有产物时直接推理；同学首次拉取仍须按B说明准备权重，Git不含权重或病例。药品名称和原始类型见新prepared目录的drug-catalog.json。
+
+从原ZIP生成核查事实，不另下数据、不读取当前药物答案：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_context --output data/processed/data_evaluation/synthea-context-v1/context.json
+```
+
+仅使用同次就诊结束前的eGFR和明确记录的CABG；取值、单位原文和时间留在context快照。旧单位只在LOINC和名称明确标准化至1.73平方米时接受，最新同刻冲突不取平均而保留未知。缺CABG记录不补false。这是**回顾性核查**，不宣称这些信息入院时已知。context只交核查工具，不改变SSPNet输入。
+
+单病例运行（取固定原始第0条，不按结果挑病例）：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.pipeline --input data/processed/data_evaluation/synthea-apr2020-v3/main_prediction_examples.jsonl --index 0 --checkpoint outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8/best.pt --rules src/knowledge/rules/medication-llm-rxnorm-scope-v1.json --context data/processed/data_evaluation/synthea-context-v1/context.json --output outputs/data_evaluation/agent-case-rxnorm-20261114.json
+```
+
+固定测试输入，分别不补和补真实记录上下文，最后与旧类别及训练内众数产品基线对照：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.evaluate --config src/recommendation/configs/sspnet-synthea-rxnorm-v5.json --rules src/knowledge/rules/medication-llm-rxnorm-scope-v1.json --output outputs/data_evaluation/agent-rxnorm-no-context-20261114
+.\.venv\Scripts\python.exe -m src.data_evaluation.evaluate --config src/recommendation/configs/sspnet-synthea-rxnorm-v5.json --rules src/knowledge/rules/medication-llm-rxnorm-scope-v1.json --context data/processed/data_evaluation/synthea-context-v1/context.json --output outputs/data_evaluation/agent-rxnorm-context-20261114
+.\.venv\Scripts\python.exe -m src.data_evaluation.compare_rxnorm --fine-run outputs/data_evaluation/agent-rxnorm-context-20261114 --without-context-run outputs/data_evaluation/agent-rxnorm-no-context-20261114 --context data/processed/data_evaluation/synthea-context-v1/context.json --rules src/knowledge/rules/medication-llm-rxnorm-scope-v1.json --output outputs/data_evaluation/rxnorm-comparison-20261114
+```
+
+对照入口还读取旧版`agent-integration-auto-20261114`的固定351条预测；没有它时先按上一节重建旧模型结果。所有输出目录/文件都拒绝覆盖，复跑改`--output`并相应修改后续输入。新增事实前后候选及全分数必须相同；缺信息、未覆盖和禁忌标记分别计数。即使状态为checked，也只说明至少一条已覆盖规则完成判断，不能说整份处方安全。
+
+## 来源范围v2与独立编写参照
+
+本版本使用原72原码权重，未增加模型。先复用前文已生成的v1上下文和已保存的351条预测；缺少它们时按前文步骤准备。下面的新增事实只来自原本地patients/conditions/encounters表：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_context --base-context data/processed/data_evaluation/synthea-context-v1/context.json --output data/processed/data_evaluation/synthea-context-v2/context.json
+```
+
+v2原样保留v1的同次eGFR/CABG，只添加年龄、明确已记录且截至当前无缓解记录的CAD。年龄本轮没有对应规则，不增加执行数。历史来源须在当前开始前结束；STOP在截止当日因时分未知不转阳性，缺失不转false，不读取药物答案。它仍是回顾性源记录状态，不是新临床诊断。
+
+复用固定预测，运行旧/新规则×旧/新事实四个分支，以及独立角色预先编写的40条来源参照：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.evaluate_checks --output outputs/data_evaluation/check-coverage-v2-20261114
+```
+
+此命令不加载模型或重新预测。默认读取 `agent-rxnorm-context-20261114/agent-results.jsonl`、两版上下文、两版规则和产品表，以及 `resources/check-reference-v1.json`；可用对应 `--saved-run`、`--old-context`、`--new-context`、`--old-rules`、`--new-rules`、`--old-products`、`--new-products`、`--reference` 指定新位置。原药物目标留在评价数据侧，只用Case与已保存候选核查。
+
+结果目录含results.json、四个分支逐例核查和reference-evaluations.jsonl；病例输出不提交。已存在目录拒绝覆盖，复跑换新`--output`。旧分支必须逐例复现原报告，任一分支修改候选即报错。参照期望为静态标签，不由生产执行器生成；相同率只解释为来源语义一致性，不叫临床准确率。
+
+新规则依赖新产品表，单病例实际推理需同时显式指定：
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.pipeline --input data/processed/data_evaluation/synthea-apr2020-v3/main_prediction_examples.jsonl --index 0 --checkpoint outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8/best.pt --rules src/knowledge/rules/medication-source-reviewed-v2.json --products src/knowledge/rules/rxnorm-rule-products-v2.json --context data/processed/data_evaluation/synthea-context-v2/context.json --output outputs/data_evaluation/agent-case-check-coverage-v2-20261114.json
+```
+
+如需重新核验整批真实模型调用，原 `evaluate` 也支持同一 `--products` 参数；本轮固定四分支不必重复模型推理。单药—患者规则与候选药对分别计数；范围外不等于安全，组合匹配也不证明实际并用。
+
+本机已完成：40/40参照一致，82项相关单元检查通过，原351条仍344支持／7拒绝。**实际规则执行仍2/344，覆盖未提高**；新状态为244未覆盖、98条件不足、2 checked。首次范围计数修正及完整原因见[报告](reports/check-coverage-20261114.md)，不要只引用“40/40”掩盖低覆盖。
+
+## MedPIC独立核查开发准备
+
+本批是数据与标注准备，未运行新模型或得到临床准确率。数据来源、固定抽样、实际结果及缺口见[准备报告](reports/medpic-readiness-20261114.md)，标注定义见[C协议](../knowledge/MEDPIC_ANNOTATION.md)。以下命令均在仓库根目录、现有虚拟环境中运行，无新依赖。
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_medpic --download
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_medpic --check-annotations data/processed/data_evaluation/medpic-development-v1/annotations_B.json
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_medpic --check-annotations data/processed/data_evaluation/medpic-development-v1/annotations_C.json
+.\.venv\Scripts\python.exe -m unittest src.data_evaluation.tests.test_prepare_medpic -v
+```
+
+`--download`下载作者固定版README与489KB题库；已有文件核对固定摘要，不重复下载。省略该参数只做本地准备。产物在`data/processed/data_evaluation/medpic-development-v1/`：
+
+| 文件 | 用途 |
+|---|---|
+| `inputs.development.json` | B/C均可读取的20题原输入，无答案、原始题ID或作者分类 |
+| `annotations_B.json`、`annotations_C.json` | 两份各20题空模板；初始pending，不是已完成标注 |
+| `author-reference.development.json` | A的评价侧原答案；不交给输入标注者 |
+| `manifest.json` | 原题ID关联、固定选择、输入摘要；不作为模型输入 |
+| `summary.json` | 仅数据准备统计，不是运行准确率 |
+
+B/C复制各自模板到`outputs/recommendation/medpic-development-v1/`或`outputs/knowledge/medpic-development-v1/`后编辑，`--check-annotations`指向该副本。保留原模板；程序遇到已有不同内容会停止，避免覆盖人工工作。自定义准备位置使用`--output`，检查副本时仍指向生成它的准备目录。首次缺数据可用`--download`，不要从author-reference补事实或编码。
+
+先填`reviewer`与`reviewer_kind`（真人`human`，AI草稿`ai_draft`）；逐题资格、全部候选、患者事实/原单位/原文定位按协议填写。`complete`只表示输入转写初审完成，不代表药学专家验证。明确事实必须有可切片重现的`evidence: [{field, quote, start, end}]`，未报告值保留null。范围内允许药物`unresolved`，不能留`unreviewed`后标完成。初始实际输出B/C均为20 pending；6项准备器测试通过。
+
+AI输入审计单独留在`outputs/data_evaluation/medpic-readiness-20261114/input-audit.agent.json`，不代填B/C人审包；真人独立提交前不要拿该草稿当答案。余447题因配对及来源分组未知不能称独立测试，195条DDI确认集保持封存。
+
+## 验证
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s src/data_evaluation/tests -v
+.\.venv\Scripts\python.exe -m unittest discover -s src/recommendation/tests -v
+.\.venv\Scripts\python.exe -m unittest discover -s src/knowledge/tests -v
+```
+
+共享协议仍为`0.1-draft`：接口已有实现，尚不冒充B/C成员均已确认并正式冻结。接口说明见[protocol.md](../../docs/protocol.md)。

@@ -1,0 +1,30 @@
+{
+  "a1_dir": "data/processed/data_evaluation/synthea-apr2020-v3",
+  "reference_dir": "data/reference/MoleRec",
+  "prepared_dir": "data/processed/recommendation/synthea-v3-rxnorm-product-v5",
+  "run_dir": "outputs/recommendation/sspnet-synthea-v3-rxnorm-cpu-seed8",
+  "medication_space": "RxNorm",
+  "rxnorm_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json",
+  "ddi_mapping_snapshot": "src/recommendation/resources/rxnorm-cid-v1.json",
+  "protocol": {
+    "status": "frozen_before_training_2026-11-14",
+    "label_policy": "Original train-visit RxCUI vocabulary; no product/brand/ingredient merging",
+    "cohort_policy": "Retain all A1 cases and patient splits, including unseen targets and unsupported inputs",
+    "input_policy": "Strict rejection of unknown diagnosis, procedure or historical medication codes; rejected rows have NaN scores and an explicit availability mask",
+    "target_policy": "Unseen target RxCUIs remain false negatives in full-target Jaccard/F1",
+    "model_selection": "Maximum validation full-target mean Jaccard across all 355 cases; rejected inputs score zero; earliest epoch wins ties",
+    "average_precision": "Supported inputs with every target in the training vocabulary only; report subset size and coverage",
+    "ddi_policy": "Same 40 least-frequent event-group selection; complete unique ingredient-CID mappings only; partial positive evidence reported separately"
+  },
+  "ddi_least_frequent_events": 40,
+  "seed": 8,
+  "dim": 64,
+  "epochs": 20,
+  "lr": 0.0001,
+  "target_ddi": 0.06,
+  "coef": 2.5,
+  "threshold": 0.5,
+  "initial_inter": 0.1,
+  "initial_garm": 0.1,
+  "device": "cpu"
+}

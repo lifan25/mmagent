@@ -1,0 +1,839 @@
+{
+  "version": "rxnorm-rule-products-v2.1",
+  "retrieved": "2026-11-14",
+  "rxnorm_version": {
+    "version": "02-Nov-2026",
+    "apiVersion": "3.1.357"
+  },
+  "scope": "Fifteen source-related original drug identities only; no patient records. Identity availability does not imply clinical rule coverage.",
+  "normalization": "Oral route is supported by the explicit NLM Oral Product dose form group and exact oral tablet form. Full ingredient sets retained for combinations. No ATC reverse lookup, target lookup or active-code replacement.",
+  "review": "Agent source and encoding verification, not human clinical validation.",
+  "known_source_rxcuis": [
+    "1014676",
+    "1043400",
+    "1049221",
+    "1049630",
+    "105078",
+    "105585",
+    "106892",
+    "1091392",
+    "1094107",
+    "1190795",
+    "1650142",
+    "1652673",
+    "1660014",
+    "1804799",
+    "1860154",
+    "1860480",
+    "197319",
+    "197361",
+    "197378",
+    "197591",
+    "197604",
+    "198014",
+    "198031",
+    "198405",
+    "204892",
+    "205923",
+    "2123111",
+    "243670",
+    "259255",
+    "308182",
+    "308192",
+    "308971",
+    "309043",
+    "309045",
+    "309097",
+    "309362",
+    "310325",
+    "310385",
+    "310436",
+    "310798",
+    "310965",
+    "311989",
+    "312617",
+    "312961",
+    "313185",
+    "313782",
+    "313820",
+    "314231",
+    "429503",
+    "477045",
+    "562251",
+    "608139",
+    "665078",
+    "705129",
+    "746030",
+    "752899",
+    "757594",
+    "789980",
+    "831533",
+    "833036",
+    "834061",
+    "834102",
+    "834357",
+    "849574",
+    "855332",
+    "856987",
+    "857005",
+    "860975",
+    "861467",
+    "895994",
+    "896209",
+    "897718",
+    "904419",
+    "966222",
+    "997223",
+    "997488",
+    "999967"
+  ],
+  "known_source_scope": "These 77 original codes are documented in the frozen NLM source. A known code outside every explicit clinical product allowlist is outside reviewed scope, not a missing patient fact. This list does not claim all 77 identities or formulations are resolved.",
+  "known_source_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json",
+  "products": {
+    "198405": {
+      "system": "RxNorm",
+      "code": "198405",
+      "name": "ibuprofen 100 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "5640"
+        ],
+        "active_ingredient_rxcuis": [
+          "5640"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "5640",
+            "baseName": "ibuprofen",
+            "bossRxcui": "5640",
+            "bossName": "ibuprofen",
+            "activeIngredientRxcui": "5640",
+            "activeIngredientName": "ibuprofen",
+            "moietyRxcui": "5640",
+            "moietyName": "ibuprofen",
+            "numeratorValue": "100",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/198405/historystatus.json",
+        "history_sha256": "9dba2b646c8cf9d88b51de5dd2934a79418e75065fbfd1e4dfae04ef37d112ca",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "310965": {
+      "system": "RxNorm",
+      "code": "310965",
+      "name": "ibuprofen 200 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "5640"
+        ],
+        "active_ingredient_rxcuis": [
+          "5640"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "5640",
+            "baseName": "ibuprofen",
+            "bossRxcui": "5640",
+            "bossName": "ibuprofen",
+            "activeIngredientRxcui": "5640",
+            "activeIngredientName": "ibuprofen",
+            "moietyRxcui": "5640",
+            "moietyName": "ibuprofen",
+            "numeratorValue": "200",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/310965/historystatus.json",
+        "history_sha256": "f605b36335ae7810435c887ab5d1a596178f3ff69ed380aab962605e5078b47c",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "855332": {
+      "system": "RxNorm",
+      "code": "855332",
+      "name": "warfarin sodium 5 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "11289"
+        ],
+        "active_ingredient_rxcuis": [
+          "114194"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "11289",
+            "baseName": "warfarin",
+            "bossRxcui": "114194",
+            "bossName": "warfarin sodium",
+            "activeIngredientRxcui": "114194",
+            "activeIngredientName": "warfarin sodium",
+            "moietyRxcui": "11289",
+            "moietyName": "warfarin",
+            "numeratorValue": "5",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/855332/historystatus.json",
+        "history_sha256": "c5ddee8e599c87514dfb320533185629e170cc05705c6271625c7795974d6dc3",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "860975": {
+      "system": "RxNorm",
+      "code": "860975",
+      "name": "24 HR metformin hydrochloride 500 MG Extended Release Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "6809"
+        ],
+        "active_ingredient_rxcuis": [
+          "235743"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "316945",
+        "dose_form_name": "Extended Release Oral Tablet",
+        "release": "extended_release",
+        "quantity_factor": {
+          "quantityFactorValue": "24",
+          "quantityFactorUnit": "HR"
+        },
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "6809",
+            "baseName": "metformin",
+            "bossRxcui": "235743",
+            "bossName": "metformin hydrochloride",
+            "activeIngredientRxcui": "235743",
+            "activeIngredientName": "metformin hydrochloride",
+            "moietyRxcui": "6809",
+            "moietyName": "metformin",
+            "numeratorValue": "500",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/860975/historystatus.json",
+        "history_sha256": "e9d7c5cc768093b22287660405bf44787b7362cebff46349073d21d5cdd3d84c",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "198014": {
+      "system": "RxNorm",
+      "code": "198014",
+      "name": "naproxen 500 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "7258"
+        ],
+        "active_ingredient_rxcuis": [
+          "7258"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "7258",
+            "baseName": "naproxen",
+            "bossRxcui": "7258",
+            "bossName": "naproxen",
+            "activeIngredientRxcui": "7258",
+            "activeIngredientName": "naproxen",
+            "moietyRxcui": "7258",
+            "moietyName": "naproxen",
+            "numeratorValue": "500",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/198014/historystatus.json",
+        "history_sha256": "b382a584447ea5cd4753cd6d39a39c68bbbcc4ffef0765426a11034218daba3d",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "849574": {
+      "system": "RxNorm",
+      "code": "849574",
+      "name": "naproxen sodium 220 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "7258"
+        ],
+        "active_ingredient_rxcuis": [
+          "142442"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "7258",
+            "baseName": "naproxen",
+            "bossRxcui": "142442",
+            "bossName": "naproxen sodium",
+            "activeIngredientRxcui": "142442",
+            "activeIngredientName": "naproxen sodium",
+            "moietyRxcui": "7258",
+            "moietyName": "naproxen",
+            "numeratorValue": "220",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/849574/historystatus.json",
+        "history_sha256": "035f7beb52226b682a9ccf391f02d49a8a201067fc5d6768072a226c8ddc98f7",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "1091392": {
+      "system": "RxNorm",
+      "code": "1091392",
+      "name": "methylphenidate hydrochloride 20 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "6901"
+        ],
+        "active_ingredient_rxcuis": [
+          "203188"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "6901",
+            "baseName": "methylphenidate",
+            "bossRxcui": "203188",
+            "bossName": "methylphenidate hydrochloride",
+            "activeIngredientRxcui": "203188",
+            "activeIngredientName": "methylphenidate hydrochloride",
+            "moietyRxcui": "6901",
+            "moietyName": "methylphenidate",
+            "numeratorValue": "20",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/1091392/historystatus.json",
+        "history_sha256": "16f8fa28bf11ac5ca0f7642fd16b5819f2f880b1d1fe43ef00e86ea8bf890c64",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "197591": {
+      "system": "RxNorm",
+      "code": "197591",
+      "name": "diazepam 5 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "3322"
+        ],
+        "active_ingredient_rxcuis": [
+          "3322"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "3322",
+            "baseName": "diazepam",
+            "bossRxcui": "3322",
+            "bossName": "diazepam",
+            "activeIngredientRxcui": "3322",
+            "activeIngredientName": "diazepam",
+            "moietyRxcui": "3322",
+            "moietyName": "diazepam",
+            "numeratorValue": "5",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/197591/historystatus.json",
+        "history_sha256": "cd8c257dfed8939cf2b0d0ac19b6e7197f66b8840b0fe4abfb21a3ba1ea566f7",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "204892": {
+      "system": "RxNorm",
+      "code": "204892",
+      "name": "clonazepam 0.25 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "2598"
+        ],
+        "active_ingredient_rxcuis": [
+          "2598"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "2598",
+            "baseName": "clonazepam",
+            "bossRxcui": "2598",
+            "bossName": "clonazepam",
+            "activeIngredientRxcui": "2598",
+            "activeIngredientName": "clonazepam",
+            "moietyRxcui": "2598",
+            "moietyName": "clonazepam",
+            "numeratorValue": "0.25",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/204892/historystatus.json",
+        "history_sha256": "b1846a624c33988d09e18aa394bf19a58940b1f6eb9dbc64d844bf530cc7b197",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "1049221": {
+      "system": "RxNorm",
+      "code": "1049221",
+      "name": "acetaminophen 325 MG / oxycodone hydrochloride 5 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "161",
+          "7804"
+        ],
+        "active_ingredient_rxcuis": [
+          "161",
+          "82063"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": false,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "161",
+            "baseName": "acetaminophen",
+            "bossRxcui": "161",
+            "bossName": "acetaminophen",
+            "activeIngredientRxcui": "161",
+            "activeIngredientName": "acetaminophen",
+            "moietyRxcui": "161",
+            "moietyName": "acetaminophen",
+            "numeratorValue": "325",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          },
+          {
+            "baseRxcui": "7804",
+            "baseName": "oxycodone",
+            "bossRxcui": "82063",
+            "bossName": "oxycodone hydrochloride",
+            "activeIngredientRxcui": "82063",
+            "activeIngredientName": "oxycodone hydrochloride",
+            "moietyRxcui": "7804",
+            "moietyName": "oxycodone",
+            "numeratorValue": "5",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/1049221/historystatus.json",
+        "history_sha256": "119be17416050a198c65cf6e074f39da20db41b2d87403564f7180367ebbde00",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "1860154": {
+      "system": "RxNorm",
+      "code": "1860154",
+      "name": "Abuse-Deterrent 12 HR oxycodone hydrochloride 15 MG Extended Release Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "7804"
+        ],
+        "active_ingredient_rxcuis": [
+          "82063"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "316945",
+        "dose_form_name": "Extended Release Oral Tablet",
+        "release": "extended_release",
+        "quantity_factor": {
+          "quantityFactorValue": "12",
+          "quantityFactorUnit": "HR"
+        },
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "7804",
+            "baseName": "oxycodone",
+            "bossRxcui": "82063",
+            "bossName": "oxycodone hydrochloride",
+            "activeIngredientRxcui": "82063",
+            "activeIngredientName": "oxycodone hydrochloride",
+            "moietyRxcui": "7804",
+            "moietyName": "oxycodone",
+            "numeratorValue": "15",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/1860154/historystatus.json",
+        "history_sha256": "80ebacd9a53245f123ee6ca5df48f5c0e79767f2813be8cb31ba5ab7d2ddab12",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "833036": {
+      "system": "RxNorm",
+      "code": "833036",
+      "name": "acetaminophen 750 MG / hydrocodone bitartrate 7.5 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "161",
+          "5489"
+        ],
+        "active_ingredient_rxcuis": [
+          "142439",
+          "161"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": false,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "161",
+            "baseName": "acetaminophen",
+            "bossRxcui": "161",
+            "bossName": "acetaminophen",
+            "activeIngredientRxcui": "161",
+            "activeIngredientName": "acetaminophen",
+            "moietyRxcui": "161",
+            "moietyName": "acetaminophen",
+            "numeratorValue": "750",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          },
+          {
+            "baseRxcui": "5489",
+            "baseName": "hydrocodone",
+            "bossRxcui": "142439",
+            "bossName": "hydrocodone bitartrate",
+            "activeIngredientRxcui": "142439",
+            "activeIngredientName": "hydrocodone bitartrate",
+            "moietyRxcui": "5489",
+            "moietyName": "hydrocodone",
+            "numeratorValue": "7.5",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/833036/historystatus.json",
+        "history_sha256": "fdd35cf214432036e854e19dfbf997876dfd5f8dd4efb749a095b219e57b3f4c",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "856987": {
+      "system": "RxNorm",
+      "code": "856987",
+      "name": "acetaminophen 300 MG / hydrocodone bitartrate 5 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "161",
+          "5489"
+        ],
+        "active_ingredient_rxcuis": [
+          "142439",
+          "161"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": false,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "161",
+            "baseName": "acetaminophen",
+            "bossRxcui": "161",
+            "bossName": "acetaminophen",
+            "activeIngredientRxcui": "161",
+            "activeIngredientName": "acetaminophen",
+            "moietyRxcui": "161",
+            "moietyName": "acetaminophen",
+            "numeratorValue": "300",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          },
+          {
+            "baseRxcui": "5489",
+            "baseName": "hydrocodone",
+            "bossRxcui": "142439",
+            "bossName": "hydrocodone bitartrate",
+            "activeIngredientRxcui": "142439",
+            "activeIngredientName": "hydrocodone bitartrate",
+            "moietyRxcui": "5489",
+            "moietyName": "hydrocodone",
+            "numeratorValue": "5",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/856987/historystatus.json",
+        "history_sha256": "0720d2c19515a7c47cbd925262e16a165eaf9d25fa213f7b730893fd26924403",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "857005": {
+      "system": "RxNorm",
+      "code": "857005",
+      "name": "acetaminophen 325 MG / hydrocodone bitartrate 7.5 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "161",
+          "5489"
+        ],
+        "active_ingredient_rxcuis": [
+          "142439",
+          "161"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": false,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "161",
+            "baseName": "acetaminophen",
+            "bossRxcui": "161",
+            "bossName": "acetaminophen",
+            "activeIngredientRxcui": "161",
+            "activeIngredientName": "acetaminophen",
+            "moietyRxcui": "161",
+            "moietyName": "acetaminophen",
+            "numeratorValue": "325",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          },
+          {
+            "baseRxcui": "5489",
+            "baseName": "hydrocodone",
+            "bossRxcui": "142439",
+            "bossName": "hydrocodone bitartrate",
+            "activeIngredientRxcui": "142439",
+            "activeIngredientName": "hydrocodone bitartrate",
+            "moietyRxcui": "5489",
+            "moietyName": "hydrocodone",
+            "numeratorValue": "7.5",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/857005/historystatus.json",
+        "history_sha256": "f949402bc38ba214e71f798a390a68789d38598e4b4323e6113cbb80faa898ed",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    },
+    "861467": {
+      "system": "RxNorm",
+      "code": "861467",
+      "name": "meperidine hydrochloride 50 MG Oral Tablet",
+      "identity": {
+        "status": "resolved",
+        "concept_status": "Active",
+        "tty": "SCD",
+        "ingredient_rxcuis": [
+          "6754"
+        ],
+        "active_ingredient_rxcuis": [
+          "103755"
+        ],
+        "ingredients_complete": true,
+        "single_ingredient": true,
+        "route": "oral",
+        "route_source_value": "RxNorm doseFormGroupConcept: Oral Product; exact oral tablet dose form",
+        "dose_form_rxcui": "317541",
+        "dose_form_name": "Oral Tablet",
+        "release": "not_specified",
+        "quantity_factor": null,
+        "ingredient_and_strength": [
+          {
+            "baseRxcui": "6754",
+            "baseName": "meperidine",
+            "bossRxcui": "103755",
+            "bossName": "meperidine hydrochloride",
+            "activeIngredientRxcui": "103755",
+            "activeIngredientName": "meperidine hydrochloride",
+            "moietyRxcui": "6754",
+            "moietyName": "meperidine",
+            "numeratorValue": "50",
+            "numeratorUnit": "MG",
+            "denominatorValue": "1",
+            "denominatorUnit": "EACH"
+          }
+        ]
+      },
+      "sources": {
+        "history_url": "https://rxnav.nlm.nih.gov/REST/rxcui/861467/historystatus.json",
+        "history_sha256": "ef37d30e8eb474bf72f9a253a13774c53531f30e5986ef3856c74f9be627be28",
+        "frozen_snapshot": "src/recommendation/resources/rxnorm-products-synthea-v1.json"
+      }
+    }
+  }
+}

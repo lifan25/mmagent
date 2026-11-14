@@ -1,0 +1,211 @@
+{
+  "config": {
+    "a1_dir": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "reference_dir": "data/reference/MoleRec",
+    "prepared_dir": "data/processed/recommendation/synthea-v3-atc3-v1",
+    "run_dir": "outputs/recommendation/sspnet-synthea-v3-cpu-seed8",
+    "ddi_least_frequent_events": 40,
+    "seed": 8,
+    "dim": 64,
+    "epochs": 20,
+    "lr": 0.0001,
+    "target_ddi": 0.06,
+    "coef": 2.5,
+    "threshold": 0.5,
+    "initial_inter": 0.1,
+    "initial_garm": 0.1,
+    "device": "cpu"
+  },
+  "device": "cpu",
+  "torch": "2.7.1+cu128",
+  "gpu": null,
+  "epochs_completed": 20,
+  "best_epoch": 19,
+  "best_validation_jaccard": 0.8627946127946127,
+  "threshold": 0.5,
+  "test_evaluations": 1,
+  "test": {
+    "overall": {
+      "samples": 216,
+      "patients": 92,
+      "jaccard": 0.7981481481481482,
+      "f1": 0.8304012345679012,
+      "prauc_average_precision": 0.9147558421516755,
+      "average_medications": 1.2638888888888888,
+      "ddi_rate": 0.0641025641025641,
+      "ddi_pairs": 5,
+      "predicted_pairs": 78,
+      "patient_macro": {
+        "jaccard": 0.8223852657004831,
+        "f1": 0.8454589371980675,
+        "prauc_average_precision": 0.923499741200828
+      }
+    },
+    "empty_current_procedures": {
+      "samples": 137,
+      "patients": 69,
+      "jaccard": 0.8071776155717761,
+      "f1": 0.8418491484184915,
+      "prauc_average_precision": 0.9130561348627042,
+      "average_medications": 1.2992700729927007,
+      "ddi_rate": 0.05172413793103448,
+      "ddi_pairs": 3,
+      "predicted_pairs": 58,
+      "patient_macro": {
+        "jaccard": 0.8196342305037956,
+        "f1": 0.844375431331953,
+        "prauc_average_precision": 0.912977340694732
+      }
+    },
+    "nonempty_current_procedures": {
+      "samples": 79,
+      "patients": 59,
+      "jaccard": 0.7824894514767932,
+      "f1": 0.8105485232067511,
+      "prauc_average_precision": 0.9177034358047016,
+      "average_medications": 1.2025316455696202,
+      "ddi_rate": 0.1,
+      "ddi_pairs": 2,
+      "predicted_pairs": 20,
+      "patient_macro": {
+        "jaccard": 0.7979284369114878,
+        "f1": 0.8230696798493409,
+        "prauc_average_precision": 0.9203470540758676
+      }
+    },
+    "empty_history_procedures": {
+      "samples": 200,
+      "patients": 83,
+      "jaccard": 0.787,
+      "f1": 0.8201666666666667,
+      "prauc_average_precision": 0.9104363095238096,
+      "average_medications": 1.26,
+      "ddi_rate": 0.0684931506849315,
+      "ddi_pairs": 5,
+      "predicted_pairs": 73,
+      "patient_macro": {
+        "jaccard": 0.8121619812583668,
+        "f1": 0.8347255689424362,
+        "prauc_average_precision": 0.918216580608147
+      }
+    },
+    "both_current_and_history_empty": {
+      "samples": 125,
+      "patients": 62,
+      "jaccard": 0.7966666666666666,
+      "f1": 0.832,
+      "prauc_average_precision": 0.9087095238095239,
+      "average_medications": 1.288,
+      "ddi_rate": 0.05660377358490566,
+      "ddi_pairs": 3,
+      "predicted_pairs": 53,
+      "patient_macro": {
+        "jaccard": 0.8153993855606757,
+        "f1": 0.8375576036866361,
+        "prauc_average_precision": 0.9112167178699437
+      }
+    }
+  },
+  "checks": {
+    "train_steps": 16440,
+    "empty_current_train_steps": 9500,
+    "empty_history_train_steps": 14480,
+    "empty_current_parameter_update_verified": true,
+    "parameters_changed": true,
+    "reload_equal": true
+  },
+  "seconds": 958.5513179000045,
+  "peak_gpu_memory_mb": null,
+  "parameters": 563907,
+  "preparation": {
+    "mapping": "Exact RXCUI -> unambiguous four-character ATC level 3; ambiguous/missing excluded and counted",
+    "visit_medication_occurrence_coverage": {
+      "mapped": 2461,
+      "unmapped": 394,
+      "ambiguous": 1240
+    },
+    "vocabulary_sizes": {
+      "diagnoses": 96,
+      "procedures": 62,
+      "medications": 24
+    },
+    "ehr_edges": 59,
+    "splits": {
+      "train": {
+        "source_examples": 1433,
+        "unmapped": 771,
+        "outside_train_med_vocabulary": 0,
+        "mapped": 4262,
+        "excluded_empty_mapped_target": 421,
+        "ambiguous": 2159,
+        "retained_examples": 822,
+        "excluded_no_mapped_medication_history": 190,
+        "patients": 370,
+        "empty_current_procedures": 475,
+        "empty_history_procedures": 724
+      },
+      "validation": {
+        "source_examples": 355,
+        "mapped": 969,
+        "outside_train_med_vocabulary": 7,
+        "ambiguous": 501,
+        "excluded_no_mapped_medication_history": 45,
+        "retained_examples": 198,
+        "unmapped": 178,
+        "excluded_empty_mapped_target": 112,
+        "unknown_diagnosis_codes": 14,
+        "patients": 100,
+        "empty_current_procedures": 123,
+        "empty_history_procedures": 170
+      },
+      "test": {
+        "source_examples": 351,
+        "mapped": 1003,
+        "outside_train_med_vocabulary": 0,
+        "retained_examples": 216,
+        "ambiguous": 508,
+        "excluded_empty_mapped_target": 96,
+        "unmapped": 145,
+        "excluded_no_mapped_medication_history": 39,
+        "unknown_diagnosis_codes": 4,
+        "unknown_procedure_codes": 6,
+        "patients": 92,
+        "empty_current_procedures": 137,
+        "empty_history_procedures": 200
+      }
+    },
+    "ddi": {
+      "policy": "40 least frequent event groups; deterministic lexical tie break; then filter names",
+      "event_groups": 40,
+      "source_rows": 4649441,
+      "selected_source_rows": 476,
+      "undirected_edges": 34
+    },
+    "medication_classes": [
+      "A10A",
+      "A10B",
+      "B01A",
+      "B03A",
+      "C01A",
+      "C01B",
+      "C03A",
+      "C08C",
+      "C10A",
+      "G04B",
+      "H03A",
+      "J01C",
+      "J01D",
+      "J01X",
+      "L01C",
+      "M05B",
+      "N02A",
+      "N02B",
+      "N03A",
+      "N05B",
+      "N06A",
+      "N06B",
+      "N06D",
+      "R06A"
+    ]
+  }
+}

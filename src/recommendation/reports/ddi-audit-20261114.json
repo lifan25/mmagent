@@ -1,0 +1,776 @@
+{
+  "date": "2026-11-14",
+  "scope": "Exploratory diagnosis; no new model training or final-test inference",
+  "prepared_dir": "data/processed/recommendation/synthea-v3-atc3-product-v4",
+  "original_run": "outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8",
+  "source_rows": 4649441,
+  "event_groups": 1317,
+  "unique_unordered_cid_pairs_all_events": 63473,
+  "selected_rows": 476,
+  "selected_unique_cid_pair_event": 476,
+  "reproduced_selected_graph": true,
+  "selected_class_edges": 75,
+  "all_event_class_edges": 521,
+  "top_flagged_class_edges": [
+    {
+      "classes": [
+        "M01A",
+        "N02B"
+      ],
+      "prediction_occurrences": 87,
+      "source_witness_count": 1,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000002244",
+          "cid_b": "CID000005090",
+          "event_id": "C0025218",
+          "event_name": "chloasma",
+          "cid_a_atc": [
+            "A01AD05",
+            "B01AC06",
+            "N02BA01"
+          ],
+          "cid_b_atc": [
+            "M01AH02"
+          ]
+        }
+      ]
+    },
+    {
+      "classes": [
+        "C01D",
+        "C10A"
+      ],
+      "prediction_occurrences": 13,
+      "source_witness_count": 1,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000000937",
+          "cid_b": "CID000027661",
+          "event_id": "C0027086",
+          "event_name": "myoma",
+          "cid_a_atc": [
+            "C04AC01",
+            "C10AD02"
+          ],
+          "cid_b_atc": [
+            "C01DA14"
+          ]
+        }
+      ]
+    },
+    {
+      "classes": [
+        "B01A",
+        "C10A"
+      ],
+      "prediction_occurrences": 12,
+      "source_witness_count": 2,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000000937",
+          "cid_b": "CID000002244",
+          "event_id": "C0027086",
+          "event_name": "myoma",
+          "cid_a_atc": [
+            "C04AC01",
+            "C10AD02"
+          ],
+          "cid_b_atc": [
+            "A01AD05",
+            "B01AC06",
+            "N02BA01"
+          ]
+        },
+        {
+          "cid_a": "CID000000937",
+          "cid_b": "CID000006691",
+          "event_id": "C0027086",
+          "event_name": "myoma",
+          "cid_a_atc": [
+            "C04AC01",
+            "C10AD02"
+          ],
+          "cid_b_atc": [
+            "B01AA03"
+          ]
+        }
+      ]
+    },
+    {
+      "classes": [
+        "B01A",
+        "C01D"
+      ],
+      "prediction_occurrences": 11,
+      "source_witness_count": 1,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000006691",
+          "cid_b": "CID000027661",
+          "event_id": "C0027086",
+          "event_name": "myoma",
+          "cid_a_atc": [
+            "B01AA03"
+          ],
+          "cid_b_atc": [
+            "C01DA14"
+          ]
+        }
+      ]
+    },
+    {
+      "classes": [
+        "A10B",
+        "B01A"
+      ],
+      "prediction_occurrences": 6,
+      "source_witness_count": 1,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000004091",
+          "cid_b": "CID000006691",
+          "event_id": "C0155707",
+          "event_name": "trifascicular block",
+          "cid_a_atc": [
+            "A10BA02",
+            "A10BD11"
+          ],
+          "cid_b_atc": [
+            "B01AA03"
+          ]
+        }
+      ]
+    },
+    {
+      "classes": [
+        "A10B",
+        "C10A"
+      ],
+      "prediction_occurrences": 5,
+      "source_witness_count": 2,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000000853",
+          "cid_b": "CID000077999",
+          "event_id": "C0001206",
+          "event_name": "Acromegaly",
+          "cid_a_atc": [
+            "C10AX01",
+            "H03AA01"
+          ],
+          "cid_b_atc": [
+            "A10BG02"
+          ]
+        },
+        {
+          "cid_a": "CID000003403",
+          "cid_b": "CID000003476",
+          "event_id": "C0155707",
+          "event_name": "trifascicular block",
+          "cid_a_atc": [
+            "C10AA04"
+          ],
+          "cid_b_atc": [
+            "A10BB12"
+          ]
+        }
+      ]
+    },
+    {
+      "classes": [
+        "R03A",
+        "R03B"
+      ],
+      "prediction_occurrences": 4,
+      "source_witness_count": 1,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000002083",
+          "cid_b": "CID000005544",
+          "event_id": "C0549398",
+          "event_name": "meibomianitis",
+          "cid_a_atc": [
+            "R03AC02",
+            "R03CC02"
+          ],
+          "cid_b_atc": [
+            "A01AC01",
+            "C05AA12",
+            "D07AB09",
+            "D07XB02",
+            "H02AB08",
+            "R01AD11",
+            "R03BA06",
+            "S01BA05"
+          ]
+        }
+      ]
+    },
+    {
+      "classes": [
+        "J01D",
+        "M01A"
+      ],
+      "prediction_occurrences": 1,
+      "source_witness_count": 1,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000002658",
+          "cid_b": "CID000005090",
+          "event_id": "C0155707",
+          "event_name": "trifascicular block",
+          "cid_a_atc": [
+            "J01DC02"
+          ],
+          "cid_b_atc": [
+            "M01AH02"
+          ]
+        }
+      ]
+    },
+    {
+      "classes": [
+        "B01A",
+        "M05B"
+      ],
+      "prediction_occurrences": 1,
+      "source_witness_count": 1,
+      "source_witnesses": [
+        {
+          "cid_a": "CID000002088",
+          "cid_b": "CID000002244",
+          "event_id": "C0684275",
+          "event_name": "Haemophilia",
+          "cid_a_atc": [
+            "M05BA04"
+          ],
+          "cid_b_atc": [
+            "A01AD05",
+            "B01AC06",
+            "N02BA01"
+          ]
+        }
+      ]
+    }
+  ],
+  "all_events_graph_test_sensitivity": {
+    "samples": 351,
+    "patients": 135,
+    "jaccard": 0.7465269298602633,
+    "patient_macro_jaccard": 0.7530906819517931,
+    "f1": 0.8091397681141271,
+    "recall": 0.894369827703161,
+    "average_precision": 0.8943707218707219,
+    "average_predictions": 1.6552706552706553,
+    "graph_flagged_pairs": 296,
+    "all_predicted_pairs": 373,
+    "cid_mapped_pairs": 296,
+    "unmapped_pairs": 77,
+    "flag_rate_all_pairs": 0.7935656836461126,
+    "flag_rate_cid_mapped_pairs": 1.0
+  },
+  "baseline_k_from_train": 1,
+  "baseline_popular_classes": [
+    "N02B"
+  ],
+  "comparisons": {
+    "validation": {
+      "last_nonempty_history": {
+        "all": {
+          "samples": 354,
+          "patients": 133,
+          "jaccard": 0.34500941619585684,
+          "patient_macro_jaccard": 0.32999552452559966,
+          "f1": 0.36696260425073984,
+          "recall": 0.37184557438794724,
+          "average_precision": 0.36695576039911454,
+          "average_predictions": 1.3531073446327684,
+          "graph_flagged_pairs": 41,
+          "all_predicted_pairs": 185,
+          "cid_mapped_pairs": 158,
+          "unmapped_pairs": 27,
+          "flag_rate_all_pairs": 0.22162162162162163,
+          "flag_rate_cid_mapped_pairs": 0.25949367088607594
+        },
+        "empty_current_procedures": {
+          "samples": 202,
+          "patients": 102,
+          "jaccard": 0.41369636963696366,
+          "patient_macro_jaccard": 0.3768355119825708,
+          "f1": 0.4377887788778878,
+          "recall": 0.4372112211221122,
+          "average_precision": 0.434627410109432,
+          "average_predictions": 1.3316831683168318,
+          "graph_flagged_pairs": 18,
+          "all_predicted_pairs": 97,
+          "cid_mapped_pairs": 81,
+          "unmapped_pairs": 16,
+          "flag_rate_all_pairs": 0.18556701030927836,
+          "flag_rate_cid_mapped_pairs": 0.2222222222222222
+        },
+        "recorded_current_procedures": {
+          "samples": 152,
+          "patients": 97,
+          "jaccard": 0.2537280701754386,
+          "patient_macro_jaccard": 0.24624856815578466,
+          "f1": 0.27283834586466166,
+          "recall": 0.2849780701754386,
+          "average_precision": 0.2770236995998769,
+          "average_predictions": 1.381578947368421,
+          "graph_flagged_pairs": 23,
+          "all_predicted_pairs": 88,
+          "cid_mapped_pairs": 77,
+          "unmapped_pairs": 11,
+          "flag_rate_all_pairs": 0.26136363636363635,
+          "flag_rate_cid_mapped_pairs": 0.2987012987012987
+        },
+        "one_history_visit": {
+          "samples": 130,
+          "patients": 130,
+          "jaccard": 0.3762820512820513,
+          "patient_macro_jaccard": 0.3762820512820513,
+          "f1": 0.3902564102564103,
+          "recall": 0.39487179487179486,
+          "average_precision": 0.3956477732793522,
+          "average_predictions": 1.1615384615384616,
+          "graph_flagged_pairs": 8,
+          "all_predicted_pairs": 24,
+          "cid_mapped_pairs": 23,
+          "unmapped_pairs": 1,
+          "flag_rate_all_pairs": 0.3333333333333333,
+          "flag_rate_cid_mapped_pairs": 0.34782608695652173
+        },
+        "multiple_history_visits": {
+          "samples": 224,
+          "patients": 97,
+          "jaccard": 0.3268601190476191,
+          "patient_macro_jaccard": 0.3238831615120275,
+          "f1": 0.3534438775510204,
+          "recall": 0.35848214285714286,
+          "average_precision": 0.35030414578111946,
+          "average_predictions": 1.4642857142857142,
+          "graph_flagged_pairs": 33,
+          "all_predicted_pairs": 161,
+          "cid_mapped_pairs": 135,
+          "unmapped_pairs": 26,
+          "flag_rate_all_pairs": 0.20496894409937888,
+          "flag_rate_cid_mapped_pairs": 0.24444444444444444
+        }
+      },
+      "training_popularity_fixed_k": {
+        "all": {
+          "samples": 354,
+          "patients": 133,
+          "jaccard": 0.2549435028248588,
+          "patient_macro_jaccard": 0.3135875402792696,
+          "f1": 0.26384180790960454,
+          "recall": 0.2549435028248588,
+          "average_precision": 0.28430716622063634,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        },
+        "empty_current_procedures": {
+          "samples": 202,
+          "patients": 102,
+          "jaccard": 0.13613861386138615,
+          "patient_macro_jaccard": 0.14591503267973857,
+          "f1": 0.14686468646864687,
+          "recall": 0.13613861386138615,
+          "average_precision": 0.1698801459093278,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        },
+        "recorded_current_procedures": {
+          "samples": 152,
+          "patients": 97,
+          "jaccard": 0.4128289473684211,
+          "patient_macro_jaccard": 0.42826460481099654,
+          "f1": 0.4192982456140351,
+          "recall": 0.4128289473684211,
+          "average_precision": 0.4363746537396121,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        },
+        "one_history_visit": {
+          "samples": 130,
+          "patients": 130,
+          "jaccard": 0.2846153846153846,
+          "patient_macro_jaccard": 0.2846153846153846,
+          "f1": 0.2923076923076923,
+          "recall": 0.2846153846153846,
+          "average_precision": 0.309919028340081,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        },
+        "multiple_history_visits": {
+          "samples": 224,
+          "patients": 97,
+          "jaccard": 0.23772321428571427,
+          "patient_macro_jaccard": 0.2710481099656357,
+          "f1": 0.24732142857142853,
+          "recall": 0.23772321428571427,
+          "average_precision": 0.26944313909774437,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        }
+      },
+      "sspnet_best_checkpoint": {
+        "all": {
+          "samples": 354,
+          "patients": 133,
+          "jaccard": 0.7443032015065913,
+          "patient_macro_jaccard": 0.7431659505907626,
+          "f1": 0.8037395749260156,
+          "recall": 0.8925612052730698,
+          "average_precision": 0.8751361103756092,
+          "average_predictions": 1.6045197740112995,
+          "graph_flagged_pairs": 134,
+          "all_predicted_pairs": 332,
+          "cid_mapped_pairs": 294,
+          "unmapped_pairs": 38,
+          "flag_rate_all_pairs": 0.4036144578313253,
+          "flag_rate_cid_mapped_pairs": 0.4557823129251701
+        },
+        "empty_current_procedures": {
+          "samples": 202,
+          "patients": 102,
+          "jaccard": 0.7511551155115512,
+          "patient_macro_jaccard": 0.7526143790849673,
+          "f1": 0.7977840641206978,
+          "recall": 0.8663366336633663,
+          "average_precision": 0.871795646956,
+          "average_predictions": 1.5693069306930694,
+          "graph_flagged_pairs": 70,
+          "all_predicted_pairs": 195,
+          "cid_mapped_pairs": 177,
+          "unmapped_pairs": 18,
+          "flag_rate_all_pairs": 0.358974358974359,
+          "flag_rate_cid_mapped_pairs": 0.3954802259887006
+        },
+        "recorded_current_procedures": {
+          "samples": 152,
+          "patients": 97,
+          "jaccard": 0.7351973684210527,
+          "patient_macro_jaccard": 0.7317439862542955,
+          "f1": 0.811654135338346,
+          "recall": 0.9274122807017542,
+          "average_precision": 0.8795754104464059,
+          "average_predictions": 1.6513157894736843,
+          "graph_flagged_pairs": 64,
+          "all_predicted_pairs": 137,
+          "cid_mapped_pairs": 117,
+          "unmapped_pairs": 20,
+          "flag_rate_all_pairs": 0.46715328467153283,
+          "flag_rate_cid_mapped_pairs": 0.5470085470085471
+        },
+        "one_history_visit": {
+          "samples": 130,
+          "patients": 130,
+          "jaccard": 0.7389743589743589,
+          "patient_macro_jaccard": 0.7389743589743589,
+          "f1": 0.7907326007326007,
+          "recall": 0.882051282051282,
+          "average_precision": 0.8566178266178266,
+          "average_predictions": 1.4923076923076923,
+          "graph_flagged_pairs": 55,
+          "all_predicted_pairs": 102,
+          "cid_mapped_pairs": 100,
+          "unmapped_pairs": 2,
+          "flag_rate_all_pairs": 0.5392156862745098,
+          "flag_rate_cid_mapped_pairs": 0.55
+        },
+        "multiple_history_visits": {
+          "samples": 224,
+          "patients": 97,
+          "jaccard": 0.7473958333333334,
+          "patient_macro_jaccard": 0.7423109965635738,
+          "f1": 0.8112882653061224,
+          "recall": 0.8986607142857144,
+          "average_precision": 0.8858833286278939,
+          "average_predictions": 1.6696428571428572,
+          "graph_flagged_pairs": 79,
+          "all_predicted_pairs": 230,
+          "cid_mapped_pairs": 194,
+          "unmapped_pairs": 36,
+          "flag_rate_all_pairs": 0.34347826086956523,
+          "flag_rate_cid_mapped_pairs": 0.4072164948453608
+        }
+      }
+    },
+    "test": {
+      "last_nonempty_history": {
+        "all": {
+          "samples": 351,
+          "patients": 135,
+          "jaccard": 0.35248948582281914,
+          "patient_macro_jaccard": 0.2998656672545561,
+          "f1": 0.3723693685232147,
+          "recall": 0.3658323158323158,
+          "average_precision": 0.3743060167036775,
+          "average_predictions": 1.339031339031339,
+          "graph_flagged_pairs": 42,
+          "all_predicted_pairs": 181,
+          "cid_mapped_pairs": 138,
+          "unmapped_pairs": 43,
+          "flag_rate_all_pairs": 0.23204419889502761,
+          "flag_rate_cid_mapped_pairs": 0.30434782608695654
+        },
+        "empty_current_procedures": {
+          "samples": 212,
+          "patients": 107,
+          "jaccard": 0.43891509433962267,
+          "patient_macro_jaccard": 0.399353953419374,
+          "f1": 0.4553122192273136,
+          "recall": 0.4458333333333333,
+          "average_precision": 0.45811196623634554,
+          "average_predictions": 1.25,
+          "graph_flagged_pairs": 12,
+          "all_predicted_pairs": 62,
+          "cid_mapped_pairs": 45,
+          "unmapped_pairs": 17,
+          "flag_rate_all_pairs": 0.1935483870967742,
+          "flag_rate_cid_mapped_pairs": 0.26666666666666666
+        },
+        "recorded_current_procedures": {
+          "samples": 139,
+          "patients": 90,
+          "jaccard": 0.22067488866050017,
+          "patient_macro_jaccard": 0.20494929453262783,
+          "f1": 0.24586660342056024,
+          "recall": 0.24381637547105176,
+          "average_precision": 0.24648687065385286,
+          "average_predictions": 1.474820143884892,
+          "graph_flagged_pairs": 30,
+          "all_predicted_pairs": 119,
+          "cid_mapped_pairs": 93,
+          "unmapped_pairs": 26,
+          "flag_rate_all_pairs": 0.25210084033613445,
+          "flag_rate_cid_mapped_pairs": 0.3225806451612903
+        },
+        "one_history_visit": {
+          "samples": 134,
+          "patients": 134,
+          "jaccard": 0.36393034825870646,
+          "patient_macro_jaccard": 0.36393034825870646,
+          "f1": 0.37624378109452733,
+          "recall": 0.3651741293532338,
+          "average_precision": 0.38392903901544906,
+          "average_predictions": 1.1492537313432836,
+          "graph_flagged_pairs": 8,
+          "all_predicted_pairs": 25,
+          "cid_mapped_pairs": 24,
+          "unmapped_pairs": 1,
+          "flag_rate_all_pairs": 0.32,
+          "flag_rate_cid_mapped_pairs": 0.3333333333333333
+        },
+        "multiple_history_visits": {
+          "samples": 217,
+          "patients": 86,
+          "jaccard": 0.34542462146148784,
+          "patient_macro_jaccard": 0.31207625815183954,
+          "f1": 0.36997687412433955,
+          "recall": 0.3662387535659425,
+          "average_precision": 0.36836368956184623,
+          "average_predictions": 1.456221198156682,
+          "graph_flagged_pairs": 34,
+          "all_predicted_pairs": 156,
+          "cid_mapped_pairs": 114,
+          "unmapped_pairs": 42,
+          "flag_rate_all_pairs": 0.21794871794871795,
+          "flag_rate_cid_mapped_pairs": 0.2982456140350877
+        }
+      },
+      "training_popularity_fixed_k": {
+        "all": {
+          "samples": 351,
+          "patients": 135,
+          "jaccard": 0.2469135802469136,
+          "patient_macro_jaccard": 0.2883950617283951,
+          "f1": 0.25071225071225073,
+          "recall": 0.2469135802469136,
+          "average_precision": 0.2777277952716549,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        },
+        "empty_current_procedures": {
+          "samples": 212,
+          "patients": 107,
+          "jaccard": 0.13128930817610063,
+          "patient_macro_jaccard": 0.1559301290609702,
+          "f1": 0.13443396226415094,
+          "recall": 0.13128930817610063,
+          "average_precision": 0.16443230718305196,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        },
+        "recorded_current_procedures": {
+          "samples": 139,
+          "patients": 90,
+          "jaccard": 0.4232613908872902,
+          "patient_macro_jaccard": 0.4604938271604938,
+          "f1": 0.42805755395683454,
+          "recall": 0.4232613908872902,
+          "average_precision": 0.4505237914931213,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        },
+        "one_history_visit": {
+          "samples": 134,
+          "patients": 134,
+          "jaccard": 0.2524875621890547,
+          "patient_macro_jaccard": 0.2524875621890547,
+          "f1": 0.2574626865671642,
+          "recall": 0.2524875621890547,
+          "average_precision": 0.27801780570830065,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        },
+        "multiple_history_visits": {
+          "samples": 217,
+          "patients": 86,
+          "jaccard": 0.2434715821812596,
+          "patient_macro_jaccard": 0.30708748615725356,
+          "f1": 0.2465437788018433,
+          "recall": 0.2434715821812596,
+          "average_precision": 0.27754871048589214,
+          "average_predictions": 1.0,
+          "graph_flagged_pairs": 0,
+          "all_predicted_pairs": 0,
+          "cid_mapped_pairs": 0,
+          "unmapped_pairs": 0,
+          "flag_rate_all_pairs": null,
+          "flag_rate_cid_mapped_pairs": null
+        }
+      },
+      "sspnet_saved_scores": {
+        "all": {
+          "samples": 351,
+          "patients": 135,
+          "jaccard": 0.7465269298602633,
+          "patient_macro_jaccard": 0.7530906819517931,
+          "f1": 0.8091397681141271,
+          "recall": 0.894369827703161,
+          "average_precision": 0.8943707218707219,
+          "average_predictions": 1.6552706552706553,
+          "graph_flagged_pairs": 140,
+          "all_predicted_pairs": 373,
+          "cid_mapped_pairs": 296,
+          "unmapped_pairs": 77,
+          "flag_rate_all_pairs": 0.3753351206434316,
+          "flag_rate_cid_mapped_pairs": 0.47297297297297297
+        },
+        "empty_current_procedures": {
+          "samples": 212,
+          "patients": 107,
+          "jaccard": 0.7542452830188678,
+          "patient_macro_jaccard": 0.7592512238540275,
+          "f1": 0.8074573225516621,
+          "recall": 0.884119496855346,
+          "average_precision": 0.8900372491764001,
+          "average_predictions": 1.5754716981132075,
+          "graph_flagged_pairs": 67,
+          "all_predicted_pairs": 191,
+          "cid_mapped_pairs": 152,
+          "unmapped_pairs": 39,
+          "flag_rate_all_pairs": 0.3507853403141361,
+          "flag_rate_cid_mapped_pairs": 0.4407894736842105
+        },
+        "recorded_current_procedures": {
+          "samples": 139,
+          "patients": 90,
+          "jaccard": 0.7347550531003768,
+          "patient_macro_jaccard": 0.7397597001763668,
+          "f1": 0.8117058001950087,
+          "recall": 0.910003425830764,
+          "average_precision": 0.9009800471311262,
+          "average_predictions": 1.776978417266187,
+          "graph_flagged_pairs": 73,
+          "all_predicted_pairs": 182,
+          "cid_mapped_pairs": 144,
+          "unmapped_pairs": 38,
+          "flag_rate_all_pairs": 0.4010989010989011,
+          "flag_rate_cid_mapped_pairs": 0.5069444444444444
+        },
+        "one_history_visit": {
+          "samples": 134,
+          "patients": 134,
+          "jaccard": 0.7727611940298508,
+          "patient_macro_jaccard": 0.7727611940298508,
+          "f1": 0.8289090262970861,
+          "recall": 0.9161691542288557,
+          "average_precision": 0.9026371120587539,
+          "average_predictions": 1.4776119402985075,
+          "graph_flagged_pairs": 44,
+          "all_predicted_pairs": 87,
+          "cid_mapped_pairs": 79,
+          "unmapped_pairs": 8,
+          "flag_rate_all_pairs": 0.5057471264367817,
+          "flag_rate_cid_mapped_pairs": 0.5569620253164557
+        },
+        "multiple_history_visits": {
+          "samples": 217,
+          "patients": 86,
+          "jaccard": 0.7303269694974763,
+          "patient_macro_jaccard": 0.7417381875230713,
+          "f1": 0.7969320234297194,
+          "recall": 0.8809084924292299,
+          "average_precision": 0.8892661306947021,
+          "average_predictions": 1.7649769585253456,
+          "graph_flagged_pairs": 96,
+          "all_predicted_pairs": 286,
+          "cid_mapped_pairs": 217,
+          "unmapped_pairs": 69,
+          "flag_rate_all_pairs": 0.3356643356643357,
+          "flag_rate_cid_mapped_pairs": 0.4423963133640553
+        }
+      }
+    }
+  },
+  "evaluation_notes": "Hard-set baselines use 0/1 scores; AP is a tied two-level ranking. Cohort groups are observational, not causal."
+}

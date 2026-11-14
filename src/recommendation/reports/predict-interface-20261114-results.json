@@ -1,0 +1,61 @@
+{
+  "scope": "Frozen inference compatibility; no training, tuning or new efficacy claim",
+  "model_version": "sspnet-case-v1-4545f9aee1c8f3b0",
+  "encoded_test_samples": 351,
+  "medication_classes": 38,
+  "all_encoded_scores_bitwise_equal": true,
+  "max_score_absolute_difference": 0.0,
+  "threshold": 0.5,
+  "all_encoded_candidate_sets_equal": true,
+  "strict_raw_case_status_counts": {
+    "ok": 344,
+    "unsupported_input": 7
+  },
+  "strict_issue_occurrences": {
+    "unsupported_code": 11
+  },
+  "strict_supported_encoding_equal": 344,
+  "public_score_case_checked_samples": 1,
+  "public_score_case_scores_equal": true,
+  "public_score_case_current_medications_empty": true,
+  "strict_supported_empty_current_procedures": 211,
+  "existing_encoded_test_metrics": {
+    "samples": 351,
+    "patients": 135,
+    "jaccard": 0.7465269298602633,
+    "f1": 0.8091397681141271,
+    "prauc_average_precision": 0.8943707218707219,
+    "average_medications": 1.6552706552706553,
+    "ddi_rate": 0.47297297297297297,
+    "ddi_pairs": 140,
+    "predicted_pairs": 296,
+    "total_predicted_pairs": 373,
+    "unmapped_predicted_pairs": 77,
+    "ddi_mapping_pair_coverage": 0.7935656836461126,
+    "ddi_rate_scope": "CID-mapped pairs",
+    "patient_macro": {
+      "jaccard": 0.7530906819517932,
+      "f1": 0.8135522769411659,
+      "prauc_average_precision": 0.8912387695295103
+    }
+  },
+  "constructor_seconds_excluding_import": 0.09948200000508223,
+  "one_public_inference_seconds": 0.030482499991194345,
+  "verification_seconds_excluding_import": 14.659311499999603,
+  "artifact_sha256": {
+    "vocabulary": "b16bb55feafd89077fb2611cab7e6b589e9c8f8848f755344e6b6534907cbff1",
+    "graphs": "73963e84f4c83a629a9e05715f223abb7bfadd08edee785a93ddb88cf91241e4",
+    "mapping": "558c3497b795af2ad308df59ba10c0e2dbe90b4e4509c0c0133e1bbb1eab876d",
+    "preparation": "cf4cf9a88bd0716783cd3cdf3266a2e13129374c865eb3676583a509a94770e5",
+    "checkpoint": "9968cec37dee608ccc0e8d065ec22ca688d8b2f2d0c25ef313b3ba7f67206170",
+    "adapter": "0f8bf56344f64823f44a0e21558c65e32f1fc0decada435a51b79b18da1544ec",
+    "interface": "079d6e613b7de62d00320af7bd394fb2a90e9f28b1c3b54edebb58e21cb7e950",
+    "upstream": "0064314808dd9cd9a79bc47f3029743aa5291e7710e1067aec5cb09f759f681b"
+  },
+  "limitations": [
+    "The encoded 351-case path retains the historical preprocessing UNK/drop policy; it is not the strict public Case interface.",
+    "Raw Cases with unsupported codes are rejected without inference; do not silently compare only the accepted subset with the original full test score.",
+    "One public score_case was inferred here; all supported raw Cases were encoding-aligned. A performs the separate full integrated run.",
+    "The historical Synthea test set is exploratory; no clinical validation or zero-shot inference was performed."
+  ]
+}

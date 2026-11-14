@@ -1,0 +1,274 @@
+{
+  "version": "medication-llm-reviewed-v2",
+  "description": "Actual local-model conditions and statements preserved; two source-checked rules executable, one logic error rejected. Preprovided drug scope/source/mapping are not model-generated.",
+  "extraction_run": "outputs/knowledge/bibm-medication-extraction-v2-20261114",
+  "rules": [
+    {
+      "rule_id": "medication.metformin.egfr",
+      "version": "1.0-llm-v2-source-review",
+      "kind": "medication",
+      "origin": "local_llm_extraction",
+      "statement": "Contraindicate metformin use when eGFR is less than 30 mL/min/1.73m²; do not extend this contraindication to eGFR values from 30 to 45 mL/min/1.73m².",
+      "selector": {
+        "system": "ATC5",
+        "code": "A10BA02",
+        "route": "oral",
+        "dose_form": "tablet"
+      },
+      "possible_atc3": [
+        "A10B"
+      ],
+      "condition": {
+        "all": [
+          {
+            "field": "egfr_ml_min_1_73m2",
+            "op": "lt",
+            "value": 30
+          }
+        ]
+      },
+      "required_fields": [
+        "egfr_ml_min_1_73m2"
+      ],
+      "predicate_definitions": {
+        "egfr_ml_min_1_73m2": "Current eGFR, a nonnegative number in mL/min/1.73m2; unknown is null."
+      },
+      "source": {
+        "title": "METFORMIN HYDROCHLORIDE tablet, film coated",
+        "publisher": "NLM DailyMed; label repackager Preferred Pharmaceuticals Inc.",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ca71c133-6c38-4b9e-80af-1949634157f4",
+        "section": "2.3 Recommendations for Use in Renal Impairment; 4 Contraindications",
+        "version_date": "2026-01-19",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "Oral metformin tablets must not be used when renal impairment gives an eGFR under 30 mL/min/1.73m2. The separate advice against starting therapy at 30 to 45 does not extend this contraindication threshold."
+      },
+      "code_mapping": {
+        "system": "ATC5",
+        "code": "A10BA02",
+        "ingredient": "metformin",
+        "url": "https://atcddd.fhi.no/atc_ddd_index/?code=A10BA02",
+        "index_date": "2026-01-20",
+        "limitation": "A10B is a parent class only; no reverse ingredient inference. This rule covers oral tablets only."
+      },
+      "action": "flag",
+      "review_status": "reviewed",
+      "review_record": {
+        "author": "qwen3-4b-instruct-2507-q4km",
+        "reviewer": "Codex agent ddi_source_audit",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "decision": "reviewed",
+        "reason": "The model preserves the strict eGFR <30 threshold and does not extend this contraindication to 30-45. Fixed input-domain validation enforces the already supplied nonnegative eGFR predicate independently of generated condition syntax. Clinical condition and statement are unchanged.",
+        "run_directory": "outputs/knowledge/bibm-medication-extraction-v2-20261114",
+        "raw_call_line": 3,
+        "raw_stage": "rewrite",
+        "raw_response_sha256": "d56ba9edd6e568c25123cf87571c9135a67381e694de13b9969ffa180828699d",
+        "model_statement_and_condition_preserved": true,
+        "provided_metadata": [
+          "source",
+          "evidence",
+          "selector",
+          "possible_atc3",
+          "code_mapping",
+          "required_fields",
+          "predicate_definitions"
+        ],
+        "finite_synthetic_comparison": {
+          "valid": true,
+          "synthetic_context_count": 6,
+          "mismatch_count": 0,
+          "matches_finite_reference": true
+        },
+        "limitations": "Agent review only; no human/clinical expert review, no clinical validity or extraction generalization established."
+      }
+    },
+    {
+      "rule_id": "medication.ibuprofen.cabg",
+      "version": "1.0-llm-v2-source-review",
+      "kind": "medication",
+      "origin": "local_llm_extraction",
+      "statement": "Flag if the patient is currently undergoing coronary artery bypass graft surgery.",
+      "selector": {
+        "system": "ATC5",
+        "code": "M01AE01",
+        "route": "oral",
+        "dose_form": "tablet"
+      },
+      "possible_atc3": [
+        "M01A"
+      ],
+      "condition": {
+        "field": "perioperative_cabg",
+        "op": "eq",
+        "value": true
+      },
+      "required_fields": [
+        "perioperative_cabg"
+      ],
+      "predicate_definitions": {
+        "perioperative_cabg": "Boolean: current coronary artery bypass graft surgery setting, not merely remote surgical history. Unknown is null."
+      },
+      "source": {
+        "title": "IBUPROFEN tablet, film coated",
+        "publisher": "NLM DailyMed official prescription labeling",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eeb8312f-7fd9-4c4f-8264-a7e63ff1aa9d",
+        "section": "CONTRAINDICATIONS",
+        "version_date": "2024-10-10",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "The oral ibuprofen tablet label lists coronary artery bypass graft surgery as a contraindicated treatment setting. This does not identify every member of the broad M01A drug class as ibuprofen."
+      },
+      "code_mapping": {
+        "system": "ATC5",
+        "code": "M01AE01",
+        "ingredient": "ibuprofen",
+        "url": "https://atcddd.fhi.no/atc_ddd_index/?code=M01AE01",
+        "index_date": "2026-01-20",
+        "limitation": "The code also includes non-oral preparations; require route and dose form. M01A cannot identify ibuprofen."
+      },
+      "action": "flag",
+      "review_status": "reviewed",
+      "review_record": {
+        "author": "qwen3-4b-instruct-2507-q4km",
+        "reviewer": "Codex agent ddi_source_audit",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "decision": "reviewed",
+        "reason": "The Boolean predicate preserves the CABG surgery setting. Exact oral ibuprofen tablet identity is checked separately by the preprovided selector; the short model statement is not a stand-alone statement of drug scope.",
+        "run_directory": "outputs/knowledge/bibm-medication-extraction-v2-20261114",
+        "raw_call_line": 4,
+        "raw_stage": "generate",
+        "raw_response_sha256": "cee345480b11d884c3c12536efef138cec73aff393f5543dcedfaae8d471d551",
+        "model_statement_and_condition_preserved": true,
+        "provided_metadata": [
+          "source",
+          "evidence",
+          "selector",
+          "possible_atc3",
+          "code_mapping",
+          "required_fields",
+          "predicate_definitions"
+        ],
+        "finite_synthetic_comparison": {
+          "valid": true,
+          "synthetic_context_count": 3,
+          "mismatch_count": 0,
+          "matches_finite_reference": true
+        },
+        "limitations": "Agent review only; no human/clinical expert review, no clinical validity or extraction generalization established."
+      }
+    },
+    {
+      "rule_id": "medication.warfarin.pregnancy",
+      "version": "1.0-llm-v2-source-review",
+      "kind": "medication",
+      "origin": "local_llm_extraction",
+      "statement": "Warfarin is contraindicated in pregnancy unless the patient has a mechanical heart valve, is documented to have high thromboembolic risk, and a documented individual clinical assessment determines that the benefits of warfarin outweigh the risks.",
+      "selector": {
+        "system": "ATC5",
+        "code": "B01AA03",
+        "route": "oral",
+        "dose_form": "tablet"
+      },
+      "possible_atc3": [
+        "B01A"
+      ],
+      "condition": {
+        "all": [
+          {
+            "field": "pregnant",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "field": "mechanical_heart_valve",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "high_thromboembolism_risk",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "field": "warfarin_benefit_outweighs_risk",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "required_fields": [
+        "pregnant",
+        "mechanical_heart_valve",
+        "high_thromboembolism_risk",
+        "warfarin_benefit_outweighs_risk"
+      ],
+      "predicate_definitions": {
+        "pregnant": "Boolean: currently pregnant; unknown is null.",
+        "mechanical_heart_valve": "Boolean: has a mechanical heart valve; unknown is null.",
+        "high_thromboembolism_risk": "Boolean: documented high thromboembolism risk; unknown is null.",
+        "warfarin_benefit_outweighs_risk": "Boolean: a documented individual clinical assessment judges warfarin benefits to outweigh pregnancy risks. Do not infer from the other predicates or a medication record; unknown is null."
+      },
+      "source": {
+        "title": "WARFARIN SODIUM tablet",
+        "publisher": "NLM DailyMed; label repackager REMEDYREPACK INC.",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72d3ea20-27e4-4368-a666-a9b76530dbb9",
+        "section": "8.1 Pregnancy, Risk Summary; 5.7 Use in Pregnant Women with Mechanical Heart Valves",
+        "version_date": "2026-10-27",
+        "retrieved": "2026-11-14"
+      },
+      "evidence": {
+        "type": "faithful_paraphrase",
+        "text": "Warfarin oral tablets are generally contraindicated in pregnancy. An exception concerns women with mechanical heart valves and high thromboembolic risk when individual benefits may exceed harms. The decision requires an individual benefit-risk review; a valve alone does not establish the full exception."
+      },
+      "code_mapping": {
+        "system": "ATC5",
+        "code": "B01AA03",
+        "ingredient": "warfarin",
+        "url": "https://atcddd.fhi.no/atc_ddd_index/?code=B01AA03",
+        "index_date": "2026-01-20",
+        "limitation": "B01A contains multiple antithrombotics. ATC5 alone does not specify oral tablets; route and form are required."
+      },
+      "action": "flag",
+      "review_status": "rejected",
+      "review_record": {
+        "author": "qwen3-4b-instruct-2507-q4km",
+        "reviewer": "Codex agent ddi_source_audit",
+        "date": "2026-11-14",
+        "review_type": "agent_source_logic_scope_review_not_clinical_validation",
+        "decision": "rejected",
+        "reason": "Rejected: the natural-language statement preserves the exception, but the final condition conjoins pregnancy with the full exception rather than negating that exception. This can flag an exception and miss a contraindication. No clinical-logic repair is performed.",
+        "run_directory": "outputs/knowledge/bibm-medication-extraction-v2-20261114",
+        "raw_call_line": 8,
+        "raw_stage": "rewrite",
+        "raw_response_sha256": "5918213dd2756c84682ab72661d178bd6fa1d09b27733e1f1ad9dd7ac8bc276d",
+        "model_statement_and_condition_preserved": true,
+        "provided_metadata": [
+          "source",
+          "evidence",
+          "selector",
+          "possible_atc3",
+          "code_mapping",
+          "required_fields",
+          "predicate_definitions"
+        ],
+        "finite_synthetic_comparison": {
+          "valid": true,
+          "synthetic_context_count": 81,
+          "mismatch_count": 40,
+          "matches_finite_reference": false
+        },
+        "limitations": "Agent review only; no human/clinical expert review, no clinical validity or extraction generalization established."
+      }
+    }
+  ]
+}
