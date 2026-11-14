@@ -4,6 +4,8 @@
 
 准备结论：A1 v3已就绪；当前推荐实验为38类、训练1433/验证354/测试351条，已完成20轮训练及重载，见[SSPNet报告](../src/recommendation/reports/sspnet-synthea-product-v4.md)。DDI来源、分母和第一批简单对照已实际核验，见[DDI诊断](../src/recommendation/reports/ddi-audit-20261114.md)。新下载MIMIC-IV Demo五表和250例DDI核查清单；真实大规模主队列仍未取得，用户愿意本人申请。本地病例、图和权重不随克隆取得，其他成员按说明重建。研究方向与零样本对照见[实验设计](research-design.md)。
 
+最新交付：SSPNet共享接口、BIBM受限知识提取/诊断和agent调用链均已实际运行。原351条测试输入中严格接口支持344条、拒绝7条；默认自动规则包2条通过agent核对、1条拒绝，127条推荐缺药物身份、217条未覆盖，完整成分核查0条。DXY规则MLN为47/104（45.19%），低于旧Diaformer的79/104。68项检查通过；详见[集成报告](../src/data_evaluation/reports/agent-integration-20261114.md)和[运行说明](../src/data_evaluation/RUNNING.md)。
+
 用户最新要求暂不依赖申请中的队列：已完整取得DDICorpus-2013并实际跑完关系抽取轻量基线；七分类DDInter已做明确partial的检索实验；DialMed的dev/test及70药词表已到齐。数据与成绩各自对应任务，不能当作新增纵向临床验证。详细证据见[公开数据实验](../src/knowledge/reports/open-data-pilot-20261114.md)。
 
 新成员按 [三人开工步骤](onboarding.md) 取得材料并做本机检查；不要把资源清单中组长电脑的已完成结果当作自己的验证记录。
@@ -89,7 +91,7 @@ DXY 包含中文主诉、问诊及症状；MIMIC/Synthea 按多张 CSV 存储就
 |---|---|---|
 | SSPNet | third_party/SSPNet；4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d | 正常导入，src/recommendation 适配入口已完成20轮Synthea实际运行，空操作训练/测试通过 |
 | Diaformer | third_party/Diaformer；45491f33145003290278d0eacdc87a1d1d786b2d | DXY 150 轮训练、验证选模、权重保存与重载、最终测试已完成：79/104，75.96%；见运行说明 |
-| BIBM 完整实现 | 尚未取得 | 不能将 Diaformer 记作整篇 BIBM 的实现 |
+| BIBM 完整原始实现 | 尚未取得 | 自行实现了来源摘要形式化、受限条件MLN和适配用药核查；未恢复完整自动检索、迭代优化或Alchemy运行，不能称完整复现 |
 | MoleRec 参考材料 | data/reference/MoleRec/（本地）；dd5afaf0a503fd3de3229f86ec7f26b345d10e3a | 已复制原预处理脚本、映射、分子辅助材料及原 README/LICENSE；不是 SSPNet 作者配套数据 |
 
 原始来源：[SSPNet](https://github.com/ResearchGroupHdZhang/SSPNet)、[Diaformer](https://github.com/jymChen/Diaformer)。
@@ -111,13 +113,13 @@ BIBM DOI：10.1109/BIBM58861.2023.10385557，[作者主页提供的论文 PDF](h
 
 DDI原始文件已从SSPNet/MoleRec提供的[公开入口](https://drive.google.com/file/d/1s3sHmz9ueVA8YAGTARY8jwrhRdRvVaXs/view)保存为drug-DDI.csv：232,835,373字节、4,649,441行，关联来源为[TwoSIDES](https://tatonettilab.org/resources/tatonetti-stm.html)。按最低频40个事件组筛选得到476行；当前38类图75条无向边，EHR训练图172边，已独立重建核对。源关联不等于临床禁忌，CID映射不等于证据覆盖；与Decagon论文原始计数有差异，细节见DDI报告。旧24类34条DDI边/59条EHR边仅保留历史对照。
 
-Synthea当前图与模型词表一致，仅从训练就诊建立EHR图，不混用上游预生成分子矩阵。适配入口修正四参数调用，ddi_mask_H为未使用的遗留参数，传None；显式初始化inter/garm，禁用绘图，以新循环解决原验证未定义变量和三次就诊跳过等问题。原子模块未改动。NDC/MIMIC模型适配和公共recommend接口仍待完成。
+Synthea当前图与模型词表一致，仅从训练就诊建立EHR图，不混用上游预生成分子矩阵。适配入口修正四参数调用，ddi_mask_H为未使用的遗留参数，传None；显式初始化inter/garm，禁用绘图，以新循环解决原验证未定义变量和三次就诊跳过等问题。原子模块未改动。公共recommend接口已实现并与旧分数核对，NDC/MIMIC模型适配尚待完成。
 
 作者正文引用的附录尚未取得；正文学习率 1e-4 与当前入口默认 5e-4 不一致，采用设置必须记录。附录与作者精确配置作为可选补充，不阻塞公开材料上的适配开发。
 
 ### BIBM
 
-尚未找到完整知识提取、规则迭代、MLN 学习与推理的公开整套实现和作者生成产物。论文已给出部分提示词模板与设置，不能称提示词全部缺失。[Alchemy](https://alchemy.cs.washington.edu/) 本体公开可得。C 可据原文自行实现最小流程并记录差异，不必先等作者完整代码；作者规则和缓存可后补对照。原诊断任务与用药核查扩展分开实施。
+尚未找到完整知识提取、规则迭代、MLN学习与推理的公开整套实现和作者生成产物。论文已给出部分提示词模板与设置，不能称提示词全部缺失。[Alchemy](https://alchemy.cs.washington.edu/)本体公开可得。本次自行实现受限条件MLN，12条模型生成且经来源核对的规则参与条件似然学习，五个疾病世界精确归一化；未运行Alchemy。与完整原方法的差异见[BIBM_DIAGNOSIS.md](../src/knowledge/BIBM_DIAGNOSIS.md)。原诊断任务与新增用药核查分开验收；后者的真实提取、失败及拒绝记录见[MEDICATION_CHECK.md](../src/knowledge/MEDICATION_CHECK.md)。
 
 ### 环境与资源
 
@@ -125,13 +127,13 @@ Synthea当前图与模型词表一致，仅从训练就诊建立EHR图，不混�
 
 Diaformer作者报告Python3.8/PyTorch1.8.0，当前使用现代环境记录差异。SSPNet已补齐PyG、torch-scatter、OGB、RDKit、scikit-learn等，58包兼容检查与正常包导入通过；20轮主运行使用更快的CPU逐样本计算。完整快照及安装脚本见 src/recommendation/environment-lock.txt 和 setup_environment.ps1。
 
-用户尚无完整MIMIC-IV权限且愿意申请；本人身份、培训和协议尚待完成，当前先使用已有公开数据。零样本仅为补充，本地调用、输入过滤和评价入口已实现，但可选模型环境未完成，尚无大模型核查结果或付费调用。现有PyTorch GPU环境可用，主线不等待额外安装；详情见[本地环境](../src/knowledge/LOCAL_INFERENCE.md)。DXY本机GPU运行不表示BIBM整体已复现。
+用户尚无完整MIMIC-IV权限且愿意申请；本人身份、培训和协议尚待完成。Qwen3-4B量化权重已完整下载并校验，本次用CPU完成知识提取，服务随后停止；没有新增CUDA运行库。推荐与已保存规则核查可独立运行。零样本病例实验和付费调用均未启动，详见[本地环境](../src/knowledge/LOCAL_INFERENCE.md)。
 
 ## 现在可以推进什么
 
-- A：已有A1不重写；先对齐病例/推荐/核查协议与统一评价，接真实模块完成最小agent调用链；DialMed后移为补充。
-- B：复核DDI诊断并交付类别编码边界，补公共recommend接口，固定候选给C；需要训练分母对照时只改一个因素。
-- C：优先BIBM知识提取、规则与原诊断推理缺口，适配到用药核查并接B的候选；零样本pilot留作后续补充，后端不绑定Qwen。
+- A：审核已完成的351条集成及分母；与B/C定义更细药物输出和必要患者事实的交接，不用答案补输入。
+- B：复核已完成接口、7条未知编码及ATC3粒度限制；评估已有RxNorm能支持的成分/药品输出，另立数据版本后再训练比较。
+- C：复核来源与拒绝规则，明确成分、途径、制剂和患者条件的最小需求；补BIBM知识获取与原方法差异，保留当前低分诊断结果。
 
-当前优先级：两篇论文模块实现 → 统一接口和最小agent调用链 → 同条件模块消融 → 必要的零样本补充与独立确认。新数据与已完成探索保留复用，不以安装Qwen或额外CUDA为前置。不把包装、数据替换或“零样本”本身当作创新。
+当前优先级：审核已完成最小主线 → 解决药物身份/条件缺口 → 同条件模块对照 → 必要的零样本补充与独立确认。新数据与已完成探索保留复用。不把包装、数据替换或“零样本”本身当作创新。
 

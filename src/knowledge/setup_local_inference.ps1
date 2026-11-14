@@ -1,7 +1,7 @@
 #Requires -Version 7.0
 # Downloads one pinned, free model and a portable runtime; does not modify Python or PATH.
 [CmdletBinding()]
-param([ValidateSet('all', 'runtime', 'model')][string]$Component = 'all')
+param([ValidateSet('cpu', 'all', 'runtime', 'model')][string]$Component = 'cpu')
 
 $ErrorActionPreference = 'Stop'
 $repoRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
@@ -39,19 +39,22 @@ $releaseUrl = 'https://github.com/ggml-org/llama.cpp/releases/download/b12359'
 $runtimeSha = '1de9ca1ff408d6e348ea0007c6880ad2393311a02e7799bcde26dc16daef03dd'
 $cudaSha = 'c2bf4cc202bfbaaa7a0b75f5082457c3811326947bb216059b72839d844e9cba'
 
-if ($Component -in @('all', 'runtime')) {
+if ($Component -in @('cpu', 'all', 'runtime')) {
     Get-PinnedFile "$releaseUrl/$runtimeName" (Join-Path $downloadDir $runtimeName) $runtimeSha
-    Get-PinnedFile "$releaseUrl/$cudaName" (Join-Path $downloadDir $cudaName) $cudaSha
     Expand-Archive -LiteralPath (Join-Path $downloadDir $runtimeName) -DestinationPath $runtimeDir -Force
-    Expand-Archive -LiteralPath (Join-Path $downloadDir $cudaName) -DestinationPath $runtimeDir -Force
+    if ($Component -in @('all', 'runtime')) {
+        Get-PinnedFile "$releaseUrl/$cudaName" (Join-Path $downloadDir $cudaName) $cudaSha
+        Expand-Archive -LiteralPath (Join-Path $downloadDir $cudaName) -DestinationPath $runtimeDir -Force
+    }
 }
-if ($Component -in @('all', 'model')) {
+if ($Component -in @('cpu', 'all', 'model')) {
     Get-PinnedFile $modelUrl (Join-Path $modelDir $modelName) $modelSha
 }
 
 [ordered]@{
     manifest_kind = 'source_declaration_not_readiness'
     checked_component_this_invocation = $Component
+    default_execution_backend = 'CPU; separate CUDA libraries are optional and not downloaded by cpu mode'
     note = 'Source pins only. Component downloads are verified separately; this file does not prove model loading or inference.'
     base_model = 'Qwen/Qwen3-4B-Instruct-2507'
     quantization_repository = 'unsloth/Qwen3-4B-Instruct-2507-GGUF'

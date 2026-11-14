@@ -1,0 +1,430 @@
+{
+  "date": "2026-11-14",
+  "scope": "Minimal paper-based tool chain; Synthea interface validation and a separate restricted DXY conditional MLN. No zero-shot medication benchmark.",
+  "integration_runs": {
+    "reference": {
+      "input_cases": 351,
+      "input_patients": 135,
+      "supported_evaluable_cases": 344,
+      "supported_patients": 134,
+      "recommendation_coverage": 0.98005698005698,
+      "recommendation_statuses": {
+        "ok": 344,
+        "unsupported_input": 7
+      },
+      "agent_statuses": {
+        "not_checked": 209,
+        "needs_information": 135,
+        "unsupported_input": 7
+      },
+      "knowledge_statuses": {
+        "not_checked": 209,
+        "insufficient_information": 135
+      },
+      "input_issue_counts": {
+        "unsupported_code": 11
+      },
+      "checked_rule_instances": 0,
+      "pending_rule_instances": 141,
+      "missing_field_occurrences": {
+        "candidates[0].drug.exact_ingredient_identity": 118,
+        "candidates[1].drug.exact_ingredient_identity": 23
+      },
+      "supported_metrics": {
+        "samples": 344,
+        "patients": 134,
+        "jaccard": 0.7469407530454041,
+        "f1": 0.8094226509924186,
+        "prauc_average_precision": 0.8951628724957212,
+        "average_medications": 1.6453488372093024,
+        "ddi_rate": 0.4738675958188153,
+        "ddi_pairs": 136,
+        "predicted_pairs": 287,
+        "total_predicted_pairs": 358,
+        "unmapped_predicted_pairs": 71,
+        "ddi_mapping_pair_coverage": 0.8016759776536313,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.752927179578299,
+          "f1": 0.8137570617607931,
+          "prauc_average_precision": 0.8934033090320405
+        }
+      },
+      "all_input_cases_with_nonanswers_scored_zero": {
+        "denominator": 351,
+        "jaccard": 0.7320444987111653,
+        "f1": 0.7932803189213448,
+        "scope": "Unsupported inputs remain in denominator; AP is not defined for nonanswers and is not filled with invented scores."
+      },
+      "encoded_inputs_equal_on_supported": true,
+      "stored_scores_comparison": {
+        "max_absolute_difference": 0.0,
+        "allclose_atol_1e_7_rtol_0": true,
+        "original_same_supported_cases": {
+          "samples": 344,
+          "patients": 134,
+          "jaccard": 0.7469407530454041,
+          "f1": 0.8094226509924186,
+          "prauc_average_precision": 0.8951628724957212,
+          "average_medications": 1.6453488372093024,
+          "ddi_rate": 0.4738675958188153,
+          "ddi_pairs": 136,
+          "predicted_pairs": 287,
+          "total_predicted_pairs": 358,
+          "unmapped_predicted_pairs": 71,
+          "ddi_mapping_pair_coverage": 0.8016759776536313,
+          "ddi_rate_scope": "CID-mapped pairs",
+          "patient_macro": {
+            "jaccard": 0.752927179578299,
+            "f1": 0.8137570617607931,
+            "prauc_average_precision": 0.8934033090320405
+          }
+        }
+      },
+      "rules_file": "src\\knowledge\\rules\\medication-reference-v1.json",
+      "rule_versions": [
+        {
+          "rule_id": "medication.metformin.egfr",
+          "version": "1.0",
+          "review_status": "reviewed"
+        },
+        {
+          "rule_id": "medication.ibuprofen.cabg",
+          "version": "1.0",
+          "review_status": "reviewed"
+        },
+        {
+          "rule_id": "medication.warfarin.pregnancy",
+          "version": "1.0",
+          "review_status": "reviewed"
+        }
+      ],
+      "seconds": 11.444131800002651,
+      "source_result": "outputs/data_evaluation/agent-integration-reference-20261114/results.json",
+      "model_version": "sspnet-case-v1-4545f9aee1c8f3b0"
+    },
+    "automatic": {
+      "input_cases": 351,
+      "input_patients": 135,
+      "supported_evaluable_cases": 344,
+      "supported_patients": 134,
+      "recommendation_coverage": 0.98005698005698,
+      "recommendation_statuses": {
+        "ok": 344,
+        "unsupported_input": 7
+      },
+      "agent_statuses": {
+        "not_checked": 217,
+        "needs_information": 127,
+        "unsupported_input": 7
+      },
+      "knowledge_statuses": {
+        "not_checked": 217,
+        "insufficient_information": 127
+      },
+      "input_issue_counts": {
+        "unsupported_code": 11
+      },
+      "checked_rule_instances": 0,
+      "pending_rule_instances": 127,
+      "missing_field_occurrences": {
+        "candidates[0].drug.exact_ingredient_identity": 110,
+        "candidates[1].drug.exact_ingredient_identity": 17
+      },
+      "supported_metrics": {
+        "samples": 344,
+        "patients": 134,
+        "jaccard": 0.7469407530454041,
+        "f1": 0.8094226509924186,
+        "prauc_average_precision": 0.8951628724957212,
+        "average_medications": 1.6453488372093024,
+        "ddi_rate": 0.4738675958188153,
+        "ddi_pairs": 136,
+        "predicted_pairs": 287,
+        "total_predicted_pairs": 358,
+        "unmapped_predicted_pairs": 71,
+        "ddi_mapping_pair_coverage": 0.8016759776536313,
+        "ddi_rate_scope": "CID-mapped pairs",
+        "patient_macro": {
+          "jaccard": 0.752927179578299,
+          "f1": 0.8137570617607931,
+          "prauc_average_precision": 0.8934033090320405
+        }
+      },
+      "all_input_cases_with_nonanswers_scored_zero": {
+        "denominator": 351,
+        "jaccard": 0.7320444987111653,
+        "f1": 0.7932803189213448,
+        "scope": "Unsupported inputs remain in denominator; AP is not defined for nonanswers and is not filled with invented scores."
+      },
+      "encoded_inputs_equal_on_supported": true,
+      "stored_scores_comparison": {
+        "max_absolute_difference": 0.0,
+        "allclose_atol_1e_7_rtol_0": true,
+        "original_same_supported_cases": {
+          "samples": 344,
+          "patients": 134,
+          "jaccard": 0.7469407530454041,
+          "f1": 0.8094226509924186,
+          "prauc_average_precision": 0.8951628724957212,
+          "average_medications": 1.6453488372093024,
+          "ddi_rate": 0.4738675958188153,
+          "ddi_pairs": 136,
+          "predicted_pairs": 287,
+          "total_predicted_pairs": 358,
+          "unmapped_predicted_pairs": 71,
+          "ddi_mapping_pair_coverage": 0.8016759776536313,
+          "ddi_rate_scope": "CID-mapped pairs",
+          "patient_macro": {
+            "jaccard": 0.752927179578299,
+            "f1": 0.8137570617607931,
+            "prauc_average_precision": 0.8934033090320405
+          }
+        }
+      },
+      "rules_file": "src\\knowledge\\rules\\medication-llm-reviewed-v2.json",
+      "rule_versions": [
+        {
+          "rule_id": "medication.metformin.egfr",
+          "version": "1.0-llm-v2-source-review",
+          "review_status": "reviewed"
+        },
+        {
+          "rule_id": "medication.ibuprofen.cabg",
+          "version": "1.0-llm-v2-source-review",
+          "review_status": "reviewed"
+        },
+        {
+          "rule_id": "medication.warfarin.pregnancy",
+          "version": "1.0-llm-v2-source-review",
+          "review_status": "rejected"
+        }
+      ],
+      "seconds": 3.348540899998625,
+      "source_result": "outputs/data_evaluation/agent-integration-auto-20261114/results.json",
+      "model_version": "sspnet-case-v1-4545f9aee1c8f3b0"
+    }
+  },
+  "fixed_prediction_comparison": {
+    "cases": 351,
+    "all_case_ids_equal": true,
+    "all_recommendation_objects_equal": true,
+    "all_full_score_vectors_equal": true,
+    "candidate_modification": false
+  },
+  "medication_rule_review": {
+    "generated_candidates": 3,
+    "reviewed": 2,
+    "rejected": 1,
+    "reviewer_type": "agent source and logic check, not human or clinical expert review",
+    "clinical_rule_formulas_edited": false,
+    "input_domain_validation": "Nonnegative eGFR validated by the executor, independently of the generated clinical threshold; initial failure and post-domain audit retained."
+  },
+  "diagnosis": {
+    "report": "src/knowledge/reports/bibm-dxy-mln-20261114.json",
+    "trained_cases": 339,
+    "test_cases": 104,
+    "generated_rules": 14,
+    "retained_rules": 12,
+    "backend": "restricted exact conditional MLN; not Alchemy",
+    "test_metrics": {
+      "explicit_prior_only": {
+        "cases": 104,
+        "correct": 24,
+        "accuracy": 0.23076923076923078,
+        "macro_f1": 0.075,
+        "negative_log_likelihood": 1.6066524217827565,
+        "confusion_matrix": [
+          [
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "explicit_sourced_rules": {
+        "cases": 104,
+        "correct": 41,
+        "accuracy": 0.3942307692307692,
+        "macro_f1": 0.3881773399014778,
+        "negative_log_likelihood": 1.256114608833443,
+        "confusion_matrix": [
+          [
+            14,
+            1,
+            0,
+            9,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            10,
+            0,
+            8,
+            1,
+            1
+          ],
+          [
+            15,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            0,
+            14
+          ]
+        ]
+      },
+      "inquired_prior_only": {
+        "cases": 104,
+        "correct": 24,
+        "accuracy": 0.23076923076923078,
+        "macro_f1": 0.075,
+        "negative_log_likelihood": 1.6066524217827565,
+        "confusion_matrix": [
+          [
+            24,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "inquired_sourced_rules": {
+        "cases": 104,
+        "correct": 47,
+        "accuracy": 0.4519230769230769,
+        "macro_f1": 0.447609219126247,
+        "negative_log_likelihood": 1.182239612676055,
+        "confusion_matrix": [
+          [
+            13,
+            1,
+            0,
+            10,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            0,
+            12,
+            0,
+            2
+          ],
+          [
+            11,
+            1,
+            0,
+            8,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    "existing_diaformer": {
+      "correct": 79,
+      "cases": 104,
+      "accuracy": 0.7596153846153846
+    },
+    "new_diaformer_training": false
+  },
+  "verification": {
+    "data_evaluation_tests": 16,
+    "recommendation_tests": 21,
+    "knowledge_tests": 31,
+    "total_passed": 68,
+    "local_cpu_generation_verified": true,
+    "extra_cuda_installed": false,
+    "cpu_language_model_service_stopped_after_extraction": true
+  },
+  "limitations": [
+    "ATC3 outputs cannot establish exact ingredients/routes/formulations; no complete ingredient-rule check on this cohort.",
+    "The original BIBM retrieval, iterative optimization and Alchemy configuration are not fully reproduced.",
+    "Local models produced unsupported source inferences and an incorrect exception; rejected outputs remain in audit records.",
+    "These Synthea and DXY tasks have different patients and are not joined into a symptom-to-medication clinical evaluation."
+  ]
+}

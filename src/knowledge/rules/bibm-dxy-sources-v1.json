@@ -1,0 +1,47 @@
+{
+  "schema_version": "bibm-dxy-source-summary-v1",
+  "accessed": "2026-11-14",
+  "preparation": "Agent-curated source selection and short faithful paraphrases; no human or clinical expert review. Not automatic retrieval or a separate LLM summarization stage. No patient records or outcomes used.",
+  "sources": [
+    {
+      "source_id": "medlineplus-common-cold",
+      "disease": "上呼吸道感染",
+      "url": "https://medlineplus.gov/commoncold.html",
+      "title": "Common Cold — MedlinePlus / National Library of Medicine",
+      "knowledge": "Common cold is one form of upper respiratory tract infection affecting the nose and throat. Its usual symptoms include sneezing, nasal blockage, nasal discharge, throat soreness, cough, and headache. These symptoms can overlap with other diseases.",
+      "scope_note": "This source covers common cold, a subset of the broader DXY upper respiratory infection label; it does not cover every cause of upper respiratory infection."
+    },
+    {
+      "source_id": "medlineplus-allergic-rhinitis",
+      "disease": "过敏性鼻炎",
+      "url": "https://medlineplus.gov/ency/article/000813.htm",
+      "title": "Allergic rhinitis — MedlinePlus Medical Encyclopedia",
+      "knowledge": "Allergic rhinitis can follow exposure to allergens. Early symptoms can include nasal discharge, sneezing, and itching of the nose or eyes. Nasal blockage, cough, throat soreness, fatigue, irritability, and headache may develop later. Itching is not the same observation as rubbing the nose or eyes.",
+      "scope_note": "The page emphasizes pollen-related allergic rhinitis. Do not turn an exposure or a diagnostic allergy test into an observed symptom."
+    },
+    {
+      "source_id": "cdc-hfmd",
+      "disease": "小儿手足口病",
+      "url": "https://www.cdc.gov/hand-foot-mouth/signs-symptoms/index.html",
+      "title": "HFMD Symptoms and Complications — CDC",
+      "knowledge": "Hand, foot, and mouth disease commonly affects young children. It may cause fever, painful mouth sores, and skin rash, particularly on the hands and feet. Children may eat or drink less and have throat soreness. Painful swallowing can be accompanied by increased drooling. Some lesions form blisters.",
+      "scope_note": "The DXY word 疱疹 is ambiguous; do not automatically equate general blisters with a herpes diagnosis. The DXY rash label loses the anatomical specificity of the source."
+    },
+    {
+      "source_id": "nhlbi-pneumonia",
+      "disease": "肺炎",
+      "url": "https://www.nhlbi.nih.gov/health/pneumonia/symptoms",
+      "title": "Pneumonia Symptoms — NHLBI / NIH",
+      "knowledge": "Pneumonia can produce cough with or without mucus, fever, and shortness of breath. Additional symptoms may include headache, nausea, vomiting, and diarrhea. Babies can have vomiting, fever or cough, or look restless and lacking energy. Not every patient has typical symptoms.",
+      "scope_note": "These are possible associations, not sufficient diagnostic criteria. Do not infer a radiograph finding, auscultation result, or absent symptom from this summary."
+    },
+    {
+      "source_id": "niddk-diarrhea",
+      "disease": "小儿腹泻",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/diarrhea/symptoms-causes",
+      "title": "Symptoms and Causes of Diarrhea — NIDDK / NIH",
+      "knowledge": "Diarrhea in adults and children involves unusually frequent loose or watery stools and can include abdominal cramping or pain and nausea. Some infectious causes can also produce fever and vomiting. Diarrhea can lead to dehydration, which may cause thirst and reduced urination; these dehydration signs are complications, not specific diagnostic criteria.",
+      "scope_note": "The source covers both children and adults. Loose stool without frequency information is an incomplete match to the full definition. Keep diarrhea findings separate from complications."
+    }
+  ]
+}

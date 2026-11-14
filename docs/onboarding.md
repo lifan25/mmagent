@@ -19,7 +19,7 @@ git pull --ff-only
 git submodule update --init --recursive
 ```
 
-A1 已提供可运行的 Demo/Synthea 病例准备、患者划分与测试，命令见 A 模块 README；B/C 以及 A2/A3 尚待实现。三位成员在各自目录继续开发，现有基线脚本保持原样。
+A1、SSPNet共享推荐、BIBM最小知识模块和A2/A3集成已在PR #1交付，尚待A审核合并。若main还没有这些文件，先查看该PR的a/prepare-one-patient分支，不把main缺少文件误认为实现丢失。现有权重与处理数据需另按模块说明取得，最小链运行见[A的RUNNING.md](../src/data_evaluation/RUNNING.md)。三位成员先复核各自交付，再按TASKS继续，不重复从零实现。
 
 ## 2. 按角色阅读，不需要先看完整个仓库
 

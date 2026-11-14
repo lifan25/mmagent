@@ -1,0 +1,1030 @@
+{
+  "protocol": {
+    "status": "completed",
+    "method": "restricted_exact_conditional_MLN",
+    "evidence_predicate": "ObservedPositive(symptom, patient)",
+    "hard_constraint": "exactly_one_disease",
+    "l2": 0.01,
+    "model_selection": "none; fixed settings before this run",
+    "rules_sha256": "6bfdd0aff2d034ddb6740798868a57d51064189c3ba425f2d586981f52c12794",
+    "source_sha256": "55df61ad01bcdb76a68de69baaa73540e83f08afc3cd11fa824b0c83bb4a1969",
+    "input_sha256": {
+      "train": "74947aef86087aa1fdc07a7006a5ea40fb29910d1cce214ea78d43a4236e69ea",
+      "validation": "3a00e2f44dc6ca284aabeb80cf1e46ae0c3bd06b646b03158a017af7817c8ab1",
+      "test": "23e0e5f601e62cca5a01e64b3f78734422be8a4a8514c7a0fd7df89b706e86d1"
+    },
+    "code_sha256": {
+      "mln.py": "0b61ef474d53ba59c52d949376fe512fd6b482e22a31558c15383f3f4f13ee92",
+      "bibm_diagnosis.py": "ea38c23f15cab18e7e0d560149b1f55ff3d28f0175e1b4fbb97f73646083289b"
+    },
+    "diseases": [
+      "上呼吸道感染",
+      "过敏性鼻炎",
+      "小儿手足口病",
+      "肺炎",
+      "小儿腹泻"
+    ],
+    "symptoms": [
+      "咳嗽",
+      "盗汗",
+      "烦躁不安",
+      "反胃",
+      "稀便",
+      "揉鼻子",
+      "尿少",
+      "抽搐",
+      "精神萎靡",
+      "口渴",
+      "流鼻血",
+      "过敏",
+      "肚子咕噜叫",
+      "腹胀",
+      "打喷嚏",
+      "蛋花样便",
+      "绿便",
+      "放屁",
+      "发烧",
+      "淋巴结肿大",
+      "咽部不适",
+      "肺部阴影",
+      "大便酸臭",
+      "流涕",
+      "喘气",
+      "呼吸困难",
+      "呕吐",
+      "肺部湿啰音",
+      "舌苔发白",
+      "厌食",
+      "头痛",
+      "皮疹",
+      "流口水",
+      "鼻塞",
+      "揉眼睛",
+      "打嗝",
+      "腹痛",
+      "咳痰",
+      "体重减轻",
+      "吐泡泡",
+      "疱疹"
+    ],
+    "rule_count": 12,
+    "rules_by_disease": {
+      "上呼吸道感染": 2,
+      "过敏性鼻炎": 1,
+      "小儿手足口病": 2,
+      "肺炎": 4,
+      "小儿腹泻": 3
+    },
+    "empty_explicit_by_split": {
+      "train": 1,
+      "validation": 1,
+      "test": 1
+    },
+    "scope": "local-LLM formalized candidate rules; no expert approval; no automatic retrieval/summarization/refinement; no Alchemy execution"
+  },
+  "results": {
+    "explicit_prior_only": {
+      "fit": {
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 5,
+        "objective": 1.6067700324882856,
+        "gradient_max_abs": 1.0164785374630787e-09,
+        "l2": 0.01,
+        "initialization": "all_zero",
+        "optimizer": "L-BFGS-B",
+        "training_cases": 339
+      },
+      "splits": {
+        "train": {
+          "cases": 339,
+          "correct": 78,
+          "accuracy": 0.23008849557522124,
+          "macro_f1": 0.07482014388489208,
+          "negative_log_likelihood": 1.6066503820036964,
+          "confusion_matrix": [
+            [
+              78,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              66,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              65,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              64,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              66,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "validation": {
+          "cases": 84,
+          "correct": 20,
+          "accuracy": 0.23809523809523808,
+          "macro_f1": 0.07692307692307693,
+          "negative_log_likelihood": 1.6054009553936663,
+          "confusion_matrix": [
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test": {
+          "cases": 104,
+          "correct": 24,
+          "accuracy": 0.23076923076923078,
+          "macro_f1": 0.075,
+          "negative_log_likelihood": 1.6066524217827565,
+          "confusion_matrix": [
+            [
+              24,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "active_rule_cases": {
+        "train": 0,
+        "validation": 0,
+        "test": 0
+      },
+      "rule_activation_counts": {
+        "train": {},
+        "validation": {},
+        "test": {}
+      },
+      "test_nonempty_explicit_sensitivity": {
+        "cases": 103,
+        "correct": 23,
+        "accuracy": 0.22330097087378642,
+        "macro_f1": 0.073015873015873,
+        "negative_log_likelihood": 1.6079281884900822,
+        "confusion_matrix": [
+          [
+            23,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "explicit_sourced_rules": {
+      "fit": {
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 26,
+        "objective": 1.268063291510011,
+        "gradient_max_abs": 6.431593227093635e-08,
+        "l2": 0.01,
+        "initialization": "all_zero",
+        "optimizer": "L-BFGS-B",
+        "training_cases": 339
+      },
+      "splits": {
+        "train": {
+          "cases": 339,
+          "correct": 169,
+          "accuracy": 0.49852507374631266,
+          "macro_f1": 0.5020855658216188,
+          "negative_log_likelihood": 1.1721648156466355,
+          "confusion_matrix": [
+            [
+              49,
+              1,
+              0,
+              26,
+              2
+            ],
+            [
+              59,
+              6,
+              0,
+              1,
+              0
+            ],
+            [
+              24,
+              0,
+              39,
+              1,
+              1
+            ],
+            [
+              32,
+              1,
+              0,
+              24,
+              7
+            ],
+            [
+              15,
+              0,
+              0,
+              0,
+              51
+            ]
+          ]
+        },
+        "validation": {
+          "cases": 84,
+          "correct": 41,
+          "accuracy": 0.4880952380952381,
+          "macro_f1": 0.4679166666666667,
+          "negative_log_likelihood": 1.198692961893435,
+          "confusion_matrix": [
+            [
+              13,
+              2,
+              0,
+              5,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              7,
+              0,
+              6,
+              3,
+              0
+            ],
+            [
+              7,
+              0,
+              1,
+              8,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              0,
+              14
+            ]
+          ]
+        },
+        "test": {
+          "cases": 104,
+          "correct": 41,
+          "accuracy": 0.3942307692307692,
+          "macro_f1": 0.3881773399014778,
+          "negative_log_likelihood": 1.256114608833443,
+          "confusion_matrix": [
+            [
+              14,
+              1,
+              0,
+              9,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              10,
+              0,
+              8,
+              1,
+              1
+            ],
+            [
+              15,
+              0,
+              0,
+              5,
+              0
+            ],
+            [
+              4,
+              0,
+              2,
+              0,
+              14
+            ]
+          ]
+        }
+      },
+      "active_rule_cases": {
+        "train": 167,
+        "validation": 42,
+        "test": 45
+      },
+      "rule_activation_counts": {
+        "train": {
+          "medlineplus-common-cold-1": 8,
+          "medlineplus-common-cold-2": 0,
+          "medlineplus-allergic-rhinitis-1": 8,
+          "cdc-hfmd-2": 39,
+          "cdc-hfmd-3": 0,
+          "nhlbi-pneumonia-1": 58,
+          "nhlbi-pneumonia-2": 3,
+          "nhlbi-pneumonia-3": 3,
+          "nhlbi-pneumonia-4": 1,
+          "niddk-diarrhea-1": 61,
+          "niddk-diarrhea-2": 5,
+          "niddk-diarrhea-3": 21
+        },
+        "validation": {
+          "medlineplus-common-cold-1": 2,
+          "medlineplus-common-cold-2": 0,
+          "medlineplus-allergic-rhinitis-1": 2,
+          "cdc-hfmd-2": 8,
+          "cdc-hfmd-3": 0,
+          "nhlbi-pneumonia-1": 16,
+          "nhlbi-pneumonia-2": 1,
+          "nhlbi-pneumonia-3": 1,
+          "nhlbi-pneumonia-4": 1,
+          "niddk-diarrhea-1": 15,
+          "niddk-diarrhea-2": 1,
+          "niddk-diarrhea-3": 9
+        },
+        "test": {
+          "medlineplus-common-cold-1": 2,
+          "medlineplus-common-cold-2": 0,
+          "medlineplus-allergic-rhinitis-1": 2,
+          "cdc-hfmd-2": 10,
+          "cdc-hfmd-3": 0,
+          "nhlbi-pneumonia-1": 15,
+          "nhlbi-pneumonia-2": 0,
+          "nhlbi-pneumonia-3": 0,
+          "nhlbi-pneumonia-4": 0,
+          "niddk-diarrhea-1": 17,
+          "niddk-diarrhea-2": 0,
+          "niddk-diarrhea-3": 12
+        }
+      },
+      "test_nonempty_explicit_sensitivity": {
+        "cases": 103,
+        "correct": 40,
+        "accuracy": 0.3883495145631068,
+        "macro_f1": 0.3849859943977591,
+        "negative_log_likelihood": 1.2566861186708866,
+        "confusion_matrix": [
+          [
+            13,
+            1,
+            0,
+            9,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            10,
+            0,
+            8,
+            1,
+            1
+          ],
+          [
+            15,
+            0,
+            0,
+            5,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    "inquired_prior_only": {
+      "fit": {
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 5,
+        "objective": 1.6067700324882856,
+        "gradient_max_abs": 1.0164785374630787e-09,
+        "l2": 0.01,
+        "initialization": "all_zero",
+        "optimizer": "L-BFGS-B",
+        "training_cases": 339
+      },
+      "splits": {
+        "train": {
+          "cases": 339,
+          "correct": 78,
+          "accuracy": 0.23008849557522124,
+          "macro_f1": 0.07482014388489208,
+          "negative_log_likelihood": 1.6066503820036964,
+          "confusion_matrix": [
+            [
+              78,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              66,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              65,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              64,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              66,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "validation": {
+          "cases": 84,
+          "correct": 20,
+          "accuracy": 0.23809523809523808,
+          "macro_f1": 0.07692307692307693,
+          "negative_log_likelihood": 1.6054009553936663,
+          "confusion_matrix": [
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "test": {
+          "cases": 104,
+          "correct": 24,
+          "accuracy": 0.23076923076923078,
+          "macro_f1": 0.075,
+          "negative_log_likelihood": 1.6066524217827565,
+          "confusion_matrix": [
+            [
+              24,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "active_rule_cases": {
+        "train": 0,
+        "validation": 0,
+        "test": 0
+      },
+      "rule_activation_counts": {
+        "train": {},
+        "validation": {},
+        "test": {}
+      },
+      "test_nonempty_explicit_sensitivity": {
+        "cases": 103,
+        "correct": 23,
+        "accuracy": 0.22330097087378642,
+        "macro_f1": 0.073015873015873,
+        "negative_log_likelihood": 1.6079281884900822,
+        "confusion_matrix": [
+          [
+            23,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "inquired_sourced_rules": {
+      "fit": {
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 27,
+        "objective": 1.226008037087038,
+        "gradient_max_abs": 5.034859206290432e-08,
+        "l2": 0.01,
+        "initialization": "all_zero",
+        "optimizer": "L-BFGS-B",
+        "training_cases": 339
+      },
+      "splits": {
+        "train": {
+          "cases": 339,
+          "correct": 173,
+          "accuracy": 0.5103244837758112,
+          "macro_f1": 0.5176841751627379,
+          "negative_log_likelihood": 1.1245637018879777,
+          "confusion_matrix": [
+            [
+              38,
+              4,
+              1,
+              32,
+              3
+            ],
+            [
+              56,
+              8,
+              1,
+              1,
+              0
+            ],
+            [
+              17,
+              0,
+              45,
+              1,
+              2
+            ],
+            [
+              29,
+              1,
+              0,
+              26,
+              8
+            ],
+            [
+              10,
+              0,
+              0,
+              0,
+              56
+            ]
+          ]
+        },
+        "validation": {
+          "cases": 84,
+          "correct": 42,
+          "accuracy": 0.5,
+          "macro_f1": 0.4869283404767276,
+          "negative_log_likelihood": 1.1307445466923693,
+          "confusion_matrix": [
+            [
+              11,
+              2,
+              0,
+              7,
+              0
+            ],
+            [
+              16,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              6,
+              0,
+              8,
+              2,
+              0
+            ],
+            [
+              7,
+              0,
+              1,
+              8,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              15
+            ]
+          ]
+        },
+        "test": {
+          "cases": 104,
+          "correct": 47,
+          "accuracy": 0.4519230769230769,
+          "macro_f1": 0.447609219126247,
+          "negative_log_likelihood": 1.182239612676055,
+          "confusion_matrix": [
+            [
+              13,
+              1,
+              0,
+              10,
+              0
+            ],
+            [
+              20,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              6,
+              0,
+              12,
+              0,
+              2
+            ],
+            [
+              11,
+              1,
+              0,
+              8,
+              0
+            ],
+            [
+              4,
+              0,
+              2,
+              0,
+              14
+            ]
+          ]
+        }
+      },
+      "active_rule_cases": {
+        "train": 204,
+        "validation": 45,
+        "test": 54
+      },
+      "rule_activation_counts": {
+        "train": {
+          "medlineplus-common-cold-1": 13,
+          "medlineplus-common-cold-2": 1,
+          "medlineplus-allergic-rhinitis-1": 13,
+          "cdc-hfmd-2": 47,
+          "cdc-hfmd-3": 0,
+          "nhlbi-pneumonia-1": 70,
+          "nhlbi-pneumonia-2": 10,
+          "nhlbi-pneumonia-3": 3,
+          "nhlbi-pneumonia-4": 9,
+          "niddk-diarrhea-1": 69,
+          "niddk-diarrhea-2": 7,
+          "niddk-diarrhea-3": 40
+        },
+        "validation": {
+          "medlineplus-common-cold-1": 2,
+          "medlineplus-common-cold-2": 0,
+          "medlineplus-allergic-rhinitis-1": 2,
+          "cdc-hfmd-2": 10,
+          "cdc-hfmd-3": 0,
+          "nhlbi-pneumonia-1": 21,
+          "nhlbi-pneumonia-2": 3,
+          "nhlbi-pneumonia-3": 1,
+          "nhlbi-pneumonia-4": 3,
+          "niddk-diarrhea-1": 16,
+          "niddk-diarrhea-2": 1,
+          "niddk-diarrhea-3": 10
+        },
+        "test": {
+          "medlineplus-common-cold-1": 3,
+          "medlineplus-common-cold-2": 0,
+          "medlineplus-allergic-rhinitis-1": 3,
+          "cdc-hfmd-2": 14,
+          "cdc-hfmd-3": 0,
+          "nhlbi-pneumonia-1": 19,
+          "nhlbi-pneumonia-2": 5,
+          "nhlbi-pneumonia-3": 0,
+          "nhlbi-pneumonia-4": 4,
+          "niddk-diarrhea-1": 18,
+          "niddk-diarrhea-2": 0,
+          "niddk-diarrhea-3": 13
+        }
+      },
+      "test_nonempty_explicit_sensitivity": {
+        "cases": 103,
+        "correct": 46,
+        "accuracy": 0.44660194174757284,
+        "macro_f1": 0.44410044719642244,
+        "negative_log_likelihood": 1.1825295287754323,
+        "confusion_matrix": [
+          [
+            12,
+            1,
+            0,
+            10,
+            0
+          ],
+          [
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            6,
+            0,
+            12,
+            0,
+            2
+          ],
+          [
+            11,
+            1,
+            0,
+            8,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            0,
+            14
+          ]
+        ]
+      }
+    }
+  },
+  "seconds": 0.20710340001096483,
+  "diaformer_frozen_comparator": {
+    "correct": 79,
+    "cases": 104,
+    "accuracy": 0.7596153846153846
+  },
+  "no_rule_control": "prior_only uses the same optimizer and prior unary formulas, with zero external rules",
+  "status": "completed",
+  "reported_date": "2026-11-14",
+  "report_scope": "Aggregate research smoke experiment, not full BIBM reproduction or clinically validated diagnosis",
+  "extraction": {
+    "model": "Qwen3-4B-Instruct-2507 Q4_K_M",
+    "v1_requests": 5,
+    "v1_status": "validation_failed",
+    "v2_requests": 5,
+    "v2_status": "completed",
+    "v2_seconds": 168.60241989999486,
+    "candidate_rules": 14,
+    "accepted_rules": 12,
+    "rejected_rules": {
+      "medlineplus-allergic-rhinitis-2": "Source explicitly distinguishes itching from rubbing; nose/eye rubbing is an unsupported extrapolation.",
+      "cdc-hfmd-1": "Thirst is inferred from drinking less; it is not stated in the supplied HFMD source summary."
+    },
+    "source_review_actor": "AI agent, no human or clinical expert review",
+    "metadata_correction": "The original snapshot says Human-selected/manual. Actual preparation was by the AI agent with no human review. Only the current preparation metadata and documentation were corrected; all five source records, prompt and raw generated rules are unchanged."
+  },
+  "frozen_inquiry_replay": {
+    "mode": "frozen_checkpoint_training_split_inference_only",
+    "device": "cuda",
+    "checkpoint_sha256": "7facd4db77cc6a2c0fe1519556ba02fe0690b4320ddb6392689eb1df3990fa7f",
+    "split_sha256": "aafc6986b04c12dcc57328cf45955ff5a82f2a0883bbe063c23d291f07dc3e0a",
+    "seconds": 25.17165400000522,
+    "cases": 339,
+    "optimizer_steps": 0,
+    "empty_explicit_cases": 1,
+    "legacy_policy_caveat": "Diaformer seeds empty-explicit cases from first hidden symptom; this unasked seed is excluded by positive_evidence"
+  },
+  "verification": {
+    "performed_utc": "2026-11-14T09:18:43.528097+00:00",
+    "test_predictions_recount_matches": true,
+    "validation_and_test_db_disease_atoms": 0,
+    "current_code_matches_run_hashes": true,
+    "accepted_candidate_formula_edits": 0,
+    "actual_hidden_bootstrap_cases": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "unit_tests": {
+      "command": "python -m unittest src.knowledge.tests.test_bibm_diagnosis -v",
+      "passed": 5,
+      "failed": 0
+    }
+  },
+  "local_run_directory": "outputs/knowledge/bibm-dxy-mln-v1",
+  "limitations": [
+    "Restricted observation-predicate conditional MLN; no latent clinical symptom marginalization or Alchemy execution.",
+    "Agent-curated source summaries; one actual local-LLM formalization per disease per format version; no full BIBM retrieval, summarization or iterative refinement.",
+    "Rule quality and coverage are inadequate; measured performance below the existing Diaformer baseline. No outcome-based rule or hyperparameter tuning was done.",
+    "All four predefined models and the full 104-case test denominator are reported; the 103-case view excludes a completely symptom-empty case, not an observed hidden-bootstrap leak."
+  ]
+}

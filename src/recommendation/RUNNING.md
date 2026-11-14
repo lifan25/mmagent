@@ -111,3 +111,44 @@ best.pt 保存 state_dict、配置、词表和最佳轮次，需要本适配模�
 两者分别写入 `outputs/recommendation/ddi-audit-20261114/` 与 `outputs/recommendation/ddi-loss-probe-20261114/`。当前维护者电脑已完成，直接查看其中 results.json 即可；重复执行会保护已有输出。如确需复查，分别添加 `--output outputs/recommendation/ddi-audit-repeat` 或 `--output outputs/recommendation/ddi-loss-probe-repeat`，不要删除历史目录。第一条会流式扫描约465万条来源记录，并仅重新计算验证集分数；测试只读取已存分数。第二条只用32条固定训练样本，不执行优化器。
 
 聚合JSON与结论在 [DDI报告](reports/ddi-audit-20261114.md)，包括图重建、两种DDI分母、历史/频次基线、分组结果和损失探针。既有测试已用于研究诊断，后续只作探索性结果；新方法正式确认需要未参与开发的数据。
+
+## 8. 共享Case推理与交接（不重训）
+
+`predict.py` 实现现有协议 `0.1-draft`，尚未代表三人正式冻结协议。默认读取38类运行的 `outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8/best.pt`，并从其配置定位 `data/processed/recommendation/synthea-v3-atc3-product-v4/` 下的 vocabulary.json、graphs.npz、mapping-decisions.json 和 manifest.json。新机器需要同版权重和这些产物；仓库代码本身不包含它们。仅调用推理不需重建数据或重新训练。
+
+在仓库根目录的Python程序中使用：
+
+```python
+from src.recommendation.predict import get_default_recommender, recommend
+
+engine = get_default_recommender()  # 本进程只加载一次权重与辅助文件
+scored = engine.score_case(case)   # 一次前向；A评价/集成优先用这个入口
+recommendation = scored["recommendation"]
+# scored还包含full_scores、medication_codes、threshold、encoded_input。
+# 仅需公共Recommendation时，单独调用recommend(case)即可。
+# 不要对同一病例再调用recommend(case)，否则会重复推理。
+```
+
+`full_scores` 是按 `medication_codes` 顺序排列的38个sigmoid分数，候选采用固定 `score >= 0.5`，没有重新选阈值或top-k。`encoded_input` 是 `[历史诊断/操作/药物整数集合, ..., 当前诊断/操作/空药物集合]`；这两个字段只供本地核验，不增加公共Recommendation字段。非ok输入的full_scores和encoded_input均为null；模型计算失败时encoded_input保留用于本地排错，full_scores为null。`engine.manifest` 可直接序列化成JSON，包含权重、词表、图、映射、源码的哈希，阈值、最佳轮次、设备、版本和原始A1来源。
+
+接口的编码与返回约定：
+
+- 诊断和操作按原始 `system|code` 精确匹配训练词表，当前数据system为 `SNOMED-CT`。未知编码不会自动送入内部UNK，也不会静默删掉。
+- 历史用药接受原始 `RxNorm`，只使用固定mapping-decisions.json中的唯一ATC3映射且须在38类词表内；也接受词表内的 `ATC3`。歧义、未映射、词表外和错误system均返回 `unsupported_input`，整条病例不运行推理。
+- 候选system固定 `ATC3`，四字符如 `N02B` 表示第三级药物类别。它不是具体成分或商品。给C查来源时不能借当前真实处方确定某个成分；类别到CID通常多对多，某一CID有证据不代表该类别所有药物都有证据。
+- 当前和历史操作的 `[]` 保留为空集合，不补假操作；`null` 表示未取得信息，返回 `needs_information`。历史须按严格递增的非负整数visit_index排列，有诊断、至少一个已完成历史就诊，且至少一个历史就诊有可用药物；部分历史药物为空允许。history为null返回needs_information，history为[]或全部历史药物为空返回unsupported_input。
+- 当前诊断为空返回needs_information。Case顶层额外的medications、target_medications或target被拒绝，当前模型药物输入始终为[]。context仍由A/C保存和使用，SSPNet不读取其中过敏、肾功能等事实；不要把候选分数解释成考虑了这些条件的临床安全概率。
+- input_issues逐项包含code、field和message；非ok没有候选。execution=model_inference表示所选后端，不表示被拒输入实际运行过模型。产物缺失、词表顺序不一致、DDI图不匹配等初始化错误直接抛出，A应停止运行而不是回退成虚构候选。
+
+默认CPU、PyTorch单线程，保持与旧运行相同条件。线程设置影响本进程；若嵌入其他应用，可显式 `SSPNetRecommender(num_threads=None)` 保留调用方设置。缓存只缓存模型对象，不按case_id缓存病例结果。固定产物的更改需重新创建实例/进程，不能热替换后继续沿用旧版本号。
+
+首次核验与接口检查：
+
+```powershell
+.venv\Scripts\python.exe -m unittest src.recommendation.tests.test_predict -v
+.venv\Scripts\python.exe -m src.recommendation.verify_predict
+```
+
+当前维护环境已完成上述核验。新增9项检查通过；351条旧编码测试分数与已存结果逐位一致；严格Case接口支持344/351，拒绝7条未知编码病例，支持部分有211条当前空操作。全部344条支持病例的编码一致，核验脚本另对1条调用公开score_case确认分数一致。A的全量集成评价另外负责逐病例调用共享接口，不将这个单病例检查说成已完成整链路评价。聚合证据见 [接口报告](reports/predict-interface-20261114.md)。
+
+本地 `outputs/recommendation/predict-verification-20261114/` 含 results.json、model-manifest.json、encoded-test-scores.npy、case-encoding-alignment.jsonl 和 a1-case-handoff.json。最后一个文件给出同一条原始A1 Case、encoded_input、分数及独立evaluation_only_target_ids；答案不在Case内部。现有输出不覆盖，确需复查时加 `--output outputs/recommendation/predict-verification-repeat`。351条旧编码口径允许UNK，344条严格支持口径不同；A必须报告完整351分母和7条拒绝，再在同一支持子集比较原模型与知识核查结果。

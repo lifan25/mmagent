@@ -1,6 +1,6 @@
 # 数据、模块接口与实验协议
 
-版本：0.1-draft。状态：供三人评审的草案，不代表代码已实现或成员已确认。
+版本：0.1-draft。推荐、规则核查与最小agent调用链已有实现和集成证据；协议仍待三人评审，不代表成员均已确认。运行入口见[A运行说明](../src/data_evaluation/RUNNING.md)。
 
 A（@lifan25）维护本公共协议，B/C 在各自 TASKS.md 提交接口建议，由 A 汇总。各模块可以依据当前草案先编写独立实现和虚构样例检查；真实集成前，将未确定项解决并由 A 确认后冻结为 0.1。成员修改走 PR，由 A 审核合并；后续影响字段含义的修改需同步版本、示例和调用方，不能由某模块单方面改变共享字段。
 
@@ -39,7 +39,7 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 
 ## 3. 推荐接口 Recommendation
 
-逻辑入口：recommend(case)。这是拟定契约，当前尚无函数实现。
+入口：`src.recommendation.predict.recommend(case)`；批量调用用`SSPNetRecommender`实例复用已加载权重。`score_case(case)`另外返回本地评价全分数，避免重复推理，详见[B运行说明](../src/recommendation/RUNNING.md)。
 
 | 字段 | 含义 |
 |---|---|
@@ -55,6 +55,7 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 - status 非 ok 时，第一版停止向核查模块传递候选；先汇报原因。
 - synthetic_fixture 表示人为编写的协议例子，不能计入指标或展示为模型预测。
 - 输出顺序仅为展示顺序；药物集合一致不因顺序不同视为不同结果。
+- 当前已实现后端输出`ATC3`四字符类别。未知编码显式拒绝，不采用旧预处理中隐式UNK/丢药方式；严格接口覆盖率与既有离线模型指标分别报告。空操作可用，但`procedures=null`表示未取得，不能代替`[]`。
 
 示例：[recommendation.synthetic.json](../examples/recommendation.synthetic.json)。
 
@@ -72,10 +73,11 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 | code_mapping | 涉及药物/疾病的编码及层级，映射来源 |
 | action | 第一版默认 flag：标记供复核 |
 | review_status | draft / reviewed / rejected |
-| review_record | 提取人、组内复核人、复核日期、结论与限制 |
+| review_record | 提取与复核主体、日期、结论与限制；明确是agent还是人类 |
 
 - 大模型自评分不能替代来源核查。
 - reviewed 指组内来源、逻辑、编码和范围复核，不代表临床有效性已经确立。
+- 本轮自动执行的来源/逻辑核对明确标agent review，未有同学或临床专家复核；不能把它写成人类专家审核。来源核对参照与实际模型形式化候选分开保存，只有经记录的来源/逻辑核对才启用候选。
 - 没有医学专业审核条件时，记录这一限制；不要写成“专家确认”。
 - 否定、可能性、条件、例外必须保留；不把“慎用”转换成“禁止”。
 - diagnosis 规则不能直接支持某种药物推荐；medication 规则是新增扩展。
@@ -84,7 +86,7 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 
 ## 5. 核查接口 CheckReport
 
-逻辑入口：check(case, recommendation, rules)。只处理相同 case_id、编码空间和兼容版本的输入。
+入口：`src.knowledge.check.check(case, recommendation, rules=None)`；默认来源核对参照通过`load_rules()`加载。只处理相同case_id和兼容版本；每条规则另检查成分与范围，不把ATC3父类当作ATC5成分。
 
 | 字段 | 含义 |
 |---|---|
@@ -108,6 +110,8 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 
 同一药物不在规则覆盖范围内时，明确记为未覆盖；没有触发规则不等于没有风险。
 
+本轮可执行规则增加`selector`（准确编码、途径、剂型）、`possible_atc3`（仅提示可能需要补身份）、`condition`（all/any/not与布尔或数值比较）。不靠当前处方答案补身份。缺失项为含rule_id、candidate_index、fields与reason的对象；coverage中checked_rule_count/pending_rule_count按候选×规则计数，不能叫患者准确率。完整例外保留在condition，不能省略。
+
 示例：[check.synthetic.json](../examples/check.synthetic.json) 故意展示 not_checked：用于防止界面把空规则库显示成“全部通过”。
 
 ## 6. agent 的最小职责
@@ -117,6 +121,8 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 - 分开呈现模型候选、知识检查结论和未知项。
 - 任何解释中的药物、规则与来源都应能回到工具输出，不让语言模型编造来源。
 - 第一版用确定的调用顺序即可；是否引入 agent 框架由后续真实需求决定。
+
+已实现`MedicationAgent.run(case)`：输入检查→一次SSPNet调用→核查→next_action；推荐非ok则跳过核查，核查不得改原候选。调用轨迹保留model_version、执行状态和规则版本；不额外调用语言模型写解释。`run_with_scores`只为本地评价另返回全分数。规则核查的四种状态与agent调度状态分开说明，见A运行说明。
 
 ## 7. 实验协议
 
@@ -166,7 +172,7 @@ context 是否必需由实际采用的规则决定。SSPNet 原输入不包含�
 
 ## 9. 开发交接文件约定（草案）
 
-以下约定帮助三个人独立实现与交接。A1已生成两套病例和划分，B已完成Synthea训练适配；公共recommend/check接口及三方冻结仍待实施。版本仍为0.1-draft，成员发现实际数据无法满足时在自己TASKS.md提议，由A修改本协议，不自行更改另一模块字段。
+以下约定帮助三个人独立实现与交接。A1已生成两套病例和划分，B已完成Synthea训练适配；公共recommend/check和A的调用链已实现，三方正式冻结待确认。版本仍为0.1-draft，成员发现实际数据无法满足时在自己TASKS.md提议，由A修改本协议，不自行更改另一模块字段。
 
 ### 9.1 A 交给 B 的病例与划分
 

@@ -1,0 +1,13 @@
+Convert the supplied official-label passage into the single patient-condition expression that triggers a contraindication flag. This is a constrained BIBM-inspired formalization experiment. The source passage is an agent-authored faithful paraphrase, not a patient record. Do not add clinical facts.
+
+Return exactly a JSON object with two keys:
+1. "statement": a plain natural-language STRING stating the rule, including any exception.
+2. "condition": the patient-condition logic tree evaluated AFTER the exact drug/formulation has already matched drug_scope. Use ONLY names under allowed_predicates. Never use drug_scope.*, drug identifiers, route, formulation or source metadata as patient fields. Never put the condition tree in "statement".
+
+Each condition node must have exactly one of these forms:
+- Boolean leaf: {"field":"a_name_from_allowed_predicates","op":"eq","value":true} (or false).
+- Nonnegative numeric leaf: {"field":"a_name_from_allowed_predicates","op":"lt","value":a_number,"minimum":0}.
+- {"all":[nodes]} means AND; {"any":[nodes]} means OR; {"not":node} means NOT.
+"field" is literally the JSON key "field": do not replace this key with the predicate name. Unknown patient values are handled by the external evaluator; do not invent missingness predicates. Preserve every qualification, threshold and exception. An exception usually negates its full conjunction; do not discard qualifying clauses.
+
+Nonmedical format example, unrelated to the supplied source: if a machine is flagged when hot and not ventilated, the output would be {"statement":"Flag a hot machine unless ventilated.","condition":{"all":[{"field":"hot","op":"eq","value":true},{"not":{"field":"ventilated","op":"eq","value":true}}]}}. The example's names hot/ventilated are not allowed in your actual answer. Produce only the requested JSON, without Markdown.
