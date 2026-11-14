@@ -2,7 +2,9 @@
 
 目标：SSPNet 产生个性化候选药物，借鉴 BIBM 的知识提取与规则化方法核查结果，由 agent 组织输入检查、工具调用和展示。
 
-第一版使用已有诊断与结构化病历。DXY/Diaformer 已完成一次150轮训练和独立测试：79/104条正确，准确率75.96%。SSPNet 已完成 Synthea v3 的20轮适配训练、验证选模、权重重载与一次测试：Jaccard79.81%、F1 83.04%；详见 [运行报告](src/recommendation/reports/sspnet-synthea-v3.md)。BIBM整体、原论文严格复现和 agent 集成仍未完成。
+第一版使用已有诊断与结构化病历。DXY/Diaformer已完成150轮运行，原104条测试正确79条（75.96%）。SSPNet当前38类已完成20轮适配训练和重载，Jaccard74.65%、F1 80.91%，见[运行报告](src/recommendation/reports/sspnet-synthea-product-v4.md)。2026-11-14完成[DDI溯源、损失探针与简单基线](src/recommendation/reports/ddi-audit-20261114.md)；当前DDI率不能直接解释为临床风险。BIBM整体、严格复现和agent集成仍未完成。
+
+研究阶段先看[当前研究设计（含零样本对照）](docs/research-design.md)和[MIMIC-IV本人申请步骤](docs/mimic-access.md)。现有Synthea测试已用于错误分析，作为探索性结果；正式确认需未参与开发的真实数据。
 
 **刚拉取仓库：先看 [三人开工步骤](docs/onboarding.md)，再进入自己的模块 README 和 TASKS。**A1 数据准备与B的Synthea训练运行已实现，分别见 [A 模块说明](src/data_evaluation/README.md)和 [SSPNet运行步骤](src/recommendation/RUNNING.md)；共享推荐接口、C及A2/A3集成待继续。
 
@@ -48,7 +50,8 @@ flowchart LR
 | SSPNet / Diaformer 源码 | 已拉取并固定上游版本 |
 | MIMIC-III Demo | 五张表可读取，覆盖 100 名患者；仅用于流程开发 |
 | Synthea 合成病历 | 已下载官方历史 CSV 样本并检查：1,171 名合成患者，可用于推荐流程开发和模拟实验 |
-| 药物映射、参考预处理与 DDI | MoleRec 材料已保存本地；drug-DDI.csv 已下载，尚未生成与本项目词表一致的图 |
+| 药物映射、参考预处理与 DDI | 当前38类词表、EHR172边/DDI75边已生成；DDI来源逐项重建与梯度核验通过 |
+| MIMIC-IV Demo / DDI外部核查清单 | 新增五表100人/275次原始住院；250例清单；均本地下载核验，尚未用于模型测试 |
 | DXY / Muzhi | 已实际读取，样本数量、疾病和症状数与 BIBM 表 I 一致 |
 | Synthetic 诊断集 | 文件可读取；采用现有 266 症状版本时记录与 BIBM 的差异，不等待同版本数据 |
 | DXY / Diaformer 基线 | 环境、训练、问诊、保存与重载测试已通过；[结果与命令](docs/dxy-diaformer.md) |
@@ -58,7 +61,7 @@ flowchart LR
 
 ## 接下来做什么
 
-开发用原始材料已经找到。A1 v3 全量保留所有可关联就诊，至少两次有效就诊、允许空操作：Synthea为803人/2948次候选，形成2139条有历史样本；Demo为13人/41次候选、有历史样本28。本轮B精确无歧义映射到24类药物后，实际训练822/验证198/测试216条；不是全部原始处方空间。9500个当前空操作训练步骤与137条空操作测试样本均通过。真实大规模验证数据未就绪。
+A1 v3全量保留可关联就诊，主任务至少两次有效就诊、允许空操作。当前38类B数据为训练1433/验证354/测试351条；不再以旧24类筛选后的数量代表当前数据。第一批简单基线与分组结果支持继续保留空操作和一次历史样本，但不作因果或临床有效性声称。接下来A适配MIMIC-IV并申请完整库，B固定候选/编码交接，C做有来源规则及零样本核查对照；详细任务在各模块TASKS.md。真实大规模验证数据尚未取得。
 
 | 负责人 / 目录 | 第一阶段交付 | 完成依据 |
 |---|---|---|

@@ -1,8 +1,8 @@
 # 数据与代码准备状态
 
-核查日期：2026-11-07。此处记录当前实际文件与检查结果，任务及后续结果由三位负责人更新各自 TASKS.md。
+核查日期：2026-11-14。此处记录当前实际文件与检查结果，任务及后续结果由三位负责人更新各自 TASKS.md。
 
-准备结论：原始材料与A1 v3已就绪：Demo候选13人/41次、有历史样本28；Synthea候选803人/2948次、有历史样本2139。B已完成Synthea无歧义ATC第三级映射、训练词表/图与20轮实际训练及重载测试，实际训练822/验证198/测试216条，见 [SSPNet报告](../src/recommendation/reports/sspnet-synthea-v3.md)。真实大规模验证队列尚未取得。本地病例、图和权重不随克隆自动取得，其他成员按运行说明从同版源数据重建。
+准备结论：A1 v3已就绪；当前推荐实验为38类、训练1433/验证354/测试351条，已完成20轮训练及重载，见[SSPNet报告](../src/recommendation/reports/sspnet-synthea-product-v4.md)。DDI来源、分母和第一批简单对照已实际核验，见[DDI诊断](../src/recommendation/reports/ddi-audit-20261114.md)。新下载MIMIC-IV Demo五表和250例DDI核查清单；真实大规模主队列仍未取得，用户愿意本人申请。本地病例、图和权重不随克隆取得，其他成员按说明重建。研究方向与零样本对照见[实验设计](research-design.md)。
 
 新成员按 [三人开工步骤](onboarding.md) 取得材料并做本机检查；不要把资源清单中组长电脑的已完成结果当作自己的验证记录。
 
@@ -46,7 +46,7 @@ Synthetic：BIBM 表 I 报告 444 种症状，当前文件实际出现 266 种�
 
 已检查字段、非空及患者范围一致性。CSV 列名为小写，上游旧程序可能使用大写。A1 已完成就诊关联、时间排序和候选筛选；药物分类映射仍由 B 实施。
 
-Demo 支持数据流程开发，不足以复现论文指标。完整 MIMIC-III 权限和数据尚未确认取得；MIMIC-IV 放在后续扩展。
+Demo 支持数据流程开发，不足以复现论文指标。完整MIMIC-III权限未取得；当前正式真实主队列优先申请MIMIC-IV。
 
 复查命令：python scripts/fetch_public_demo.py --check-only。
 
@@ -62,6 +62,14 @@ Demo 支持数据流程开发，不足以复现论文指标。完整 MIMIC-III �
 - 合成病历支持开发、接口验证和模拟实验，不能将其得分当作真实临床效果。慢性病的跨就诊延续等处理需单独定义，不默认补全。
 
 下载/检查：python scripts/fetch_synthea_sample.py；只检查：python scripts/fetch_synthea_sample.py --check-only。
+
+### 新增公开核查数据与真实队列路线
+
+- **MIMIC-IV Demo 2.2**：官方五张CSV.gz已下载到 `data/local/mimic-iv-demo-2.2/`。100人、275次住院、4506条诊断、722条操作、18087条处方；保留原LICENSE与source.json。尚未完成该版本纵向有效样本筛选/映射，不能把原始住院数当预测数。
+- **LLM-Uncertainty-DDI**：固定提交 `9872bb0c3e28cd03a7d460cdde3f01e0e8a26542`，已下载 `drug5.csv`、MIT许可及来源记录到 `data/local/llm-uncertainty-ddi/`。250份清单，C/D/X为81/92/77；每份均含目标交互，只用于核查定位/拒答评价，不是纵向病例或阴性清单误报验证。
+- 下载/核验命令：`.venv/Scripts/python.exe src/data_evaluation/fetch_public_validation.py`。只读取公开固定文件，无额外依赖；以上数据均被Git忽略，不上传。路径、许可、本人申请步骤见[MIMIC访问说明](mimic-access.md)。
+- **MIMIC-IV 3.1**：首选真实主队列，尚无权限。**AmsterdamUMCdb 1.0.2**作为跨来源外验候选，尚未申请/下载；需处理ICU入科与住院粒度、药物和诊断差异。[官方版本说明](https://amsterdammedicaldatascience.nl/)、[患者关联字段](https://github.com/AmsterdamUMC/AmsterdamUMCdb/wiki/admissions)。不能用同院MIMIC-III/IV自动宣称跨医院验证。
+- **DDInter**：已核查[下载入口](https://ddinter.scbdd.com/download/)及[CC BY-NC-SA 4.0条款](https://ddinter.scbdd.com/terms/)，尚未下载或用于实验。可作独立证据库；若参与训练/调参，不把同一批边当独立真值。未收录不等于安全。
 
 ### 直接查看病例
 
@@ -95,7 +103,7 @@ BIBM DOI：10.1109/BIBM58861.2023.10385557，[作者主页提供的论文 PDF](h
 
 公开参考材料已经找到并保存到本地 data/reference/MoleRec/：processing.py、ndc2rxnorm_mapping.txt、ndc2atc_level4.csv、drug-atc.csv、atc2rxnorm.pkl、idx2SMILES.pkl、ddi_mask_H.py、ddi_mask_H.pkl、substructure_smiles.pkl。保留原 README、MIT LICENSE 与 source.json；来源是 [MoleRec](https://github.com/yangnianzu0515/MoleRec)，SSPNet README 也致谢该项目和 [SafeDrug](https://github.com/ycq091044/SafeDrug)。使用这些上游材料适配，不再等待相同文件由老师重发。
 
-DDI 原始文件已从 SSPNet/MoleRec 提供的 [公开下载入口](https://drive.google.com/file/d/1s3sHmz9ueVA8YAGTARY8jwrhRdRvVaXs/view) 下载到上述目录 drug-DDI.csv：232,835,373字节，4,649,441行，来自 [TwoSIDES](https://tatonettilab.org/resources/tatonetti-stm.html)。本轮按上游字面最低频40个事件组筛选，映射到24类训练药物得到34条无向边，保存于本地graphs.npz；EHR训练图59条边。不是未经处理地把源文件行数当作独立药物对，也不是临床安全真值。
+DDI原始文件已从SSPNet/MoleRec提供的[公开入口](https://drive.google.com/file/d/1s3sHmz9ueVA8YAGTARY8jwrhRdRvVaXs/view)保存为drug-DDI.csv：232,835,373字节、4,649,441行，关联来源为[TwoSIDES](https://tatonettilab.org/resources/tatonetti-stm.html)。按最低频40个事件组筛选得到476行；当前38类图75条无向边，EHR训练图172边，已独立重建核对。源关联不等于临床禁忌，CID映射不等于证据覆盖；与Decagon论文原始计数有差异，细节见DDI报告。旧24类34条DDI边/59条EHR边仅保留历史对照。
 
 Synthea当前图与模型词表一致，仅从训练就诊建立EHR图，不混用上游预生成分子矩阵。适配入口修正四参数调用，ddi_mask_H为未使用的遗留参数，传None；显式初始化inter/garm，禁用绘图，以新循环解决原验证未定义变量和三次就诊跳过等问题。原子模块未改动。NDC/MIMIC模型适配和公共recommend接口仍待完成。
 
@@ -111,13 +119,13 @@ Synthea当前图与模型词表一致，仅从训练就诊建立EHR图，不混�
 
 Diaformer作者报告Python3.8/PyTorch1.8.0，当前使用现代环境记录差异。SSPNet已补齐PyG、torch-scatter、OGB、RDKit、scikit-learn等，58包兼容检查与正常包导入通过；20轮主运行使用更快的CPU逐样本计算。完整快照及安装脚本见 src/recommendation/environment-lock.txt 和 setup_environment.ps1。
 
-完整 MIMIC 审批和大模型调用资源仍未确认。DXY 本轮没有付费调用，已使用本机 GPU 完成；这不表示 BIBM 整体或 SSPNet 已具备全部复现条件。
+用户尚无完整MIMIC-IV权限且愿意申请；本人身份、培训和协议尚待完成。零样本路线已纳入，工作区尚未接入可复现的大模型推理入口，当前没有大模型核查结果或付费调用。DXY本机GPU运行不表示BIBM整体已复现。
 
 ## 现在可以推进什么
 
-- A：使用现有 Demo/Synthea 编写就诊关联、时间组织和数据集独立划分，统计筛选后的有效患者；完整 MIMIC 申请可并行进行。
-- B：复核已运行的映射、词表/图和测试口径；补公共recommend接口及后续同条件对照，不重写已有入口。
-- C：复用 DXY 基线，按论文已有模板实现最小规则与 MLN 流程；缺付费模型调用条件时先用明确标记的规则样例联调，不能冒充自动知识提取实验。
+- A：已有A1不重写；适配新下载MIMIC-IV Demo，冻结新真实患者划分与核查评价，办理本人完整库权限。
+- B：复核DDI诊断并交付类别编码边界，补公共recommend接口，固定候选给C；需要训练分母对照时只改一个因素。
+- C：先准备3–5条有来源条件规则及成对缺失测试，加入简单规则、零样本无检索/有检索核查和直接推荐对照；原BIBM诊断复现单列。
 
-当前优先级：公开材料上的数据流程与模型入口 → 两篇核心机制的适配验证 → 推荐与知识核查结合 → agent 展示。真实数据研究与原文严格复现的条件另行记录。
+当前优先级：DDI口径与简单对照 → 新真实数据适配/规则小实验 → 零样本与缺失感知核查对照 → 独立确认 → 必要的agent展示。不把包装、数据替换或“零样本”本身当作创新。
 

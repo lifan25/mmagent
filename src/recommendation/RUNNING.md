@@ -47,7 +47,7 @@ uv pip check --python .venv/Scripts/python.exe
 
 快照已随代码提交，可离线重建映射。fetch_mapping.py查询标准药物编号，保留API响应与版本；已有快照时拒绝覆盖。刷新时应改用新快照文件名和配置版本，不静默更新。
 
-新版DDI率只在能连接源CID的药物对上计算，另报未映射对和映射比例，无法计算时为null。34/38类可连接CID，不能把剩余4类或图中无边解释为临床安全；与旧版DDI率的分母不同。
+新版DDI率只在能连接源CID的药物对上计算，另报未映射对和映射比例，无法计算时为null。34/38类可连接CID，不能把剩余4类或图中无边解释为临床安全；与旧版DDI率的分母不同。该分母也进入训练时beta权重计算，并非仅改报告；具体影响须用固定其他设置的对照确认。2026-11-14溯源结果见[DDI诊断](reports/ddi-audit-20261114.md)。
 
 **以下默认命令保留旧版24类完整运行的复现方式。**
 
@@ -97,4 +97,17 @@ best.pt 保存 state_dict、配置、词表和最佳轮次，需要本适配模�
 .venv\Scripts\python.exe -m unittest discover -s src/recommendation/tests -v
 ```
 
-六个检查覆盖歧义映射/无匹配、空操作与未知编码区别、图、手算指标，以及正常原包导入后的空操作实际训练、保存重载和当前答案独立性。A1 的11个数据测试仍单独运行，不将这两组与完整20轮运行混为同一类证据。
+检查覆盖歧义映射/无匹配、空操作与未知编码区别、图、手算指标，以及正常原包导入后的空操作实际训练、保存重载和当前答案独立性；新增DDI诊断和损失探针的手算边界检查。A1数据测试仍单独运行，不将单元检查与完整20轮运行混为同一类证据。
+
+## 7. DDI诊断与第一批对照（不重训）
+
+需先具备38类数据、MoleRec源文件与已完成的best.pt/test-scores.npy。首次在仓库根目录执行：
+
+```powershell
+.venv\Scripts\python.exe src/recommendation/audit_ddi.py
+.venv\Scripts\python.exe -m src.recommendation.probe_ddi_loss
+```
+
+两者分别写入 `outputs/recommendation/ddi-audit-20261114/` 与 `outputs/recommendation/ddi-loss-probe-20261114/`。当前维护者电脑已完成，直接查看其中 results.json 即可；重复执行会保护已有输出。如确需复查，分别添加 `--output outputs/recommendation/ddi-audit-repeat` 或 `--output outputs/recommendation/ddi-loss-probe-repeat`，不要删除历史目录。第一条会流式扫描约465万条来源记录，并仅重新计算验证集分数；测试只读取已存分数。第二条只用32条固定训练样本，不执行优化器。
+
+聚合JSON与结论在 [DDI报告](reports/ddi-audit-20261114.md)，包括图重建、两种DDI分母、历史/频次基线、分组结果和损失探针。既有测试已用于研究诊断，后续只作探索性结果；新方法正式确认需要未参与开发的数据。

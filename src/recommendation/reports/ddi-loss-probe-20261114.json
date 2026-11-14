@@ -1,0 +1,194 @@
+{
+  "created_utc": "2026-11-14T07:31:22.015105+00:00",
+  "source": {
+    "repository_commit": "038baa3a3112b3eb0f1f783566bc1dd734a45237",
+    "sspnet_commit": "4a2695ec67e0dc30cd3fa8e67a4f1536f0bfc90d",
+    "probe_sha256": "8b21aaf03ac75e66de834fee5202ea0ed14626018d8d72717bb2c1778db220c7",
+    "checkpoint": "outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8/best.pt",
+    "checkpoint_sha256": "9968cec37dee608ccc0e8d065ec22ca688d8b2f2d0c25ef313b3ba7f67206170",
+    "checkpoint_epoch": 20,
+    "training_file": "data/processed/recommendation/synthea-v3-atc3-product-v4/train.jsonl",
+    "training_sha256": "be3e933df7044c68a4d67554fca3d52542cb43d82ed4852594290da8b7aa73cf",
+    "graphs_sha256": "73963e84f4c83a629a9e05715f223abb7bfadd08edee785a93ddb88cf91241e4"
+  },
+  "checkpoint_config": {
+    "a1_dir": "data/processed/data_evaluation/synthea-apr2020-v3",
+    "reference_dir": "data/reference/MoleRec",
+    "prepared_dir": "data/processed/recommendation/synthea-v3-atc3-product-v4",
+    "run_dir": "outputs/recommendation/sspnet-synthea-v3-product-cpu-seed8",
+    "ddi_least_frequent_events": 40,
+    "seed": 8,
+    "dim": 64,
+    "epochs": 20,
+    "lr": 0.0001,
+    "target_ddi": 0.06,
+    "coef": 2.5,
+    "threshold": 0.5,
+    "initial_inter": 0.1,
+    "initial_garm": 0.1,
+    "device": "cpu",
+    "mapping_snapshot": "src/recommendation/resources/rxclass-synthea.json",
+    "reviewed_crosswalk": "src/recommendation/resources/dose-form-crosswalk.json"
+  },
+  "probe_config": {
+    "sample_seed": 20261114,
+    "sample_count": 32,
+    "sampling": "Python random.sample without replacement from train row order",
+    "train_rows": 1433,
+    "device": "cpu",
+    "threads": 1,
+    "model_mode": "eval",
+    "upstream_dtype": "float32",
+    "formula_gradient_dtype": "float64",
+    "finite_difference_step": 1e-05,
+    "python": "3.10.22",
+    "torch": "2.7.1+cu128"
+  },
+  "checks": {
+    "upstream_value_max_abs_error": 1.1746569168746834e-10,
+    "upstream_logits_gradient_max_abs_error": 3.4941710996502263e-11,
+    "finite_difference_max_abs_error": 1.510927332648307e-14,
+    "finite_difference_coordinates": 1216,
+    "model_state_unchanged": true,
+    "parameter_gradients_unpopulated": true
+  },
+  "pair_totals": {
+    "interactions": 6,
+    "all_pairs": 26,
+    "mapped_pairs": 20,
+    "unknown_pairs": 6
+  },
+  "policies": {
+    "all_pairs_policy": {
+      "pooled_rate": 0.23076923076923078,
+      "defined_case_rate_distribution": {
+        "count": 10,
+        "mean": 0.5333333333333333,
+        "min": 0.0,
+        "p25": 0.0,
+        "median": 0.6666666666666666,
+        "p75": 1.0,
+        "max": 1.0
+      },
+      "zero_denominator_cases": 22,
+      "beta_distribution": {
+        "count": 32,
+        "mean": 0.8125003537678989,
+        "min": 9.775360717397841e-18,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "max": 1.0
+      },
+      "beta_equals_one_cases": 26,
+      "beta_below_0_01_cases": 6,
+      "beta_below_1e_6_cases": 5,
+      "weighted_supervised_logits_gradient_l2": {
+        "count": 32,
+        "mean": 0.003027387933267627,
+        "min": 2.1278778991446358e-19,
+        "p25": 0.00016708195683385306,
+        "median": 0.0008771599949712786,
+        "p75": 0.0015948181355824541,
+        "max": 0.02758105344198818
+      },
+      "weighted_ddi_logits_gradient_l2": {
+        "count": 32,
+        "mean": 3.2309001856345974e-05,
+        "min": 0.0,
+        "p25": 0.0,
+        "median": 0.0,
+        "p75": 0.0,
+        "max": 0.000272211719833956
+      }
+    },
+    "cid_mapped_policy": {
+      "pooled_rate": 0.3,
+      "defined_case_rate_distribution": {
+        "count": 9,
+        "mean": 0.5925925925925926,
+        "min": 0.0,
+        "p25": 0.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "max": 1.0
+      },
+      "zero_denominator_cases": 23,
+      "beta_distribution": {
+        "count": 32,
+        "mean": 0.8125003537678989,
+        "min": 9.775360717397841e-18,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "max": 1.0
+      },
+      "beta_equals_one_cases": 26,
+      "beta_below_0_01_cases": 6,
+      "beta_below_1e_6_cases": 5,
+      "weighted_supervised_logits_gradient_l2": {
+        "count": 32,
+        "mean": 0.003027387933267627,
+        "min": 2.1278778991446358e-19,
+        "p25": 0.00016708195683385306,
+        "median": 0.0008771599949712786,
+        "p75": 0.0015948181355824541,
+        "max": 0.02758105344198818
+      },
+      "weighted_ddi_logits_gradient_l2": {
+        "count": 32,
+        "mean": 3.2309001856345974e-05,
+        "min": 0.0,
+        "p25": 0.0,
+        "median": 0.0,
+        "p75": 0.0,
+        "max": 0.000272211719833956
+      }
+    }
+  },
+  "losses_and_logits_gradients": {
+    "supervised_loss": {
+      "count": 32,
+      "mean": 0.02554436007970396,
+      "min": 0.0006549462793039905,
+      "p25": 0.0015524953290353847,
+      "median": 0.0029391866788037796,
+      "p75": 0.027619461783669533,
+      "max": 0.16737832197043573
+    },
+    "ddi_loss": {
+      "count": 32,
+      "mean": 0.00016661151898056045,
+      "min": 5.91120584185657e-08,
+      "p25": 1.2249458196323793e-06,
+      "median": 1.967614277339861e-06,
+      "p75": 2.246238675415559e-05,
+      "max": 0.0010109645422387097
+    },
+    "supervised_logits_gradient_l2": {
+      "count": 32,
+      "mean": 0.008014853104208575,
+      "min": 0.00016260903085829617,
+      "p25": 0.0007124830437944502,
+      "median": 0.0012261616683322755,
+      "p75": 0.011755229539240925,
+      "max": 0.04144157167255077
+    },
+    "ddi_logits_gradient_l2": {
+      "count": 32,
+      "mean": 3.6239786059023383e-05,
+      "min": 3.5414621740322934e-08,
+      "p25": 7.480993825596183e-07,
+      "median": 1.3600343119579193e-06,
+      "p75": 1.7273858886760367e-05,
+      "max": 0.00027221480146142355
+    }
+  },
+  "limitations": [
+    "Fixed best-checkpoint eval-mode diagnostic on 32 training examples; not historical training trajectories.",
+    "Gradients are with respect to logits, not model parameters; beta is detached as in training.",
+    "Finite differences validate the float64 quadratic formula; actual upstream float32 loss and logits gradients are compared separately.",
+    "CID mapping support is not clinical evidence coverage. Zero denominators are undefined in reports but training uses zero.",
+    "No optimizer, backward-to-parameters, parameter update, retraining or test-set access."
+  ]
+}
