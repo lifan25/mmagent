@@ -2,6 +2,8 @@
 
 目标：SSPNet 产生个性化候选药物，借鉴 BIBM 的知识提取与规则化方法核查结果，由 agent 组织输入检查、工具调用和展示。
 
+当前优先级：补齐BIBM知识模块与SSPNet共享接口，完成上述agent调用链，再做模块消融；零样本和DialMed只作补充。Qwen及额外CUDA运行库均非项目必需项，已有环境足够继续主线实现。
+
 第一版使用已有诊断与结构化病历。DXY/Diaformer已完成150轮运行，原104条测试正确79条（75.96%）。SSPNet当前38类已完成20轮适配训练和重载，Jaccard74.65%、F1 80.91%，见[运行报告](src/recommendation/reports/sspnet-synthea-product-v4.md)。2026-11-14完成[DDI溯源、损失探针与简单基线](src/recommendation/reports/ddi-audit-20261114.md)；当前DDI率不能直接解释为临床风险。BIBM整体、严格复现和agent集成仍未完成。
 
 研究阶段先看[当前研究设计（含零样本对照）](docs/research-design.md)和[MIMIC-IV本人申请步骤](docs/mimic-access.md)。现有Synthea测试已用于错误分析，作为探索性结果；正式确认需未参与开发的真实数据。
