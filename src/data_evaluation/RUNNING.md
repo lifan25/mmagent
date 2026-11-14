@@ -112,6 +112,33 @@ v2原样保留v1的同次eGFR/CABG，只添加年龄、明确已记录且截至�
 
 本机已完成：40/40参照一致，82项相关单元检查通过，原351条仍344支持／7拒绝。**实际规则执行仍2/344，覆盖未提高**；新状态为244未覆盖、98条件不足、2 checked。首次范围计数修正及完整原因见[报告](reports/check-coverage-20261114.md)，不要只引用“40/40”掩盖低覆盖。
 
+## MedPIC独立核查开发准备
+
+本批是数据与标注准备，未运行新模型或得到临床准确率。数据来源、固定抽样、实际结果及缺口见[准备报告](reports/medpic-readiness-20261114.md)，标注定义见[C协议](../knowledge/MEDPIC_ANNOTATION.md)。以下命令均在仓库根目录、现有虚拟环境中运行，无新依赖。
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_medpic --download
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_medpic --check-annotations data/processed/data_evaluation/medpic-development-v1/annotations_B.json
+.\.venv\Scripts\python.exe -m src.data_evaluation.prepare_medpic --check-annotations data/processed/data_evaluation/medpic-development-v1/annotations_C.json
+.\.venv\Scripts\python.exe -m unittest src.data_evaluation.tests.test_prepare_medpic -v
+```
+
+`--download`下载作者固定版README与489KB题库；已有文件核对固定摘要，不重复下载。省略该参数只做本地准备。产物在`data/processed/data_evaluation/medpic-development-v1/`：
+
+| 文件 | 用途 |
+|---|---|
+| `inputs.development.json` | B/C均可读取的20题原输入，无答案、原始题ID或作者分类 |
+| `annotations_B.json`、`annotations_C.json` | 两份各20题空模板；初始pending，不是已完成标注 |
+| `author-reference.development.json` | A的评价侧原答案；不交给输入标注者 |
+| `manifest.json` | 原题ID关联、固定选择、输入摘要；不作为模型输入 |
+| `summary.json` | 仅数据准备统计，不是运行准确率 |
+
+B/C复制各自模板到`outputs/recommendation/medpic-development-v1/`或`outputs/knowledge/medpic-development-v1/`后编辑，`--check-annotations`指向该副本。保留原模板；程序遇到已有不同内容会停止，避免覆盖人工工作。自定义准备位置使用`--output`，检查副本时仍指向生成它的准备目录。首次缺数据可用`--download`，不要从author-reference补事实或编码。
+
+先填`reviewer`与`reviewer_kind`（真人`human`，AI草稿`ai_draft`）；逐题资格、全部候选、患者事实/原单位/原文定位按协议填写。`complete`只表示输入转写初审完成，不代表药学专家验证。明确事实必须有可切片重现的`evidence: [{field, quote, start, end}]`，未报告值保留null。范围内允许药物`unresolved`，不能留`unreviewed`后标完成。初始实际输出B/C均为20 pending；6项准备器测试通过。
+
+AI输入审计单独留在`outputs/data_evaluation/medpic-readiness-20261114/input-audit.agent.json`，不代填B/C人审包；真人独立提交前不要拿该草稿当答案。余447题因配对及来源分组未知不能称独立测试，195条DDI确认集保持封存。
+
 ## 验证
 
 ```powershell

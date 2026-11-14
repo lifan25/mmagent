@@ -73,6 +73,8 @@ Demo 支持数据流程开发，不足以复现论文指标。完整MIMIC-III权
 
 ### 新增公开核查数据与真实队列路线
 
+- **MedPIC-Bench**：本轮选用的患者条件核查开发材料，[作者HF](https://huggingface.co/datasets/TIM0927/MedPIC-Bench)，CC BY 4.0，固定版本`9ef6db4f13865b14fc2e6be3f94dcfaf3a0cf983`。467道模拟情景题及原作者答案已下载到`data/local/medpic-bench-20261114/`，README许可及source.json保留；题库489,402字节。`python -m src.data_evaluation.prepare_medpic --download`可重建20题无答案开发输入与两份空标注模板。没有逐题来源、配对ID或RxNorm；现有规则尚不能直接执行，不称真实患者安全性验证。数据适用性、RxSafeBench未采用原因与实际检查见[报告](../src/data_evaluation/reports/medpic-readiness-20261114.md)。逐题材料留本地，不上传。
+
 - **MIMIC-IV Demo 2.2**：官方五张CSV.gz已下载到 `data/local/mimic-iv-demo-2.2/`。100人、275次住院、4506条诊断、722条操作、18087条处方；保留原LICENSE与source.json。尚未完成该版本纵向有效样本筛选/映射，不能把原始住院数当预测数。
 - **LLM-Uncertainty-DDI**：固定提交 `9872bb0c3e28cd03a7d460cdde3f01e0e8a26542`，已下载 `drug5.csv`、MIT许可及来源记录到 `data/local/llm-uncertainty-ddi/`。250份清单，C/D/X为81/92/77；每份均含目标交互，只用于核查定位/拒答评价，不是纵向病例或阴性清单误报验证。
 - 下载/核验命令：`.venv/Scripts/python.exe src/data_evaluation/fetch_public_validation.py`。只读取公开固定文件，无额外依赖；以上数据均被Git忽略，不上传。路径、许可、本人申请步骤见[MIMIC访问说明](mimic-access.md)。

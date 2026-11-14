@@ -1,0 +1,91 @@
+{
+  "experiment": "MedPIC input and annotation readiness; not an accuracy experiment",
+  "preparation": {
+    "protocol": "medpic-development-v1",
+    "source_commit": "9ef6db4f13865b14fc2e6be3f94dcfaf3a0cf983",
+    "source_sha256": "c28c054ed788de7cbaf7592883e90ef85e530cf9464019dfd39618dcc5ea4ae6",
+    "source_records": 467,
+    "source_options": 2335,
+    "development_records": 20,
+    "development_options": 100,
+    "not_selected_for_development": 447,
+    "source_unique_question_texts": 96,
+    "source_records_with_repeated_question": 441,
+    "development_unique_question_texts": 5,
+    "development_question_hints": {
+      "avoidance_screen": 17,
+      "dose_decision": 2,
+      "other_or_uncertain": 1
+    },
+    "completed_human_annotations": 0,
+    "clinical_labels_created": 0,
+    "model_calls": 0,
+    "checker_predictions": 0,
+    "status": "input_and_annotation_preparation_only",
+    "limitations": [
+      "Official test is used here as a development resource; unused rows are not a verified independent test split.",
+      "No released pair IDs, source-rule IDs, per-item citations or RxNorm mappings.",
+      "Question hints are lexical triage, pending human eligibility review.",
+      "Author non-selection is not clinical clearance; answer options are not co-administered drugs."
+    ]
+  },
+  "input_audit_kind": "ai_draft_not_human_reviewed",
+  "input_audit": {
+    "cases": 20,
+    "options": 100,
+    "scope_counts": {
+      "uncertain": 1,
+      "in_scope": 17,
+      "out_of_scope": 2
+    },
+    "entity_type_counts": {
+      "ingredient_name": 78,
+      "non_drug_choice": 20,
+      "ingredient_with_route_qualifier": 2
+    },
+    "exact_product_resolved_drug_options": 0,
+    "potential_rule_case_counts": {
+      "medication.metformin.egfr": 9,
+      "medication.warfarin.pregnancy": 2
+    },
+    "executable_cases_under_frozen_rules": 0,
+    "clinical_gold_labels_generated": 0,
+    "answer_accuracy_computed": false
+  },
+  "evidence_checks": {
+    "input_hash_matches": true,
+    "input_quote_count_verified": 169,
+    "option_texts_verified": 100,
+    "human_B_pending": 20,
+    "human_C_pending": 20
+  },
+  "validation": {
+    "targeted_unit_tests_passed": 6,
+    "runtime_python": "3.10.22",
+    "commands": [
+      {
+        "file": "preparation.json",
+        "command": ".venv/Scripts/python.exe -m src.data_evaluation.prepare_medpic --download",
+        "exit_code": 0
+      },
+      {
+        "file": "annotation-check-B.json",
+        "command": ".venv/Scripts/python.exe -m src.data_evaluation.prepare_medpic --check-annotations data\\processed\\data_evaluation\\medpic-development-v1\\annotations_B.json",
+        "exit_code": 0
+      },
+      {
+        "file": "annotation-check-C.json",
+        "command": ".venv/Scripts/python.exe -m src.data_evaluation.prepare_medpic --check-annotations data\\processed\\data_evaluation\\medpic-development-v1\\annotations_C.json",
+        "exit_code": 0
+      },
+      {
+        "file": "tests.log",
+        "command": ".venv/Scripts/python.exe -m unittest src.data_evaluation.tests.test_prepare_medpic -v",
+        "exit_code": 0
+      }
+    ]
+  },
+  "clinical_accuracy": null,
+  "author_answer_accuracy": null,
+  "sealed_ddi_195_status": "not_opened"
+}
